@@ -6,14 +6,10 @@
  */
 package org.eclipselabs.etrack.domain.task;
 
-import java.util.Map;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -84,8 +80,6 @@ public class TaskFactory extends EFactoryImpl
 			case TaskPackage.TASK_DOMAIN: return createTaskDomain();
 			case TaskPackage.COMMENT: return createComment();
 			case TaskPackage.ATTACHMENT: return createAttachment();
-			case TaskPackage.LINK_MAP: return (EObject)createLinkMap();
-			case TaskPackage.LINKED_CONTENT: return createLinkedContent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -155,28 +149,6 @@ public class TaskFactory extends EFactoryImpl
 	{
 		Attachment attachment = new Attachment();
 		return attachment;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Map.Entry<String, LinkedContent> createLinkMap()
-	{
-		LinkMap linkMap = new LinkMap();
-		return linkMap;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LinkedContent createLinkedContent()
-	{
-		LinkedContent linkedContent = new LinkedContent();
-		return linkedContent;
 	}
 
 	/**

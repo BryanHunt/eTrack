@@ -6,14 +6,16 @@
  */
 package org.eclipselabs.etrack.domain.task.util;
 
-import java.util.Map;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipselabs.etrack.domain.task.*;
+import org.eclipselabs.etrack.domain.task.Attachment;
+import org.eclipselabs.etrack.domain.task.Comment;
+import org.eclipselabs.etrack.domain.task.State;
+import org.eclipselabs.etrack.domain.task.StateTransition;
+import org.eclipselabs.etrack.domain.task.Task;
+import org.eclipselabs.etrack.domain.task.TaskDomain;
+import org.eclipselabs.etrack.domain.task.TaskPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -120,20 +122,6 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.LINK_MAP:
-			{
-				@SuppressWarnings("unchecked") Map.Entry<String, LinkedContent> linkMap = (Map.Entry<String, LinkedContent>)theEObject;
-				T result = caseLinkMap(linkMap);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TaskPackage.LINKED_CONTENT:
-			{
-				LinkedContent linkedContent = (LinkedContent)theEObject;
-				T result = caseLinkedContent(linkedContent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -230,38 +218,6 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseAttachment(Attachment object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Link Map</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Link Map</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLinkMap(Map.Entry<String, LinkedContent> object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Linked Content</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Linked Content</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLinkedContent(LinkedContent object)
 	{
 		return null;
 	}

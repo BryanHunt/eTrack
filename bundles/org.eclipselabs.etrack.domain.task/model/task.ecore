@@ -2,22 +2,23 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="task"
-    nsURI="http://www.eclipselabs.org/etrack/domain/task" nsPrefix="org.eclipselabs.etrack.core.domain.task">
+    nsURI="http://www.eclipselabs.org/etrack/domain/task" nsPrefix="org.eclipselabs.etrack.domain.task">
   <eClassifiers xsi:type="ecore:EClass" name="Task">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
-        eType="#//LinkMap" containment="true"/>
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.links/model/links.ecore#//LinkMap"
+        containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attachments" upperBound="-1"
         eType="#//Attachment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
         eType="#//Comment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.identity/model/identity.ecore#//Identity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subscribers" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.identity/model/identity.ecore#//Identity"/>
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -35,26 +36,17 @@
         upperBound="-1" eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="1"
         upperBound="-1" eType="#//StateTransition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.identity/model/identity.ecore#//Identity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attachment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.identity/model/identity.ecore#//Identity"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkMap" instanceClassName="java.util.Map$Entry">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//LinkedContent"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkedContent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
   </eClassifiers>
 </ecore:EPackage>

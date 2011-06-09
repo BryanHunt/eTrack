@@ -7,15 +7,12 @@
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipselabs.etrack.domain.identity.Identity;
+import org.eclipselabs.etrack.domain.entity.Person;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,7 +61,7 @@ public class Comment extends EObjectImpl implements EObject
 	 * @generated
 	 * @ordered
 	 */
-	protected Identity owner;
+	protected Person owner;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,17 +128,17 @@ public class Comment extends EObjectImpl implements EObject
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner</em>' reference.
-	 * @see #setOwner(Identity)
+	 * @see #setOwner(Person)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment_Owner()
 	 * @model required="true"
 	 * @generated
 	 */
-	public Identity getOwner()
+	public Person getOwner()
 	{
 		if (owner != null && owner.eIsProxy())
 		{
 			InternalEObject oldOwner = (InternalEObject)owner;
-			owner = (Identity)eResolveProxy(oldOwner);
+			owner = (Person)eResolveProxy(oldOwner);
 			if (owner != oldOwner)
 			{
 				if (eNotificationRequired())
@@ -156,7 +153,7 @@ public class Comment extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Identity basicGetOwner()
+	public Person basicGetOwner()
 	{
 		return owner;
 	}
@@ -169,9 +166,9 @@ public class Comment extends EObjectImpl implements EObject
 	 * @see #getOwner()
 	 * @generated
 	 */
-	public void setOwner(Identity newOwner)
+	public void setOwner(Person newOwner)
 	{
-		Identity oldOwner = owner;
+		Person oldOwner = owner;
 		owner = newOwner;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.COMMENT__OWNER, oldOwner, owner));
@@ -210,7 +207,7 @@ public class Comment extends EObjectImpl implements EObject
 				setText((String)newValue);
 				return;
 			case TaskPackage.COMMENT__OWNER:
-				setOwner((Identity)newValue);
+				setOwner((Person)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,7 +227,7 @@ public class Comment extends EObjectImpl implements EObject
 				setText(TEXT_EDEFAULT);
 				return;
 			case TaskPackage.COMMENT__OWNER:
-				setOwner((Identity)null);
+				setOwner((Person)null);
 				return;
 		}
 		super.eUnset(featureID);
