@@ -7,7 +7,6 @@
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -121,7 +120,6 @@ public class StateTransition extends EObjectImpl implements EObject
 
 	/**
 	 * Returns the value of the '<em><b>Target State</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.task.State#getTransitions <em>Transitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target State</em>' reference isn't clear,
@@ -131,8 +129,7 @@ public class StateTransition extends EObjectImpl implements EObject
 	 * @return the value of the '<em>Target State</em>' reference.
 	 * @see #setTargetState(State)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateTransition_TargetState()
-	 * @see org.eclipselabs.etrack.domain.task.State#getTransitions
-	 * @model opposite="transitions" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	public State getTargetState()
@@ -161,23 +158,6 @@ public class StateTransition extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTargetState(State newTargetState, NotificationChain msgs)
-	{
-		State oldTargetState = targetState;
-		targetState = newTargetState;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.STATE_TRANSITION__TARGET_STATE, oldTargetState, newTargetState);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
 	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.StateTransition#getTargetState <em>Target State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,52 +167,10 @@ public class StateTransition extends EObjectImpl implements EObject
 	 */
 	public void setTargetState(State newTargetState)
 	{
-		if (newTargetState != targetState)
-		{
-			NotificationChain msgs = null;
-			if (targetState != null)
-				msgs = ((InternalEObject)targetState).eInverseRemove(this, TaskPackage.STATE__TRANSITIONS, State.class, msgs);
-			if (newTargetState != null)
-				msgs = ((InternalEObject)newTargetState).eInverseAdd(this, TaskPackage.STATE__TRANSITIONS, State.class, msgs);
-			msgs = basicSetTargetState(newTargetState, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.STATE_TRANSITION__TARGET_STATE, newTargetState, newTargetState));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case TaskPackage.STATE_TRANSITION__TARGET_STATE:
-				if (targetState != null)
-					msgs = ((InternalEObject)targetState).eInverseRemove(this, TaskPackage.STATE__TRANSITIONS, State.class, msgs);
-				return basicSetTargetState((State)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case TaskPackage.STATE_TRANSITION__TARGET_STATE:
-				return basicSetTargetState(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		State oldTargetState = targetState;
+		targetState = newTargetState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.STATE_TRANSITION__TARGET_STATE, oldTargetState, targetState));
 	}
 
 	/**

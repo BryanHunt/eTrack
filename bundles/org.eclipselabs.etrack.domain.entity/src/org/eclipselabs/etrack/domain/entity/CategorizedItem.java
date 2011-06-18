@@ -8,52 +8,54 @@ package org.eclipselabs.etrack.domain.entity;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Phone</b></em>'.
+ * A representation of the model object '<em><b>Categorized Item</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.etrack.domain.entity.Phone#getNumber <em>Number</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getPhone()
+ * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem()
  * @model kind="class"
  * @generated
  */
-public class Phone extends CategorizedItem
+public class CategorizedItem extends EObjectImpl implements EObject
 {
 	/**
-	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NUMBER_EDEFAULT = null;
+	protected static final String CATEGORY_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected String number = NUMBER_EDEFAULT;
+	protected String category = CATEGORY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Phone()
+	protected CategorizedItem()
 	{
 		super();
 	}
@@ -66,42 +68,42 @@ public class Phone extends CategorizedItem
 	@Override
 	protected EClass eStaticClass()
 	{
-		return EntityPackage.Literals.PHONE;
+		return EntityPackage.Literals.CATEGORIZED_ITEM;
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' attribute.
+	 * Returns the value of the '<em><b>Category</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number</em>' attribute.
-	 * @see #setNumber(String)
-	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getPhone_Number()
+	 * @return the value of the '<em>Category</em>' attribute.
+	 * @see #setCategory(String)
+	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem_Category()
 	 * @model
 	 * @generated
 	 */
-	public String getNumber()
+	public String getCategory()
 	{
-		return number;
+		return category;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Phone#getNumber <em>Number</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory <em>Category</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number</em>' attribute.
-	 * @see #getNumber()
+	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @see #getCategory()
 	 * @generated
 	 */
-	public void setNumber(String newNumber)
+	public void setCategory(String newCategory)
 	{
-		String oldNumber = number;
-		number = newNumber;
+		String oldCategory = category;
+		category = newCategory;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.PHONE__NUMBER, oldNumber, number));
+			eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.CATEGORIZED_ITEM__CATEGORY, oldCategory, category));
 	}
 
 	/**
@@ -114,8 +116,8 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
-			case EntityPackage.PHONE__NUMBER:
-				return getNumber();
+			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
+				return getCategory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -130,8 +132,8 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
-			case EntityPackage.PHONE__NUMBER:
-				setNumber((String)newValue);
+			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
+				setCategory((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,8 +149,8 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
-			case EntityPackage.PHONE__NUMBER:
-				setNumber(NUMBER_EDEFAULT);
+			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
+				setCategory(CATEGORY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -164,8 +166,8 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
-			case EntityPackage.PHONE__NUMBER:
-				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
+			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
+				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -181,10 +183,10 @@ public class Phone extends CategorizedItem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (number: ");
-		result.append(number);
+		result.append(" (category: ");
+		result.append(category);
 		result.append(')');
 		return result.toString();
 	}
 
-} // Phone
+} // CategorizedItem

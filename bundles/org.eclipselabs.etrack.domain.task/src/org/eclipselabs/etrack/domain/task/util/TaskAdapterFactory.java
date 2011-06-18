@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
 import org.eclipselabs.etrack.domain.task.Comment;
 import org.eclipselabs.etrack.domain.task.State;
@@ -82,6 +83,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 		new TaskSwitch<Adapter>()
 		{
 			@Override
+			public Adapter caseAssignableItem(AssignableItem object)
+			{
+				return createAssignableItemAdapter();
+			}
+			@Override
 			public Adapter caseTask(Task object)
 			{
 				return createTaskAdapter();
@@ -132,6 +138,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.AssignableItem <em>Assignable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.AssignableItem
+	 * @generated
+	 */
+	public Adapter createAssignableItemAdapter()
+	{
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.Task <em>Task</em>}'.

@@ -64,68 +64,14 @@ public class TaskPackage extends EPackageImpl
 	public static final TaskPackage eINSTANCE = org.eclipselabs.etrack.domain.task.TaskPackage.init();
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Task <em>Task</em>}' class.
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.AssignableItem <em>Assignable Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.Task
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask()
+	 * @see org.eclipselabs.etrack.domain.task.AssignableItem
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem()
 	 * @generated
 	 */
-	public static final int TASK = 0;
-
-	/**
-	 * The feature id for the '<em><b>Summary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__SUMMARY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__DESCRIPTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Links</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__LINKS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__ATTACHMENTS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__COMMENTS = 4;
-
-	/**
-	 * The feature id for the '<em><b>State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__STATE = 5;
+	public static final int ASSIGNABLE_ITEM = 0;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
@@ -134,7 +80,89 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__OWNER = 6;
+	public static final int ASSIGNABLE_ITEM__OWNER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Assignable Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ASSIGNABLE_ITEM_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Task <em>Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.Task
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask()
+	 * @generated
+	 */
+	public static final int TASK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__OWNER = ASSIGNABLE_ITEM__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Summary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__SUMMARY = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__DESCRIPTION = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Links</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__LINKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__ATTACHMENTS = ASSIGNABLE_ITEM_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__COMMENTS = ASSIGNABLE_ITEM_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__STATE = ASSIGNABLE_ITEM_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Subscribers</b></em>' reference list.
@@ -143,7 +171,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__SUBSCRIBERS = 7;
+	public static final int TASK__SUBSCRIBERS = ASSIGNABLE_ITEM_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -152,7 +180,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = 8;
+	public static final int TASK_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.State <em>State</em>}' class.
@@ -162,7 +190,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getState()
 	 * @generated
 	 */
-	public static final int STATE = 1;
+	public static final int STATE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -199,7 +227,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateTransition()
 	 * @generated
 	 */
-	public static final int STATE_TRANSITION = 2;
+	public static final int STATE_TRANSITION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -236,7 +264,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain()
 	 * @generated
 	 */
-	public static final int TASK_DOMAIN = 3;
+	public static final int TASK_DOMAIN = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -291,16 +319,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment()
 	 * @generated
 	 */
-	public static final int COMMENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int COMMENT__TEXT = 0;
+	public static final int COMMENT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
@@ -309,7 +328,16 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMMENT__OWNER = 1;
+	public static final int COMMENT__OWNER = ASSIGNABLE_ITEM__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMMENT__TEXT = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Comment</em>' class.
@@ -318,7 +346,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMMENT_FEATURE_COUNT = 2;
+	public static final int COMMENT_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}' class.
@@ -328,25 +356,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment()
 	 * @generated
 	 */
-	public static final int ATTACHMENT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT__DESCRIPTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Data</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT__DATA = 1;
+	public static final int ATTACHMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
@@ -355,7 +365,25 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ATTACHMENT__OWNER = 2;
+	public static final int ATTACHMENT__OWNER = ASSIGNABLE_ITEM__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__DESCRIPTION = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__DATA = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Attachment</em>' class.
@@ -364,7 +392,14 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ATTACHMENT_FEATURE_COUNT = 3;
+	public static final int ATTACHMENT_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assignableItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -476,6 +511,35 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.AssignableItem <em>Assignable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assignable Item</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.AssignableItem
+	 * @generated
+	 */
+	public EClass getAssignableItem()
+	{
+		return assignableItemEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.AssignableItem#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Owner</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.AssignableItem#getOwner()
+	 * @see #getAssignableItem()
+	 * @generated
+	 */
+	public EReference getAssignableItem_Owner()
+	{
+		return (EReference)assignableItemEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.Task <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -573,20 +637,6 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Task#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Task#getOwner()
-	 * @see #getTask()
-	 * @generated
-	 */
-	public EReference getTask_Owner()
-	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
 	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.Task#getSubscribers <em>Subscribers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -597,7 +647,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Subscribers()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(7);
+		return (EReference)taskEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -779,20 +829,6 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Comment#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Comment#getOwner()
-	 * @see #getComment()
-	 * @generated
-	 */
-	public EReference getComment_Owner()
-	{
-		return (EReference)commentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -834,20 +870,6 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Attachment#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Attachment#getOwner()
-	 * @see #getAttachment()
-	 * @generated
-	 */
-	public EReference getAttachment_Owner()
-	{
-		return (EReference)attachmentEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -879,6 +901,9 @@ public class TaskPackage extends EPackageImpl
 		isCreated = true;
 
 		// Create classes and their features
+		assignableItemEClass = createEClass(ASSIGNABLE_ITEM);
+		createEReference(assignableItemEClass, ASSIGNABLE_ITEM__OWNER);
+
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__SUMMARY);
 		createEAttribute(taskEClass, TASK__DESCRIPTION);
@@ -886,7 +911,6 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskEClass, TASK__ATTACHMENTS);
 		createEReference(taskEClass, TASK__COMMENTS);
 		createEReference(taskEClass, TASK__STATE);
-		createEReference(taskEClass, TASK__OWNER);
 		createEReference(taskEClass, TASK__SUBSCRIBERS);
 
 		stateEClass = createEClass(STATE);
@@ -905,12 +929,10 @@ public class TaskPackage extends EPackageImpl
 
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__TEXT);
-		createEReference(commentEClass, COMMENT__OWNER);
 
 		attachmentEClass = createEClass(ATTACHMENT);
 		createEAttribute(attachmentEClass, ATTACHMENT__DESCRIPTION);
 		createEAttribute(attachmentEClass, ATTACHMENT__DATA);
-		createEReference(attachmentEClass, ATTACHMENT__OWNER);
 	}
 
 	/**
@@ -938,16 +960,22 @@ public class TaskPackage extends EPackageImpl
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		LinksPackage theLinksPackage = (LinksPackage)EPackage.Registry.INSTANCE.getEPackage(LinksPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		LinksPackage theLinksPackage = (LinksPackage)EPackage.Registry.INSTANCE.getEPackage(LinksPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		taskEClass.getESuperTypes().add(this.getAssignableItem());
+		commentEClass.getESuperTypes().add(this.getAssignableItem());
+		attachmentEClass.getESuperTypes().add(this.getAssignableItem());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(assignableItemEClass, AssignableItem.class, "AssignableItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssignableItem_Owner(), theEntityPackage.getPerson(), null, "owner", null, 1, 1, AssignableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Summary(), ecorePackage.getEString(), "summary", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Description(), ecorePackage.getEString(), "description", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -955,16 +983,15 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTask_Attachments(), this.getAttachment(), null, "attachments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Comments(), this.getComment(), null, "comments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_State(), this.getState(), null, "state", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Owner(), theEntityPackage.getPerson(), null, "owner", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Subscribers(), theEntityPackage.getPerson(), null, "subscribers", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getState_Transitions(), this.getStateTransition(), this.getStateTransition_TargetState(), "transitions", null, 1, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getState_Transitions(), this.getStateTransition(), null, "transitions", null, 1, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateTransitionEClass, StateTransition.class, "StateTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStateTransition_Name(), ecorePackage.getEString(), "name", null, 1, 1, StateTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStateTransition_TargetState(), this.getState(), this.getState_Transitions(), "targetState", null, 1, 1, StateTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateTransition_TargetState(), this.getState(), null, "targetState", null, 1, 1, StateTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -974,12 +1001,10 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComment_Text(), ecorePackage.getEString(), "text", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComment_Owner(), theEntityPackage.getPerson(), null, "owner", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attachmentEClass, Attachment.class, "Attachment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttachment_Description(), ecorePackage.getEString(), "description", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttachment_Data(), ecorePackage.getEByteArray(), "data", null, 0, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttachment_Owner(), theEntityPackage.getPerson(), null, "owner", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -999,6 +1024,24 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public interface Literals
 	{
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AssignableItem <em>Assignable Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.AssignableItem
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem()
+		 * @generated
+		 */
+		public static final EClass ASSIGNABLE_ITEM = eINSTANCE.getAssignableItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference ASSIGNABLE_ITEM__OWNER = eINSTANCE.getAssignableItem_Owner();
+
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Task <em>Task</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1056,14 +1099,6 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK__STATE = eINSTANCE.getTask_State();
-
-		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference TASK__OWNER = eINSTANCE.getTask_Owner();
 
 		/**
 		 * The meta object literal for the '<em><b>Subscribers</b></em>' reference list feature.
@@ -1186,14 +1221,6 @@ public class TaskPackage extends EPackageImpl
 		public static final EAttribute COMMENT__TEXT = eINSTANCE.getComment_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference COMMENT__OWNER = eINSTANCE.getComment_Owner();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1218,14 +1245,6 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute ATTACHMENT__DATA = eINSTANCE.getAttachment_Data();
-
-		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference ATTACHMENT__OWNER = eINSTANCE.getAttachment_Owner();
 
 	}
 

@@ -8,12 +8,16 @@ package org.eclipselabs.etrack.domain.entity.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipselabs.etrack.domain.entity.*;
+import org.eclipselabs.etrack.domain.entity.Address;
+import org.eclipselabs.etrack.domain.entity.CategorizedItem;
+import org.eclipselabs.etrack.domain.entity.Email;
+import org.eclipselabs.etrack.domain.entity.Entity;
+import org.eclipselabs.etrack.domain.entity.EntityPackage;
+import org.eclipselabs.etrack.domain.entity.Group;
+import org.eclipselabs.etrack.domain.entity.Person;
+import org.eclipselabs.etrack.domain.entity.Phone;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,6 +111,11 @@ public class EntityAdapterFactory extends AdapterFactoryImpl
 			public Adapter casePhone(Phone object)
 			{
 				return createPhoneAdapter();
+			}
+			@Override
+			public Adapter caseCategorizedItem(CategorizedItem object)
+			{
+				return createCategorizedItemAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -216,6 +225,21 @@ public class EntityAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createPhoneAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem <em>Categorized Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem
+	 * @generated
+	 */
+	public Adapter createCategorizedItemAdapter()
 	{
 		return null;
 	}

@@ -7,12 +7,8 @@
 package org.eclipselabs.etrack.domain.entity;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +19,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Email#getAddress <em>Address</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.entity.Email#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,7 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @model kind="class"
  * @generated
  */
-public class Email extends EObjectImpl implements EObject
+public class Email extends CategorizedItem
 {
 	/**
 	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
@@ -52,26 +47,6 @@ public class Email extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected String address = ADDRESS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CATEGORY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected String category = CATEGORY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,41 +105,6 @@ public class Email extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' attribute.
-	 * @see #setCategory(String)
-	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getEmail_Category()
-	 * @model
-	 * @generated
-	 */
-	public String getCategory()
-	{
-		return category;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Email#getCategory <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' attribute.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	public void setCategory(String newCategory)
-	{
-		String oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.EMAIL__CATEGORY, oldCategory, category));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -176,8 +116,6 @@ public class Email extends EObjectImpl implements EObject
 		{
 			case EntityPackage.EMAIL__ADDRESS:
 				return getAddress();
-			case EntityPackage.EMAIL__CATEGORY:
-				return getCategory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,9 +132,6 @@ public class Email extends EObjectImpl implements EObject
 		{
 			case EntityPackage.EMAIL__ADDRESS:
 				setAddress((String)newValue);
-				return;
-			case EntityPackage.EMAIL__CATEGORY:
-				setCategory((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -215,9 +150,6 @@ public class Email extends EObjectImpl implements EObject
 			case EntityPackage.EMAIL__ADDRESS:
 				setAddress(ADDRESS_EDEFAULT);
 				return;
-			case EntityPackage.EMAIL__CATEGORY:
-				setCategory(CATEGORY_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -234,8 +166,6 @@ public class Email extends EObjectImpl implements EObject
 		{
 			case EntityPackage.EMAIL__ADDRESS:
 				return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
-			case EntityPackage.EMAIL__CATEGORY:
-				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -253,8 +183,6 @@ public class Email extends EObjectImpl implements EObject
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (address: ");
 		result.append(address);
-		result.append(", category: ");
-		result.append(category);
 		result.append(')');
 		return result.toString();
 	}

@@ -7,12 +7,8 @@
 package org.eclipselabs.etrack.domain.entity;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +24,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Address#getState <em>State</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Address#getZip <em>Zip</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Address#getCountry <em>Country</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.entity.Address#getCategory <em>Category</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,7 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @model kind="class"
  * @generated
  */
-public class Address extends EObjectImpl implements EObject
+public class Address extends CategorizedItem
 {
 	/**
 	 * The default value of the '{@link #getStreet() <em>Street</em>}' attribute.
@@ -157,26 +152,6 @@ public class Address extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected String country = COUNTRY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CATEGORY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected String category = CATEGORY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -410,41 +385,6 @@ public class Address extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' attribute.
-	 * @see #setCategory(String)
-	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getAddress_Category()
-	 * @model
-	 * @generated
-	 */
-	public String getCategory()
-	{
-		return category;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Address#getCategory <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' attribute.
-	 * @see #getCategory()
-	 * @generated
-	 */
-	public void setCategory(String newCategory)
-	{
-		String oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.ADDRESS__CATEGORY, oldCategory, category));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -466,8 +406,6 @@ public class Address extends EObjectImpl implements EObject
 				return getZip();
 			case EntityPackage.ADDRESS__COUNTRY:
 				return getCountry();
-			case EntityPackage.ADDRESS__CATEGORY:
-				return getCategory();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -499,9 +437,6 @@ public class Address extends EObjectImpl implements EObject
 				return;
 			case EntityPackage.ADDRESS__COUNTRY:
 				setCountry((String)newValue);
-				return;
-			case EntityPackage.ADDRESS__CATEGORY:
-				setCategory((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -535,9 +470,6 @@ public class Address extends EObjectImpl implements EObject
 			case EntityPackage.ADDRESS__COUNTRY:
 				setCountry(COUNTRY_EDEFAULT);
 				return;
-			case EntityPackage.ADDRESS__CATEGORY:
-				setCategory(CATEGORY_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -564,8 +496,6 @@ public class Address extends EObjectImpl implements EObject
 				return zip != ZIP_EDEFAULT;
 			case EntityPackage.ADDRESS__COUNTRY:
 				return COUNTRY_EDEFAULT == null ? country != null : !COUNTRY_EDEFAULT.equals(country);
-			case EntityPackage.ADDRESS__CATEGORY:
-				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -593,8 +523,6 @@ public class Address extends EObjectImpl implements EObject
 		result.append(zip);
 		result.append(", country: ");
 		result.append(country);
-		result.append(", category: ");
-		result.append(category);
 		result.append(')');
 		return result.toString();
 	}

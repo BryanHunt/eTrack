@@ -9,6 +9,7 @@ package org.eclipselabs.etrack.domain.task.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
 import org.eclipselabs.etrack.domain.task.Comment;
 import org.eclipselabs.etrack.domain.task.State;
@@ -80,10 +81,18 @@ public class TaskSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
+			case TaskPackage.ASSIGNABLE_ITEM:
+			{
+				AssignableItem assignableItem = (AssignableItem)theEObject;
+				T result = caseAssignableItem(assignableItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case TaskPackage.TASK:
 			{
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
+				if (result == null) result = caseAssignableItem(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -112,6 +121,7 @@ public class TaskSwitch<T> extends Switch<T>
 			{
 				Comment comment = (Comment)theEObject;
 				T result = caseComment(comment);
+				if (result == null) result = caseAssignableItem(comment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,11 +129,28 @@ public class TaskSwitch<T> extends Switch<T>
 			{
 				Attachment attachment = (Attachment)theEObject;
 				T result = caseAttachment(attachment);
+				if (result == null) result = caseAssignableItem(attachment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assignable Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assignable Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssignableItem(AssignableItem object)
+	{
+		return null;
 	}
 
 	/**

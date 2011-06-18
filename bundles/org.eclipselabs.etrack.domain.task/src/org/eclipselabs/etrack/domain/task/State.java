@@ -9,15 +9,12 @@ package org.eclipselabs.etrack.domain.task;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -127,7 +124,6 @@ public class State extends EObjectImpl implements EObject
 	/**
 	 * Returns the value of the '<em><b>Transitions</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.StateTransition}.
-	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.task.StateTransition#getTargetState <em>Target State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Transitions</em>' reference list isn't clear,
@@ -136,50 +132,16 @@ public class State extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transitions</em>' reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getState_Transitions()
-	 * @see org.eclipselabs.etrack.domain.task.StateTransition#getTargetState
-	 * @model opposite="targetState" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	public EList<StateTransition> getTransitions()
 	{
 		if (transitions == null)
 		{
-			transitions = new EObjectWithInverseResolvingEList<StateTransition>(StateTransition.class, this, TaskPackage.STATE__TRANSITIONS, TaskPackage.STATE_TRANSITION__TARGET_STATE);
+			transitions = new EObjectResolvingEList<StateTransition>(StateTransition.class, this, TaskPackage.STATE__TRANSITIONS);
 		}
 		return transitions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case TaskPackage.STATE__TRANSITIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTransitions()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case TaskPackage.STATE__TRANSITIONS:
-				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

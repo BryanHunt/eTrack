@@ -13,11 +13,9 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
@@ -41,7 +39,6 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getAttachments <em>Attachments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getComments <em>Comments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getState <em>State</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getOwner <em>Owner</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getSubscribers <em>Subscribers</em>}</li>
  * </ul>
  * </p>
@@ -50,7 +47,7 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  * @model kind="class"
  * @generated
  */
-public class Task extends EObjectImpl implements EObject
+public class Task extends AssignableItem
 {
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -131,16 +128,6 @@ public class Task extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected State state;
-
-	/**
-	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwner()
-	 * @generated
-	 * @ordered
-	 */
-	protected Person owner;
 
 	/**
 	 * The cached value of the '{@link #getSubscribers() <em>Subscribers</em>}' reference list.
@@ -369,61 +356,6 @@ public class Task extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owner</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
-	 * @see #setOwner(Person)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Owner()
-	 * @model required="true"
-	 * @generated
-	 */
-	public Person getOwner()
-	{
-		if (owner != null && owner.eIsProxy())
-		{
-			InternalEObject oldOwner = (InternalEObject)owner;
-			owner = (Person)eResolveProxy(oldOwner);
-			if (owner != oldOwner)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__OWNER, oldOwner, owner));
-			}
-		}
-		return owner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Person basicGetOwner()
-	{
-		return owner;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getOwner <em>Owner</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
-	 * @see #getOwner()
-	 * @generated
-	 */
-	public void setOwner(Person newOwner)
-	{
-		Person oldOwner = owner;
-		owner = newOwner;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__OWNER, oldOwner, owner));
-	}
-
-	/**
 	 * Returns the value of the '<em><b>Subscribers</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipselabs.etrack.domain.entity.Person}.
 	 * <!-- begin-user-doc -->
@@ -490,9 +422,6 @@ public class Task extends EObjectImpl implements EObject
 			case TaskPackage.TASK__STATE:
 				if (resolve) return getState();
 				return basicGetState();
-			case TaskPackage.TASK__OWNER:
-				if (resolve) return getOwner();
-				return basicGetOwner();
 			case TaskPackage.TASK__SUBSCRIBERS:
 				return getSubscribers();
 		}
@@ -530,9 +459,6 @@ public class Task extends EObjectImpl implements EObject
 			case TaskPackage.TASK__STATE:
 				setState((State)newValue);
 				return;
-			case TaskPackage.TASK__OWNER:
-				setOwner((Person)newValue);
-				return;
 			case TaskPackage.TASK__SUBSCRIBERS:
 				getSubscribers().clear();
 				getSubscribers().addAll((Collection<? extends Person>)newValue);
@@ -569,9 +495,6 @@ public class Task extends EObjectImpl implements EObject
 			case TaskPackage.TASK__STATE:
 				setState((State)null);
 				return;
-			case TaskPackage.TASK__OWNER:
-				setOwner((Person)null);
-				return;
 			case TaskPackage.TASK__SUBSCRIBERS:
 				getSubscribers().clear();
 				return;
@@ -601,8 +524,6 @@ public class Task extends EObjectImpl implements EObject
 				return comments != null && !comments.isEmpty();
 			case TaskPackage.TASK__STATE:
 				return state != null;
-			case TaskPackage.TASK__OWNER:
-				return owner != null;
 			case TaskPackage.TASK__SUBSCRIBERS:
 				return subscribers != null && !subscribers.isEmpty();
 		}

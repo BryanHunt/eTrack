@@ -10,9 +10,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipselabs.etrack.domain.links.LinksPackage;
 
 /**
@@ -65,6 +63,34 @@ public class EntityPackage extends EPackageImpl
 	public static final EntityPackage eINSTANCE = org.eclipselabs.etrack.domain.entity.EntityPackage.init();
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem <em>Categorized Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem
+	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem()
+	 * @generated
+	 */
+	public static final int CATEGORIZED_ITEM = 6;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CATEGORIZED_ITEM__CATEGORY = 0;
+
+	/**
+	 * The number of structural features of the '<em>Categorized Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CATEGORIZED_ITEM_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Address <em>Address</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,13 +101,22 @@ public class EntityPackage extends EPackageImpl
 	public static final int ADDRESS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ADDRESS__CATEGORY = CATEGORIZED_ITEM__CATEGORY;
+
+	/**
 	 * The feature id for the '<em><b>Street</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__STREET = 0;
+	public static final int ADDRESS__STREET = CATEGORIZED_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Additional</b></em>' attribute.
@@ -90,7 +125,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__ADDITIONAL = 1;
+	public static final int ADDRESS__ADDITIONAL = CATEGORIZED_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>City</b></em>' attribute.
@@ -99,7 +134,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__CITY = 2;
+	public static final int ADDRESS__CITY = CATEGORIZED_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -108,7 +143,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__STATE = 3;
+	public static final int ADDRESS__STATE = CATEGORIZED_ITEM_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Zip</b></em>' attribute.
@@ -117,7 +152,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__ZIP = 4;
+	public static final int ADDRESS__ZIP = CATEGORIZED_ITEM_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Country</b></em>' attribute.
@@ -126,16 +161,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__COUNTRY = 5;
-
-	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ADDRESS__CATEGORY = 6;
+	public static final int ADDRESS__COUNTRY = CATEGORIZED_ITEM_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Address</em>' class.
@@ -144,7 +170,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS_FEATURE_COUNT = 7;
+	public static final int ADDRESS_FEATURE_COUNT = CATEGORIZED_ITEM_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Email <em>Email</em>}' class.
@@ -157,22 +183,22 @@ public class EntityPackage extends EPackageImpl
 	public static final int EMAIL = 1;
 
 	/**
-	 * The feature id for the '<em><b>Address</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int EMAIL__ADDRESS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EMAIL__CATEGORY = 1;
+	public static final int EMAIL__CATEGORY = CATEGORIZED_ITEM__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int EMAIL__ADDRESS = CATEGORIZED_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Email</em>' class.
@@ -181,7 +207,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EMAIL_FEATURE_COUNT = 2;
+	public static final int EMAIL_FEATURE_COUNT = CATEGORIZED_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Entity <em>Entity</em>}' class.
@@ -431,22 +457,22 @@ public class EntityPackage extends EPackageImpl
 	public static final int PHONE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PHONE__NUMBER = 0;
-
-	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PHONE__CATEGORY = 1;
+	public static final int PHONE__CATEGORY = CATEGORIZED_ITEM__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PHONE__NUMBER = CATEGORIZED_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Phone</em>' class.
@@ -455,7 +481,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PHONE_FEATURE_COUNT = 2;
+	public static final int PHONE_FEATURE_COUNT = CATEGORIZED_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -498,6 +524,13 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass phoneEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass categorizedItemEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -664,20 +697,6 @@ public class EntityPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.entity.Address#getCategory <em>Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Category</em>'.
-	 * @see org.eclipselabs.etrack.domain.entity.Address#getCategory()
-	 * @see #getAddress()
-	 * @generated
-	 */
-	public EAttribute getAddress_Category()
-	{
-		return (EAttribute)addressEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.entity.Email <em>Email</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,20 +721,6 @@ public class EntityPackage extends EPackageImpl
 	public EAttribute getEmail_Address()
 	{
 		return (EAttribute)emailEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.entity.Email#getCategory <em>Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Category</em>'.
-	 * @see org.eclipselabs.etrack.domain.entity.Email#getCategory()
-	 * @see #getEmail()
-	 * @generated
-	 */
-	public EAttribute getEmail_Category()
-	{
-		return (EAttribute)emailEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -925,18 +930,33 @@ public class EntityPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.entity.Phone#getCategory <em>Category</em>}'.
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem <em>Categorized Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Categorized Item</em>'.
+	 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem
+	 * @generated
+	 */
+	public EClass getCategorizedItem()
+	{
+		return categorizedItemEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory <em>Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Category</em>'.
-	 * @see org.eclipselabs.etrack.domain.entity.Phone#getCategory()
-	 * @see #getPhone()
+	 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory()
+	 * @see #getCategorizedItem()
 	 * @generated
 	 */
-	public EAttribute getPhone_Category()
+	public EAttribute getCategorizedItem_Category()
 	{
-		return (EAttribute)phoneEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)categorizedItemEClass.getEStructuralFeatures().get(0);
 	}
+
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -977,11 +997,9 @@ public class EntityPackage extends EPackageImpl
 		createEAttribute(addressEClass, ADDRESS__STATE);
 		createEAttribute(addressEClass, ADDRESS__ZIP);
 		createEAttribute(addressEClass, ADDRESS__COUNTRY);
-		createEAttribute(addressEClass, ADDRESS__CATEGORY);
 
 		emailEClass = createEClass(EMAIL);
 		createEAttribute(emailEClass, EMAIL__ADDRESS);
-		createEAttribute(emailEClass, EMAIL__CATEGORY);
 
 		entityEClass = createEClass(ENTITY);
 		createEReference(entityEClass, ENTITY__EMAILS);
@@ -1001,7 +1019,9 @@ public class EntityPackage extends EPackageImpl
 
 		phoneEClass = createEClass(PHONE);
 		createEAttribute(phoneEClass, PHONE__NUMBER);
-		createEAttribute(phoneEClass, PHONE__CATEGORY);
+
+		categorizedItemEClass = createEClass(CATEGORIZED_ITEM);
+		createEAttribute(categorizedItemEClass, CATEGORIZED_ITEM__CATEGORY);
 	}
 
 	/**
@@ -1036,8 +1056,11 @@ public class EntityPackage extends EPackageImpl
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		addressEClass.getESuperTypes().add(this.getCategorizedItem());
+		emailEClass.getESuperTypes().add(this.getCategorizedItem());
 		groupEClass.getESuperTypes().add(this.getEntity());
 		personEClass.getESuperTypes().add(this.getEntity());
+		phoneEClass.getESuperTypes().add(this.getCategorizedItem());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(addressEClass, Address.class, "Address", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1047,11 +1070,9 @@ public class EntityPackage extends EPackageImpl
 		initEAttribute(getAddress_State(), ecorePackage.getEString(), "state", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAddress_Zip(), ecorePackage.getEInt(), "zip", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAddress_Country(), ecorePackage.getEString(), "country", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAddress_Category(), ecorePackage.getEString(), "category", null, 0, 1, Address.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(emailEClass, Email.class, "Email", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEmail_Address(), ecorePackage.getEString(), "address", null, 0, 1, Email.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEmail_Category(), ecorePackage.getEString(), "category", null, 0, 1, Email.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntity_Emails(), this.getEmail(), null, "emails", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1071,7 +1092,9 @@ public class EntityPackage extends EPackageImpl
 
 		initEClass(phoneEClass, Phone.class, "Phone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPhone_Number(), ecorePackage.getEString(), "number", null, 0, 1, Phone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPhone_Category(), ecorePackage.getEString(), "category", null, 0, 1, Phone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(categorizedItemEClass, CategorizedItem.class, "CategorizedItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCategorizedItem_Category(), ecorePackage.getEString(), "category", null, 0, 1, CategorizedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1150,14 +1173,6 @@ public class EntityPackage extends EPackageImpl
 		public static final EAttribute ADDRESS__COUNTRY = eINSTANCE.getAddress_Country();
 
 		/**
-		 * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EAttribute ADDRESS__CATEGORY = eINSTANCE.getAddress_Category();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.entity.Email <em>Email</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1174,14 +1189,6 @@ public class EntityPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute EMAIL__ADDRESS = eINSTANCE.getEmail_Address();
-
-		/**
-		 * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EAttribute EMAIL__CATEGORY = eINSTANCE.getEmail_Category();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.entity.Entity <em>Entity</em>}' class.
@@ -1312,12 +1319,22 @@ public class EntityPackage extends EPackageImpl
 		public static final EAttribute PHONE__NUMBER = eINSTANCE.getPhone_Number();
 
 		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem <em>Categorized Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem
+		 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem()
+		 * @generated
+		 */
+		public static final EClass CATEGORIZED_ITEM = eINSTANCE.getCategorizedItem();
+
+		/**
 		 * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EAttribute PHONE__CATEGORY = eINSTANCE.getPhone_Category();
+		public static final EAttribute CATEGORIZED_ITEM__CATEGORY = eINSTANCE.getCategorizedItem_Category();
 
 	}
 

@@ -8,10 +8,15 @@ package org.eclipselabs.etrack.domain.entity.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipselabs.etrack.domain.entity.*;
+import org.eclipselabs.etrack.domain.entity.Address;
+import org.eclipselabs.etrack.domain.entity.CategorizedItem;
+import org.eclipselabs.etrack.domain.entity.Email;
+import org.eclipselabs.etrack.domain.entity.Entity;
+import org.eclipselabs.etrack.domain.entity.EntityPackage;
+import org.eclipselabs.etrack.domain.entity.Group;
+import org.eclipselabs.etrack.domain.entity.Person;
+import org.eclipselabs.etrack.domain.entity.Phone;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +85,7 @@ public class EntitySwitch<T> extends Switch<T>
 			{
 				Address address = (Address)theEObject;
 				T result = caseAddress(address);
+				if (result == null) result = caseCategorizedItem(address);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,6 +93,7 @@ public class EntitySwitch<T> extends Switch<T>
 			{
 				Email email = (Email)theEObject;
 				T result = caseEmail(email);
+				if (result == null) result = caseCategorizedItem(email);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,6 +124,14 @@ public class EntitySwitch<T> extends Switch<T>
 			{
 				Phone phone = (Phone)theEObject;
 				T result = casePhone(phone);
+				if (result == null) result = caseCategorizedItem(phone);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.CATEGORIZED_ITEM:
+			{
+				CategorizedItem categorizedItem = (CategorizedItem)theEObject;
+				T result = caseCategorizedItem(categorizedItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -216,6 +231,22 @@ public class EntitySwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T casePhone(Phone object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorized Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorized Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorizedItem(CategorizedItem object)
 	{
 		return null;
 	}

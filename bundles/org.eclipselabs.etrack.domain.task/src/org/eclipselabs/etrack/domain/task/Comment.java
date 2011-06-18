@@ -8,11 +8,7 @@ package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipselabs.etrack.domain.entity.Person;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +19,6 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Comment#getText <em>Text</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Comment#getOwner <em>Owner</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,7 +26,7 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * @model kind="class"
  * @generated
  */
-public class Comment extends EObjectImpl implements EObject
+public class Comment extends AssignableItem
 {
 	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
@@ -52,16 +47,6 @@ public class Comment extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwner()
-	 * @generated
-	 * @ordered
-	 */
-	protected Person owner;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,61 +105,6 @@ public class Comment extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Owner</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
-	 * @see #setOwner(Person)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment_Owner()
-	 * @model required="true"
-	 * @generated
-	 */
-	public Person getOwner()
-	{
-		if (owner != null && owner.eIsProxy())
-		{
-			InternalEObject oldOwner = (InternalEObject)owner;
-			owner = (Person)eResolveProxy(oldOwner);
-			if (owner != oldOwner)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.COMMENT__OWNER, oldOwner, owner));
-			}
-		}
-		return owner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Person basicGetOwner()
-	{
-		return owner;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Comment#getOwner <em>Owner</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
-	 * @see #getOwner()
-	 * @generated
-	 */
-	public void setOwner(Person newOwner)
-	{
-		Person oldOwner = owner;
-		owner = newOwner;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.COMMENT__OWNER, oldOwner, owner));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -186,9 +116,6 @@ public class Comment extends EObjectImpl implements EObject
 		{
 			case TaskPackage.COMMENT__TEXT:
 				return getText();
-			case TaskPackage.COMMENT__OWNER:
-				if (resolve) return getOwner();
-				return basicGetOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,9 +132,6 @@ public class Comment extends EObjectImpl implements EObject
 		{
 			case TaskPackage.COMMENT__TEXT:
 				setText((String)newValue);
-				return;
-			case TaskPackage.COMMENT__OWNER:
-				setOwner((Person)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,9 +150,6 @@ public class Comment extends EObjectImpl implements EObject
 			case TaskPackage.COMMENT__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
-			case TaskPackage.COMMENT__OWNER:
-				setOwner((Person)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,8 +166,6 @@ public class Comment extends EObjectImpl implements EObject
 		{
 			case TaskPackage.COMMENT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
-			case TaskPackage.COMMENT__OWNER:
-				return owner != null;
 		}
 		return super.eIsSet(featureID);
 	}
