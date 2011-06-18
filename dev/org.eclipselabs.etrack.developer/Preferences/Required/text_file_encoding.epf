@@ -1,0 +1,8 @@
+# @title Text File Encoding
+# @description Set the text file encoding to UTF-8
+# @audit_type LASTMOD
+#
+# Created by the Workspace Mechanic Preference Recorder
+#Fri Jun 17 23:38:51 CDT 2011
+/instance/org.eclipse.core.resources/encoding=UTF-8
+file_export_version=3.0
