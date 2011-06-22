@@ -12,7 +12,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference account.ecore#//Account/credential"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute account.ecore#//Account/creationDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute account.ecore#//Account/lastPasswordChange"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference account.ecore#//Account/entity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference account.ecore#//Account/entity"/>
     </genClasses>
     <genClasses ecoreClass="account.ecore#//AccountRequest">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference account.ecore#//AccountRequest/credential"/>
