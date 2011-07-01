@@ -1,23 +1,24 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.entity.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
-import org.eclipselabs.etrack.domain.entity.Address;
-import org.eclipselabs.etrack.domain.entity.CategorizedItem;
-import org.eclipselabs.etrack.domain.entity.Email;
-import org.eclipselabs.etrack.domain.entity.Entity;
-import org.eclipselabs.etrack.domain.entity.EntityPackage;
-import org.eclipselabs.etrack.domain.entity.Group;
-import org.eclipselabs.etrack.domain.entity.Person;
-import org.eclipselabs.etrack.domain.entity.Phone;
+
+import org.eclipselabs.etrack.domain.entity.*;
 
 /**
  * <!-- begin-user-doc -->

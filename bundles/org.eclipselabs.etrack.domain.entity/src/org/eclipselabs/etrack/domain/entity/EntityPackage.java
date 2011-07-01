@@ -1,8 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.entity;
 
@@ -10,7 +15,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipselabs.etrack.domain.links.LinksPackage;
 
 /**
@@ -256,22 +263,13 @@ public class EntityPackage extends EPackageImpl
 	public static final int ENTITY__LINKS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Groups</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ENTITY__GROUPS = 4;
-
-	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTITY_FEATURE_COUNT = 5;
+	public static final int ENTITY_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Group <em>Group</em>}' class.
@@ -318,15 +316,6 @@ public class EntityPackage extends EPackageImpl
 	 * @ordered
 	 */
 	public static final int GROUP__LINKS = ENTITY__LINKS;
-
-	/**
-	 * The feature id for the '<em><b>Groups</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int GROUP__GROUPS = ENTITY__GROUPS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -409,15 +398,6 @@ public class EntityPackage extends EPackageImpl
 	 * @ordered
 	 */
 	public static final int PERSON__LINKS = ENTITY__LINKS;
-
-	/**
-	 * The feature id for the '<em><b>Groups</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int PERSON__GROUPS = ENTITY__GROUPS;
 
 	/**
 	 * The feature id for the '<em><b>First Name</b></em>' attribute.
@@ -793,20 +773,6 @@ public class EntityPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.entity.Entity#getGroups <em>Groups</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Groups</em>'.
-	 * @see org.eclipselabs.etrack.domain.entity.Entity#getGroups()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	public EReference getEntity_Groups()
-	{
-		return (EReference)entityEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.entity.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -942,7 +908,6 @@ public class EntityPackage extends EPackageImpl
 		return categorizedItemEClass;
 	}
 
-
 	/**
 	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory <em>Category</em>}'.
 	 * <!-- begin-user-doc -->
@@ -956,7 +921,6 @@ public class EntityPackage extends EPackageImpl
 	{
 		return (EAttribute)categorizedItemEClass.getEStructuralFeatures().get(0);
 	}
-
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1006,7 +970,6 @@ public class EntityPackage extends EPackageImpl
 		createEReference(entityEClass, ENTITY__PHONE_NUMBERS);
 		createEReference(entityEClass, ENTITY__ADDRESSES);
 		createEReference(entityEClass, ENTITY__LINKS);
-		createEReference(entityEClass, ENTITY__GROUPS);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__NAME);
@@ -1079,11 +1042,10 @@ public class EntityPackage extends EPackageImpl
 		initEReference(getEntity_PhoneNumbers(), this.getPhone(), null, "phoneNumbers", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_Addresses(), this.getAddress(), null, "addresses", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_Links(), theLinksPackage.getLinkMap(), null, "links", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_Groups(), this.getGroup(), this.getGroup_Members(), "groups", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGroup_Members(), this.getEntity(), this.getEntity_Groups(), "members", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup_Members(), this.getEntity(), null, "members", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGroup_Admins(), this.getPerson(), null, "admins", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1231,14 +1193,6 @@ public class EntityPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference ENTITY__LINKS = eINSTANCE.getEntity_Links();
-
-		/**
-		 * The meta object literal for the '<em><b>Groups</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference ENTITY__GROUPS = eINSTANCE.getEntity_Groups();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.entity.Group <em>Group</em>}' class.

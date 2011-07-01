@@ -1,8 +1,13 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.account.provider;
 
@@ -32,8 +37,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipselabs.etrack.domain.account.Account;
 import org.eclipselabs.etrack.domain.account.AccountFactory;
 import org.eclipselabs.etrack.domain.account.AccountPackage;
-
-import org.eclipselabs.etrack.domain.entity.EntityFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.account.Account} object.

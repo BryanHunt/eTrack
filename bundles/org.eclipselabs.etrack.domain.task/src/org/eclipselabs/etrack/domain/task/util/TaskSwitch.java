@@ -1,22 +1,22 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.task.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipselabs.etrack.domain.task.AssignableItem;
-import org.eclipselabs.etrack.domain.task.Attachment;
-import org.eclipselabs.etrack.domain.task.Comment;
-import org.eclipselabs.etrack.domain.task.State;
-import org.eclipselabs.etrack.domain.task.StateTransition;
-import org.eclipselabs.etrack.domain.task.Task;
-import org.eclipselabs.etrack.domain.task.TaskDomain;
-import org.eclipselabs.etrack.domain.task.TaskPackage;
+
+import org.eclipselabs.etrack.domain.task.*;
 
 /**
  * <!-- begin-user-doc -->

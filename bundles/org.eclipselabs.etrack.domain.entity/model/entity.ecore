@@ -24,13 +24,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.links/model/links.ecore#//LinkMap"
         containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
-        eType="#//Group" eOpposite="#//Group/members"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
-        eType="#//Entity" eOpposite="#//Entity/groups"/>
+        eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="admins" upperBound="-1"
         eType="#//Person"/>
   </eClassifiers>

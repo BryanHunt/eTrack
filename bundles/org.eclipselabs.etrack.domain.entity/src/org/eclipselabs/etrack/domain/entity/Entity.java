@@ -1,25 +1,34 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.entity;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipselabs.etrack.domain.links.LinkMap;
 import org.eclipselabs.etrack.domain.links.LinkedContent;
 import org.eclipselabs.etrack.domain.links.LinksPackage;
@@ -36,7 +45,6 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getPhoneNumbers <em>Phone Numbers</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getAddresses <em>Addresses</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getLinks <em>Links</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getGroups <em>Groups</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,16 +93,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EMap<String, LinkedContent> links;
-
-	/**
-	 * The cached value of the '{@link #getGroups() <em>Groups</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroups()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Group> groups;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -211,48 +209,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Groups</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.entity.Group}.
-	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.entity.Group#getMembers <em>Members</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Groups</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Groups</em>' reference list.
-	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getEntity_Groups()
-	 * @see org.eclipselabs.etrack.domain.entity.Group#getMembers
-	 * @model opposite="members"
-	 * @generated
-	 */
-	public EList<Group> getGroups()
-	{
-		if (groups == null)
-		{
-			groups = new EObjectWithInverseResolvingEList.ManyInverse<Group>(Group.class, this, EntityPackage.ENTITY__GROUPS, EntityPackage.GROUP__MEMBERS);
-		}
-		return groups;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case EntityPackage.ENTITY__GROUPS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGroups()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -270,8 +226,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 				return ((InternalEList<?>)getAddresses()).basicRemove(otherEnd, msgs);
 			case EntityPackage.ENTITY__LINKS:
 				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
-			case EntityPackage.ENTITY__GROUPS:
-				return ((InternalEList<?>)getGroups()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -295,8 +249,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 			case EntityPackage.ENTITY__LINKS:
 				if (coreType) return getLinks();
 				else return getLinks().map();
-			case EntityPackage.ENTITY__GROUPS:
-				return getGroups();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -327,10 +279,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 			case EntityPackage.ENTITY__LINKS:
 				((EStructuralFeature.Setting)getLinks()).set(newValue);
 				return;
-			case EntityPackage.ENTITY__GROUPS:
-				getGroups().clear();
-				getGroups().addAll((Collection<? extends Group>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -357,9 +305,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 			case EntityPackage.ENTITY__LINKS:
 				getLinks().clear();
 				return;
-			case EntityPackage.ENTITY__GROUPS:
-				getGroups().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -382,8 +327,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 				return addresses != null && !addresses.isEmpty();
 			case EntityPackage.ENTITY__LINKS:
 				return links != null && !links.isEmpty();
-			case EntityPackage.ENTITY__GROUPS:
-				return groups != null && !groups.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

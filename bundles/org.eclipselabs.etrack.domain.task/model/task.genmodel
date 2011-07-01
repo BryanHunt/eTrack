@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.etrack.domain.task/src"
-    modelPluginID="org.eclipselabs.etrack.domain.task" modelName="Task" suppressInterfaces="true"
-    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="6.0"
-    copyrightFields="false" usedGenPackages="../../org.eclipselabs.etrack.domain.entity/model/entity.genmodel#//entity ../../org.eclipselabs.etrack.domain.links/model/links.genmodel#//links">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011 Bryan Hunt.&#xA;&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;   Bryan Hunt - initial API and implementation"
+    modelDirectory="/org.eclipselabs.etrack.domain.task/src" modelPluginID="org.eclipselabs.etrack.domain.task"
+    modelName="Task" suppressInterfaces="true" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipselabs.etrack.domain.entity/model/entity.genmodel#//entity ../../org.eclipselabs.etrack.domain.links/model/links.genmodel#//links">
   <foreignModel>task.ecore</foreignModel>
   <genPackages prefix="Task" basePackage="org.eclipselabs.etrack.domain" disposableProviderFactory="true"
       ecorePackage="task.ecore#/">
+    <genClasses ecoreClass="task.ecore#//AssignableItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//AssignableItem/owner"/>
+    </genClasses>
     <genClasses ecoreClass="task.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/summary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/description"/>
@@ -15,7 +18,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/attachments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/comments"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/state"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/owner"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/subscribers"/>
     </genClasses>
     <genClasses ecoreClass="task.ecore#//State">
@@ -34,12 +36,10 @@
     </genClasses>
     <genClasses ecoreClass="task.ecore#//Comment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Comment/text"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Comment/owner"/>
     </genClasses>
     <genClasses ecoreClass="task.ecore#//Attachment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Attachment/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Attachment/data"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Attachment/owner"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

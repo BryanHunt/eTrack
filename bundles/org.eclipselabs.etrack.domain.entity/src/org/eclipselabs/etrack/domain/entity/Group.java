@@ -1,22 +1,27 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.entity;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,7 +142,6 @@ public class Group extends Entity
 	/**
 	 * Returns the value of the '<em><b>Members</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipselabs.etrack.domain.entity.Entity}.
-	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.entity.Entity#getGroups <em>Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Members</em>' reference list isn't clear,
@@ -146,15 +150,14 @@ public class Group extends Entity
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Members</em>' reference list.
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getGroup_Members()
-	 * @see org.eclipselabs.etrack.domain.entity.Entity#getGroups
-	 * @model opposite="groups"
+	 * @model
 	 * @generated
 	 */
 	public EList<Entity> getMembers()
 	{
 		if (members == null)
 		{
-			members = new EObjectWithInverseResolvingEList.ManyInverse<Entity>(Entity.class, this, EntityPackage.GROUP__MEMBERS, EntityPackage.ENTITY__GROUPS);
+			members = new EObjectResolvingEList<Entity>(Entity.class, this, EntityPackage.GROUP__MEMBERS);
 		}
 		return members;
 	}
@@ -180,39 +183,6 @@ public class Group extends Entity
 			admins = new EObjectResolvingEList<Person>(Person.class, this, EntityPackage.GROUP__ADMINS);
 		}
 		return admins;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case EntityPackage.GROUP__MEMBERS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMembers()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case EntityPackage.GROUP__MEMBERS:
-				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
