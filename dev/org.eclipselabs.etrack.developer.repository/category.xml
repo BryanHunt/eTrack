@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipselabs.etrack.domain.feature_0.1.0.qualifier.jar" id="org.eclipselabs.etrack.domain.feature" version="0.1.0.qualifier">
+      <category name="etrack-domain"/>
+   </feature>
+   <category-def name="etrack-domain" label="eTrack Domain">
+      <description>
+         eTrack Domain models
+      </description>
+   </category-def>
+</site>

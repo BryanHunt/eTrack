@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.6"?>
+
+<target name="Running Platform" sequenceNumber="7">
+<locations>
+<location path="${eclipse_home}" type="Profile"/>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.7.0.v20110606-0949"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.7.0.v20110502-7M7W8Z8eNV4UqfbhicjDN-ROgjNc"/>
+<repository location="http://download.eclipse.org/releases/indigo/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.3.2.201107011703"/>
+<unit id="org.eclipselabs.mongo.emf.junit.feature.feature.group" version="0.3.2.201107011703"/>
+<unit id="org.eclipselabs.mongo.emf.log.feature.feature.group" version="0.3.2.201107011703"/>
+<unit id="org.eclipselabs.emf.query.feature.feature.group" version="0.3.2.201107011703"/>
+<unit id="com.mongodb.feature.feature.group" version="2.5.2.201107011703"/>
+<repository location="http://bryanhunt.github.com/mongo-emf/releases/0.3.2/"/>
+</location>
+</locations>
+<environment>
+<os>macosx</os>
+<ws>cocoa</ws>
+<arch>x86_64</arch>
+<nl>en_US</nl>
+</environment>
+<launcherArgs>
+<vmArgs>-Dosgi.requiredJavaVersion=1.5 -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts -XX:MaxPermSize=256m -Xms40m -Xmx512m -Xdock:icon=../Resources/Eclipse.icns -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgs>
+</launcherArgs>
+</target>
