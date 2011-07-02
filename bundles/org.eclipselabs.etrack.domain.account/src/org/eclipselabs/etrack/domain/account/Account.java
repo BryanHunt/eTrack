@@ -268,10 +268,37 @@ public class Account extends EObjectImpl implements EObject
 	 * @return the value of the '<em>Entity</em>' containment reference.
 	 * @see #setEntity(Entity)
 	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getAccount_Entity()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	public Entity getEntity()
+	{
+		if (entity != null && entity.eIsProxy())
+		{
+			InternalEObject oldEntity = (InternalEObject)entity;
+			entity = (Entity)eResolveProxy(oldEntity);
+			if (entity != oldEntity)
+			{
+				InternalEObject newEntity = (InternalEObject)entity;
+				NotificationChain msgs = oldEntity.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AccountPackage.ACCOUNT__ENTITY, null, null);
+				if (newEntity.eInternalContainer() == null)
+				{
+					msgs = newEntity.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AccountPackage.ACCOUNT__ENTITY, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AccountPackage.ACCOUNT__ENTITY, oldEntity, entity));
+			}
+		}
+		return entity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Entity basicGetEntity()
 	{
 		return entity;
 	}
@@ -352,7 +379,8 @@ public class Account extends EObjectImpl implements EObject
 			case AccountPackage.ACCOUNT__LAST_PASSWORD_CHANGE:
 				return getLastPasswordChange();
 			case AccountPackage.ACCOUNT__ENTITY:
-				return getEntity();
+				if (resolve) return getEntity();
+				return basicGetEntity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
