@@ -86,7 +86,6 @@ public class EntityFactory extends EFactoryImpl
 			case EntityPackage.GROUP: return createGroup();
 			case EntityPackage.PERSON: return createPerson();
 			case EntityPackage.PHONE: return createPhone();
-			case EntityPackage.CATEGORIZED_ITEM: return createCategorizedItem();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -145,17 +144,6 @@ public class EntityFactory extends EFactoryImpl
 	{
 		Phone phone = new Phone();
 		return phone;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CategorizedItem createCategorizedItem()
-	{
-		CategorizedItem categorizedItem = new CategorizedItem();
-		return categorizedItem;
 	}
 
 	/**

@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +34,28 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @model kind="class"
  * @generated
  */
-public class Phone extends CategorizedItem
+public class Phone extends EObjectImpl implements CategorizedItem
 {
+	/**
+	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CATEGORY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected String category = CATEGORY_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,6 +95,41 @@ public class Phone extends CategorizedItem
 	protected EClass eStaticClass()
 	{
 		return EntityPackage.Literals.PHONE;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Category</em>' attribute.
+	 * @see #setCategory(String)
+	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem_Category()
+	 * @model
+	 * @generated
+	 */
+	public String getCategory()
+	{
+		return category;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Phone#getCategory <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @see #getCategory()
+	 * @generated
+	 */
+	public void setCategory(String newCategory)
+	{
+		String oldCategory = category;
+		category = newCategory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.PHONE__CATEGORY, oldCategory, category));
 	}
 
 	/**
@@ -121,6 +177,8 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
+			case EntityPackage.PHONE__CATEGORY:
+				return getCategory();
 			case EntityPackage.PHONE__NUMBER:
 				return getNumber();
 		}
@@ -137,6 +195,9 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
+			case EntityPackage.PHONE__CATEGORY:
+				setCategory((String)newValue);
+				return;
 			case EntityPackage.PHONE__NUMBER:
 				setNumber((String)newValue);
 				return;
@@ -154,6 +215,9 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
+			case EntityPackage.PHONE__CATEGORY:
+				setCategory(CATEGORY_EDEFAULT);
+				return;
 			case EntityPackage.PHONE__NUMBER:
 				setNumber(NUMBER_EDEFAULT);
 				return;
@@ -171,6 +235,8 @@ public class Phone extends CategorizedItem
 	{
 		switch (featureID)
 		{
+			case EntityPackage.PHONE__CATEGORY:
+				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 			case EntityPackage.PHONE__NUMBER:
 				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
 		}
@@ -188,7 +254,9 @@ public class Phone extends CategorizedItem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (number: ");
+		result.append(" (category: ");
+		result.append(category);
+		result.append(", number: ");
 		result.append(number);
 		result.append(')');
 		return result.toString();

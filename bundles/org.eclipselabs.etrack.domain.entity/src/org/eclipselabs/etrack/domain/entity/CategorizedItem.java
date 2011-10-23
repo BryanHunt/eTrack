@@ -11,13 +11,7 @@
  */
 package org.eclipselabs.etrack.domain.entity;
 
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,52 +26,11 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * </p>
  *
  * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem()
- * @model kind="class"
+ * @model kind="class" interface="true" abstract="true"
  * @generated
  */
-public class CategorizedItem extends EObjectImpl implements EObject
+public interface CategorizedItem extends EObject
 {
-	/**
-	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CATEGORY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected String category = CATEGORY_EDEFAULT;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CategorizedItem()
-	{
-		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass()
-	{
-		return EntityPackage.Literals.CATEGORIZED_ITEM;
-	}
-
 	/**
 	 * Returns the value of the '<em><b>Category</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,10 +45,7 @@ public class CategorizedItem extends EObjectImpl implements EObject
 	 * @model
 	 * @generated
 	 */
-	public String getCategory()
-	{
-		return category;
-	}
+	String getCategory();
 
 	/**
 	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory <em>Category</em>}' attribute.
@@ -105,95 +55,6 @@ public class CategorizedItem extends EObjectImpl implements EObject
 	 * @see #getCategory()
 	 * @generated
 	 */
-	public void setCategory(String newCategory)
-	{
-		String oldCategory = category;
-		category = newCategory;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.CATEGORIZED_ITEM__CATEGORY, oldCategory, category));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
-			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
-				return getCategory();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
-			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
-				setCategory((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
-			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
-				setCategory(CATEGORY_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
-			case EntityPackage.CATEGORIZED_ITEM__CATEGORY:
-				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString()
-	{
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (category: ");
-		result.append(category);
-		result.append(')');
-		return result.toString();
-	}
+	void setCategory(String value);
 
 } // CategorizedItem
