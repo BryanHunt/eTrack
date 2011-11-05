@@ -14,6 +14,7 @@ package org.eclipselabs.etrack.domain.task;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.StateTransition#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.StateTransition#getTargetState <em>Target State</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +56,16 @@ public class StateTransition extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTargetState() <em>Target State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetState()
+	 * @generated
+	 * @ordered
+	 */
+	protected State targetState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,6 +124,61 @@ public class StateTransition extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Target State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target State</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target State</em>' reference.
+	 * @see #setTargetState(State)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateTransition_TargetState()
+	 * @model
+	 * @generated
+	 */
+	public State getTargetState()
+	{
+		if (targetState != null && targetState.eIsProxy())
+		{
+			InternalEObject oldTargetState = (InternalEObject)targetState;
+			targetState = (State)eResolveProxy(oldTargetState);
+			if (targetState != oldTargetState)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.STATE_TRANSITION__TARGET_STATE, oldTargetState, targetState));
+			}
+		}
+		return targetState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State basicGetTargetState()
+	{
+		return targetState;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.StateTransition#getTargetState <em>Target State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target State</em>' reference.
+	 * @see #getTargetState()
+	 * @generated
+	 */
+	public void setTargetState(State newTargetState)
+	{
+		State oldTargetState = targetState;
+		targetState = newTargetState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.STATE_TRANSITION__TARGET_STATE, oldTargetState, targetState));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -123,6 +190,9 @@ public class StateTransition extends EObjectImpl implements EObject
 		{
 			case TaskPackage.STATE_TRANSITION__NAME:
 				return getName();
+			case TaskPackage.STATE_TRANSITION__TARGET_STATE:
+				if (resolve) return getTargetState();
+				return basicGetTargetState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,6 +209,9 @@ public class StateTransition extends EObjectImpl implements EObject
 		{
 			case TaskPackage.STATE_TRANSITION__NAME:
 				setName((String)newValue);
+				return;
+			case TaskPackage.STATE_TRANSITION__TARGET_STATE:
+				setTargetState((State)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -157,6 +230,9 @@ public class StateTransition extends EObjectImpl implements EObject
 			case TaskPackage.STATE_TRANSITION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case TaskPackage.STATE_TRANSITION__TARGET_STATE:
+				setTargetState((State)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -173,6 +249,8 @@ public class StateTransition extends EObjectImpl implements EObject
 		{
 			case TaskPackage.STATE_TRANSITION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case TaskPackage.STATE_TRANSITION__TARGET_STATE:
+				return targetState != null;
 		}
 		return super.eIsSet(featureID);
 	}

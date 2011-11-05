@@ -264,13 +264,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int STATE_TRANSITION__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Target State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_TRANSITION__TARGET_STATE = 1;
+
+	/**
 	 * The number of structural features of the '<em>State Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STATE_TRANSITION_FEATURE_COUNT = 1;
+	public static final int STATE_TRANSITION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
@@ -896,6 +905,21 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.StateTransition#getTargetState <em>Target State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target State</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.StateTransition#getTargetState()
+	 * @see #getStateTransition()
+	 * @generated
+	 */
+	public EReference getStateTransition_TargetState()
+	{
+		return (EReference)stateTransitionEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1219,6 +1243,7 @@ public class TaskPackage extends EPackageImpl
 
 		stateTransitionEClass = createEClass(STATE_TRANSITION);
 		createEAttribute(stateTransitionEClass, STATE_TRANSITION__NAME);
+		createEReference(stateTransitionEClass, STATE_TRANSITION__TARGET_STATE);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
@@ -1304,6 +1329,7 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(stateTransitionEClass, StateTransition.class, "StateTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStateTransition_Name(), ecorePackage.getEString(), "name", null, 1, 1, StateTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateTransition_TargetState(), this.getState(), null, "targetState", null, 0, 1, StateTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1491,6 +1517,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute STATE_TRANSITION__NAME = eINSTANCE.getStateTransition_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Target State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference STATE_TRANSITION__TARGET_STATE = eINSTANCE.getStateTransition_TargetState();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.

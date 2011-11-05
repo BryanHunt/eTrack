@@ -74,6 +74,7 @@ public class StateTransitionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addTargetStatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +98,29 @@ public class StateTransitionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target State feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetStatePropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StateTransition_targetState_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StateTransition_targetState_feature", "_UI_StateTransition_type"),
+				 TaskPackage.Literals.STATE_TRANSITION__TARGET_STATE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
