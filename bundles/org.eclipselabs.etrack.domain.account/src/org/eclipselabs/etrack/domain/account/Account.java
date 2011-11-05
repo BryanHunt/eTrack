@@ -33,9 +33,7 @@ import org.eclipselabs.etrack.domain.entity.Entity;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.etrack.domain.account.Account#getCredential <em>Credential</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.account.Account#getCreationDate <em>Creation Date</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.account.Account#getLastPasswordChange <em>Last Password Change</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.account.Account#getEntity <em>Entity</em>}</li>
  * </ul>
  * </p>
@@ -46,16 +44,6 @@ import org.eclipselabs.etrack.domain.entity.Entity;
  */
 public class Account extends EObjectImpl implements EObject
 {
-	/**
-	 * The cached value of the '{@link #getCredential() <em>Credential</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCredential()
-	 * @generated
-	 * @ordered
-	 */
-	protected Credential credential;
-
 	/**
 	 * The default value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,26 +63,6 @@ public class Account extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected Date creationDate = CREATION_DATE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLastPasswordChange() <em>Last Password Change</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastPasswordChange()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date LAST_PASSWORD_CHANGE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLastPasswordChange() <em>Last Password Change</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastPasswordChange()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date lastPasswordChange = LAST_PASSWORD_CHANGE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getEntity() <em>Entity</em>}' containment reference.
@@ -125,66 +93,6 @@ public class Account extends EObjectImpl implements EObject
 	protected EClass eStaticClass()
 	{
 		return AccountPackage.Literals.ACCOUNT;
-	}
-
-	/**
-	 * Returns the value of the '<em><b>Credential</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Credential</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Credential</em>' containment reference.
-	 * @see #setCredential(Credential)
-	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getAccount_Credential()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	public Credential getCredential()
-	{
-		return credential;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCredential(Credential newCredential, NotificationChain msgs)
-	{
-		Credential oldCredential = credential;
-		credential = newCredential;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AccountPackage.ACCOUNT__CREDENTIAL, oldCredential, newCredential);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.account.Account#getCredential <em>Credential</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Credential</em>' containment reference.
-	 * @see #getCredential()
-	 * @generated
-	 */
-	public void setCredential(Credential newCredential)
-	{
-		if (newCredential != credential)
-		{
-			NotificationChain msgs = null;
-			if (credential != null)
-				msgs = ((InternalEObject)credential).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AccountPackage.ACCOUNT__CREDENTIAL, null, msgs);
-			if (newCredential != null)
-				msgs = ((InternalEObject)newCredential).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AccountPackage.ACCOUNT__CREDENTIAL, null, msgs);
-			msgs = basicSetCredential(newCredential, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AccountPackage.ACCOUNT__CREDENTIAL, newCredential, newCredential));
 	}
 
 	/**
@@ -220,41 +128,6 @@ public class Account extends EObjectImpl implements EObject
 		creationDate = newCreationDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AccountPackage.ACCOUNT__CREATION_DATE, oldCreationDate, creationDate));
-	}
-
-	/**
-	 * Returns the value of the '<em><b>Last Password Change</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Last Password Change</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Last Password Change</em>' attribute.
-	 * @see #setLastPasswordChange(Date)
-	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getAccount_LastPasswordChange()
-	 * @model required="true"
-	 * @generated
-	 */
-	public Date getLastPasswordChange()
-	{
-		return lastPasswordChange;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.account.Account#getLastPasswordChange <em>Last Password Change</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Last Password Change</em>' attribute.
-	 * @see #getLastPasswordChange()
-	 * @generated
-	 */
-	public void setLastPasswordChange(Date newLastPasswordChange)
-	{
-		Date oldLastPasswordChange = lastPasswordChange;
-		lastPasswordChange = newLastPasswordChange;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AccountPackage.ACCOUNT__LAST_PASSWORD_CHANGE, oldLastPasswordChange, lastPasswordChange));
 	}
 
 	/**
@@ -354,8 +227,6 @@ public class Account extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.ACCOUNT__CREDENTIAL:
-				return basicSetCredential(null, msgs);
 			case AccountPackage.ACCOUNT__ENTITY:
 				return basicSetEntity(null, msgs);
 		}
@@ -372,12 +243,8 @@ public class Account extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.ACCOUNT__CREDENTIAL:
-				return getCredential();
 			case AccountPackage.ACCOUNT__CREATION_DATE:
 				return getCreationDate();
-			case AccountPackage.ACCOUNT__LAST_PASSWORD_CHANGE:
-				return getLastPasswordChange();
 			case AccountPackage.ACCOUNT__ENTITY:
 				if (resolve) return getEntity();
 				return basicGetEntity();
@@ -395,14 +262,8 @@ public class Account extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.ACCOUNT__CREDENTIAL:
-				setCredential((Credential)newValue);
-				return;
 			case AccountPackage.ACCOUNT__CREATION_DATE:
 				setCreationDate((Date)newValue);
-				return;
-			case AccountPackage.ACCOUNT__LAST_PASSWORD_CHANGE:
-				setLastPasswordChange((Date)newValue);
 				return;
 			case AccountPackage.ACCOUNT__ENTITY:
 				setEntity((Entity)newValue);
@@ -421,14 +282,8 @@ public class Account extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.ACCOUNT__CREDENTIAL:
-				setCredential((Credential)null);
-				return;
 			case AccountPackage.ACCOUNT__CREATION_DATE:
 				setCreationDate(CREATION_DATE_EDEFAULT);
-				return;
-			case AccountPackage.ACCOUNT__LAST_PASSWORD_CHANGE:
-				setLastPasswordChange(LAST_PASSWORD_CHANGE_EDEFAULT);
 				return;
 			case AccountPackage.ACCOUNT__ENTITY:
 				setEntity((Entity)null);
@@ -447,12 +302,8 @@ public class Account extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.ACCOUNT__CREDENTIAL:
-				return credential != null;
 			case AccountPackage.ACCOUNT__CREATION_DATE:
 				return CREATION_DATE_EDEFAULT == null ? creationDate != null : !CREATION_DATE_EDEFAULT.equals(creationDate);
-			case AccountPackage.ACCOUNT__LAST_PASSWORD_CHANGE:
-				return LAST_PASSWORD_CHANGE_EDEFAULT == null ? lastPasswordChange != null : !LAST_PASSWORD_CHANGE_EDEFAULT.equals(lastPasswordChange);
 			case AccountPackage.ACCOUNT__ENTITY:
 				return entity != null;
 		}
@@ -472,8 +323,6 @@ public class Account extends EObjectImpl implements EObject
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (creationDate: ");
 		result.append(creationDate);
-		result.append(", lastPasswordChange: ");
-		result.append(lastPasswordChange);
 		result.append(')');
 		return result.toString();
 	}

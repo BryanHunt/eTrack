@@ -158,6 +158,31 @@ public class AccountItemProviderAdapterFactory extends AccountAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.account.LocalAccount} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LocalAccountItemProvider localAccountItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.account.LocalAccount}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLocalAccountAdapter()
+	{
+		if (localAccountItemProvider == null)
+		{
+			localAccountItemProvider = new LocalAccountItemProvider(this);
+		}
+
+		return localAccountItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -271,6 +296,7 @@ public class AccountItemProviderAdapterFactory extends AccountAdapterFactory imp
 		if (accountItemProvider != null) accountItemProvider.dispose();
 		if (accountRequestItemProvider != null) accountRequestItemProvider.dispose();
 		if (credentialItemProvider != null) credentialItemProvider.dispose();
+		if (localAccountItemProvider != null) localAccountItemProvider.dispose();
 	}
 
 }

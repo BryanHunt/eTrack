@@ -19,33 +19,28 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipselabs.etrack.domain.account.Account;
 import org.eclipselabs.etrack.domain.account.AccountFactory;
 import org.eclipselabs.etrack.domain.account.AccountPackage;
+import org.eclipselabs.etrack.domain.account.LocalAccount;
 
 /**
- * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.account.Account} object.
+ * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.account.LocalAccount} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AccountItemProvider
-	extends ItemProviderAdapter
+public class LocalAccountItemProvider
+	extends AccountItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -59,7 +54,7 @@ public class AccountItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AccountItemProvider(AdapterFactory adapterFactory)
+	public LocalAccountItemProvider(AdapterFactory adapterFactory)
 	{
 		super(adapterFactory);
 	}
@@ -77,60 +72,45 @@ public class AccountItemProvider
 		{
 			super.getPropertyDescriptors(object);
 
-			addCreationDatePropertyDescriptor(object);
-			addEntityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Creation Date feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCreationDatePropertyDescriptor(Object object)
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
 	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Account_creationDate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Account_creationDate_feature", "_UI_Account_type"),
-				 AccountPackage.Literals.ACCOUNT__CREATION_DATE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+		if (childrenFeatures == null)
+		{
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AccountPackage.Literals.LOCAL_ACCOUNT__CREDENTIAL);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Entity feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addEntityPropertyDescriptor(Object object)
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child)
 	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Account_entity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Account_entity_feature", "_UI_Account_type"),
-				 AccountPackage.Literals.ACCOUNT__ENTITY,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
-	 * This returns Account.gif.
+	 * This returns LocalAccount.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -138,7 +118,7 @@ public class AccountItemProvider
 	@Override
 	public Object getImage(Object object)
 	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Account"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalAccount"));
 	}
 
 	/**
@@ -150,11 +130,11 @@ public class AccountItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		Date labelValue = ((Account)object).getCreationDate();
+		Date labelValue = ((LocalAccount)object).getCreationDate();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Account_type") :
-			getString("_UI_Account_type") + " " + label;
+			getString("_UI_LocalAccount_type") :
+			getString("_UI_LocalAccount_type") + " " + label;
 	}
 
 	/**
@@ -169,11 +149,10 @@ public class AccountItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Account.class))
+		switch (notification.getFeatureID(LocalAccount.class))
 		{
-			case AccountPackage.ACCOUNT__CREATION_DATE:
-			case AccountPackage.ACCOUNT__ENTITY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			case AccountPackage.LOCAL_ACCOUNT__CREDENTIAL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -190,18 +169,11 @@ public class AccountItemProvider
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
 	{
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator()
-	{
-		return AccountEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(AccountPackage.Literals.LOCAL_ACCOUNT__CREDENTIAL,
+				 AccountFactory.eINSTANCE.createCredential()));
 	}
 
 }

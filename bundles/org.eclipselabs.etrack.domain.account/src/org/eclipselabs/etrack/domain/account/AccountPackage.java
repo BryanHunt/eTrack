@@ -80,31 +80,13 @@ public class AccountPackage extends EPackageImpl
 	public static final int ACCOUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Credential</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ACCOUNT__CREDENTIAL = 0;
-
-	/**
 	 * The feature id for the '<em><b>Creation Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACCOUNT__CREATION_DATE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Last Password Change</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ACCOUNT__LAST_PASSWORD_CHANGE = 2;
+	public static final int ACCOUNT__CREATION_DATE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Entity</b></em>' containment reference.
@@ -113,7 +95,7 @@ public class AccountPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACCOUNT__ENTITY = 3;
+	public static final int ACCOUNT__ENTITY = 1;
 
 	/**
 	 * The number of structural features of the '<em>Account</em>' class.
@@ -122,7 +104,7 @@ public class AccountPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ACCOUNT_FEATURE_COUNT = 4;
+	public static final int ACCOUNT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.account.AccountRequest <em>Request</em>}' class.
@@ -208,6 +190,52 @@ public class AccountPackage extends EPackageImpl
 	public static final int CREDENTIAL_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.account.LocalAccount <em>Local Account</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.account.LocalAccount
+	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getLocalAccount()
+	 * @generated
+	 */
+	public static final int LOCAL_ACCOUNT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Creation Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOCAL_ACCOUNT__CREATION_DATE = ACCOUNT__CREATION_DATE;
+
+	/**
+	 * The feature id for the '<em><b>Entity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOCAL_ACCOUNT__ENTITY = ACCOUNT__ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Credential</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOCAL_ACCOUNT__CREDENTIAL = ACCOUNT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Local Account</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LOCAL_ACCOUNT_FEATURE_COUNT = ACCOUNT_FEATURE_COUNT + 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -227,6 +255,13 @@ public class AccountPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass credentialEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass localAccountEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -309,20 +344,6 @@ public class AccountPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipselabs.etrack.domain.account.Account#getCredential <em>Credential</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Credential</em>'.
-	 * @see org.eclipselabs.etrack.domain.account.Account#getCredential()
-	 * @see #getAccount()
-	 * @generated
-	 */
-	public EReference getAccount_Credential()
-	{
-		return (EReference)accountEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.account.Account#getCreationDate <em>Creation Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,21 +354,7 @@ public class AccountPackage extends EPackageImpl
 	 */
 	public EAttribute getAccount_CreationDate()
 	{
-		return (EAttribute)accountEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.account.Account#getLastPasswordChange <em>Last Password Change</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Last Password Change</em>'.
-	 * @see org.eclipselabs.etrack.domain.account.Account#getLastPasswordChange()
-	 * @see #getAccount()
-	 * @generated
-	 */
-	public EAttribute getAccount_LastPasswordChange()
-	{
-		return (EAttribute)accountEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)accountEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -361,7 +368,7 @@ public class AccountPackage extends EPackageImpl
 	 */
 	public EReference getAccount_Entity()
 	{
-		return (EReference)accountEClass.getEStructuralFeatures().get(3);
+		return (EReference)accountEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -461,6 +468,35 @@ public class AccountPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.account.LocalAccount <em>Local Account</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Local Account</em>'.
+	 * @see org.eclipselabs.etrack.domain.account.LocalAccount
+	 * @generated
+	 */
+	public EClass getLocalAccount()
+	{
+		return localAccountEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipselabs.etrack.domain.account.LocalAccount#getCredential <em>Credential</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Credential</em>'.
+	 * @see org.eclipselabs.etrack.domain.account.LocalAccount#getCredential()
+	 * @see #getLocalAccount()
+	 * @generated
+	 */
+	public EReference getLocalAccount_Credential()
+	{
+		return (EReference)localAccountEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -493,9 +529,7 @@ public class AccountPackage extends EPackageImpl
 
 		// Create classes and their features
 		accountEClass = createEClass(ACCOUNT);
-		createEReference(accountEClass, ACCOUNT__CREDENTIAL);
 		createEAttribute(accountEClass, ACCOUNT__CREATION_DATE);
-		createEAttribute(accountEClass, ACCOUNT__LAST_PASSWORD_CHANGE);
 		createEReference(accountEClass, ACCOUNT__ENTITY);
 
 		accountRequestEClass = createEClass(ACCOUNT_REQUEST);
@@ -506,6 +540,9 @@ public class AccountPackage extends EPackageImpl
 		credentialEClass = createEClass(CREDENTIAL);
 		createEAttribute(credentialEClass, CREDENTIAL__ID);
 		createEAttribute(credentialEClass, CREDENTIAL__PASSWORD);
+
+		localAccountEClass = createEClass(LOCAL_ACCOUNT);
+		createEReference(localAccountEClass, LOCAL_ACCOUNT__CREDENTIAL);
 	}
 
 	/**
@@ -540,12 +577,11 @@ public class AccountPackage extends EPackageImpl
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		localAccountEClass.getESuperTypes().add(this.getAccount());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(accountEClass, Account.class, "Account", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAccount_Credential(), this.getCredential(), null, "credential", null, 1, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAccount_CreationDate(), ecorePackage.getEDate(), "creationDate", null, 1, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAccount_LastPasswordChange(), ecorePackage.getEDate(), "lastPasswordChange", null, 1, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAccount_Entity(), theEntityPackage.getEntity(), null, "entity", null, 1, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(accountRequestEClass, AccountRequest.class, "AccountRequest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -556,6 +592,9 @@ public class AccountPackage extends EPackageImpl
 		initEClass(credentialEClass, Credential.class, "Credential", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCredential_Id(), ecorePackage.getEString(), "id", null, 1, 1, Credential.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCredential_Password(), ecorePackage.getEString(), "password", null, 1, 1, Credential.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(localAccountEClass, LocalAccount.class, "LocalAccount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLocalAccount_Credential(), this.getCredential(), null, "credential", null, 1, 1, LocalAccount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -586,28 +625,12 @@ public class AccountPackage extends EPackageImpl
 		public static final EClass ACCOUNT = eINSTANCE.getAccount();
 
 		/**
-		 * The meta object literal for the '<em><b>Credential</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference ACCOUNT__CREDENTIAL = eINSTANCE.getAccount_Credential();
-
-		/**
 		 * The meta object literal for the '<em><b>Creation Date</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public static final EAttribute ACCOUNT__CREATION_DATE = eINSTANCE.getAccount_CreationDate();
-
-		/**
-		 * The meta object literal for the '<em><b>Last Password Change</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EAttribute ACCOUNT__LAST_PASSWORD_CHANGE = eINSTANCE.getAccount_LastPasswordChange();
 
 		/**
 		 * The meta object literal for the '<em><b>Entity</b></em>' containment reference feature.
@@ -676,6 +699,24 @@ public class AccountPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute CREDENTIAL__PASSWORD = eINSTANCE.getCredential_Password();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.account.LocalAccount <em>Local Account</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.account.LocalAccount
+		 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getLocalAccount()
+		 * @generated
+		 */
+		public static final EClass LOCAL_ACCOUNT = eINSTANCE.getLocalAccount();
+
+		/**
+		 * The meta object literal for the '<em><b>Credential</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference LOCAL_ACCOUNT__CREDENTIAL = eINSTANCE.getLocalAccount_Credential();
 
 	}
 

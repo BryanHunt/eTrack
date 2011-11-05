@@ -99,6 +99,11 @@ public class AccountAdapterFactory extends AdapterFactoryImpl
 				return createCredentialAdapter();
 			}
 			@Override
+			public Adapter caseLocalAccount(LocalAccount object)
+			{
+				return createLocalAccountAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object)
 			{
 				return createEObjectAdapter();
@@ -161,6 +166,21 @@ public class AccountAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createCredentialAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.account.LocalAccount <em>Local Account</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.account.LocalAccount
+	 * @generated
+	 */
+	public Adapter createLocalAccountAdapter()
 	{
 		return null;
 	}
