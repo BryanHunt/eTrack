@@ -190,13 +190,31 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__TYPE = ASSIGNABLE_ITEM_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__DEPENDS_ON = ASSIGNABLE_ITEM_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Blocks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__BLOCKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 8;
+	public static final int TASK_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.State <em>State</em>}' class.
@@ -794,6 +812,36 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.Task#getDependsOn <em>Depends On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Depends On</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getDependsOn()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_DependsOn()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(8);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.Task#getBlocks <em>Blocks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Blocks</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getBlocks()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_Blocks()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(9);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1163,6 +1211,8 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskEClass, TASK__STATE);
 		createEReference(taskEClass, TASK__SUBSCRIBERS);
 		createEReference(taskEClass, TASK__TYPE);
+		createEReference(taskEClass, TASK__DEPENDS_ON);
+		createEReference(taskEClass, TASK__BLOCKS);
 
 		stateEClass = createEClass(STATE);
 		createEAttribute(stateEClass, STATE__NAME);
@@ -1246,6 +1296,8 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTask_State(), this.getState(), null, "state", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Subscribers(), theEntityPackage.getPerson(), null, "subscribers", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Type(), this.getTaskType(), null, "type", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_DependsOn(), this.getTask(), this.getTask_Blocks(), "dependsOn", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Blocks(), this.getTask(), this.getTask_DependsOn(), "blocks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1387,6 +1439,22 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK__TYPE = eINSTANCE.getTask_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Depends On</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__DEPENDS_ON = eINSTANCE.getTask_DependsOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Blocks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__BLOCKS = eINSTANCE.getTask_Blocks();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.State <em>State</em>}' class.

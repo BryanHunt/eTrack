@@ -81,6 +81,8 @@ public class TaskItemProvider
 			addStatePropertyDescriptor(object);
 			addSubscribersPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addDependsOnPropertyDescriptor(object);
+			addBlocksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -192,6 +194,52 @@ public class TaskItemProvider
 				 getString("_UI_Task_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_type_feature", "_UI_Task_type"),
 				 TaskPackage.Literals.TASK__TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Depends On feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDependsOnPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_dependsOn_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_dependsOn_feature", "_UI_Task_type"),
+				 TaskPackage.Literals.TASK__DEPENDS_ON,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Blocks feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBlocksPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_blocks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_blocks_feature", "_UI_Task_type"),
+				 TaskPackage.Literals.TASK__BLOCKS,
 				 true,
 				 false,
 				 true,

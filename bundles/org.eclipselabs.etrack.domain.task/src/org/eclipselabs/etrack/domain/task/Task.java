@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.etrack.domain.entity.Person;
@@ -46,6 +47,8 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getState <em>State</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getSubscribers <em>Subscribers</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getDependsOn <em>Depends On</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getBlocks <em>Blocks</em>}</li>
  * </ul>
  * </p>
  *
@@ -154,6 +157,26 @@ public class Task extends AssignableItem
 	 * @ordered
 	 */
 	protected TaskType type;
+
+	/**
+	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependsOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Task> dependsOn;
+
+	/**
+	 * The cached value of the '{@link #getBlocks() <em>Blocks</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBlocks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Task> blocks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -450,6 +473,75 @@ public class Task extends AssignableItem
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Depends On</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.Task}.
+	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.task.Task#getBlocks <em>Blocks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Depends On</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Depends On</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_DependsOn()
+	 * @see org.eclipselabs.etrack.domain.task.Task#getBlocks
+	 * @model opposite="blocks"
+	 * @generated
+	 */
+	public EList<Task> getDependsOn()
+	{
+		if (dependsOn == null)
+		{
+			dependsOn = new EObjectWithInverseResolvingEList.ManyInverse<Task>(Task.class, this, TaskPackage.TASK__DEPENDS_ON, TaskPackage.TASK__BLOCKS);
+		}
+		return dependsOn;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Blocks</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.Task}.
+	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.task.Task#getDependsOn <em>Depends On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Blocks</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Blocks</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Blocks()
+	 * @see org.eclipselabs.etrack.domain.task.Task#getDependsOn
+	 * @model opposite="dependsOn"
+	 * @generated
+	 */
+	public EList<Task> getBlocks()
+	{
+		if (blocks == null)
+		{
+			blocks = new EObjectWithInverseResolvingEList.ManyInverse<Task>(Task.class, this, TaskPackage.TASK__BLOCKS, TaskPackage.TASK__DEPENDS_ON);
+		}
+		return blocks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case TaskPackage.TASK__DEPENDS_ON:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependsOn()).basicAdd(otherEnd, msgs);
+			case TaskPackage.TASK__BLOCKS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBlocks()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -465,6 +557,10 @@ public class Task extends AssignableItem
 				return ((InternalEList<?>)getAttachments()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK__COMMENTS:
 				return ((InternalEList<?>)getComments()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK__DEPENDS_ON:
+				return ((InternalEList<?>)getDependsOn()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK__BLOCKS:
+				return ((InternalEList<?>)getBlocks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -498,6 +594,10 @@ public class Task extends AssignableItem
 			case TaskPackage.TASK__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
+			case TaskPackage.TASK__DEPENDS_ON:
+				return getDependsOn();
+			case TaskPackage.TASK__BLOCKS:
+				return getBlocks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -540,6 +640,14 @@ public class Task extends AssignableItem
 			case TaskPackage.TASK__TYPE:
 				setType((TaskType)newValue);
 				return;
+			case TaskPackage.TASK__DEPENDS_ON:
+				getDependsOn().clear();
+				getDependsOn().addAll((Collection<? extends Task>)newValue);
+				return;
+			case TaskPackage.TASK__BLOCKS:
+				getBlocks().clear();
+				getBlocks().addAll((Collection<? extends Task>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -578,6 +686,12 @@ public class Task extends AssignableItem
 			case TaskPackage.TASK__TYPE:
 				setType((TaskType)null);
 				return;
+			case TaskPackage.TASK__DEPENDS_ON:
+				getDependsOn().clear();
+				return;
+			case TaskPackage.TASK__BLOCKS:
+				getBlocks().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -608,6 +722,10 @@ public class Task extends AssignableItem
 				return subscribers != null && !subscribers.isEmpty();
 			case TaskPackage.TASK__TYPE:
 				return type != null;
+			case TaskPackage.TASK__DEPENDS_ON:
+				return dependsOn != null && !dependsOn.isEmpty();
+			case TaskPackage.TASK__BLOCKS:
+				return blocks != null && !blocks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

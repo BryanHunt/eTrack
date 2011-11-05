@@ -22,6 +22,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="subscribers" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TaskType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependsOn" upperBound="-1"
+        eType="#//Task" eOpposite="#//Task/blocks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
+        eType="#//Task" eOpposite="#//Task/dependsOn"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
