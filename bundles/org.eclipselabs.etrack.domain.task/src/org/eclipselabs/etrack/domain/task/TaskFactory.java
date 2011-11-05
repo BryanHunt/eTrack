@@ -11,12 +11,13 @@
  */
 package org.eclipselabs.etrack.domain.task;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -88,6 +89,9 @@ public class TaskFactory extends EFactoryImpl
 			case TaskPackage.TASK_DOMAIN: return createTaskDomain();
 			case TaskPackage.COMMENT: return createComment();
 			case TaskPackage.ATTACHMENT: return createAttachment();
+			case TaskPackage.TASK_TYPE: return createTaskType();
+			case TaskPackage.STATE_TRANSITION_MAP: return (EObject)createStateTransitionMap();
+			case TaskPackage.ATTACHMENT_DATA: return createAttachmentData();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -168,6 +172,39 @@ public class TaskFactory extends EFactoryImpl
 	{
 		Attachment attachment = new Attachment();
 		return attachment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskType createTaskType()
+	{
+		TaskType taskType = new TaskType();
+		return taskType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<State, EList<StateTransition>> createStateTransitionMap()
+	{
+		StateTransitionMap stateTransitionMap = new StateTransitionMap();
+		return stateTransitionMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttachmentData createAttachmentData()
+	{
+		AttachmentData attachmentData = new AttachmentData();
+		return attachmentData;
 	}
 
 	/**

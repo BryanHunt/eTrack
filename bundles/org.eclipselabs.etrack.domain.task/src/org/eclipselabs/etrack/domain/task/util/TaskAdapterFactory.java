@@ -11,14 +11,23 @@
  */
 package org.eclipselabs.etrack.domain.task.util;
 
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipselabs.etrack.domain.task.*;
+import org.eclipselabs.etrack.domain.task.AssignableItem;
+import org.eclipselabs.etrack.domain.task.Attachment;
+import org.eclipselabs.etrack.domain.task.Comment;
+import org.eclipselabs.etrack.domain.task.State;
+import org.eclipselabs.etrack.domain.task.StateTransition;
+import org.eclipselabs.etrack.domain.task.Task;
+import org.eclipselabs.etrack.domain.task.TaskDomain;
+import org.eclipselabs.etrack.domain.task.TaskPackage;
+import org.eclipselabs.etrack.domain.task.TaskType;
 
 /**
  * <!-- begin-user-doc -->
@@ -117,6 +126,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseAttachment(Attachment object)
 			{
 				return createAttachmentAdapter();
+			}
+			@Override
+			public Adapter caseTaskType(TaskType object)
+			{
+				return createTaskTypeAdapter();
+			}
+			@Override
+			public Adapter caseStateTransitionMap(Map.Entry<State, EList<StateTransition>> object)
+			{
+				return createStateTransitionMapAdapter();
+			}
+			@Override
+			public Adapter caseAttachmentData(AttachmentData object)
+			{
+				return createAttachmentDataAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -241,6 +265,51 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createAttachmentAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.TaskType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.TaskType
+	 * @generated
+	 */
+	public Adapter createTaskTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>State Transition Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createStateTransitionMapAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.AttachmentData
+	 * @generated
+	 */
+	public Adapter createAttachmentDataAdapter()
 	{
 		return null;
 	}

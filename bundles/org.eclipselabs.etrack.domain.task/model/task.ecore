@@ -15,31 +15,28 @@
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.links/model/links.ecore#//LinkMap"
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attachments" upperBound="-1"
-        eType="#//Attachment" containment="true"/>
+        eType="#//Attachment" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
         eType="#//Comment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subscribers" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TaskType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="1"
-        upperBound="-1" eType="#//StateTransition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateTransition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetState" lowerBound="1"
-        eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskDomain">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
-        upperBound="-1" eType="#//State" containment="true"/>
+        upperBound="-1" eType="#//State" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="1"
-        upperBound="-1" eType="#//StateTransition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"
-        containment="true"/>
+        upperBound="-1" eType="#//StateTransition" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" upperBound="-1"
+        eType="#//TaskType" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="#//AssignableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -47,6 +44,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="Attachment" eSuperTypes="#//AssignableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataContainer" eType="#//AttachmentData"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//StateTransitionMap" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extension" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateTransitionMap" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+        eType="#//StateTransition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttachmentData">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByteArray"/>
   </eClassifiers>
 </ecore:EPackage>

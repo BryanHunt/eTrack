@@ -9,59 +9,60 @@
  * Contributors:
  *    Bryan Hunt - initial API and implementation
  */
-
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>State</b></em>'.
+ * A representation of the model object '<em><b>Attachment Data</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.etrack.domain.task.State#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.AttachmentData#getData <em>Data</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.etrack.domain.task.TaskPackage#getState()
+ * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachmentData()
  * @model kind="class"
  * @generated
  */
-public class State extends EObjectImpl implements EObject
+public class AttachmentData extends EObjectImpl implements EObject
 {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #getData() <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getData()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final byte[] DATA_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #getData() <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #getData()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected byte[] data = DATA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected State()
+	protected AttachmentData()
 	{
 		super();
 	}
@@ -74,42 +75,42 @@ public class State extends EObjectImpl implements EObject
 	@Override
 	protected EClass eStaticClass()
 	{
-		return TaskPackage.Literals.STATE;
+		return TaskPackage.Literals.ATTACHMENT_DATA;
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Data</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Data</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getState_Name()
-	 * @model required="true"
+	 * @return the value of the '<em>Data</em>' attribute.
+	 * @see #setData(byte[])
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachmentData_Data()
+	 * @model
 	 * @generated
 	 */
-	public String getName()
+	public byte[] getData()
 	{
-		return name;
+		return data;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.State#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.AttachmentData#getData <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Data</em>' attribute.
+	 * @see #getData()
 	 * @generated
 	 */
-	public void setName(String newName)
+	public void setData(byte[] newData)
 	{
-		String oldName = name;
-		name = newName;
+		byte[] oldData = data;
+		data = newData;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.STATE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT_DATA__DATA, oldData, data));
 	}
 
 	/**
@@ -122,8 +123,8 @@ public class State extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case TaskPackage.STATE__NAME:
-				return getName();
+			case TaskPackage.ATTACHMENT_DATA__DATA:
+				return getData();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,8 +139,8 @@ public class State extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case TaskPackage.STATE__NAME:
-				setName((String)newValue);
+			case TaskPackage.ATTACHMENT_DATA__DATA:
+				setData((byte[])newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -155,8 +156,8 @@ public class State extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case TaskPackage.STATE__NAME:
-				setName(NAME_EDEFAULT);
+			case TaskPackage.ATTACHMENT_DATA__DATA:
+				setData(DATA_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -172,8 +173,8 @@ public class State extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case TaskPackage.STATE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case TaskPackage.ATTACHMENT_DATA__DATA:
+				return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals(data);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -189,10 +190,10 @@ public class State extends EObjectImpl implements EObject
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (data: ");
+		result.append(data);
 		result.append(')');
 		return result.toString();
 	}
 
-} // State
+} // AttachmentData

@@ -74,7 +74,6 @@ public class StateItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addTransitionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,29 +97,6 @@ public class StateItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Transitions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTransitionsPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_State_transitions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_transitions_feature", "_UI_State_type"),
-				 TaskPackage.Literals.STATE__TRANSITIONS,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

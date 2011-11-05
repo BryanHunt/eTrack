@@ -15,23 +15,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipselabs.etrack.domain.entity.Person;
-
 import org.eclipselabs.etrack.domain.links.LinkMap;
 import org.eclipselabs.etrack.domain.links.LinkedContent;
 import org.eclipselabs.etrack.domain.links.LinksPackage;
@@ -51,6 +45,7 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getComments <em>Comments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getState <em>State</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getSubscribers <em>Subscribers</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -149,6 +144,16 @@ public class Task extends AssignableItem
 	 * @ordered
 	 */
 	protected EList<Person> subscribers;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskType type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -276,14 +281,14 @@ public class Task extends AssignableItem
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attachments</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Attachments()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	public EList<Attachment> getAttachments()
 	{
 		if (attachments == null)
 		{
-			attachments = new EObjectContainmentEList.Resolving<Attachment>(Attachment.class, this, TaskPackage.TASK__ATTACHMENTS);
+			attachments = new EObjectContainmentEList<Attachment>(Attachment.class, this, TaskPackage.TASK__ATTACHMENTS);
 		}
 		return attachments;
 	}
@@ -390,6 +395,61 @@ public class Task extends AssignableItem
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(TaskType)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Type()
+	 * @model required="true"
+	 * @generated
+	 */
+	public TaskType getType()
+	{
+		if (type != null && type.eIsProxy())
+		{
+			InternalEObject oldType = (InternalEObject)type;
+			type = (TaskType)eResolveProxy(oldType);
+			if (type != oldType)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskType basicGetType()
+	{
+		return type;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	public void setType(TaskType newType)
+	{
+		TaskType oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__TYPE, oldType, type));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -435,6 +495,9 @@ public class Task extends AssignableItem
 				return basicGetState();
 			case TaskPackage.TASK__SUBSCRIBERS:
 				return getSubscribers();
+			case TaskPackage.TASK__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -474,6 +537,9 @@ public class Task extends AssignableItem
 				getSubscribers().clear();
 				getSubscribers().addAll((Collection<? extends Person>)newValue);
 				return;
+			case TaskPackage.TASK__TYPE:
+				setType((TaskType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -509,6 +575,9 @@ public class Task extends AssignableItem
 			case TaskPackage.TASK__SUBSCRIBERS:
 				getSubscribers().clear();
 				return;
+			case TaskPackage.TASK__TYPE:
+				setType((TaskType)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -537,6 +606,8 @@ public class Task extends AssignableItem
 				return state != null;
 			case TaskPackage.TASK__SUBSCRIBERS:
 				return subscribers != null && !subscribers.isEmpty();
+			case TaskPackage.TASK__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}

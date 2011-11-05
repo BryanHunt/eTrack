@@ -12,9 +12,8 @@
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -26,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getDescription <em>Description</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getData <em>Data</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getDataContainer <em>Data Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,24 +56,14 @@ public class Attachment extends AssignableItem
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getData() <em>Data</em>}' attribute.
+	 * The cached value of the '{@link #getDataContainer() <em>Data Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getData()
+	 * @see #getDataContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final byte[] DATA_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getData() <em>Data</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getData()
-	 * @generated
-	 * @ordered
-	 */
-	protected byte[] data = DATA_EDEFAULT;
+	protected AttachmentData dataContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,38 +122,58 @@ public class Attachment extends AssignableItem
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Data</b></em>' attribute.
+	 * Returns the value of the '<em><b>Data Container</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Data</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Data Container</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data</em>' attribute.
-	 * @see #setData(byte[])
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_Data()
+	 * @return the value of the '<em>Data Container</em>' reference.
+	 * @see #setDataContainer(AttachmentData)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_DataContainer()
 	 * @model
 	 * @generated
 	 */
-	public byte[] getData()
+	public AttachmentData getDataContainer()
 	{
-		return data;
+		if (dataContainer != null && dataContainer.eIsProxy())
+		{
+			InternalEObject oldDataContainer = (InternalEObject)dataContainer;
+			dataContainer = (AttachmentData)eResolveProxy(oldDataContainer);
+			if (dataContainer != oldDataContainer)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, dataContainer));
+			}
+		}
+		return dataContainer;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getData <em>Data</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data</em>' attribute.
-	 * @see #getData()
 	 * @generated
 	 */
-	public void setData(byte[] newData)
+	public AttachmentData basicGetDataContainer()
 	{
-		byte[] oldData = data;
-		data = newData;
+		return dataContainer;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getDataContainer <em>Data Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data Container</em>' reference.
+	 * @see #getDataContainer()
+	 * @generated
+	 */
+	public void setDataContainer(AttachmentData newDataContainer)
+	{
+		AttachmentData oldDataContainer = dataContainer;
+		dataContainer = newDataContainer;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__DATA, oldData, data));
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, dataContainer));
 	}
 
 	/**
@@ -179,8 +188,9 @@ public class Attachment extends AssignableItem
 		{
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return getDescription();
-			case TaskPackage.ATTACHMENT__DATA:
-				return getData();
+			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
+				if (resolve) return getDataContainer();
+				return basicGetDataContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,8 +208,8 @@ public class Attachment extends AssignableItem
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case TaskPackage.ATTACHMENT__DATA:
-				setData((byte[])newValue);
+			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
+				setDataContainer((AttachmentData)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -218,8 +228,8 @@ public class Attachment extends AssignableItem
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case TaskPackage.ATTACHMENT__DATA:
-				setData(DATA_EDEFAULT);
+			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
+				setDataContainer((AttachmentData)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -237,8 +247,8 @@ public class Attachment extends AssignableItem
 		{
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case TaskPackage.ATTACHMENT__DATA:
-				return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals(data);
+			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
+				return dataContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -256,8 +266,6 @@ public class Attachment extends AssignableItem
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (description: ");
 		result.append(description);
-		result.append(", data: ");
-		result.append(data);
 		result.append(')');
 		return result.toString();
 	}

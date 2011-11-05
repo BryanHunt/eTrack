@@ -71,7 +71,7 @@ public class AttachmentItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
-			addDataPropertyDescriptor(object);
+			addDataContainerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,24 +100,24 @@ public class AttachmentItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Data feature.
+	 * This adds a property descriptor for the Data Container feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDataPropertyDescriptor(Object object)
+	protected void addDataContainerPropertyDescriptor(Object object)
 	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attachment_data_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attachment_data_feature", "_UI_Attachment_type"),
-				 TaskPackage.Literals.ATTACHMENT__DATA,
+				 getString("_UI_Attachment_dataContainer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attachment_dataContainer_feature", "_UI_Attachment_type"),
+				 TaskPackage.Literals.ATTACHMENT__DATA_CONTAINER,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -164,7 +164,6 @@ public class AttachmentItemProvider
 		switch (notification.getFeatureID(Attachment.class))
 		{
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
-			case TaskPackage.ATTACHMENT__DATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

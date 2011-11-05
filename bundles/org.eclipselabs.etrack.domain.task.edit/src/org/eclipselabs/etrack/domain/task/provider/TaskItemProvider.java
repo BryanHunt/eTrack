@@ -80,6 +80,7 @@ public class TaskItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addStatePropertyDescriptor(object);
 			addSubscribersPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -168,6 +169,29 @@ public class TaskItemProvider
 				 getString("_UI_Task_subscribers_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_subscribers_feature", "_UI_Task_type"),
 				 TaskPackage.Literals.TASK__SUBSCRIBERS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_type_feature", "_UI_Task_type"),
+				 TaskPackage.Literals.TASK__TYPE,
 				 true,
 				 false,
 				 true,

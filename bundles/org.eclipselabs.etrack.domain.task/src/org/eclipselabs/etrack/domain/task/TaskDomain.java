@@ -15,17 +15,12 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -91,14 +86,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	protected EList<StateTransition> transitions;
 
 	/**
-	 * The cached value of the '{@link #getTaskTypes() <em>Task Types</em>}' containment reference.
+	 * The cached value of the '{@link #getTaskTypes() <em>Task Types</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTaskTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EPackage taskTypes;
+	protected EList<TaskType> taskTypes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,14 +162,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_States()
-	 * @model containment="true" resolveProxies="true" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	public EList<State> getStates()
 	{
 		if (states == null)
 		{
-			states = new EObjectContainmentEList.Resolving<State>(State.class, this, TaskPackage.TASK_DOMAIN__STATES);
+			states = new EObjectContainmentEList<State>(State.class, this, TaskPackage.TASK_DOMAIN__STATES);
 		}
 		return states;
 	}
@@ -190,103 +185,39 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transitions</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_Transitions()
-	 * @model containment="true" resolveProxies="true" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	public EList<StateTransition> getTransitions()
 	{
 		if (transitions == null)
 		{
-			transitions = new EObjectContainmentEList.Resolving<StateTransition>(StateTransition.class, this, TaskPackage.TASK_DOMAIN__TRANSITIONS);
+			transitions = new EObjectContainmentEList<StateTransition>(StateTransition.class, this, TaskPackage.TASK_DOMAIN__TRANSITIONS);
 		}
 		return transitions;
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Task Types</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Task Types</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.TaskType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Task Types</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task Types</em>' containment reference.
-	 * @see #setTaskTypes(EPackage)
+	 * @return the value of the '<em>Task Types</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_TaskTypes()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	public EPackage getTaskTypes()
+	public EList<TaskType> getTaskTypes()
 	{
-		if (taskTypes != null && taskTypes.eIsProxy())
+		if (taskTypes == null)
 		{
-			InternalEObject oldTaskTypes = (InternalEObject)taskTypes;
-			taskTypes = (EPackage)eResolveProxy(oldTaskTypes);
-			if (taskTypes != oldTaskTypes)
-			{
-				InternalEObject newTaskTypes = (InternalEObject)taskTypes;
-				NotificationChain msgs = oldTaskTypes.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_DOMAIN__TASK_TYPES, null, null);
-				if (newTaskTypes.eInternalContainer() == null)
-				{
-					msgs = newTaskTypes.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_DOMAIN__TASK_TYPES, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_DOMAIN__TASK_TYPES, oldTaskTypes, taskTypes));
-			}
+			taskTypes = new EObjectContainmentEList<TaskType>(TaskType.class, this, TaskPackage.TASK_DOMAIN__TASK_TYPES);
 		}
 		return taskTypes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EPackage basicGetTaskTypes()
-	{
-		return taskTypes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTaskTypes(EPackage newTaskTypes, NotificationChain msgs)
-	{
-		EPackage oldTaskTypes = taskTypes;
-		taskTypes = newTaskTypes;
-		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_DOMAIN__TASK_TYPES, oldTaskTypes, newTaskTypes);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTaskTypes <em>Task Types</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task Types</em>' containment reference.
-	 * @see #getTaskTypes()
-	 * @generated
-	 */
-	public void setTaskTypes(EPackage newTaskTypes)
-	{
-		if (newTaskTypes != taskTypes)
-		{
-			NotificationChain msgs = null;
-			if (taskTypes != null)
-				msgs = ((InternalEObject)taskTypes).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_DOMAIN__TASK_TYPES, null, msgs);
-			if (newTaskTypes != null)
-				msgs = ((InternalEObject)newTaskTypes).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_DOMAIN__TASK_TYPES, null, msgs);
-			msgs = basicSetTaskTypes(newTaskTypes, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_DOMAIN__TASK_TYPES, newTaskTypes, newTaskTypes));
 	}
 
 	/**
@@ -304,7 +235,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
 				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				return basicSetTaskTypes(null, msgs);
+				return ((InternalEList<?>)getTaskTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -326,8 +257,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
 				return getTransitions();
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				if (resolve) return getTaskTypes();
-				return basicGetTaskTypes();
+				return getTaskTypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,7 +285,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				getTransitions().addAll((Collection<? extends StateTransition>)newValue);
 				return;
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				setTaskTypes((EPackage)newValue);
+				getTaskTypes().clear();
+				getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -381,7 +312,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 				getTransitions().clear();
 				return;
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				setTaskTypes((EPackage)null);
+				getTaskTypes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -404,7 +335,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
 				return transitions != null && !transitions.isEmpty();
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				return taskTypes != null;
+				return taskTypes != null && !taskTypes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

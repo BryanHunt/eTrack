@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="Running Platform" sequenceNumber="7">
+<target name="Running Platform" sequenceNumber="11">
 <locations>
 <location path="${eclipse_home}" type="Profile"/>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -10,12 +10,23 @@
 <repository location="http://download.eclipse.org/releases/indigo/"/>
 </location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.3.2.201107011703"/>
-<unit id="org.eclipselabs.mongo.emf.junit.feature.feature.group" version="0.3.2.201107011703"/>
-<unit id="org.eclipselabs.mongo.emf.log.feature.feature.group" version="0.3.2.201107011703"/>
-<unit id="org.eclipselabs.emf.query.feature.feature.group" version="0.3.2.201107011703"/>
-<unit id="com.mongodb.feature.feature.group" version="2.5.2.201107011703"/>
-<repository location="http://bryanhunt.github.com/mongo-emf/releases/0.3.2/"/>
+<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.4.0.201110051133"/>
+<unit id="org.eclipselabs.mongo.emf.log.feature.feature.group" version="0.4.0.201110051133"/>
+<unit id="org.eclipselabs.emf.query.feature.feature.group" version="0.4.0.201110051133"/>
+<unit id="org.eclipselabs.mongo.junit.feature.feature.group" version="0.4.0.201110051133"/>
+<repository location="http://bryanhunt.github.com/mongo-emf/releases/0.4.0/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.mongodb.feature.feature.group" version="2.6.5.201110012142"/>
+<repository location="http://bryanhunt.github.com/mongo-emf/mongodb/2.6.5/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.hamcrest.feature.feature.group" version="1.3.0.201107152246"/>
+<repository location="http://quickiemart.springfieldusa.net/Targets/Hamcrest"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.junit.feature.feature.group" version="4.9.0.201107152255"/>
+<repository location="http://quickiemart.springfieldusa.net/Targets/JUnit"/>
 </location>
 </locations>
 <environment>

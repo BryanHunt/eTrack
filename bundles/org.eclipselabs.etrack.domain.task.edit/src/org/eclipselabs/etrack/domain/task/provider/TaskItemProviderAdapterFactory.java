@@ -258,6 +258,81 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.task.TaskType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskTypeItemProvider taskTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.task.TaskType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskTypeAdapter()
+	{
+		if (taskTypeItemProvider == null)
+		{
+			taskTypeItemProvider = new TaskTypeItemProvider(this);
+		}
+
+		return taskTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StateTransitionMapItemProvider stateTransitionMapItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStateTransitionMapAdapter()
+	{
+		if (stateTransitionMapItemProvider == null)
+		{
+			stateTransitionMapItemProvider = new StateTransitionMapItemProvider(this);
+		}
+
+		return stateTransitionMapItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.task.AttachmentData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AttachmentDataItemProvider attachmentDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.task.AttachmentData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAttachmentDataAdapter()
+	{
+		if (attachmentDataItemProvider == null)
+		{
+			attachmentDataItemProvider = new AttachmentDataItemProvider(this);
+		}
+
+		return attachmentDataItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -375,6 +450,9 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
 		if (commentItemProvider != null) commentItemProvider.dispose();
 		if (attachmentItemProvider != null) attachmentItemProvider.dispose();
+		if (taskTypeItemProvider != null) taskTypeItemProvider.dispose();
+		if (stateTransitionMapItemProvider != null) stateTransitionMapItemProvider.dispose();
+		if (attachmentDataItemProvider != null) attachmentDataItemProvider.dispose();
 	}
 
 }

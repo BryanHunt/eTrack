@@ -11,12 +11,22 @@
  */
 package org.eclipselabs.etrack.domain.task.util;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipselabs.etrack.domain.task.*;
+import org.eclipselabs.etrack.domain.task.AssignableItem;
+import org.eclipselabs.etrack.domain.task.Attachment;
+import org.eclipselabs.etrack.domain.task.Comment;
+import org.eclipselabs.etrack.domain.task.State;
+import org.eclipselabs.etrack.domain.task.StateTransition;
+import org.eclipselabs.etrack.domain.task.Task;
+import org.eclipselabs.etrack.domain.task.TaskDomain;
+import org.eclipselabs.etrack.domain.task.TaskPackage;
+import org.eclipselabs.etrack.domain.task.TaskType;
 
 /**
  * <!-- begin-user-doc -->
@@ -133,6 +143,27 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TaskPackage.TASK_TYPE:
+			{
+				TaskType taskType = (TaskType)theEObject;
+				T result = caseTaskType(taskType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskPackage.STATE_TRANSITION_MAP:
+			{
+				@SuppressWarnings("unchecked") Map.Entry<State, EList<StateTransition>> stateTransitionMap = (Map.Entry<State, EList<StateTransition>>)theEObject;
+				T result = caseStateTransitionMap(stateTransitionMap);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskPackage.ATTACHMENT_DATA:
+			{
+				AttachmentData attachmentData = (AttachmentData)theEObject;
+				T result = caseAttachmentData(attachmentData);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -245,6 +276,54 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseAttachment(Attachment object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaskType(TaskType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>State Transition Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>State Transition Map</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStateTransitionMap(Map.Entry<State, EList<StateTransition>> object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Attachment Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Attachment Data</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAttachmentData(AttachmentData object)
 	{
 		return null;
 	}
