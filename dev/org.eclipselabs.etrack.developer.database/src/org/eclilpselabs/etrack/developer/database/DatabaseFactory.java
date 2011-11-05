@@ -82,6 +82,10 @@ public class DatabaseFactory extends EFactoryImpl
 		switch (eClass.getClassifierID())
 		{
 			case DatabasePackage.DATABASE: return createDatabase();
+			case DatabasePackage.TASKS: return createTasks();
+			case DatabasePackage.ENTITIES: return createEntities();
+			case DatabasePackage.ACCOUNTS: return createAccounts();
+			case DatabasePackage.ACCOUNT_REQUESTS: return createAccountRequests();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -96,6 +100,50 @@ public class DatabaseFactory extends EFactoryImpl
 	{
 		Database database = new Database();
 		return database;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Tasks createTasks()
+	{
+		Tasks tasks = new Tasks();
+		return tasks;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Entities createEntities()
+	{
+		Entities entities = new Entities();
+		return entities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Accounts createAccounts()
+	{
+		Accounts accounts = new Accounts();
+		return accounts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AccountRequests createAccountRequests()
+	{
+		AccountRequests accountRequests = new AccountRequests();
+		return accountRequests;
 	}
 
 	/**

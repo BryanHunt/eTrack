@@ -89,6 +89,26 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl
 				return createDatabaseAdapter();
 			}
 			@Override
+			public Adapter caseTasks(Tasks object)
+			{
+				return createTasksAdapter();
+			}
+			@Override
+			public Adapter caseEntities(Entities object)
+			{
+				return createEntitiesAdapter();
+			}
+			@Override
+			public Adapter caseAccounts(Accounts object)
+			{
+				return createAccountsAdapter();
+			}
+			@Override
+			public Adapter caseAccountRequests(AccountRequests object)
+			{
+				return createAccountRequestsAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object)
 			{
 				return createEObjectAdapter();
@@ -121,6 +141,66 @@ public class DatabaseAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createDatabaseAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.developer.database.Tasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.developer.database.Tasks
+	 * @generated
+	 */
+	public Adapter createTasksAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.developer.database.Entities <em>Entities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.developer.database.Entities
+	 * @generated
+	 */
+	public Adapter createEntitiesAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.developer.database.Accounts <em>Accounts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.developer.database.Accounts
+	 * @generated
+	 */
+	public Adapter createAccountsAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.developer.database.AccountRequests <em>Account Requests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.developer.database.AccountRequests
+	 * @generated
+	 */
+	public Adapter createAccountRequestsAdapter()
 	{
 		return null;
 	}

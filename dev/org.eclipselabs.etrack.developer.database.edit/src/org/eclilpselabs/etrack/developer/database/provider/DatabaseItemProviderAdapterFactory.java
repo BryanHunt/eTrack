@@ -108,6 +108,106 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclilpselabs.etrack.developer.database.Tasks} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TasksItemProvider tasksItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclilpselabs.etrack.developer.database.Tasks}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTasksAdapter()
+	{
+		if (tasksItemProvider == null)
+		{
+			tasksItemProvider = new TasksItemProvider(this);
+		}
+
+		return tasksItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclilpselabs.etrack.developer.database.Entities} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitiesItemProvider entitiesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclilpselabs.etrack.developer.database.Entities}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitiesAdapter()
+	{
+		if (entitiesItemProvider == null)
+		{
+			entitiesItemProvider = new EntitiesItemProvider(this);
+		}
+
+		return entitiesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclilpselabs.etrack.developer.database.Accounts} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AccountsItemProvider accountsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclilpselabs.etrack.developer.database.Accounts}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAccountsAdapter()
+	{
+		if (accountsItemProvider == null)
+		{
+			accountsItemProvider = new AccountsItemProvider(this);
+		}
+
+		return accountsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclilpselabs.etrack.developer.database.AccountRequests} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AccountRequestsItemProvider accountRequestsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclilpselabs.etrack.developer.database.AccountRequests}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAccountRequestsAdapter()
+	{
+		if (accountRequestsItemProvider == null)
+		{
+			accountRequestsItemProvider = new AccountRequestsItemProvider(this);
+		}
+
+		return accountRequestsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,6 +319,10 @@ public class DatabaseItemProviderAdapterFactory extends DatabaseAdapterFactory i
 	public void dispose()
 	{
 		if (databaseItemProvider != null) databaseItemProvider.dispose();
+		if (tasksItemProvider != null) tasksItemProvider.dispose();
+		if (entitiesItemProvider != null) entitiesItemProvider.dispose();
+		if (accountsItemProvider != null) accountsItemProvider.dispose();
+		if (accountRequestsItemProvider != null) accountRequestsItemProvider.dispose();
 	}
 
 }

@@ -8,17 +8,33 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskDomain" lowerBound="1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.task/model/task.ecore#//TaskDomain"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" eType="#//Tasks"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" eType="#//Entities"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accountRequests" eType="#//AccountRequests"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accounts" eType="#//Accounts"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tasks">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.task/model/task.ecore#//Task"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entities">
     <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Entity"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="accountRequests" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.account/model/account.ecore#//AccountRequest"
-        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Accounts">
     <eStructuralFeatures xsi:type="ecore:EReference" name="accounts" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.account/model/account.ecore#//Account"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AccountRequests">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="accountRequests" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.account/model/account.ecore#//AccountRequest"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

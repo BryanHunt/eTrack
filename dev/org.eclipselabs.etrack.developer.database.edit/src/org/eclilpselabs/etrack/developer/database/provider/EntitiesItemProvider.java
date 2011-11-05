@@ -15,9 +15,8 @@ package org.eclilpselabs.etrack.developer.database.provider;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclilpselabs.etrack.developer.database.Database;
-import org.eclilpselabs.etrack.developer.database.DatabaseFactory;
 import org.eclilpselabs.etrack.developer.database.DatabasePackage;
+import org.eclilpselabs.etrack.developer.database.Entities;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -26,30 +25,24 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipselabs.etrack.domain.account.AccountFactory;
-
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
 
-import org.eclipselabs.etrack.domain.task.TaskFactory;
-
 /**
- * This is the item provider adapter for a {@link org.eclilpselabs.etrack.developer.database.Database} object.
+ * This is the item provider adapter for a {@link org.eclilpselabs.etrack.developer.database.Entities} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DatabaseItemProvider
+public class EntitiesItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -64,7 +57,7 @@ public class DatabaseItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DatabaseItemProvider(AdapterFactory adapterFactory)
+	public EntitiesItemProvider(AdapterFactory adapterFactory)
 	{
 		super(adapterFactory);
 	}
@@ -82,32 +75,8 @@ public class DatabaseItemProvider
 		{
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Database_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Database_name_feature", "_UI_Database_type"),
-				 DatabasePackage.Literals.DATABASE__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -124,11 +93,7 @@ public class DatabaseItemProvider
 		if (childrenFeatures == null)
 		{
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DatabasePackage.Literals.DATABASE__TASK_DOMAIN);
-			childrenFeatures.add(DatabasePackage.Literals.DATABASE__TASKS);
-			childrenFeatures.add(DatabasePackage.Literals.DATABASE__ENTITIES);
-			childrenFeatures.add(DatabasePackage.Literals.DATABASE__ACCOUNT_REQUESTS);
-			childrenFeatures.add(DatabasePackage.Literals.DATABASE__ACCOUNTS);
+			childrenFeatures.add(DatabasePackage.Literals.ENTITIES__ENTITIES);
 		}
 		return childrenFeatures;
 	}
@@ -148,7 +113,7 @@ public class DatabaseItemProvider
 	}
 
 	/**
-	 * This returns Database.gif.
+	 * This returns Entities.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -156,7 +121,7 @@ public class DatabaseItemProvider
 	@Override
 	public Object getImage(Object object)
 	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Database"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Entities"));
 	}
 
 	/**
@@ -168,10 +133,7 @@ public class DatabaseItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		String label = ((Database)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Database_type") :
-			getString("_UI_Database_type") + " " + label;
+		return getString("_UI_Entities_type");
 	}
 
 	/**
@@ -186,16 +148,9 @@ public class DatabaseItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Database.class))
+		switch (notification.getFeatureID(Entities.class))
 		{
-			case DatabasePackage.DATABASE__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case DatabasePackage.DATABASE__TASK_DOMAIN:
-			case DatabasePackage.DATABASE__TASKS:
-			case DatabasePackage.DATABASE__ENTITIES:
-			case DatabasePackage.DATABASE__ACCOUNT_REQUESTS:
-			case DatabasePackage.DATABASE__ACCOUNTS:
+			case DatabasePackage.ENTITIES__ENTITIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -216,28 +171,13 @@ public class DatabaseItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatabasePackage.Literals.DATABASE__TASK_DOMAIN,
-				 TaskFactory.eINSTANCE.createTaskDomain()));
+				(DatabasePackage.Literals.ENTITIES__ENTITIES,
+				 EntityFactory.eINSTANCE.createGroup()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DatabasePackage.Literals.DATABASE__TASKS,
-				 DatabaseFactory.eINSTANCE.createTasks()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatabasePackage.Literals.DATABASE__ENTITIES,
-				 DatabaseFactory.eINSTANCE.createEntities()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatabasePackage.Literals.DATABASE__ACCOUNT_REQUESTS,
-				 DatabaseFactory.eINSTANCE.createAccountRequests()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatabasePackage.Literals.DATABASE__ACCOUNTS,
-				 DatabaseFactory.eINSTANCE.createAccounts()));
+				(DatabasePackage.Literals.ENTITIES__ENTITIES,
+				 EntityFactory.eINSTANCE.createPerson()));
 	}
 
 	/**

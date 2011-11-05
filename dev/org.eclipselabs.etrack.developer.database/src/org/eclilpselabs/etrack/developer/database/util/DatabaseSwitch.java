@@ -88,6 +88,34 @@ public class DatabaseSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DatabasePackage.TASKS:
+			{
+				Tasks tasks = (Tasks)theEObject;
+				T result = caseTasks(tasks);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatabasePackage.ENTITIES:
+			{
+				Entities entities = (Entities)theEObject;
+				T result = caseEntities(entities);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatabasePackage.ACCOUNTS:
+			{
+				Accounts accounts = (Accounts)theEObject;
+				T result = caseAccounts(accounts);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DatabasePackage.ACCOUNT_REQUESTS:
+			{
+				AccountRequests accountRequests = (AccountRequests)theEObject;
+				T result = caseAccountRequests(accountRequests);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -104,6 +132,70 @@ public class DatabaseSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseDatabase(Database object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tasks</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tasks</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTasks(Tasks object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entities</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entities</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntities(Entities object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Accounts</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Accounts</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAccounts(Accounts object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Account Requests</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Account Requests</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAccountRequests(AccountRequests object)
 	{
 		return null;
 	}

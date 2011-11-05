@@ -102,7 +102,7 @@ public class DatabasePackage extends EPackageImpl
 	public static final int DATABASE__TASK_DOMAIN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -111,7 +111,7 @@ public class DatabasePackage extends EPackageImpl
 	public static final int DATABASE__TASKS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Entities</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Entities</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -120,7 +120,7 @@ public class DatabasePackage extends EPackageImpl
 	public static final int DATABASE__ENTITIES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Account Requests</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Account Requests</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -129,7 +129,7 @@ public class DatabasePackage extends EPackageImpl
 	public static final int DATABASE__ACCOUNT_REQUESTS = 4;
 
 	/**
-	 * The feature id for the '<em><b>Accounts</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Accounts</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -147,11 +147,151 @@ public class DatabasePackage extends EPackageImpl
 	public static final int DATABASE_FEATURE_COUNT = 6;
 
 	/**
+	 * The meta object id for the '{@link org.eclilpselabs.etrack.developer.database.Tasks <em>Tasks</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclilpselabs.etrack.developer.database.Tasks
+	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getTasks()
+	 * @generated
+	 */
+	public static final int TASKS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASKS__TASKS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Tasks</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASKS_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclilpselabs.etrack.developer.database.Entities <em>Entities</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclilpselabs.etrack.developer.database.Entities
+	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getEntities()
+	 * @generated
+	 */
+	public static final int ENTITIES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Entities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTITIES__ENTITIES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Entities</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENTITIES_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclilpselabs.etrack.developer.database.Accounts <em>Accounts</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclilpselabs.etrack.developer.database.Accounts
+	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getAccounts()
+	 * @generated
+	 */
+	public static final int ACCOUNTS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Accounts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ACCOUNTS__ACCOUNTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Accounts</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ACCOUNTS_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclilpselabs.etrack.developer.database.AccountRequests <em>Account Requests</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclilpselabs.etrack.developer.database.AccountRequests
+	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getAccountRequests()
+	 * @generated
+	 */
+	public static final int ACCOUNT_REQUESTS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Account Requests</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ACCOUNT_REQUESTS__ACCOUNT_REQUESTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Account Requests</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ACCOUNT_REQUESTS_FEATURE_COUNT = 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass databaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tasksEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitiesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass accountsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass accountRequestsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -263,10 +403,10 @@ public class DatabasePackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.Database#getTasks <em>Tasks</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclilpselabs.etrack.developer.database.Database#getTasks <em>Tasks</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
+	 * @return the meta object for the containment reference '<em>Tasks</em>'.
 	 * @see org.eclilpselabs.etrack.developer.database.Database#getTasks()
 	 * @see #getDatabase()
 	 * @generated
@@ -277,10 +417,10 @@ public class DatabasePackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.Database#getEntities <em>Entities</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclilpselabs.etrack.developer.database.Database#getEntities <em>Entities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Entities</em>'.
+	 * @return the meta object for the containment reference '<em>Entities</em>'.
 	 * @see org.eclilpselabs.etrack.developer.database.Database#getEntities()
 	 * @see #getDatabase()
 	 * @generated
@@ -291,10 +431,10 @@ public class DatabasePackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.Database#getAccountRequests <em>Account Requests</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclilpselabs.etrack.developer.database.Database#getAccountRequests <em>Account Requests</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Account Requests</em>'.
+	 * @return the meta object for the containment reference '<em>Account Requests</em>'.
 	 * @see org.eclilpselabs.etrack.developer.database.Database#getAccountRequests()
 	 * @see #getDatabase()
 	 * @generated
@@ -305,10 +445,10 @@ public class DatabasePackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.Database#getAccounts <em>Accounts</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.eclilpselabs.etrack.developer.database.Database#getAccounts <em>Accounts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Accounts</em>'.
+	 * @return the meta object for the containment reference '<em>Accounts</em>'.
 	 * @see org.eclilpselabs.etrack.developer.database.Database#getAccounts()
 	 * @see #getDatabase()
 	 * @generated
@@ -317,6 +457,122 @@ public class DatabasePackage extends EPackageImpl
 	{
 		return (EReference)databaseEClass.getEStructuralFeatures().get(5);
 	}
+
+	/**
+	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.developer.database.Tasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tasks</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.Tasks
+	 * @generated
+	 */
+	public EClass getTasks()
+	{
+		return tasksEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.Tasks#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tasks</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.Tasks#getTasks()
+	 * @see #getTasks()
+	 * @generated
+	 */
+	public EReference getTasks_Tasks()
+	{
+		return (EReference)tasksEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.developer.database.Entities <em>Entities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Entities</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.Entities
+	 * @generated
+	 */
+	public EClass getEntities()
+	{
+		return entitiesEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.Entities#getEntities <em>Entities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Entities</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.Entities#getEntities()
+	 * @see #getEntities()
+	 * @generated
+	 */
+	public EReference getEntities_Entities()
+	{
+		return (EReference)entitiesEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.developer.database.Accounts <em>Accounts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Accounts</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.Accounts
+	 * @generated
+	 */
+	public EClass getAccounts()
+	{
+		return accountsEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.Accounts#getAccounts <em>Accounts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Accounts</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.Accounts#getAccounts()
+	 * @see #getAccounts()
+	 * @generated
+	 */
+	public EReference getAccounts_Accounts()
+	{
+		return (EReference)accountsEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.developer.database.AccountRequests <em>Account Requests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Account Requests</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.AccountRequests
+	 * @generated
+	 */
+	public EClass getAccountRequests()
+	{
+		return accountRequestsEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.developer.database.AccountRequests#getAccountRequests <em>Account Requests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Account Requests</em>'.
+	 * @see org.eclilpselabs.etrack.developer.database.AccountRequests#getAccountRequests()
+	 * @see #getAccountRequests()
+	 * @generated
+	 */
+	public EReference getAccountRequests_AccountRequests()
+	{
+		return (EReference)accountRequestsEClass.getEStructuralFeatures().get(0);
+	}
+
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -357,6 +613,18 @@ public class DatabasePackage extends EPackageImpl
 		createEReference(databaseEClass, DATABASE__ENTITIES);
 		createEReference(databaseEClass, DATABASE__ACCOUNT_REQUESTS);
 		createEReference(databaseEClass, DATABASE__ACCOUNTS);
+
+		tasksEClass = createEClass(TASKS);
+		createEReference(tasksEClass, TASKS__TASKS);
+
+		entitiesEClass = createEClass(ENTITIES);
+		createEReference(entitiesEClass, ENTITIES__ENTITIES);
+
+		accountsEClass = createEClass(ACCOUNTS);
+		createEReference(accountsEClass, ACCOUNTS__ACCOUNTS);
+
+		accountRequestsEClass = createEClass(ACCOUNT_REQUESTS);
+		createEReference(accountRequestsEClass, ACCOUNT_REQUESTS__ACCOUNT_REQUESTS);
 	}
 
 	/**
@@ -398,10 +666,22 @@ public class DatabasePackage extends EPackageImpl
 		initEClass(databaseEClass, Database.class, "Database", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDatabase_Name(), ecorePackage.getEString(), "name", null, 0, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDatabase_TaskDomain(), theTaskPackage.getTaskDomain(), null, "taskDomain", null, 1, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabase_Tasks(), theTaskPackage.getTask(), null, "tasks", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabase_Entities(), theEntityPackage.getEntity(), null, "entities", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabase_AccountRequests(), theAccountPackage.getAccountRequest(), null, "accountRequests", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabase_Accounts(), theAccountPackage.getAccount(), null, "accounts", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabase_Tasks(), this.getTasks(), null, "tasks", null, 0, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabase_Entities(), this.getEntities(), null, "entities", null, 0, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabase_AccountRequests(), this.getAccountRequests(), null, "accountRequests", null, 0, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabase_Accounts(), this.getAccounts(), null, "accounts", null, 0, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tasksEClass, Tasks.class, "Tasks", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTasks_Tasks(), theTaskPackage.getTask(), null, "tasks", null, 0, -1, Tasks.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entitiesEClass, Entities.class, "Entities", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntities_Entities(), theEntityPackage.getEntity(), null, "entities", null, 0, -1, Entities.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(accountsEClass, Accounts.class, "Accounts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAccounts_Accounts(), theAccountPackage.getAccount(), null, "accounts", null, 0, -1, Accounts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(accountRequestsEClass, AccountRequests.class, "AccountRequests", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAccountRequests_AccountRequests(), theAccountPackage.getAccountRequest(), null, "accountRequests", null, 0, -1, AccountRequests.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -448,7 +728,7 @@ public class DatabasePackage extends EPackageImpl
 		public static final EReference DATABASE__TASK_DOMAIN = eINSTANCE.getDatabase_TaskDomain();
 
 		/**
-		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -456,7 +736,7 @@ public class DatabasePackage extends EPackageImpl
 		public static final EReference DATABASE__TASKS = eINSTANCE.getDatabase_Tasks();
 
 		/**
-		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -464,7 +744,7 @@ public class DatabasePackage extends EPackageImpl
 		public static final EReference DATABASE__ENTITIES = eINSTANCE.getDatabase_Entities();
 
 		/**
-		 * The meta object literal for the '<em><b>Account Requests</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Account Requests</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -472,12 +752,84 @@ public class DatabasePackage extends EPackageImpl
 		public static final EReference DATABASE__ACCOUNT_REQUESTS = eINSTANCE.getDatabase_AccountRequests();
 
 		/**
-		 * The meta object literal for the '<em><b>Accounts</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Accounts</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		public static final EReference DATABASE__ACCOUNTS = eINSTANCE.getDatabase_Accounts();
+
+		/**
+		 * The meta object literal for the '{@link org.eclilpselabs.etrack.developer.database.Tasks <em>Tasks</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclilpselabs.etrack.developer.database.Tasks
+		 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getTasks()
+		 * @generated
+		 */
+		public static final EClass TASKS = eINSTANCE.getTasks();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASKS__TASKS = eINSTANCE.getTasks_Tasks();
+
+		/**
+		 * The meta object literal for the '{@link org.eclilpselabs.etrack.developer.database.Entities <em>Entities</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclilpselabs.etrack.developer.database.Entities
+		 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getEntities()
+		 * @generated
+		 */
+		public static final EClass ENTITIES = eINSTANCE.getEntities();
+
+		/**
+		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference ENTITIES__ENTITIES = eINSTANCE.getEntities_Entities();
+
+		/**
+		 * The meta object literal for the '{@link org.eclilpselabs.etrack.developer.database.Accounts <em>Accounts</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclilpselabs.etrack.developer.database.Accounts
+		 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getAccounts()
+		 * @generated
+		 */
+		public static final EClass ACCOUNTS = eINSTANCE.getAccounts();
+
+		/**
+		 * The meta object literal for the '<em><b>Accounts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference ACCOUNTS__ACCOUNTS = eINSTANCE.getAccounts_Accounts();
+
+		/**
+		 * The meta object literal for the '{@link org.eclilpselabs.etrack.developer.database.AccountRequests <em>Account Requests</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclilpselabs.etrack.developer.database.AccountRequests
+		 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getAccountRequests()
+		 * @generated
+		 */
+		public static final EClass ACCOUNT_REQUESTS = eINSTANCE.getAccountRequests();
+
+		/**
+		 * The meta object literal for the '<em><b>Account Requests</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference ACCOUNT_REQUESTS__ACCOUNT_REQUESTS = eINSTANCE.getAccountRequests_AccountRequests();
 
 	}
 

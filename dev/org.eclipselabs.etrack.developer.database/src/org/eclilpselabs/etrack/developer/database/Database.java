@@ -90,44 +90,44 @@ public class Database extends EObjectImpl implements EObject
 	protected TaskDomain taskDomain;
 
 	/**
-	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference list.
+	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTasks()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Task> tasks;
+	protected Tasks tasks;
 
 	/**
-	 * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
+	 * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEntities()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Entity> entities;
+	protected Entities entities;
 
 	/**
-	 * The cached value of the '{@link #getAccountRequests() <em>Account Requests</em>}' containment reference list.
+	 * The cached value of the '{@link #getAccountRequests() <em>Account Requests</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAccountRequests()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AccountRequest> accountRequests;
+	protected AccountRequests accountRequests;
 
 	/**
-	 * The cached value of the '{@link #getAccounts() <em>Accounts</em>}' containment reference list.
+	 * The cached value of the '{@link #getAccounts() <em>Accounts</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAccounts()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Account> accounts;
+	protected Accounts accounts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,95 +246,243 @@ public class Database extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.Task}.
+	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Tasks</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tasks</em>' containment reference list.
+	 * @return the value of the '<em>Tasks</em>' containment reference.
+	 * @see #setTasks(Tasks)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_Tasks()
 	 * @model containment="true"
 	 * @generated
 	 */
-	public EList<Task> getTasks()
+	public Tasks getTasks()
 	{
-		if (tasks == null)
-		{
-			tasks = new EObjectContainmentEList<Task>(Task.class, this, DatabasePackage.DATABASE__TASKS);
-		}
 		return tasks;
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Entities</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.entity.Entity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTasks(Tasks newTasks, NotificationChain msgs)
+	{
+		Tasks oldTasks = tasks;
+		tasks = newTasks;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__TASKS, oldTasks, newTasks);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getTasks <em>Tasks</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tasks</em>' containment reference.
+	 * @see #getTasks()
+	 * @generated
+	 */
+	public void setTasks(Tasks newTasks)
+	{
+		if (newTasks != tasks)
+		{
+			NotificationChain msgs = null;
+			if (tasks != null)
+				msgs = ((InternalEObject)tasks).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASKS, null, msgs);
+			if (newTasks != null)
+				msgs = ((InternalEObject)newTasks).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASKS, null, msgs);
+			msgs = basicSetTasks(newTasks, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__TASKS, newTasks, newTasks));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Entities</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Entities</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entities</em>' containment reference list.
+	 * @return the value of the '<em>Entities</em>' containment reference.
+	 * @see #setEntities(Entities)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_Entities()
 	 * @model containment="true"
 	 * @generated
 	 */
-	public EList<Entity> getEntities()
+	public Entities getEntities()
 	{
-		if (entities == null)
-		{
-			entities = new EObjectContainmentEList<Entity>(Entity.class, this, DatabasePackage.DATABASE__ENTITIES);
-		}
 		return entities;
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Account Requests</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.account.AccountRequest}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEntities(Entities newEntities, NotificationChain msgs)
+	{
+		Entities oldEntities = entities;
+		entities = newEntities;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ENTITIES, oldEntities, newEntities);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getEntities <em>Entities</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Entities</em>' containment reference.
+	 * @see #getEntities()
+	 * @generated
+	 */
+	public void setEntities(Entities newEntities)
+	{
+		if (newEntities != entities)
+		{
+			NotificationChain msgs = null;
+			if (entities != null)
+				msgs = ((InternalEObject)entities).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ENTITIES, null, msgs);
+			if (newEntities != null)
+				msgs = ((InternalEObject)newEntities).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ENTITIES, null, msgs);
+			msgs = basicSetEntities(newEntities, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ENTITIES, newEntities, newEntities));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Account Requests</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Account Requests</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Account Requests</em>' containment reference list.
+	 * @return the value of the '<em>Account Requests</em>' containment reference.
+	 * @see #setAccountRequests(AccountRequests)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_AccountRequests()
 	 * @model containment="true"
 	 * @generated
 	 */
-	public EList<AccountRequest> getAccountRequests()
+	public AccountRequests getAccountRequests()
 	{
-		if (accountRequests == null)
-		{
-			accountRequests = new EObjectContainmentEList<AccountRequest>(AccountRequest.class, this, DatabasePackage.DATABASE__ACCOUNT_REQUESTS);
-		}
 		return accountRequests;
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Accounts</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.account.Account}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAccountRequests(AccountRequests newAccountRequests, NotificationChain msgs)
+	{
+		AccountRequests oldAccountRequests = accountRequests;
+		accountRequests = newAccountRequests;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNT_REQUESTS, oldAccountRequests, newAccountRequests);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getAccountRequests <em>Account Requests</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Account Requests</em>' containment reference.
+	 * @see #getAccountRequests()
+	 * @generated
+	 */
+	public void setAccountRequests(AccountRequests newAccountRequests)
+	{
+		if (newAccountRequests != accountRequests)
+		{
+			NotificationChain msgs = null;
+			if (accountRequests != null)
+				msgs = ((InternalEObject)accountRequests).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNT_REQUESTS, null, msgs);
+			if (newAccountRequests != null)
+				msgs = ((InternalEObject)newAccountRequests).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNT_REQUESTS, null, msgs);
+			msgs = basicSetAccountRequests(newAccountRequests, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNT_REQUESTS, newAccountRequests, newAccountRequests));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Accounts</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Accounts</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Accounts</em>' containment reference list.
+	 * @return the value of the '<em>Accounts</em>' containment reference.
+	 * @see #setAccounts(Accounts)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_Accounts()
 	 * @model containment="true"
 	 * @generated
 	 */
-	public EList<Account> getAccounts()
+	public Accounts getAccounts()
 	{
-		if (accounts == null)
-		{
-			accounts = new EObjectContainmentEList<Account>(Account.class, this, DatabasePackage.DATABASE__ACCOUNTS);
-		}
 		return accounts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAccounts(Accounts newAccounts, NotificationChain msgs)
+	{
+		Accounts oldAccounts = accounts;
+		accounts = newAccounts;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNTS, oldAccounts, newAccounts);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getAccounts <em>Accounts</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Accounts</em>' containment reference.
+	 * @see #getAccounts()
+	 * @generated
+	 */
+	public void setAccounts(Accounts newAccounts)
+	{
+		if (newAccounts != accounts)
+		{
+			NotificationChain msgs = null;
+			if (accounts != null)
+				msgs = ((InternalEObject)accounts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNTS, null, msgs);
+			if (newAccounts != null)
+				msgs = ((InternalEObject)newAccounts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNTS, null, msgs);
+			msgs = basicSetAccounts(newAccounts, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNTS, newAccounts, newAccounts));
 	}
 
 	/**
@@ -350,13 +498,13 @@ public class Database extends EObjectImpl implements EObject
 			case DatabasePackage.DATABASE__TASK_DOMAIN:
 				return basicSetTaskDomain(null, msgs);
 			case DatabasePackage.DATABASE__TASKS:
-				return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
+				return basicSetTasks(null, msgs);
 			case DatabasePackage.DATABASE__ENTITIES:
-				return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
+				return basicSetEntities(null, msgs);
 			case DatabasePackage.DATABASE__ACCOUNT_REQUESTS:
-				return ((InternalEList<?>)getAccountRequests()).basicRemove(otherEnd, msgs);
+				return basicSetAccountRequests(null, msgs);
 			case DatabasePackage.DATABASE__ACCOUNTS:
-				return ((InternalEList<?>)getAccounts()).basicRemove(otherEnd, msgs);
+				return basicSetAccounts(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -405,20 +553,16 @@ public class Database extends EObjectImpl implements EObject
 				setTaskDomain((TaskDomain)newValue);
 				return;
 			case DatabasePackage.DATABASE__TASKS:
-				getTasks().clear();
-				getTasks().addAll((Collection<? extends Task>)newValue);
+				setTasks((Tasks)newValue);
 				return;
 			case DatabasePackage.DATABASE__ENTITIES:
-				getEntities().clear();
-				getEntities().addAll((Collection<? extends Entity>)newValue);
+				setEntities((Entities)newValue);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNT_REQUESTS:
-				getAccountRequests().clear();
-				getAccountRequests().addAll((Collection<? extends AccountRequest>)newValue);
+				setAccountRequests((AccountRequests)newValue);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNTS:
-				getAccounts().clear();
-				getAccounts().addAll((Collection<? extends Account>)newValue);
+				setAccounts((Accounts)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -441,16 +585,16 @@ public class Database extends EObjectImpl implements EObject
 				setTaskDomain((TaskDomain)null);
 				return;
 			case DatabasePackage.DATABASE__TASKS:
-				getTasks().clear();
+				setTasks((Tasks)null);
 				return;
 			case DatabasePackage.DATABASE__ENTITIES:
-				getEntities().clear();
+				setEntities((Entities)null);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNT_REQUESTS:
-				getAccountRequests().clear();
+				setAccountRequests((AccountRequests)null);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNTS:
-				getAccounts().clear();
+				setAccounts((Accounts)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -471,13 +615,13 @@ public class Database extends EObjectImpl implements EObject
 			case DatabasePackage.DATABASE__TASK_DOMAIN:
 				return taskDomain != null;
 			case DatabasePackage.DATABASE__TASKS:
-				return tasks != null && !tasks.isEmpty();
+				return tasks != null;
 			case DatabasePackage.DATABASE__ENTITIES:
-				return entities != null && !entities.isEmpty();
+				return entities != null;
 			case DatabasePackage.DATABASE__ACCOUNT_REQUESTS:
-				return accountRequests != null && !accountRequests.isEmpty();
+				return accountRequests != null;
 			case DatabasePackage.DATABASE__ACCOUNTS:
-				return accounts != null && !accounts.isEmpty();
+				return accounts != null;
 		}
 		return super.eIsSet(featureID);
 	}
