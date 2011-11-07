@@ -3,7 +3,7 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="task"
     nsURI="http://www.eclipselabs.org/etrack/domain/task" nsPrefix="org.eclipselabs.etrack.domain.task">
-  <eClassifiers xsi:type="ecore:EClass" name="AssignableItem">
+  <eClassifiers xsi:type="ecore:EClass" name="AssignableItem" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//AssignableItem">
@@ -17,7 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="attachments" upperBound="-1"
         eType="#//Attachment" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
-        eType="#//Comment" containment="true"/>
+        eType="#//Comment" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subscribers" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
@@ -49,7 +49,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Attachment" eSuperTypes="#//AssignableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataContainer" eType="#//AttachmentData"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataContainer" eType="#//AttachmentData"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

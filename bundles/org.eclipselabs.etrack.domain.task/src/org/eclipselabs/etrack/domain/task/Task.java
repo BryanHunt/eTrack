@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -56,8 +57,18 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  * @model kind="class"
  * @generated
  */
-public class Task extends AssignableItem
+public class Task extends EObjectImpl implements AssignableItem
 {
+	/**
+	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwner()
+	 * @generated
+	 * @ordered
+	 */
+	protected Person owner;
+
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -200,6 +211,61 @@ public class Task extends AssignableItem
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Owner</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner</em>' reference.
+	 * @see #setOwner(Person)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem_Owner()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Person getOwner()
+	{
+		if (owner != null && owner.eIsProxy())
+		{
+			InternalEObject oldOwner = (InternalEObject)owner;
+			owner = (Person)eResolveProxy(oldOwner);
+			if (owner != oldOwner)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__OWNER, oldOwner, owner));
+			}
+		}
+		return owner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Person basicGetOwner()
+	{
+		return owner;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getOwner <em>Owner</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner</em>' reference.
+	 * @see #getOwner()
+	 * @generated
+	 */
+	public void setOwner(Person newOwner)
+	{
+		Person oldOwner = owner;
+		owner = newOwner;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__OWNER, oldOwner, owner));
+	}
+
+	/**
 	 * Returns the value of the '<em><b>Summary</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -327,14 +393,14 @@ public class Task extends AssignableItem
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comments</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Comments()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	public EList<Comment> getComments()
 	{
 		if (comments == null)
 		{
-			comments = new EObjectContainmentEList.Resolving<Comment>(Comment.class, this, TaskPackage.TASK__COMMENTS);
+			comments = new EObjectContainmentEList<Comment>(Comment.class, this, TaskPackage.TASK__COMMENTS);
 		}
 		return comments;
 	}
@@ -575,6 +641,9 @@ public class Task extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__OWNER:
+				if (resolve) return getOwner();
+				return basicGetOwner();
 			case TaskPackage.TASK__SUMMARY:
 				return getSummary();
 			case TaskPackage.TASK__DESCRIPTION:
@@ -613,6 +682,9 @@ public class Task extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__OWNER:
+				setOwner((Person)newValue);
+				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary((String)newValue);
 				return;
@@ -662,6 +734,9 @@ public class Task extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__OWNER:
+				setOwner((Person)null);
+				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
@@ -706,6 +781,8 @@ public class Task extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__OWNER:
+				return owner != null;
 			case TaskPackage.TASK__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
 			case TaskPackage.TASK__DESCRIPTION:

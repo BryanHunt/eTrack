@@ -82,7 +82,6 @@ public class TaskFactory extends EFactoryImpl
 	{
 		switch (eClass.getClassifierID())
 		{
-			case TaskPackage.ASSIGNABLE_ITEM: return createAssignableItem();
 			case TaskPackage.TASK: return createTask();
 			case TaskPackage.STATE: return createState();
 			case TaskPackage.STATE_TRANSITION: return createStateTransition();
@@ -95,17 +94,6 @@ public class TaskFactory extends EFactoryImpl
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssignableItem createAssignableItem()
-	{
-		AssignableItem assignableItem = new AssignableItem();
-		return assignableItem;
 	}
 
 	/**

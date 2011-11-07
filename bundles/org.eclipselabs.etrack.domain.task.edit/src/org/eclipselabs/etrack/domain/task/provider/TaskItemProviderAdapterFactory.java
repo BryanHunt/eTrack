@@ -83,31 +83,6 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.task.AssignableItem} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AssignableItemItemProvider assignableItemItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.task.AssignableItem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAssignableItemAdapter()
-	{
-		if (assignableItemItemProvider == null)
-		{
-			assignableItemItemProvider = new AssignableItemItemProvider(this);
-		}
-
-		return assignableItemItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.task.Task} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -443,7 +418,6 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 	 */
 	public void dispose()
 	{
-		if (assignableItemItemProvider != null) assignableItemItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (stateItemProvider != null) stateItemProvider.dispose();
 		if (stateTransitionItemProvider != null) stateTransitionItemProvider.dispose();

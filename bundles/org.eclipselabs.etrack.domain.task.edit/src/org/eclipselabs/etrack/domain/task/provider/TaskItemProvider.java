@@ -18,6 +18,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -28,6 +29,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipselabs.etrack.domain.links.LinksFactory;
@@ -44,7 +46,7 @@ import org.eclipselabs.etrack.domain.task.TaskPackage;
  * @generated
  */
 public class TaskItemProvider
-	extends AssignableItemItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -76,6 +78,7 @@ public class TaskItemProvider
 		{
 			super.getPropertyDescriptors(object);
 
+			addOwnerPropertyDescriptor(object);
 			addSummaryPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addStatePropertyDescriptor(object);
@@ -85,6 +88,29 @@ public class TaskItemProvider
 			addBlocksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Owner feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AssignableItem_owner_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssignableItem_owner_feature", "_UI_AssignableItem_type"),
+				 TaskPackage.Literals.ASSIGNABLE_ITEM__OWNER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -363,6 +389,18 @@ public class TaskItemProvider
 			(createChildParameter
 				(TaskPackage.Literals.TASK__COMMENTS,
 				 TaskFactory.eINSTANCE.createComment()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator()
+	{
+		return TaskEditPlugin.INSTANCE;
 	}
 
 }

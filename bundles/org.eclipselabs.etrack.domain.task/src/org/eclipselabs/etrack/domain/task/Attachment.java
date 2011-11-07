@@ -12,9 +12,12 @@
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipselabs.etrack.domain.entity.Person;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +36,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @model kind="class"
  * @generated
  */
-public class Attachment extends AssignableItem
+public class Attachment extends EObjectImpl implements AssignableItem
 {
+	/**
+	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwner()
+	 * @generated
+	 * @ordered
+	 */
+	protected Person owner;
+
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,7 +69,7 @@ public class Attachment extends AssignableItem
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDataContainer() <em>Data Container</em>}' reference.
+	 * The cached value of the '{@link #getDataContainer() <em>Data Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDataContainer()
@@ -84,6 +97,61 @@ public class Attachment extends AssignableItem
 	protected EClass eStaticClass()
 	{
 		return TaskPackage.Literals.ATTACHMENT;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Owner</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner</em>' reference.
+	 * @see #setOwner(Person)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem_Owner()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Person getOwner()
+	{
+		if (owner != null && owner.eIsProxy())
+		{
+			InternalEObject oldOwner = (InternalEObject)owner;
+			owner = (Person)eResolveProxy(oldOwner);
+			if (owner != oldOwner)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.ATTACHMENT__OWNER, oldOwner, owner));
+			}
+		}
+		return owner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Person basicGetOwner()
+	{
+		return owner;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getOwner <em>Owner</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner</em>' reference.
+	 * @see #getOwner()
+	 * @generated
+	 */
+	public void setOwner(Person newOwner)
+	{
+		Person oldOwner = owner;
+		owner = newOwner;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__OWNER, oldOwner, owner));
 	}
 
 	/**
@@ -122,17 +190,17 @@ public class Attachment extends AssignableItem
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Data Container</b></em>' reference.
+	 * Returns the value of the '<em><b>Data Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Data Container</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Container</em>' reference.
+	 * @return the value of the '<em>Data Container</em>' containment reference.
 	 * @see #setDataContainer(AttachmentData)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_DataContainer()
-	 * @model
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public AttachmentData getDataContainer()
@@ -143,6 +211,13 @@ public class Attachment extends AssignableItem
 			dataContainer = (AttachmentData)eResolveProxy(oldDataContainer);
 			if (dataContainer != oldDataContainer)
 			{
+				InternalEObject newDataContainer = (InternalEObject)dataContainer;
+				NotificationChain msgs = oldDataContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, null);
+				if (newDataContainer.eInternalContainer() == null)
+				{
+					msgs = newDataContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, dataContainer));
 			}
@@ -161,19 +236,60 @@ public class Attachment extends AssignableItem
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getDataContainer <em>Data Container</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Container</em>' reference.
+	 * @generated
+	 */
+	public NotificationChain basicSetDataContainer(AttachmentData newDataContainer, NotificationChain msgs)
+	{
+		AttachmentData oldDataContainer = dataContainer;
+		dataContainer = newDataContainer;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, newDataContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getDataContainer <em>Data Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data Container</em>' containment reference.
 	 * @see #getDataContainer()
 	 * @generated
 	 */
 	public void setDataContainer(AttachmentData newDataContainer)
 	{
-		AttachmentData oldDataContainer = dataContainer;
-		dataContainer = newDataContainer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, dataContainer));
+		if (newDataContainer != dataContainer)
+		{
+			NotificationChain msgs = null;
+			if (dataContainer != null)
+				msgs = ((InternalEObject)dataContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, msgs);
+			if (newDataContainer != null)
+				msgs = ((InternalEObject)newDataContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, msgs);
+			msgs = basicSetDataContainer(newDataContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__DATA_CONTAINER, newDataContainer, newDataContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+	{
+		switch (featureID)
+		{
+			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
+				return basicSetDataContainer(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -186,6 +302,9 @@ public class Attachment extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.ATTACHMENT__OWNER:
+				if (resolve) return getOwner();
+				return basicGetOwner();
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return getDescription();
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
@@ -205,6 +324,9 @@ public class Attachment extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.ATTACHMENT__OWNER:
+				setOwner((Person)newValue);
+				return;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
@@ -225,6 +347,9 @@ public class Attachment extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.ATTACHMENT__OWNER:
+				setOwner((Person)null);
+				return;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
@@ -245,6 +370,8 @@ public class Attachment extends AssignableItem
 	{
 		switch (featureID)
 		{
+			case TaskPackage.ATTACHMENT__OWNER:
+				return owner != null;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
