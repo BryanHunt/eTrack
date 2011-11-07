@@ -15,13 +15,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipselabs.etrack.domain.account.AccountPackage;
-
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
-
 import org.eclipselabs.etrack.domain.task.TaskPackage;
 
 /**

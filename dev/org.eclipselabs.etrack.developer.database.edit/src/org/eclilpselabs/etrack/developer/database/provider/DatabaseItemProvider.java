@@ -18,14 +18,10 @@ import java.util.List;
 import org.eclilpselabs.etrack.developer.database.Database;
 import org.eclilpselabs.etrack.developer.database.DatabaseFactory;
 import org.eclilpselabs.etrack.developer.database.DatabasePackage;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -36,11 +32,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.eclipselabs.etrack.domain.account.AccountFactory;
-
-import org.eclipselabs.etrack.domain.entity.EntityFactory;
-
 import org.eclipselabs.etrack.domain.task.TaskFactory;
 
 /**

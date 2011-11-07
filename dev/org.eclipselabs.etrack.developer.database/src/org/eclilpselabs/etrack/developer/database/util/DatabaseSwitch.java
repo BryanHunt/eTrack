@@ -11,11 +11,14 @@
  */
 package org.eclilpselabs.etrack.developer.database.util;
 
-import org.eclilpselabs.etrack.developer.database.*;
-
+import org.eclilpselabs.etrack.developer.database.AccountRequests;
+import org.eclilpselabs.etrack.developer.database.Accounts;
+import org.eclilpselabs.etrack.developer.database.Database;
+import org.eclilpselabs.etrack.developer.database.DatabasePackage;
+import org.eclilpselabs.etrack.developer.database.Entities;
+import org.eclilpselabs.etrack.developer.database.Tasks;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
 
 /**

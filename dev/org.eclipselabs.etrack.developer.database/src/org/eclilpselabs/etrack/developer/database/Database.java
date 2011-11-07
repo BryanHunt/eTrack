@@ -9,50 +9,37 @@
  * Contributors:
  *    Bryan Hunt - initial API and implementation
  */
-package org.eclilpselabs.etrack.developer.database;
 
-import java.util.Collection;
+package org.eclilpselabs.etrack.developer.database;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipselabs.etrack.domain.account.Account;
-import org.eclipselabs.etrack.domain.account.AccountRequest;
-
-import org.eclipselabs.etrack.domain.entity.Entity;
-
-import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Database</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclilpselabs.etrack.developer.database.Database#getName <em>Name</em>}</li>
- *   <li>{@link org.eclilpselabs.etrack.developer.database.Database#getTaskDomain <em>Task Domain</em>}</li>
- *   <li>{@link org.eclilpselabs.etrack.developer.database.Database#getTasks <em>Tasks</em>}</li>
- *   <li>{@link org.eclilpselabs.etrack.developer.database.Database#getEntities <em>Entities</em>}</li>
- *   <li>{@link org.eclilpselabs.etrack.developer.database.Database#getAccountRequests <em>Account Requests</em>}</li>
- *   <li>{@link org.eclilpselabs.etrack.developer.database.Database#getAccounts <em>Accounts</em>}</li>
+ * <li>{@link org.eclilpselabs.etrack.developer.database.Database#getName <em>Name</em>}</li>
+ * <li>{@link org.eclilpselabs.etrack.developer.database.Database#getTaskDomain <em>Task Domain
+ * </em>}</li>
+ * <li>{@link org.eclilpselabs.etrack.developer.database.Database#getTasks <em>Tasks</em>}</li>
+ * <li>{@link org.eclilpselabs.etrack.developer.database.Database#getEntities <em>Entities</em>}</li>
+ * <li>{@link org.eclilpselabs.etrack.developer.database.Database#getAccountRequests <em>Account
+ * Requests</em>}</li>
+ * <li>{@link org.eclilpselabs.etrack.developer.database.Database#getAccounts <em>Accounts</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase()
  * @model kind="class"
  * @generated
@@ -63,6 +50,7 @@ public class Database extends EObjectImpl implements EObject
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -73,6 +61,7 @@ public class Database extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -83,6 +72,7 @@ public class Database extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getTaskDomain() <em>Task Domain</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTaskDomain()
 	 * @generated
 	 * @ordered
@@ -93,6 +83,7 @@ public class Database extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getTasks()
 	 * @generated
 	 * @ordered
@@ -103,6 +94,7 @@ public class Database extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getEntities()
 	 * @generated
 	 * @ordered
@@ -110,9 +102,11 @@ public class Database extends EObjectImpl implements EObject
 	protected Entities entities;
 
 	/**
-	 * The cached value of the '{@link #getAccountRequests() <em>Account Requests</em>}' containment reference.
+	 * The cached value of the '{@link #getAccountRequests() <em>Account Requests</em>}' containment
+	 * reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAccountRequests()
 	 * @generated
 	 * @ordered
@@ -123,6 +117,7 @@ public class Database extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getAccounts() <em>Accounts</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getAccounts()
 	 * @generated
 	 * @ordered
@@ -132,6 +127,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Database()
@@ -142,6 +138,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -154,10 +151,11 @@ public class Database extends EObjectImpl implements EObject
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_Name()
@@ -170,9 +168,11 @@ public class Database extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getName
+	 * <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -189,10 +189,11 @@ public class Database extends EObjectImpl implements EObject
 	 * Returns the value of the '<em><b>Task Domain</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task Domain</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Task Domain</em>' containment reference isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Task Domain</em>' containment reference.
 	 * @see #setTaskDomain(TaskDomain)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_TaskDomain()
@@ -207,6 +208,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTaskDomain(TaskDomain newTaskDomain, NotificationChain msgs)
@@ -216,15 +218,21 @@ public class Database extends EObjectImpl implements EObject
 		if (eNotificationRequired())
 		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__TASK_DOMAIN, oldTaskDomain, newTaskDomain);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getTaskDomain <em>Task Domain</em>}' containment reference.
+	 * Sets the value of the '
+	 * {@link org.eclilpselabs.etrack.developer.database.Database#getTaskDomain <em>Task Domain</em>}'
+	 * containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Task Domain</em>' containment reference.
 	 * @see #getTaskDomain()
 	 * @generated
@@ -235,11 +243,12 @@ public class Database extends EObjectImpl implements EObject
 		{
 			NotificationChain msgs = null;
 			if (taskDomain != null)
-				msgs = ((InternalEObject)taskDomain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASK_DOMAIN, null, msgs);
+				msgs = ((InternalEObject) taskDomain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASK_DOMAIN, null, msgs);
 			if (newTaskDomain != null)
-				msgs = ((InternalEObject)newTaskDomain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASK_DOMAIN, null, msgs);
+				msgs = ((InternalEObject) newTaskDomain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASK_DOMAIN, null, msgs);
 			msgs = basicSetTaskDomain(newTaskDomain, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null)
+				msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__TASK_DOMAIN, newTaskDomain, newTaskDomain));
@@ -249,10 +258,11 @@ public class Database extends EObjectImpl implements EObject
 	 * Returns the value of the '<em><b>Tasks</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tasks</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Tasks</em>' containment reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Tasks</em>' containment reference.
 	 * @see #setTasks(Tasks)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_Tasks()
@@ -267,6 +277,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetTasks(Tasks newTasks, NotificationChain msgs)
@@ -276,15 +287,20 @@ public class Database extends EObjectImpl implements EObject
 		if (eNotificationRequired())
 		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__TASKS, oldTasks, newTasks);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getTasks <em>Tasks</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getTasks
+	 * <em>Tasks</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Tasks</em>' containment reference.
 	 * @see #getTasks()
 	 * @generated
@@ -295,11 +311,12 @@ public class Database extends EObjectImpl implements EObject
 		{
 			NotificationChain msgs = null;
 			if (tasks != null)
-				msgs = ((InternalEObject)tasks).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASKS, null, msgs);
+				msgs = ((InternalEObject) tasks).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASKS, null, msgs);
 			if (newTasks != null)
-				msgs = ((InternalEObject)newTasks).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASKS, null, msgs);
+				msgs = ((InternalEObject) newTasks).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__TASKS, null, msgs);
 			msgs = basicSetTasks(newTasks, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null)
+				msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__TASKS, newTasks, newTasks));
@@ -309,10 +326,11 @@ public class Database extends EObjectImpl implements EObject
 	 * Returns the value of the '<em><b>Entities</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Entities</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Entities</em>' containment reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Entities</em>' containment reference.
 	 * @see #setEntities(Entities)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_Entities()
@@ -327,6 +345,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetEntities(Entities newEntities, NotificationChain msgs)
@@ -336,15 +355,20 @@ public class Database extends EObjectImpl implements EObject
 		if (eNotificationRequired())
 		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ENTITIES, oldEntities, newEntities);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getEntities <em>Entities</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getEntities
+	 * <em>Entities</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Entities</em>' containment reference.
 	 * @see #getEntities()
 	 * @generated
@@ -355,11 +379,12 @@ public class Database extends EObjectImpl implements EObject
 		{
 			NotificationChain msgs = null;
 			if (entities != null)
-				msgs = ((InternalEObject)entities).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ENTITIES, null, msgs);
+				msgs = ((InternalEObject) entities).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ENTITIES, null, msgs);
 			if (newEntities != null)
-				msgs = ((InternalEObject)newEntities).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ENTITIES, null, msgs);
+				msgs = ((InternalEObject) newEntities).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ENTITIES, null, msgs);
 			msgs = basicSetEntities(newEntities, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null)
+				msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ENTITIES, newEntities, newEntities));
@@ -369,10 +394,11 @@ public class Database extends EObjectImpl implements EObject
 	 * Returns the value of the '<em><b>Account Requests</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Account Requests</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Account Requests</em>' containment reference list isn't clear, there
+	 * really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Account Requests</em>' containment reference.
 	 * @see #setAccountRequests(AccountRequests)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_AccountRequests()
@@ -387,6 +413,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetAccountRequests(AccountRequests newAccountRequests, NotificationChain msgs)
@@ -396,15 +423,21 @@ public class Database extends EObjectImpl implements EObject
 		if (eNotificationRequired())
 		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNT_REQUESTS, oldAccountRequests, newAccountRequests);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getAccountRequests <em>Account Requests</em>}' containment reference.
+	 * Sets the value of the '
+	 * {@link org.eclilpselabs.etrack.developer.database.Database#getAccountRequests
+	 * <em>Account Requests</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Account Requests</em>' containment reference.
 	 * @see #getAccountRequests()
 	 * @generated
@@ -415,11 +448,12 @@ public class Database extends EObjectImpl implements EObject
 		{
 			NotificationChain msgs = null;
 			if (accountRequests != null)
-				msgs = ((InternalEObject)accountRequests).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNT_REQUESTS, null, msgs);
+				msgs = ((InternalEObject) accountRequests).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNT_REQUESTS, null, msgs);
 			if (newAccountRequests != null)
-				msgs = ((InternalEObject)newAccountRequests).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNT_REQUESTS, null, msgs);
+				msgs = ((InternalEObject) newAccountRequests).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNT_REQUESTS, null, msgs);
 			msgs = basicSetAccountRequests(newAccountRequests, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null)
+				msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNT_REQUESTS, newAccountRequests, newAccountRequests));
@@ -429,10 +463,11 @@ public class Database extends EObjectImpl implements EObject
 	 * Returns the value of the '<em><b>Accounts</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Accounts</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Accounts</em>' containment reference list isn't clear, there really
+	 * should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Accounts</em>' containment reference.
 	 * @see #setAccounts(Accounts)
 	 * @see org.eclilpselabs.etrack.developer.database.DatabasePackage#getDatabase_Accounts()
@@ -447,6 +482,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetAccounts(Accounts newAccounts, NotificationChain msgs)
@@ -456,15 +492,20 @@ public class Database extends EObjectImpl implements EObject
 		if (eNotificationRequired())
 		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNTS, oldAccounts, newAccounts);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getAccounts <em>Accounts</em>}' containment reference.
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.developer.database.Database#getAccounts
+	 * <em>Accounts</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Accounts</em>' containment reference.
 	 * @see #getAccounts()
 	 * @generated
@@ -475,11 +516,12 @@ public class Database extends EObjectImpl implements EObject
 		{
 			NotificationChain msgs = null;
 			if (accounts != null)
-				msgs = ((InternalEObject)accounts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNTS, null, msgs);
+				msgs = ((InternalEObject) accounts).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNTS, null, msgs);
 			if (newAccounts != null)
-				msgs = ((InternalEObject)newAccounts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNTS, null, msgs);
+				msgs = ((InternalEObject) newAccounts).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DatabasePackage.DATABASE__ACCOUNTS, null, msgs);
 			msgs = basicSetAccounts(newAccounts, msgs);
-			if (msgs != null) msgs.dispatch();
+			if (msgs != null)
+				msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatabasePackage.DATABASE__ACCOUNTS, newAccounts, newAccounts));
@@ -488,6 +530,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -512,6 +555,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -538,31 +582,31 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
 			case DatabasePackage.DATABASE__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case DatabasePackage.DATABASE__TASK_DOMAIN:
-				setTaskDomain((TaskDomain)newValue);
+				setTaskDomain((TaskDomain) newValue);
 				return;
 			case DatabasePackage.DATABASE__TASKS:
-				setTasks((Tasks)newValue);
+				setTasks((Tasks) newValue);
 				return;
 			case DatabasePackage.DATABASE__ENTITIES:
-				setEntities((Entities)newValue);
+				setEntities((Entities) newValue);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNT_REQUESTS:
-				setAccountRequests((AccountRequests)newValue);
+				setAccountRequests((AccountRequests) newValue);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNTS:
-				setAccounts((Accounts)newValue);
+				setAccounts((Accounts) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -571,6 +615,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -582,19 +627,19 @@ public class Database extends EObjectImpl implements EObject
 				setName(NAME_EDEFAULT);
 				return;
 			case DatabasePackage.DATABASE__TASK_DOMAIN:
-				setTaskDomain((TaskDomain)null);
+				setTaskDomain((TaskDomain) null);
 				return;
 			case DatabasePackage.DATABASE__TASKS:
-				setTasks((Tasks)null);
+				setTasks((Tasks) null);
 				return;
 			case DatabasePackage.DATABASE__ENTITIES:
-				setEntities((Entities)null);
+				setEntities((Entities) null);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNT_REQUESTS:
-				setAccountRequests((AccountRequests)null);
+				setAccountRequests((AccountRequests) null);
 				return;
 			case DatabasePackage.DATABASE__ACCOUNTS:
-				setAccounts((Accounts)null);
+				setAccounts((Accounts) null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -603,6 +648,7 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -629,12 +675,14 @@ public class Database extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString()
 	{
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

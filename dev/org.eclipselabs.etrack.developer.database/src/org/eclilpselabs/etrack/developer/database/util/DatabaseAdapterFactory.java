@@ -11,13 +11,15 @@
  */
 package org.eclilpselabs.etrack.developer.database.util;
 
-import org.eclilpselabs.etrack.developer.database.*;
-
+import org.eclilpselabs.etrack.developer.database.AccountRequests;
+import org.eclilpselabs.etrack.developer.database.Accounts;
+import org.eclilpselabs.etrack.developer.database.Database;
+import org.eclilpselabs.etrack.developer.database.DatabasePackage;
+import org.eclilpselabs.etrack.developer.database.Entities;
+import org.eclilpselabs.etrack.developer.database.Tasks;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

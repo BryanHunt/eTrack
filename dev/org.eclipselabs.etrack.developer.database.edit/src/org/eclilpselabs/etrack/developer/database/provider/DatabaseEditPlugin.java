@@ -12,15 +12,10 @@
 package org.eclilpselabs.etrack.developer.database.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipselabs.etrack.domain.account.provider.AccountEditPlugin;
-
 import org.eclipselabs.etrack.domain.entity.provider.EntityEditPlugin;
-
 import org.eclipselabs.etrack.domain.links.provider.LinksEditPlugin;
-
 import org.eclipselabs.etrack.domain.task.provider.TaskEditPlugin;
 
 /**
