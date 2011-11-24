@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="Running Platform" sequenceNumber="11">
+<target name="Running Platform" sequenceNumber="14">
 <locations>
 <location path="${eclipse_home}" type="Profile"/>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.7.0.v20110606-0949"/>
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.7.0.v20110502-7M7W8Z8eNV4UqfbhicjDN-ROgjNc"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.7.1.v20110913-1526"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.7.1.R37x_v20110907-7M7W8h8eNV4Vrz-hz01A7SL_MhZP"/>
 <repository location="http://download.eclipse.org/releases/indigo/"/>
 </location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -27,6 +27,18 @@
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.junit.feature.feature.group" version="4.9.0.201107152255"/>
 <repository location="http://quickiemart.springfieldusa.net/Targets/JUnit"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.restlet.ext.osgi.servlet.feature.feature.group" version="0.5.1.201111202205"/>
+<repository location="http://bryanhunt.github.com/Restlet-Extension-for-OSGi-Environments/releases/0.5.1/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.restlet.ext.servlet.feature.group" version="2.1.0.snapshot-v20111123-2200"/>
+<unit id="org.restlet.feature.group" version="2.1.0.snapshot-v20111123-2200"/>
+<unit id="org.restlet.ext.wadl.feature.group" version="2.1.0.snapshot-v20111123-2200"/>
+<unit id="org.restlet.ext.xml.feature.group" version="2.1.0.snapshot-v20111123-2200"/>
+<unit id="org.restlet.ext.emf.feature.group" version="2.1.0.snapshot-v20111123-2200"/>
+<repository location="http://p2.restlet.org/2.1/"/>
 </location>
 </locations>
 <environment>

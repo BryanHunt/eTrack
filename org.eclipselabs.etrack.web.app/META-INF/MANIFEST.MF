@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Web Application
+Bundle-SymbolicName: org.eclipselabs.etrack.web.app
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Service-Component: OSGI-INF/applicationxml.xml, OSGI-INF/router.xml
+Bundle-ActivationPolicy: lazy
+Import-Package: org.restlet,
+ org.restlet.ext.osgi,
+ org.restlet.ext.wadl,
+ org.restlet.representation
