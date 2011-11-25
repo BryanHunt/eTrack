@@ -5,8 +5,9 @@ Bundle-SymbolicName: org.eclipselabs.etrack.web.entity
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Service-Component: OSGI-INF/resources/person.xml
-Import-Package: org.eclipse.emf.ecore,
+Service-Component: OSGI-INF/resources/entity.xml
+Import-Package: org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
  org.eclipselabs.etrack.domain.entity,
  org.restlet,
  org.restlet.data,

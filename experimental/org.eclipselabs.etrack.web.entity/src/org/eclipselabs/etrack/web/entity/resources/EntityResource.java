@@ -14,6 +14,7 @@ package org.eclipselabs.etrack.web.entity.resources;
 import org.eclipselabs.etrack.domain.entity.Entity;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
 import org.eclipselabs.etrack.domain.entity.Person;
+import org.eclipselabs.etrack.domain.entity.Phone;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
@@ -31,6 +32,9 @@ public class EntityResource extends WadlServerResource
 		Person person = EntityFactory.eINSTANCE.createPerson();
 		person.setFirstName("Foo");
 		person.setLastName("Bar");
+		Phone phone = EntityFactory.eINSTANCE.createPhone();
+		phone.setNumber("867-5309");
+		person.getPhoneNumbers().add(phone);
 		return new EmfRepresentation<Entity>(MediaType.APPLICATION_XMI, person);
 	}
 }
