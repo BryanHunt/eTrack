@@ -32,8 +32,21 @@ import org.restlet.resource.Get;
  */
 public class EntityResource extends WadlServerResource
 {
-	@Get("application/xmi+xml")
-	public EmfRepresentation<Entity> getPersonXML()
+	@Get("xmi+xml")
+	public EmfRepresentation<Entity> getPersonXMI()
+	{
+		Person person = getModel();
+		return new EmfRepresentation<Entity>(MediaType.APPLICATION_XMI, person);
+	}
+
+	@Get("json")
+	public EmfRepresentation<Entity> getPersonJSON()
+	{
+		Person person = getModel();
+		return new EmfJsonRepresentation<Entity>(MediaType.APPLICATION_JSON, person);
+	}
+
+	private Person getModel()
 	{
 		ResourceSet resourceSet = new ResourceSetImpl();
 		EList<URIHandler> uriHandlers = resourceSet.getURIConverter().getURIHandlers();
@@ -45,6 +58,6 @@ public class EntityResource extends WadlServerResource
 		Phone phone = EntityFactory.eINSTANCE.createPhone();
 		phone.setNumber("867-5309");
 		person.getPhoneNumbers().add(phone);
-		return new EmfJsonRepresentation<Entity>(MediaType.APPLICATION_XMI, person);
+		return person;
 	}
 }
