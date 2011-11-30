@@ -12,15 +12,15 @@
 package org.eclipselabs.etrack.web.entity.resources;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipselabs.emfjson.JsURIHandlerImpl;
 import org.eclipselabs.etrack.domain.entity.Entity;
-import org.eclipselabs.etrack.domain.entity.EntityFactory;
 import org.eclipselabs.etrack.domain.entity.Person;
-import org.eclipselabs.etrack.domain.entity.Phone;
 import org.eclipselabs.etrack.web.entity.representations.EmfJsonRepresentation;
+import org.eclipselabs.mongo.emf.MongoDBURIHandlerImpl;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
@@ -50,14 +50,10 @@ public class EntityResource extends WadlServerResource
 	{
 		ResourceSet resourceSet = new ResourceSetImpl();
 		EList<URIHandler> uriHandlers = resourceSet.getURIConverter().getURIHandlers();
-		uriHandlers.add(0, new JsURIHandlerImpl());
+		uriHandlers.add(0, new MongoDBURIHandlerImpl());
 
-		Person person = EntityFactory.eINSTANCE.createPerson();
-		person.setFirstName("Foo");
-		person.setLastName("Bar");
-		Phone phone = EntityFactory.eINSTANCE.createPhone();
-		phone.setNumber("867-5309");
-		person.getPhoneNumbers().add(phone);
+		Resource resource = resourceSet.getResource(URI.createURI("mongo://localhost/etrack/entity/foo"), true);
+		Person person = (Person) resource.getContents().get(0);
 		return person;
 	}
 }
