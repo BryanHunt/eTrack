@@ -11,6 +11,8 @@
 
 package org.eclipselabs.etrack.web.entity.resources;
 
+import java.io.IOException;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -24,7 +26,9 @@ import org.eclipselabs.mongo.emf.MongoDBURIHandlerImpl;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
+import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
+import org.restlet.resource.Post;
 
 /**
  * @author bhunt
@@ -46,14 +50,33 @@ public class EntityResource extends WadlServerResource
 		return new EmfJsonRepresentation<Entity>(MediaType.APPLICATION_JSON, person);
 	}
 
+	@Post("json")
+	public void addEntity(Representation representation) throws IOException
+	{
+		EmfJsonRepresentation<Entity> emfRepresentation = new EmfJsonRepresentation<Entity>(representation);
+		Entity entity = emfRepresentation.getObject();
+		ResourceSet resourceSet = createResourceSet();
+
+		Resource resource = resourceSet.getResource(URI.createURI("mongo://localhost/etrack/entity/"), true);
+		resource.getContents().add(entity);
+		resource.save(null);
+	}
+
 	private Person getModel()
 	{
-		ResourceSet resourceSet = new ResourceSetImpl();
-		EList<URIHandler> uriHandlers = resourceSet.getURIConverter().getURIHandlers();
-		uriHandlers.add(0, new MongoDBURIHandlerImpl());
+		ResourceSet resourceSet = createResourceSet();
 
 		Resource resource = resourceSet.getResource(URI.createURI("mongo://localhost/etrack/entity/foo"), true);
 		Person person = (Person) resource.getContents().get(0);
 		return person;
 	}
+
+	private ResourceSet createResourceSet()
+	{
+		ResourceSet resourceSet = new ResourceSetImpl();
+		EList<URIHandler> uriHandlers = resourceSet.getURIConverter().getURIHandlers();
+		uriHandlers.add(0, new MongoDBURIHandlerImpl());
+		return resourceSet;
+	}
+
 }

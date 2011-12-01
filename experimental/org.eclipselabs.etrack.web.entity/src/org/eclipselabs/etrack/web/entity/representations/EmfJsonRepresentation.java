@@ -46,12 +46,4 @@ public class EmfJsonRepresentation<T extends EObject> extends EmfRepresentation<
 	{
 		return new JsResourceImpl();
 	}
-
-// @Override
-// public void write(OutputStream outputStream) throws IOException
-// {
-// Resource emfResource = createEmfResource(getMediaType());
-// emfResource.getContents().add(getObject());
-// emfResource.save(outputStream, getSaveOptions());
-// }
 }
