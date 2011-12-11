@@ -9,9 +9,9 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.web.entity.providers;
+package org.eclipselabs.etrack.web.storage.providers;
 
-import org.eclipselabs.etrack.web.entity.resources.EntityResource;
+import org.eclipselabs.etrack.web.storage.resources.StorageResource;
 import org.restlet.Context;
 import org.restlet.ext.osgi.ResourceProvider;
 import org.restlet.resource.Finder;
@@ -20,12 +20,12 @@ import org.restlet.resource.Finder;
  * @author bhunt
  * 
  */
-public class EntityResourceProvider extends ResourceProvider
+public class StorageResourceProvider extends ResourceProvider
 {
 	@Override
 	protected Finder createFinder(Context context)
 	{
-		return new Finder(context, EntityResource.class);
+		return new Finder(context, StorageResource.class);
 	}
 
 }

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.6"?>
 
-<target name="Running Platform" sequenceNumber="21">
+<target name="Running Platform" sequenceNumber="22">
 <locations>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipselabs.emfjson.feature.feature.group" version="0.3.1.201111141123"/>
-<repository location="http://ghillairet.github.com/emfjson/releases/0.3.1/"/>
-</location>
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.hamcrest.feature.feature.group" version="1.3.0.201107152246"/>
 <repository location="http://quickiemart.springfieldusa.net/Targets/Hamcrest"/>
@@ -45,6 +41,10 @@
 <location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.junit.feature.feature.group" version="4.9.0.201107152255"/>
 <repository location="http://quickiemart.springfieldusa.net/Targets/JUnit"/>
+</location>
+<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipselabs.emfjson.feature.feature.group" version="0.3.2.201112021614"/>
+<repository location="http://ghillairet.github.com/emfjson/releases/0.3.2/"/>
 </location>
 </locations>
 <environment>

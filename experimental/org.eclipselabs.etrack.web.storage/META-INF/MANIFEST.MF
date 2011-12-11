@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Entity Web Resources
-Bundle-SymbolicName: org.eclipselabs.etrack.web.entity
+Bundle-SymbolicName: org.eclipselabs.etrack.web.storage
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Service-Component: OSGI-INF/resources/entity.xml
+Service-Component: OSGI-INF/resources/storage.xml
 Import-Package: org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.resource,
@@ -24,4 +24,4 @@ Import-Package: org.eclipse.emf.common.util,
  org.restlet.representation,
  org.restlet.resource
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.eclipselabs.etrack.web.entity.bundle.Activator
+Bundle-Activator: org.eclipselabs.etrack.web.storage.bundle.Activator

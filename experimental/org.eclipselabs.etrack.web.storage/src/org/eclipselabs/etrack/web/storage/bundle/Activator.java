@@ -1,5 +1,5 @@
 
-package org.eclipselabs.etrack.web.entity.bundle;
+package org.eclipselabs.etrack.web.storage.bundle;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
