@@ -1,0 +1,89 @@
+/*******************************************************************************
+ * Copyright (c) 2011 Bryan Hunt.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
+ *******************************************************************************/
+
+package org.ecliplselabs.etrack.web.forms.entity.resources;
+
+import java.io.IOException;
+import java.net.URL;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipse.emf.ecore.resource.URIHandler;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipselabs.etrack.domain.entity.EntityFactory;
+import org.eclipselabs.etrack.domain.entity.Person;
+import org.eclipselabs.mongo.emf.MongoDBURIHandlerImpl;
+import org.restlet.data.Form;
+import org.restlet.ext.wadl.WadlServerResource;
+import org.restlet.representation.InputRepresentation;
+import org.restlet.representation.Representation;
+import org.restlet.representation.StringRepresentation;
+import org.restlet.resource.Get;
+import org.restlet.resource.Post;
+import org.restlet.resource.ResourceException;
+
+/**
+ * @author bhunt
+ * 
+ */
+public class PersonResource extends WadlServerResource
+{
+	@Get("html")
+	public Representation getForm()
+	{
+		try
+		{
+			URL url = new URL("platform:/plugin/org.eclipselabs.etrack.web.forms.entity/forms/person.html");
+			return new InputRepresentation(url.openStream());
+		}
+		catch (Exception e)
+		{
+			throw new ResourceException(e);
+		}
+	}
+
+	@Post
+	public Representation addUser(Representation userData)
+	{
+		Form form = new Form(userData);
+		Person person = EntityFactory.eINSTANCE.createPerson();
+		person.setFirstName(form.getFirstValue("firstName"));
+		person.setLastName(form.getFirstValue("lastName"));
+
+		ResourceSet resourceSet = createResourceSet();
+		Resource resource = resourceSet.createResource(URI.createURI("mongo://localhost/etrack/entity/"));
+		resource.getContents().add(person);
+
+		try
+		{
+			resource.save(null);
+		}
+		catch (IOException e)
+		{
+			return new StringRepresentation("Failed to add user");
+		}
+
+		return new StringRepresentation("User added");
+	}
+
+	private ResourceSet createResourceSet()
+	{
+		ResourceSet resourceSet = new ResourceSetImpl();
+		URIConverter uriConverter = resourceSet.getURIConverter();
+		uriConverter.getURIMap().put(URI.createURI("http://localhost:8080/etrack/storage/"), URI.createURI("mongo://localhost/etrack/"));
+		EList<URIHandler> uriHandlers = uriConverter.getURIHandlers();
+		uriHandlers.add(0, new MongoDBURIHandlerImpl());
+		return resourceSet;
+	}
+}

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Entity Web Forms
+Bundle-SymbolicName: org.eclipselabs.etrack.web.forms.entity
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.emf.ecore.resource.impl,
+ org.eclipselabs.etrack.domain.entity,
+ org.eclipselabs.mongo.emf,
+ org.restlet,
+ org.restlet.data,
+ org.restlet.ext.osgi,
+ org.restlet.ext.wadl,
+ org.restlet.representation,
+ org.restlet.resource,
+ org.restlet.util
+Service-Component: OSGI-INF/resources/person.xml
