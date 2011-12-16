@@ -21,9 +21,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipselabs.etrack.domain.entity.Address;
 import org.eclipselabs.etrack.domain.entity.Email;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
 import org.eclipselabs.etrack.domain.entity.Person;
+import org.eclipselabs.etrack.domain.entity.Phone;
 import org.eclipselabs.mongo.emf.MongoDBURIHandlerImpl;
 import org.restlet.data.Form;
 import org.restlet.ext.wadl.WadlServerResource;
@@ -61,9 +63,23 @@ public class PersonResource extends WadlServerResource
 		Person person = EntityFactory.eINSTANCE.createPerson();
 		person.setFirstName(form.getFirstValue("firstName"));
 		person.setLastName(form.getFirstValue("lastName"));
+
 		Email email = EntityFactory.eINSTANCE.createEmail();
 		email.setAddress(form.getFirstValue("email"));
 		person.getEmails().add(email);
+
+		Address address = EntityFactory.eINSTANCE.createAddress();
+		address.setStreet(form.getFirstValue("street"));
+		address.setAdditional(form.getFirstValue("add"));
+		address.setCity(form.getFirstValue("city"));
+		address.setState(form.getFirstValue("state"));
+		address.setZip(Integer.parseInt(form.getFirstValue("zip")));
+		address.setCountry(form.getFirstValue("country"));
+		person.getAddresses().add(address);
+
+		Phone phone = EntityFactory.eINSTANCE.createPhone();
+		phone.setNumber(form.getFirstValue("phone"));
+		person.getPhoneNumbers().add(phone);
 
 		ResourceSet resourceSet = createResourceSet();
 		Resource resource = resourceSet.createResource(URI.createURI("mongo://localhost/etrack/entity/"));
