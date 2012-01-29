@@ -7,14 +7,14 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGrafflePro</string>
-		<string>138.31.0.156985</string>
+		<string>138.33.0.157554</string>
 	</array>
 	<key>AutoAdjust</key>
 	<true/>
 	<key>BackgroundGraphic</key>
 	<dict>
 		<key>Bounds</key>
-		<string>{{0, 0}, {594, 774}}</string>
+		<string>{{0, 0}, {576, 734}}</string>
 		<key>Class</key>
 		<string>SolidGraphic</string>
 		<key>ID</key>
@@ -294,9 +294,9 @@ Attribute}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.288524</string>
+								<string>0.690567</string>
 								<key>g</key>
-								<string>0.603531</string>
+								<string>0.678775</string>
 								<key>r</key>
 								<string>1</string>
 							</dict>
@@ -339,9 +339,9 @@ Attribute}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.288524</string>
+								<string>0.690567</string>
 								<key>g</key>
-								<string>0.603531</string>
+								<string>0.678775</string>
 								<key>r</key>
 								<string>1</string>
 							</dict>
@@ -757,7 +757,7 @@ Attribute}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2011-11-05 22:31:37 +0000</string>
+	<string>2012-01-09 16:35:03 +0000</string>
 	<key>Modifier</key>
 	<string>Bryan Hunt</string>
 	<key>NotesVisible</key>
@@ -775,7 +775,7 @@ Attribute}</string>
 		<key>NSBottomMargin</key>
 		<array>
 			<string>float</string>
-			<string>9</string>
+			<string>18</string>
 		</array>
 		<key>NSHorizonalPagination</key>
 		<array>
@@ -785,7 +785,7 @@ Attribute}</string>
 		<key>NSLeftMargin</key>
 		<array>
 			<string>float</string>
-			<string>9</string>
+			<string>18</string>
 		</array>
 		<key>NSPaperSize</key>
 		<array>
@@ -800,12 +800,12 @@ Attribute}</string>
 		<key>NSRightMargin</key>
 		<array>
 			<string>float</string>
-			<string>9</string>
+			<string>18</string>
 		</array>
 		<key>NSTopMargin</key>
 		<array>
 			<string>float</string>
-			<string>9</string>
+			<string>40</string>
 		</array>
 	</dict>
 	<key>PrintOnePage</key>
@@ -847,7 +847,7 @@ Attribute}</string>
 		<key>SidebarWidth</key>
 		<integer>138</integer>
 		<key>VisibleRegion</key>
-		<string>{{2, 2}, {589, 562}}</string>
+		<string>{{-5, 1}, {589, 577}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
