@@ -17,7 +17,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -29,7 +28,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.eclipselabs.etrack.domain.task.util.TaskAdapterFactory;
 
 /**
@@ -130,6 +128,31 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 		}
 
 		return stateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.task.StateHistory} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StateHistoryItemProvider stateHistoryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.task.StateHistory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStateHistoryAdapter()
+	{
+		if (stateHistoryItemProvider == null)
+		{
+			stateHistoryItemProvider = new StateHistoryItemProvider(this);
+		}
+
+		return stateHistoryItemProvider;
 	}
 
 	/**
@@ -308,6 +331,31 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.task.Artifact} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArtifactItemProvider artifactItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.task.Artifact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArtifactAdapter()
+	{
+		if (artifactItemProvider == null)
+		{
+			artifactItemProvider = new ArtifactItemProvider(this);
+		}
+
+		return artifactItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -418,15 +466,17 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 	 */
 	public void dispose()
 	{
-		if (taskItemProvider != null) taskItemProvider.dispose();
-		if (stateItemProvider != null) stateItemProvider.dispose();
-		if (stateTransitionItemProvider != null) stateTransitionItemProvider.dispose();
-		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
-		if (commentItemProvider != null) commentItemProvider.dispose();
 		if (attachmentItemProvider != null) attachmentItemProvider.dispose();
-		if (taskTypeItemProvider != null) taskTypeItemProvider.dispose();
-		if (stateTransitionMapItemProvider != null) stateTransitionMapItemProvider.dispose();
 		if (attachmentDataItemProvider != null) attachmentDataItemProvider.dispose();
+		if (artifactItemProvider != null) artifactItemProvider.dispose();
+		if (commentItemProvider != null) commentItemProvider.dispose();
+		if (stateItemProvider != null) stateItemProvider.dispose();
+		if (stateHistoryItemProvider != null) stateHistoryItemProvider.dispose();
+		if (stateTransitionItemProvider != null) stateTransitionItemProvider.dispose();
+		if (stateTransitionMapItemProvider != null) stateTransitionMapItemProvider.dispose();
+		if (taskItemProvider != null) taskItemProvider.dispose();
+		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
+		if (taskTypeItemProvider != null) taskTypeItemProvider.dispose();
 	}
 
 }

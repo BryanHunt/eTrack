@@ -99,6 +99,43 @@ public class TaskPackage extends EPackageImpl
 	public static final int ASSIGNABLE_ITEM_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Artifact <em>Artifact</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.Artifact
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getArtifact()
+	 * @generated
+	 */
+	public static final int ARTIFACT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ARTIFACT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ARTIFACT__CREATED = 1;
+
+	/**
+	 * The number of structural features of the '<em>Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ARTIFACT_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Task <em>Task</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,115 +143,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask()
 	 * @generated
 	 */
-	public static final int TASK = 1;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__OWNER = ASSIGNABLE_ITEM__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Summary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__SUMMARY = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__DESCRIPTION = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Links</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__LINKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__ATTACHMENTS = ASSIGNABLE_ITEM_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__COMMENTS = ASSIGNABLE_ITEM_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>State</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__STATE = ASSIGNABLE_ITEM_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Subscribers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__SUBSCRIBERS = ASSIGNABLE_ITEM_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__TYPE = ASSIGNABLE_ITEM_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__DEPENDS_ON = ASSIGNABLE_ITEM_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Blocks</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__BLOCKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 9;
-
-	/**
-	 * The number of structural features of the '<em>Task</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 10;
+	public static final int TASK = 9;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.State <em>State</em>}' class.
@@ -224,7 +153,204 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getState()
 	 * @generated
 	 */
-	public static final int STATE = 2;
+	public static final int STATE = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.StateHistory <em>State History</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.StateHistory
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateHistory()
+	 * @generated
+	 */
+	public static final int STATE_HISTORY = 6;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.StateTransition <em>State Transition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.StateTransition
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateTransition()
+	 * @generated
+	 */
+	public static final int STATE_TRANSITION = 7;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomain
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain()
+	 * @generated
+	 */
+	public static final int TASK_DOMAIN = 10;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.Comment
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment()
+	 * @generated
+	 */
+	public static final int COMMENT = 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.Attachment
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment()
+	 * @generated
+	 */
+	public static final int ATTACHMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__NAME = ARTIFACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__CREATED = ARTIFACT__CREATED;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__OWNER = ARTIFACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__DESCRIPTION = ARTIFACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__SIZE = ARTIFACT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Data Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT__DATA_CONTAINER = ARTIFACT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Attachment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT_FEATURE_COUNT = ARTIFACT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskType <em>Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskType
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType()
+	 * @generated
+	 */
+	public static final int TASK_TYPE = 11;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.StateTransitionMap <em>State Transition Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.StateTransitionMap
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateTransitionMap()
+	 * @generated
+	 */
+	public static final int STATE_TRANSITION_MAP = 8;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.AttachmentData
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachmentData()
+	 * @generated
+	 */
+	public static final int ATTACHMENT_DATA = 2;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT_DATA__DATA = 0;
+
+	/**
+	 * The number of structural features of the '<em>Attachment Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ATTACHMENT_DATA_FEATURE_COUNT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMMENT__OWNER = ASSIGNABLE_ITEM__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMMENT__TEXT = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMMENT__CREATED = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMMENT_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -245,14 +371,31 @@ public class TaskPackage extends EPackageImpl
 	public static final int STATE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.StateTransition <em>State Transition</em>}' class.
+	 * The feature id for the '<em><b>Transition Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.StateTransition
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateTransition()
 	 * @generated
+	 * @ordered
 	 */
-	public static final int STATE_TRANSITION = 3;
+	public static final int STATE_HISTORY__TRANSITION_TIME = 0;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_HISTORY__STATE = 1;
+
+	/**
+	 * The number of structural features of the '<em>State History</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_HISTORY_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -282,14 +425,166 @@ public class TaskPackage extends EPackageImpl
 	public static final int STATE_TRANSITION_FEATURE_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
+	 * The feature id for the '<em><b>Key</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.TaskDomain
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain()
 	 * @generated
+	 * @ordered
 	 */
-	public static final int TASK_DOMAIN = 4;
+	public static final int STATE_TRANSITION_MAP__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_TRANSITION_MAP__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>State Transition Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_TRANSITION_MAP_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__OWNER = ASSIGNABLE_ITEM__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Summary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__SUMMARY = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__DESCRIPTION = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__CREATED = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Last Modified</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__LAST_MODIFIED = ASSIGNABLE_ITEM_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Links</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__LINKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__ATTACHMENTS = ASSIGNABLE_ITEM_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__COMMENTS = ASSIGNABLE_ITEM_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__STATE = ASSIGNABLE_ITEM_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>State History</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__STATE_HISTORY = ASSIGNABLE_ITEM_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Subscribers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__SUBSCRIBERS = ASSIGNABLE_ITEM_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__TYPE = ASSIGNABLE_ITEM_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__DEPENDS_ON = ASSIGNABLE_ITEM_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Blocks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__BLOCKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 12;
+
+	/**
+	 * The number of structural features of the '<em>Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -337,99 +632,6 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.Comment
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment()
-	 * @generated
-	 */
-	public static final int COMMENT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int COMMENT__OWNER = ASSIGNABLE_ITEM__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int COMMENT__TEXT = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Comment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int COMMENT_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.Attachment
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment()
-	 * @generated
-	 */
-	public static final int ATTACHMENT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT__OWNER = ASSIGNABLE_ITEM__OWNER;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT__DESCRIPTION = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Data Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT__DATA_CONTAINER = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Attachment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskType <em>Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.TaskType
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType()
-	 * @generated
-	 */
-	public static final int TASK_TYPE = 7;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,71 +668,6 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_TYPE_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.StateTransitionMap <em>State Transition Map</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.StateTransitionMap
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateTransitionMap()
-	 * @generated
-	 */
-	public static final int STATE_TRANSITION_MAP = 8;
-
-	/**
-	 * The feature id for the '<em><b>Key</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int STATE_TRANSITION_MAP__KEY = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int STATE_TRANSITION_MAP__VALUE = 1;
-
-	/**
-	 * The number of structural features of the '<em>State Transition Map</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int STATE_TRANSITION_MAP_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.task.AttachmentData
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachmentData()
-	 * @generated
-	 */
-	public static final int ATTACHMENT_DATA = 9;
-
-	/**
-	 * The feature id for the '<em><b>Data</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT_DATA__DATA = 0;
-
-	/**
-	 * The number of structural features of the '<em>Attachment Data</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int ATTACHMENT_DATA_FEATURE_COUNT = 1;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -550,6 +687,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass stateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stateHistoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -599,6 +743,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass attachmentDataEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass artifactEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -736,6 +887,36 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Task#getCreated <em>Created</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getCreated()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EAttribute getTask_Created()
+	{
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(2);
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Task#getLastModified <em>Last Modified</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Modified</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getLastModified()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EAttribute getTask_LastModified()
+	{
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
+	}
+
+
+	/**
 	 * Returns the meta object for the map '{@link org.eclipselabs.etrack.domain.task.Task#getLinks <em>Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -746,7 +927,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Links()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(2);
+		return (EReference)taskEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -760,7 +941,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Attachments()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(3);
+		return (EReference)taskEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -774,7 +955,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Comments()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(4);
+		return (EReference)taskEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -788,8 +969,23 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_State()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(5);
+		return (EReference)taskEClass.getEStructuralFeatures().get(7);
 	}
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.task.Task#getStateHistory <em>State History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>State History</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getStateHistory()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_StateHistory()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(8);
+	}
+
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.Task#getSubscribers <em>Subscribers</em>}'.
@@ -802,7 +998,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Subscribers()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(6);
+		return (EReference)taskEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -816,7 +1012,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Type()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(7);
+		return (EReference)taskEClass.getEStructuralFeatures().get(10);
 	}
 
 
@@ -831,7 +1027,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_DependsOn()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(8);
+		return (EReference)taskEClass.getEStructuralFeatures().get(11);
 	}
 
 
@@ -846,7 +1042,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Blocks()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(9);
+		return (EReference)taskEClass.getEStructuralFeatures().get(12);
 	}
 
 
@@ -876,6 +1072,50 @@ public class TaskPackage extends EPackageImpl
 	{
 		return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
 	}
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.StateHistory <em>State History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>State History</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.StateHistory
+	 * @generated
+	 */
+	public EClass getStateHistory()
+	{
+		return stateHistoryEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.StateHistory#getTransitionTime <em>Transition Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Transition Time</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.StateHistory#getTransitionTime()
+	 * @see #getStateHistory()
+	 * @generated
+	 */
+	public EAttribute getStateHistory_TransitionTime()
+	{
+		return (EAttribute)stateHistoryEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.StateHistory#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>State</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.StateHistory#getState()
+	 * @see #getStateHistory()
+	 * @generated
+	 */
+	public EReference getStateHistory_State()
+	{
+		return (EReference)stateHistoryEClass.getEStructuralFeatures().get(1);
+	}
+
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.StateTransition <em>State Transition</em>}'.
@@ -1016,6 +1256,21 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Comment#getCreated <em>Created</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Comment#getCreated()
+	 * @see #getComment()
+	 * @generated
+	 */
+	public EAttribute getComment_Created()
+	{
+		return (EAttribute)commentEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1043,6 +1298,21 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Attachment#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Attachment#getSize()
+	 * @see #getAttachment()
+	 * @generated
+	 */
+	public EAttribute getAttachment_Size()
+	{
+		return (EAttribute)attachmentEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.eclipselabs.etrack.domain.task.Attachment#getDataContainer <em>Data Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1053,7 +1323,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getAttachment_DataContainer()
 	{
-		return (EReference)attachmentEClass.getEStructuralFeatures().get(1);
+		return (EReference)attachmentEClass.getEStructuralFeatures().get(2);
 	}
 
 
@@ -1192,6 +1462,50 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.Artifact <em>Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Artifact</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Artifact
+	 * @generated
+	 */
+	public EClass getArtifact()
+	{
+		return artifactEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Artifact#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Artifact#getName()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	public EAttribute getArtifact_Name()
+	{
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Artifact#getCreated <em>Created</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Artifact#getCreated()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	public EAttribute getArtifact_Created()
+	{
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1226,24 +1540,51 @@ public class TaskPackage extends EPackageImpl
 		assignableItemEClass = createEClass(ASSIGNABLE_ITEM);
 		createEReference(assignableItemEClass, ASSIGNABLE_ITEM__OWNER);
 
-		taskEClass = createEClass(TASK);
-		createEAttribute(taskEClass, TASK__SUMMARY);
-		createEAttribute(taskEClass, TASK__DESCRIPTION);
-		createEReference(taskEClass, TASK__LINKS);
-		createEReference(taskEClass, TASK__ATTACHMENTS);
-		createEReference(taskEClass, TASK__COMMENTS);
-		createEReference(taskEClass, TASK__STATE);
-		createEReference(taskEClass, TASK__SUBSCRIBERS);
-		createEReference(taskEClass, TASK__TYPE);
-		createEReference(taskEClass, TASK__DEPENDS_ON);
-		createEReference(taskEClass, TASK__BLOCKS);
+		attachmentEClass = createEClass(ATTACHMENT);
+		createEAttribute(attachmentEClass, ATTACHMENT__DESCRIPTION);
+		createEAttribute(attachmentEClass, ATTACHMENT__SIZE);
+		createEReference(attachmentEClass, ATTACHMENT__DATA_CONTAINER);
+
+		attachmentDataEClass = createEClass(ATTACHMENT_DATA);
+		createEAttribute(attachmentDataEClass, ATTACHMENT_DATA__DATA);
+
+		artifactEClass = createEClass(ARTIFACT);
+		createEAttribute(artifactEClass, ARTIFACT__NAME);
+		createEAttribute(artifactEClass, ARTIFACT__CREATED);
+
+		commentEClass = createEClass(COMMENT);
+		createEAttribute(commentEClass, COMMENT__TEXT);
+		createEAttribute(commentEClass, COMMENT__CREATED);
 
 		stateEClass = createEClass(STATE);
 		createEAttribute(stateEClass, STATE__NAME);
 
+		stateHistoryEClass = createEClass(STATE_HISTORY);
+		createEAttribute(stateHistoryEClass, STATE_HISTORY__TRANSITION_TIME);
+		createEReference(stateHistoryEClass, STATE_HISTORY__STATE);
+
 		stateTransitionEClass = createEClass(STATE_TRANSITION);
 		createEAttribute(stateTransitionEClass, STATE_TRANSITION__NAME);
 		createEReference(stateTransitionEClass, STATE_TRANSITION__TARGET_STATE);
+
+		stateTransitionMapEClass = createEClass(STATE_TRANSITION_MAP);
+		createEReference(stateTransitionMapEClass, STATE_TRANSITION_MAP__KEY);
+		createEReference(stateTransitionMapEClass, STATE_TRANSITION_MAP__VALUE);
+
+		taskEClass = createEClass(TASK);
+		createEAttribute(taskEClass, TASK__SUMMARY);
+		createEAttribute(taskEClass, TASK__DESCRIPTION);
+		createEAttribute(taskEClass, TASK__CREATED);
+		createEAttribute(taskEClass, TASK__LAST_MODIFIED);
+		createEReference(taskEClass, TASK__LINKS);
+		createEReference(taskEClass, TASK__ATTACHMENTS);
+		createEReference(taskEClass, TASK__COMMENTS);
+		createEReference(taskEClass, TASK__STATE);
+		createEReference(taskEClass, TASK__STATE_HISTORY);
+		createEReference(taskEClass, TASK__SUBSCRIBERS);
+		createEReference(taskEClass, TASK__TYPE);
+		createEReference(taskEClass, TASK__DEPENDS_ON);
+		createEReference(taskEClass, TASK__BLOCKS);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
@@ -1251,24 +1592,10 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskDomainEClass, TASK_DOMAIN__TRANSITIONS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
 
-		commentEClass = createEClass(COMMENT);
-		createEAttribute(commentEClass, COMMENT__TEXT);
-
-		attachmentEClass = createEClass(ATTACHMENT);
-		createEAttribute(attachmentEClass, ATTACHMENT__DESCRIPTION);
-		createEReference(attachmentEClass, ATTACHMENT__DATA_CONTAINER);
-
 		taskTypeEClass = createEClass(TASK_TYPE);
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
 		createEReference(taskTypeEClass, TASK_TYPE__STATES);
 		createEReference(taskTypeEClass, TASK_TYPE__EXTENSION);
-
-		stateTransitionMapEClass = createEClass(STATE_TRANSITION_MAP);
-		createEReference(stateTransitionMapEClass, STATE_TRANSITION_MAP__KEY);
-		createEReference(stateTransitionMapEClass, STATE_TRANSITION_MAP__VALUE);
-
-		attachmentDataEClass = createEClass(ATTACHMENT_DATA);
-		createEAttribute(attachmentDataEClass, ATTACHMENT_DATA__DATA);
 	}
 
 	/**
@@ -1304,32 +1631,60 @@ public class TaskPackage extends EPackageImpl
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		taskEClass.getESuperTypes().add(this.getAssignableItem());
-		commentEClass.getESuperTypes().add(this.getAssignableItem());
+		attachmentEClass.getESuperTypes().add(this.getArtifact());
 		attachmentEClass.getESuperTypes().add(this.getAssignableItem());
+		commentEClass.getESuperTypes().add(this.getAssignableItem());
+		taskEClass.getESuperTypes().add(this.getAssignableItem());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(assignableItemEClass, AssignableItem.class, "AssignableItem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssignableItem_Owner(), theEntityPackage.getPerson(), null, "owner", null, 1, 1, AssignableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTask_Summary(), ecorePackage.getEString(), "summary", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTask_Description(), ecorePackage.getEString(), "description", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Links(), theLinksPackage.getLinkMap(), null, "links", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Attachments(), this.getAttachment(), null, "attachments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Comments(), this.getComment(), null, "comments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_State(), this.getState(), null, "state", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Subscribers(), theEntityPackage.getPerson(), null, "subscribers", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Type(), this.getTaskType(), null, "type", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_DependsOn(), this.getTask(), this.getTask_Blocks(), "dependsOn", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Blocks(), this.getTask(), this.getTask_DependsOn(), "blocks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(attachmentEClass, Attachment.class, "Attachment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttachment_Description(), ecorePackage.getEString(), "description", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttachment_Size(), ecorePackage.getEInt(), "size", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttachment_DataContainer(), this.getAttachmentData(), null, "dataContainer", null, 0, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(attachmentDataEClass, AttachmentData.class, "AttachmentData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAttachmentData_Data(), ecorePackage.getEByteArray(), "data", null, 0, 1, AttachmentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 1, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArtifact_Created(), ecorePackage.getEDate(), "created", null, 1, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComment_Text(), ecorePackage.getEString(), "text", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComment_Created(), ecorePackage.getEDate(), "created", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 1, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(stateHistoryEClass, StateHistory.class, "StateHistory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStateHistory_TransitionTime(), ecorePackage.getEDate(), "transitionTime", null, 1, 1, StateHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateHistory_State(), this.getState(), null, "state", null, 0, 1, StateHistory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(stateTransitionEClass, StateTransition.class, "StateTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStateTransition_Name(), ecorePackage.getEString(), "name", null, 1, 1, StateTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStateTransition_TargetState(), this.getState(), null, "targetState", null, 0, 1, StateTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stateTransitionMapEClass, Map.Entry.class, "StateTransitionMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStateTransitionMap_Key(), this.getState(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateTransitionMap_Value(), this.getStateTransition(), null, "value", null, 0, -1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTask_Summary(), ecorePackage.getEString(), "summary", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Description(), ecorePackage.getEString(), "description", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Created(), ecorePackage.getEDate(), "created", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_LastModified(), ecorePackage.getEDate(), "lastModified", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Links(), theLinksPackage.getLinkMap(), null, "links", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Attachments(), this.getAttachment(), null, "attachments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Comments(), this.getComment(), null, "comments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_State(), this.getState(), null, "state", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_StateHistory(), this.getStateHistory(), null, "stateHistory", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Subscribers(), theEntityPackage.getPerson(), null, "subscribers", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Type(), this.getTaskType(), null, "type", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_DependsOn(), this.getTask(), this.getTask_Blocks(), "dependsOn", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Blocks(), this.getTask(), this.getTask_DependsOn(), "blocks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1337,24 +1692,10 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskDomain_Transitions(), this.getStateTransition(), null, "transitions", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComment_Text(), ecorePackage.getEString(), "text", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(attachmentEClass, Attachment.class, "Attachment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttachment_Description(), ecorePackage.getEString(), "description", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttachment_DataContainer(), this.getAttachmentData(), null, "dataContainer", null, 0, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(taskTypeEClass, TaskType.class, "TaskType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_States(), this.getStateTransitionMap(), null, "states", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_Extension(), ecorePackage.getEPackage(), null, "extension", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(stateTransitionMapEClass, Map.Entry.class, "StateTransitionMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStateTransitionMap_Key(), this.getState(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStateTransitionMap_Value(), this.getStateTransition(), null, "value", null, 0, -1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(attachmentDataEClass, AttachmentData.class, "AttachmentData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttachmentData_Data(), ecorePackage.getEByteArray(), "data", null, 0, 1, AttachmentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1419,6 +1760,22 @@ public class TaskPackage extends EPackageImpl
 		public static final EAttribute TASK__DESCRIPTION = eINSTANCE.getTask_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK__CREATED = eINSTANCE.getTask_Created();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Modified</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK__LAST_MODIFIED = eINSTANCE.getTask_LastModified();
+
+		/**
 		 * The meta object literal for the '<em><b>Links</b></em>' map feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1449,6 +1806,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK__STATE = eINSTANCE.getTask_State();
+
+		/**
+		 * The meta object literal for the '<em><b>State History</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__STATE_HISTORY = eINSTANCE.getTask_StateHistory();
 
 		/**
 		 * The meta object literal for the '<em><b>Subscribers</b></em>' reference list feature.
@@ -1499,6 +1864,32 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute STATE__NAME = eINSTANCE.getState_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.StateHistory <em>State History</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.StateHistory
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getStateHistory()
+		 * @generated
+		 */
+		public static final EClass STATE_HISTORY = eINSTANCE.getStateHistory();
+
+		/**
+		 * The meta object literal for the '<em><b>Transition Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute STATE_HISTORY__TRANSITION_TIME = eINSTANCE.getStateHistory_TransitionTime();
+
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference STATE_HISTORY__STATE = eINSTANCE.getStateHistory_State();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.StateTransition <em>State Transition</em>}' class.
@@ -1587,6 +1978,14 @@ public class TaskPackage extends EPackageImpl
 		public static final EAttribute COMMENT__TEXT = eINSTANCE.getComment_Text();
 
 		/**
+		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute COMMENT__CREATED = eINSTANCE.getComment_Created();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1603,6 +2002,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute ATTACHMENT__DESCRIPTION = eINSTANCE.getAttachment_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute ATTACHMENT__SIZE = eINSTANCE.getAttachment_Size();
 
 		/**
 		 * The meta object literal for the '<em><b>Data Container</b></em>' containment reference feature.
@@ -1689,6 +2096,32 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute ATTACHMENT_DATA__DATA = eINSTANCE.getAttachmentData_Data();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Artifact <em>Artifact</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.Artifact
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getArtifact()
+		 * @generated
+		 */
+		public static final EClass ARTIFACT = eINSTANCE.getArtifact();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute ARTIFACT__NAME = eINSTANCE.getArtifact_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute ARTIFACT__CREATED = eINSTANCE.getArtifact_Created();
 
 	}
 

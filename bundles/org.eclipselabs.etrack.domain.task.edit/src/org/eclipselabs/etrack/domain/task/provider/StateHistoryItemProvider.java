@@ -13,6 +13,7 @@ package org.eclipselabs.etrack.domain.task.provider;
 
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -28,16 +29,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipselabs.etrack.domain.task.State;
+import org.eclipselabs.etrack.domain.task.StateHistory;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.task.State} object.
+ * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.task.StateHistory} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class StateItemProvider
+public class StateHistoryItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -52,7 +53,7 @@ public class StateItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StateItemProvider(AdapterFactory adapterFactory)
+	public StateHistoryItemProvider(AdapterFactory adapterFactory)
 	{
 		super(adapterFactory);
 	}
@@ -70,26 +71,27 @@ public class StateItemProvider
 		{
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addTransitionTimePropertyDescriptor(object);
+			addStatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Transition Time feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object)
+	protected void addTransitionTimePropertyDescriptor(Object object)
 	{
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_State_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_name_feature", "_UI_State_type"),
-				 TaskPackage.Literals.STATE__NAME,
+				 getString("_UI_StateHistory_transitionTime_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StateHistory_transitionTime_feature", "_UI_StateHistory_type"),
+				 TaskPackage.Literals.STATE_HISTORY__TRANSITION_TIME,
 				 true,
 				 false,
 				 false,
@@ -99,7 +101,30 @@ public class StateItemProvider
 	}
 
 	/**
-	 * This returns State.gif.
+	 * This adds a property descriptor for the State feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatePropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StateHistory_state_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StateHistory_state_feature", "_UI_StateHistory_type"),
+				 TaskPackage.Literals.STATE_HISTORY__STATE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns StateHistory.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -107,7 +132,7 @@ public class StateItemProvider
 	@Override
 	public Object getImage(Object object)
 	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/State"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StateHistory"));
 	}
 
 	/**
@@ -119,10 +144,11 @@ public class StateItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		String label = ((State)object).getName();
+		Date labelValue = ((StateHistory)object).getTransitionTime();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_State_type") :
-			getString("_UI_State_type") + " " + label;
+			getString("_UI_StateHistory_type") :
+			getString("_UI_StateHistory_type") + " " + label;
 	}
 
 	/**
@@ -137,9 +163,9 @@ public class StateItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(State.class))
+		switch (notification.getFeatureID(StateHistory.class))
 		{
-			case TaskPackage.STATE__NAME:
+			case TaskPackage.STATE_HISTORY__TRANSITION_TIME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -28,16 +28,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipselabs.etrack.domain.task.State;
+import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.task.State} object.
+ * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.task.Artifact} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class StateItemProvider
+public class ArtifactItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -52,7 +52,7 @@ public class StateItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StateItemProvider(AdapterFactory adapterFactory)
+	public ArtifactItemProvider(AdapterFactory adapterFactory)
 	{
 		super(adapterFactory);
 	}
@@ -71,6 +71,7 @@ public class StateItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addCreatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,9 +88,9 @@ public class StateItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_State_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_State_name_feature", "_UI_State_type"),
-				 TaskPackage.Literals.STATE__NAME,
+				 getString("_UI_Artifact_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_name_feature", "_UI_Artifact_type"),
+				 TaskPackage.Literals.ARTIFACT__NAME,
 				 true,
 				 false,
 				 false,
@@ -99,7 +100,30 @@ public class StateItemProvider
 	}
 
 	/**
-	 * This returns State.gif.
+	 * This adds a property descriptor for the Created feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCreatedPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Artifact_created_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_created_feature", "_UI_Artifact_type"),
+				 TaskPackage.Literals.ARTIFACT__CREATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Artifact.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -107,7 +131,7 @@ public class StateItemProvider
 	@Override
 	public Object getImage(Object object)
 	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/State"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Artifact"));
 	}
 
 	/**
@@ -119,10 +143,10 @@ public class StateItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		String label = ((State)object).getName();
+		String label = ((Artifact)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_State_type") :
-			getString("_UI_State_type") + " " + label;
+			getString("_UI_Artifact_type") :
+			getString("_UI_Artifact_type") + " " + label;
 	}
 
 	/**
@@ -137,9 +161,10 @@ public class StateItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(State.class))
+		switch (notification.getFeatureID(Artifact.class))
 		{
-			case TaskPackage.STATE__NAME:
+			case TaskPackage.ARTIFACT__NAME:
+			case TaskPackage.ARTIFACT__CREATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

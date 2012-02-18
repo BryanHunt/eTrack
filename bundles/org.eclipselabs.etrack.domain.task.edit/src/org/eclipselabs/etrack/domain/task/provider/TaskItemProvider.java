@@ -17,10 +17,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,10 +29,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipselabs.etrack.domain.links.LinksFactory;
 import org.eclipselabs.etrack.domain.links.LinksPackage;
-
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
@@ -81,6 +77,8 @@ public class TaskItemProvider
 			addOwnerPropertyDescriptor(object);
 			addSummaryPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addCreatedPropertyDescriptor(object);
+			addLastModifiedPropertyDescriptor(object);
 			addStatePropertyDescriptor(object);
 			addSubscribersPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
@@ -151,6 +149,52 @@ public class TaskItemProvider
 				 getString("_UI_Task_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_description_feature", "_UI_Task_type"),
 				 TaskPackage.Literals.TASK__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Created feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCreatedPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_created_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_created_feature", "_UI_Task_type"),
+				 TaskPackage.Literals.TASK__CREATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Last Modified feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastModifiedPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_lastModified_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_lastModified_feature", "_UI_Task_type"),
+				 TaskPackage.Literals.TASK__LAST_MODIFIED,
 				 true,
 				 false,
 				 false,
@@ -291,6 +335,7 @@ public class TaskItemProvider
 			childrenFeatures.add(TaskPackage.Literals.TASK__LINKS);
 			childrenFeatures.add(TaskPackage.Literals.TASK__ATTACHMENTS);
 			childrenFeatures.add(TaskPackage.Literals.TASK__COMMENTS);
+			childrenFeatures.add(TaskPackage.Literals.TASK__STATE_HISTORY);
 		}
 		return childrenFeatures;
 	}
@@ -352,11 +397,14 @@ public class TaskItemProvider
 		{
 			case TaskPackage.TASK__SUMMARY:
 			case TaskPackage.TASK__DESCRIPTION:
+			case TaskPackage.TASK__CREATED:
+			case TaskPackage.TASK__LAST_MODIFIED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TaskPackage.TASK__LINKS:
 			case TaskPackage.TASK__ATTACHMENTS:
 			case TaskPackage.TASK__COMMENTS:
+			case TaskPackage.TASK__STATE_HISTORY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -389,6 +437,11 @@ public class TaskItemProvider
 			(createChildParameter
 				(TaskPackage.Literals.TASK__COMMENTS,
 				 TaskFactory.eINSTANCE.createComment()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TaskPackage.Literals.TASK__STATE_HISTORY,
+				 TaskFactory.eINSTANCE.createStateHistory()));
 	}
 
 	/**

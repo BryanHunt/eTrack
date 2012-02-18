@@ -11,6 +11,8 @@
  */
 package org.eclipselabs.etrack.domain.task;
 
+import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -27,6 +29,7 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Comment#getText <em>Text</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Comment#getCreated <em>Created</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +68,26 @@ public class Comment extends EObjectImpl implements AssignableItem
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date CREATED_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreated()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date created = CREATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,6 +201,41 @@ public class Comment extends EObjectImpl implements AssignableItem
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Created</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Created</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Created</em>' attribute.
+	 * @see #setCreated(Date)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment_Created()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Date getCreated()
+	{
+		return created;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Comment#getCreated <em>Created</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Created</em>' attribute.
+	 * @see #getCreated()
+	 * @generated
+	 */
+	public void setCreated(Date newCreated)
+	{
+		Date oldCreated = created;
+		created = newCreated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.COMMENT__CREATED, oldCreated, created));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -192,6 +250,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 				return basicGetOwner();
 			case TaskPackage.COMMENT__TEXT:
 				return getText();
+			case TaskPackage.COMMENT__CREATED:
+				return getCreated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,6 +271,9 @@ public class Comment extends EObjectImpl implements AssignableItem
 				return;
 			case TaskPackage.COMMENT__TEXT:
 				setText((String)newValue);
+				return;
+			case TaskPackage.COMMENT__CREATED:
+				setCreated((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,6 +295,9 @@ public class Comment extends EObjectImpl implements AssignableItem
 			case TaskPackage.COMMENT__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case TaskPackage.COMMENT__CREATED:
+				setCreated(CREATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +316,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 				return owner != null;
 			case TaskPackage.COMMENT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case TaskPackage.COMMENT__CREATED:
+				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -267,6 +335,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (text: ");
 		result.append(text);
+		result.append(", created: ");
+		result.append(created);
 		result.append(')');
 		return result.toString();
 	}

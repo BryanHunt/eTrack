@@ -12,11 +12,8 @@
 package org.eclipselabs.etrack.domain.task.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipselabs.etrack.domain.entity.provider.EntityEditPlugin;
-
 import org.eclipselabs.etrack.domain.links.provider.LinksEditPlugin;
 
 /**

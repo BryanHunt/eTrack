@@ -16,7 +16,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipselabs.etrack.domain.entity.Person;
 
 /**
@@ -28,6 +27,7 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getSize <em>Size</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getDataContainer <em>Data Container</em>}</li>
  * </ul>
  * </p>
@@ -36,7 +36,7 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * @model kind="class"
  * @generated
  */
-public class Attachment extends EObjectImpl implements AssignableItem
+public class Attachment extends Artifact implements AssignableItem
 {
 	/**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
@@ -67,6 +67,26 @@ public class Attachment extends EObjectImpl implements AssignableItem
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SIZE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSize()
+	 * @generated
+	 * @ordered
+	 */
+	protected int size = SIZE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDataContainer() <em>Data Container</em>}' containment reference.
@@ -190,6 +210,41 @@ public class Attachment extends EObjectImpl implements AssignableItem
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Size</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Size</em>' attribute.
+	 * @see #setSize(int)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_Size()
+	 * @model required="true"
+	 * @generated
+	 */
+	public int getSize()
+	{
+		return size;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getSize <em>Size</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Size</em>' attribute.
+	 * @see #getSize()
+	 * @generated
+	 */
+	public void setSize(int newSize)
+	{
+		int oldSize = size;
+		size = newSize;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__SIZE, oldSize, size));
+	}
+
+	/**
 	 * Returns the value of the '<em><b>Data Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -307,6 +362,8 @@ public class Attachment extends EObjectImpl implements AssignableItem
 				return basicGetOwner();
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return getDescription();
+			case TaskPackage.ATTACHMENT__SIZE:
+				return getSize();
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				if (resolve) return getDataContainer();
 				return basicGetDataContainer();
@@ -329,6 +386,9 @@ public class Attachment extends EObjectImpl implements AssignableItem
 				return;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case TaskPackage.ATTACHMENT__SIZE:
+				setSize((Integer)newValue);
 				return;
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				setDataContainer((AttachmentData)newValue);
@@ -353,6 +413,9 @@ public class Attachment extends EObjectImpl implements AssignableItem
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case TaskPackage.ATTACHMENT__SIZE:
+				setSize(SIZE_EDEFAULT);
+				return;
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				setDataContainer((AttachmentData)null);
 				return;
@@ -374,10 +437,50 @@ public class Attachment extends EObjectImpl implements AssignableItem
 				return owner != null;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case TaskPackage.ATTACHMENT__SIZE:
+				return size != SIZE_EDEFAULT;
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				return dataContainer != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == AssignableItem.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case TaskPackage.ATTACHMENT__OWNER: return TaskPackage.ASSIGNABLE_ITEM__OWNER;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == AssignableItem.class)
+		{
+			switch (baseFeatureID)
+			{
+				case TaskPackage.ASSIGNABLE_ITEM__OWNER: return TaskPackage.ATTACHMENT__OWNER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -393,6 +496,8 @@ public class Attachment extends EObjectImpl implements AssignableItem
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (description: ");
 		result.append(description);
+		result.append(", size: ");
+		result.append(size);
 		result.append(')');
 		return result.toString();
 	}

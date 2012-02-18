@@ -17,8 +17,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -28,9 +26,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipselabs.etrack.domain.task.Attachment;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
@@ -42,7 +38,7 @@ import org.eclipselabs.etrack.domain.task.TaskPackage;
  * @generated
  */
 public class AttachmentItemProvider
-	extends ItemProviderAdapter
+	extends ArtifactItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -76,6 +72,7 @@ public class AttachmentItemProvider
 
 			addOwnerPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addSizePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,6 +119,29 @@ public class AttachmentItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Size feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSizePropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Attachment_size_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attachment_size_feature", "_UI_Attachment_type"),
+				 TaskPackage.Literals.ATTACHMENT__SIZE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -180,7 +200,7 @@ public class AttachmentItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		String label = ((Attachment)object).getDescription();
+		String label = ((Attachment)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Attachment_type") :
 			getString("_UI_Attachment_type") + " " + label;
@@ -201,6 +221,7 @@ public class AttachmentItemProvider
 		switch (notification.getFeatureID(Attachment.class))
 		{
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
+			case TaskPackage.ATTACHMENT__SIZE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
@@ -226,18 +247,6 @@ public class AttachmentItemProvider
 			(createChildParameter
 				(TaskPackage.Literals.ATTACHMENT__DATA_CONTAINER,
 				 TaskFactory.eINSTANCE.createAttachmentData()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator()
-	{
-		return TaskEditPlugin.INSTANCE;
 	}
 
 }

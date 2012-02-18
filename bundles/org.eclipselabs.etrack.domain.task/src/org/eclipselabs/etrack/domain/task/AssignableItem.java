@@ -12,7 +12,6 @@
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipselabs.etrack.domain.entity.Person;
 
 /**

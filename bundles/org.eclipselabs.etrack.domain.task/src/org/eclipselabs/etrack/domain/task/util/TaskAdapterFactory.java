@@ -18,11 +18,13 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipselabs.etrack.domain.task.*;
+import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
+import org.eclipselabs.etrack.domain.task.AttachmentData;
 import org.eclipselabs.etrack.domain.task.Comment;
 import org.eclipselabs.etrack.domain.task.State;
+import org.eclipselabs.etrack.domain.task.StateHistory;
 import org.eclipselabs.etrack.domain.task.StateTransition;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
@@ -98,24 +100,19 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createAssignableItemAdapter();
 			}
 			@Override
-			public Adapter caseTask(Task object)
+			public Adapter caseAttachment(Attachment object)
 			{
-				return createTaskAdapter();
+				return createAttachmentAdapter();
 			}
 			@Override
-			public Adapter caseState(State object)
+			public Adapter caseAttachmentData(AttachmentData object)
 			{
-				return createStateAdapter();
+				return createAttachmentDataAdapter();
 			}
 			@Override
-			public Adapter caseStateTransition(StateTransition object)
+			public Adapter caseArtifact(Artifact object)
 			{
-				return createStateTransitionAdapter();
-			}
-			@Override
-			public Adapter caseTaskDomain(TaskDomain object)
-			{
-				return createTaskDomainAdapter();
+				return createArtifactAdapter();
 			}
 			@Override
 			public Adapter caseComment(Comment object)
@@ -123,14 +120,19 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createCommentAdapter();
 			}
 			@Override
-			public Adapter caseAttachment(Attachment object)
+			public Adapter caseState(State object)
 			{
-				return createAttachmentAdapter();
+				return createStateAdapter();
 			}
 			@Override
-			public Adapter caseTaskType(TaskType object)
+			public Adapter caseStateHistory(StateHistory object)
 			{
-				return createTaskTypeAdapter();
+				return createStateHistoryAdapter();
+			}
+			@Override
+			public Adapter caseStateTransition(StateTransition object)
+			{
+				return createStateTransitionAdapter();
 			}
 			@Override
 			public Adapter caseStateTransitionMap(Map.Entry<State, EList<StateTransition>> object)
@@ -138,9 +140,19 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createStateTransitionMapAdapter();
 			}
 			@Override
-			public Adapter caseAttachmentData(AttachmentData object)
+			public Adapter caseTask(Task object)
 			{
-				return createAttachmentDataAdapter();
+				return createTaskAdapter();
+			}
+			@Override
+			public Adapter caseTaskDomain(TaskDomain object)
+			{
+				return createTaskDomainAdapter();
+			}
+			@Override
+			public Adapter caseTaskType(TaskType object)
+			{
+				return createTaskTypeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -205,6 +217,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createStateAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.StateHistory <em>State History</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.StateHistory
+	 * @generated
+	 */
+	public Adapter createStateHistoryAdapter()
 	{
 		return null;
 	}
@@ -310,6 +337,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createAttachmentDataAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.Artifact <em>Artifact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.Artifact
+	 * @generated
+	 */
+	public Adapter createArtifactAdapter()
 	{
 		return null;
 	}

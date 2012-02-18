@@ -17,11 +17,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipselabs.etrack.domain.task.*;
+import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
+import org.eclipselabs.etrack.domain.task.AttachmentData;
 import org.eclipselabs.etrack.domain.task.Comment;
 import org.eclipselabs.etrack.domain.task.State;
+import org.eclipselabs.etrack.domain.task.StateHistory;
 import org.eclipselabs.etrack.domain.task.StateTransition;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
@@ -98,32 +100,26 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK:
+			case TaskPackage.ATTACHMENT:
 			{
-				Task task = (Task)theEObject;
-				T result = caseTask(task);
-				if (result == null) result = caseAssignableItem(task);
+				Attachment attachment = (Attachment)theEObject;
+				T result = caseAttachment(attachment);
+				if (result == null) result = caseArtifact(attachment);
+				if (result == null) result = caseAssignableItem(attachment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.STATE:
+			case TaskPackage.ATTACHMENT_DATA:
 			{
-				State state = (State)theEObject;
-				T result = caseState(state);
+				AttachmentData attachmentData = (AttachmentData)theEObject;
+				T result = caseAttachmentData(attachmentData);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.STATE_TRANSITION:
+			case TaskPackage.ARTIFACT:
 			{
-				StateTransition stateTransition = (StateTransition)theEObject;
-				T result = caseStateTransition(stateTransition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TaskPackage.TASK_DOMAIN:
-			{
-				TaskDomain taskDomain = (TaskDomain)theEObject;
-				T result = caseTaskDomain(taskDomain);
+				Artifact artifact = (Artifact)theEObject;
+				T result = caseArtifact(artifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -135,18 +131,24 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.ATTACHMENT:
+			case TaskPackage.STATE:
 			{
-				Attachment attachment = (Attachment)theEObject;
-				T result = caseAttachment(attachment);
-				if (result == null) result = caseAssignableItem(attachment);
+				State state = (State)theEObject;
+				T result = caseState(state);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK_TYPE:
+			case TaskPackage.STATE_HISTORY:
 			{
-				TaskType taskType = (TaskType)theEObject;
-				T result = caseTaskType(taskType);
+				StateHistory stateHistory = (StateHistory)theEObject;
+				T result = caseStateHistory(stateHistory);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskPackage.STATE_TRANSITION:
+			{
+				StateTransition stateTransition = (StateTransition)theEObject;
+				T result = caseStateTransition(stateTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,10 +159,25 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.ATTACHMENT_DATA:
+			case TaskPackage.TASK:
 			{
-				AttachmentData attachmentData = (AttachmentData)theEObject;
-				T result = caseAttachmentData(attachmentData);
+				Task task = (Task)theEObject;
+				T result = caseTask(task);
+				if (result == null) result = caseAssignableItem(task);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskPackage.TASK_DOMAIN:
+			{
+				TaskDomain taskDomain = (TaskDomain)theEObject;
+				T result = caseTaskDomain(taskDomain);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TaskPackage.TASK_TYPE:
+			{
+				TaskType taskType = (TaskType)theEObject;
+				T result = caseTaskType(taskType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -212,6 +229,22 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseState(State object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>State History</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>State History</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStateHistory(StateHistory object)
 	{
 		return null;
 	}
@@ -324,6 +357,22 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseAttachmentData(AttachmentData object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArtifact(Artifact object)
 	{
 		return null;
 	}

@@ -82,15 +82,17 @@ public class TaskFactory extends EFactoryImpl
 	{
 		switch (eClass.getClassifierID())
 		{
-			case TaskPackage.TASK: return createTask();
-			case TaskPackage.STATE: return createState();
-			case TaskPackage.STATE_TRANSITION: return createStateTransition();
-			case TaskPackage.TASK_DOMAIN: return createTaskDomain();
-			case TaskPackage.COMMENT: return createComment();
 			case TaskPackage.ATTACHMENT: return createAttachment();
-			case TaskPackage.TASK_TYPE: return createTaskType();
-			case TaskPackage.STATE_TRANSITION_MAP: return (EObject)createStateTransitionMap();
 			case TaskPackage.ATTACHMENT_DATA: return createAttachmentData();
+			case TaskPackage.ARTIFACT: return createArtifact();
+			case TaskPackage.COMMENT: return createComment();
+			case TaskPackage.STATE: return createState();
+			case TaskPackage.STATE_HISTORY: return createStateHistory();
+			case TaskPackage.STATE_TRANSITION: return createStateTransition();
+			case TaskPackage.STATE_TRANSITION_MAP: return (EObject)createStateTransitionMap();
+			case TaskPackage.TASK: return createTask();
+			case TaskPackage.TASK_DOMAIN: return createTaskDomain();
+			case TaskPackage.TASK_TYPE: return createTaskType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -116,6 +118,17 @@ public class TaskFactory extends EFactoryImpl
 	{
 		State state = new State();
 		return state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StateHistory createStateHistory()
+	{
+		StateHistory stateHistory = new StateHistory();
+		return stateHistory;
 	}
 
 	/**
@@ -193,6 +206,17 @@ public class TaskFactory extends EFactoryImpl
 	{
 		AttachmentData attachmentData = new AttachmentData();
 		return attachmentData;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Artifact createArtifact()
+	{
+		Artifact artifact = new Artifact();
+		return artifact;
 	}
 
 	/**
