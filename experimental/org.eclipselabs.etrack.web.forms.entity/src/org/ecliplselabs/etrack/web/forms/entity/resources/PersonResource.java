@@ -26,7 +26,7 @@ import org.eclipselabs.etrack.domain.entity.Email;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
 import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.etrack.domain.entity.Phone;
-import org.eclipselabs.mongo.emf.MongoDBURIHandlerImpl;
+import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
 import org.restlet.data.Form;
 import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.representation.InputRepresentation;
@@ -103,7 +103,7 @@ public class PersonResource extends WadlServerResource
 		URIConverter uriConverter = resourceSet.getURIConverter();
 		uriConverter.getURIMap().put(URI.createURI("http://localhost:8080/etrack/storage/"), URI.createURI("mongo://localhost/etrack/"));
 		EList<URIHandler> uriHandlers = uriConverter.getURIHandlers();
-		uriHandlers.add(0, new MongoDBURIHandlerImpl());
+		uriHandlers.add(0, new MongoURIHandlerImpl());
 		return resourceSet;
 	}
 }
