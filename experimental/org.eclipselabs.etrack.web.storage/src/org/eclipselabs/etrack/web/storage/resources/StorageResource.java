@@ -57,7 +57,7 @@ public class StorageResource extends WadlServerResource
 		EObject object = emfRepresentation.getObject();
 		ResourceSet resourceSet = createResourceSet();
 
-		Resource resource = resourceSet.getResource(URI.createURI("mongo://localhost/etrack/entity/"), true);
+		Resource resource = resourceSet.getResource(URI.createURI(getReference().toString()), true);
 		resource.getContents().add(object);
 		resource.save(null);
 	}

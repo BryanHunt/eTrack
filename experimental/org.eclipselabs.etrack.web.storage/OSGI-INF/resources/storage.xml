@@ -5,6 +5,7 @@
       <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
    </service>
    <property name="paths" type="String">
+     /storage/{collection}/
      /storage/{collection}/{id}
    </property>
 </scr:component>
