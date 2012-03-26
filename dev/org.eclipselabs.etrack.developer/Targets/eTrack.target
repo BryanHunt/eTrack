@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
 
-<target name="Running Platform" sequenceNumber="34">
+<target name="Running Platform" sequenceNumber="35">
 <locations>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.8.0.v20120130-0821"/>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.8.0.v20120319-0555"/>
 <repository location="http://download.eclipse.org/releases/juno/"/>
 </location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.hamcrest.feature.feature.group" version="1.3.0.201107152246"/>
 <repository location="http://quickiemart.springfieldusa.net/Targets/Hamcrest"/>
 </location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.junit.feature.feature.group" version="4.9.0.201107152255"/>
 <repository location="http://quickiemart.springfieldusa.net/Targets/JUnit"/>
 </location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.restlet.ext.osgi.developer.junit.feature.feature.group" version="0.5.1.201111202205"/>
 <unit id="org.restlet.ext.osgi.di.eclipse.feature.feature.group" version="0.5.1.201111202205"/>
 <unit id="org.restlet.ext.osgi.servlet.feature.feature.group" version="0.5.1.201111202205"/>
 <unit id="org.restlet.ext.osgi.wadl.di.eclipse.feature.feature.group" version="0.5.1.201111202205"/>
 <repository location="http://bryanhunt.github.com/Restlet-Extension-for-OSGi-Environments/releases/0.5.1/"/>
 </location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.restlet.ext.servlet.feature.group" version="2.1.0.snapshot-v20120215-2214"/>
 <unit id="org.restlet.feature.group" version="2.1.0.snapshot-v20120215-2214"/>
 <unit id="org.restlet.ext.wadl.feature.group" version="2.1.0.snapshot-v20120215-2214"/>
@@ -30,25 +30,25 @@
 <unit id="org.restlet.ext.emf.feature.group" version="2.1.0.snapshot-v20120215-2214"/>
 <repository location="http://p2.restlet.org/2.1/"/>
 </location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.epp.package.java.feature.feature.group" version="1.5.0.20120131-1543"/>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.epp.package.java.feature.feature.group" version="1.5.0.20120319-1306"/>
 <repository location="http://download.eclipse.org/releases/juno/"/>
 </location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipselabs.mongo.emf.freemarker.feature.feature.group" version="0.5.1.201203100938"/>
-<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.5.1.201203100938"/>
-<unit id="org.eclipselabs.mongo.junit.feature.feature.group" version="0.5.1.201203100938"/>
-<unit id="org.eclipselabs.mongo.emf.log.feature.feature.group" version="0.5.1.201203100938"/>
-<unit id="org.eclipselabs.mongo.emf.query.feature.feature.group" version="0.5.1.201203100938"/>
-<repository location="http://bryanhunt.github.com/mongo-emf/releases/0.5.1/"/>
-</location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipselabs.emfjson.feature.feature.group" version="0.3.3.201202141103"/>
 <repository location="http://ghillairet.github.com/emfjson/releases/0.3.3/"/>
 </location>
-<location includeAllPlatforms="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.mongodb.feature.feature.group" version="2.7.2.201111251414"/>
 <repository location="http://bryanhunt.github.com/mongo-emf/mongodb/2.7.2/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipselabs.mongo.emf.freemarker.feature.feature.group" version="0.6.0.201203260933"/>
+<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.6.0.201203260933"/>
+<unit id="org.eclipselabs.mongo.emf.developer.junit.feature.source.feature.group" version="0.6.0.201203260933"/>
+<unit id="org.eclipselabs.mongo.emf.log.feature.feature.group" version="0.6.0.201203260933"/>
+<unit id="org.eclipselabs.mongo.emf.query.simple.feature.source.feature.group" version="0.6.0.201203260933"/>
+<repository location="http://bryanhunt.github.com/mongo-emf/releases/0.6.0"/>
 </location>
 </locations>
 <environment>
