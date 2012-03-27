@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.etrack.domain.links.LinkMap;
+import org.eclipselabs.etrack.domain.links.Linkable;
 import org.eclipselabs.etrack.domain.links.LinkedContent;
 import org.eclipselabs.etrack.domain.links.LinksPackage;
 
@@ -45,7 +46,6 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCreated <em>Created</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getLastModified <em>Last Modified</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getLinks <em>Links</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getAttachments <em>Attachments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getComments <em>Comments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getState <em>State</em>}</li>
@@ -61,7 +61,7 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  * @model kind="class"
  * @generated
  */
-public class Task extends EObjectImpl implements AssignableItem
+public class Task extends EObjectImpl implements AssignableItem, Linkable
 {
 	/**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
@@ -72,6 +72,16 @@ public class Task extends EObjectImpl implements AssignableItem
 	 * @ordered
 	 */
 	protected Person owner;
+
+	/**
+	 * The cached value of the '{@link #getLinks() <em>Links</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, LinkedContent> links;
 
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -152,16 +162,6 @@ public class Task extends EObjectImpl implements AssignableItem
 	 * @ordered
 	 */
 	protected Date lastModified = LAST_MODIFIED_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLinks() <em>Links</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLinks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, LinkedContent> links;
 
 	/**
 	 * The cached value of the '{@link #getAttachments() <em>Attachments</em>}' containment reference list.
@@ -470,7 +470,7 @@ public class Task extends EObjectImpl implements AssignableItem
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Links</em>' map.
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Links()
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getLinkable_Links()
 	 * @model mapType="org.eclipselabs.etrack.domain.links.LinkMap<org.eclipse.emf.ecore.EString, org.eclipselabs.etrack.domain.links.LinkedContent>"
 	 * @generated
 	 */
@@ -793,6 +793,9 @@ public class Task extends EObjectImpl implements AssignableItem
 			case TaskPackage.TASK__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
+			case TaskPackage.TASK__LINKS:
+				if (coreType) return getLinks();
+				else return getLinks().map();
 			case TaskPackage.TASK__SUMMARY:
 				return getSummary();
 			case TaskPackage.TASK__DESCRIPTION:
@@ -801,9 +804,6 @@ public class Task extends EObjectImpl implements AssignableItem
 				return getCreated();
 			case TaskPackage.TASK__LAST_MODIFIED:
 				return getLastModified();
-			case TaskPackage.TASK__LINKS:
-				if (coreType) return getLinks();
-				else return getLinks().map();
 			case TaskPackage.TASK__ATTACHMENTS:
 				return getAttachments();
 			case TaskPackage.TASK__COMMENTS:
@@ -840,6 +840,9 @@ public class Task extends EObjectImpl implements AssignableItem
 			case TaskPackage.TASK__OWNER:
 				setOwner((Person)newValue);
 				return;
+			case TaskPackage.TASK__LINKS:
+				((EStructuralFeature.Setting)getLinks()).set(newValue);
+				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary((String)newValue);
 				return;
@@ -851,9 +854,6 @@ public class Task extends EObjectImpl implements AssignableItem
 				return;
 			case TaskPackage.TASK__LAST_MODIFIED:
 				setLastModified((Date)newValue);
-				return;
-			case TaskPackage.TASK__LINKS:
-				((EStructuralFeature.Setting)getLinks()).set(newValue);
 				return;
 			case TaskPackage.TASK__ATTACHMENTS:
 				getAttachments().clear();
@@ -902,6 +902,9 @@ public class Task extends EObjectImpl implements AssignableItem
 			case TaskPackage.TASK__OWNER:
 				setOwner((Person)null);
 				return;
+			case TaskPackage.TASK__LINKS:
+				getLinks().clear();
+				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
@@ -913,9 +916,6 @@ public class Task extends EObjectImpl implements AssignableItem
 				return;
 			case TaskPackage.TASK__LAST_MODIFIED:
 				setLastModified(LAST_MODIFIED_EDEFAULT);
-				return;
-			case TaskPackage.TASK__LINKS:
-				getLinks().clear();
 				return;
 			case TaskPackage.TASK__ATTACHMENTS:
 				getAttachments().clear();
@@ -957,6 +957,8 @@ public class Task extends EObjectImpl implements AssignableItem
 		{
 			case TaskPackage.TASK__OWNER:
 				return owner != null;
+			case TaskPackage.TASK__LINKS:
+				return links != null && !links.isEmpty();
 			case TaskPackage.TASK__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
 			case TaskPackage.TASK__DESCRIPTION:
@@ -965,8 +967,6 @@ public class Task extends EObjectImpl implements AssignableItem
 				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
 			case TaskPackage.TASK__LAST_MODIFIED:
 				return LAST_MODIFIED_EDEFAULT == null ? lastModified != null : !LAST_MODIFIED_EDEFAULT.equals(lastModified);
-			case TaskPackage.TASK__LINKS:
-				return links != null && !links.isEmpty();
 			case TaskPackage.TASK__ATTACHMENTS:
 				return attachments != null && !attachments.isEmpty();
 			case TaskPackage.TASK__COMMENTS:
@@ -985,6 +985,44 @@ public class Task extends EObjectImpl implements AssignableItem
 				return blocks != null && !blocks.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == Linkable.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case TaskPackage.TASK__LINKS: return LinksPackage.LINKABLE__LINKS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == Linkable.class)
+		{
+			switch (baseFeatureID)
+			{
+				case LinksPackage.LINKABLE__LINKS: return TaskPackage.TASK__LINKS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

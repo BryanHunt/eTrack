@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Entity Web Resources
+Bundle-Name: Storage Web Resources
 Bundle-SymbolicName: org.eclipselabs.etrack.web.storage
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
@@ -11,11 +11,8 @@ Import-Package: org.eclipse.emf.common.util,
  org.eclipse.emf.ecore.resource,
  org.eclipse.emf.ecore.resource.impl,
  org.eclipse.emf.ecore.xmi,
- org.eclipselabs.emfjson,
  org.eclipselabs.emfjson.resource,
- org.eclipselabs.etrack.domain.entity,
  org.eclipselabs.mongo.emf,
- org.osgi.framework;version="1.6.0",
  org.restlet,
  org.restlet.data,
  org.restlet.ext.emf,
@@ -23,5 +20,5 @@ Import-Package: org.eclipse.emf.common.util,
  org.restlet.ext.wadl,
  org.restlet.representation,
  org.restlet.resource
-Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.eclipselabs.etrack.web.storage.bundle.Activator
+Export-Package: org.eclipselabs.etrack.web.storage.representations,
+ org.eclipselabs.etrack.web.storage.resources

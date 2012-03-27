@@ -97,6 +97,13 @@ public class LinksSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case LinksPackage.LINKABLE:
+			{
+				Linkable linkable = (Linkable)theEObject;
+				T result = caseLinkable(linkable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -129,6 +136,22 @@ public class LinksSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseLinkMap(Map.Entry<String, LinkedContent> object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkable(Linkable object)
 	{
 		return null;
 	}

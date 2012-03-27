@@ -11,4 +11,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//LinkedContent"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Linkable" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+        eType="#//LinkMap" containment="true" resolveProxies="false"/>
+  </eClassifiers>
 </ecore:EPackage>

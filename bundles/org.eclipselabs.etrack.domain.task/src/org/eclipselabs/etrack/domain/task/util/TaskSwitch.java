@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipselabs.etrack.domain.links.Linkable;
 import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
@@ -164,6 +165,7 @@ public class TaskSwitch<T> extends Switch<T>
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
 				if (result == null) result = caseAssignableItem(task);
+				if (result == null) result = caseLinkable(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -325,6 +327,22 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseTaskType(TaskType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkable(Linkable object)
 	{
 		return null;
 	}

@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipselabs.etrack.domain.links.Linkable;
 import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
@@ -153,6 +154,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseTaskType(TaskType object)
 			{
 				return createTaskTypeAdapter();
+			}
+			@Override
+			public Adapter caseLinkable(Linkable object)
+			{
+				return createLinkableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -307,6 +313,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTaskTypeAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.links.Linkable <em>Linkable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.links.Linkable
+	 * @generated
+	 */
+	public Adapter createLinkableAdapter()
 	{
 		return null;
 	}

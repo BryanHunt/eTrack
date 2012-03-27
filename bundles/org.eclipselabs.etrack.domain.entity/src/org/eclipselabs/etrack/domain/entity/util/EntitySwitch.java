@@ -13,10 +13,18 @@ package org.eclipselabs.etrack.domain.entity.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipselabs.etrack.domain.entity.*;
+import org.eclipselabs.etrack.domain.entity.Address;
+import org.eclipselabs.etrack.domain.entity.CategorizedItem;
+import org.eclipselabs.etrack.domain.entity.Email;
+import org.eclipselabs.etrack.domain.entity.Entity;
+import org.eclipselabs.etrack.domain.entity.EntityPackage;
+import org.eclipselabs.etrack.domain.entity.Group;
+import org.eclipselabs.etrack.domain.entity.Identity;
+import org.eclipselabs.etrack.domain.entity.Organization;
+import org.eclipselabs.etrack.domain.entity.Person;
+import org.eclipselabs.etrack.domain.entity.Phone;
+import org.eclipselabs.etrack.domain.links.Linkable;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,6 +109,8 @@ public class EntitySwitch<T> extends Switch<T>
 			{
 				Entity entity = (Entity)theEObject;
 				T result = caseEntity(entity);
+				if (result == null) result = caseIdentity(entity);
+				if (result == null) result = caseLinkable(entity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,7 +118,7 @@ public class EntitySwitch<T> extends Switch<T>
 			{
 				Group group = (Group)theEObject;
 				T result = caseGroup(group);
-				if (result == null) result = caseEntity(group);
+				if (result == null) result = caseIdentity(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,6 +127,8 @@ public class EntitySwitch<T> extends Switch<T>
 				Person person = (Person)theEObject;
 				T result = casePerson(person);
 				if (result == null) result = caseEntity(person);
+				if (result == null) result = caseIdentity(person);
+				if (result == null) result = caseLinkable(person);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +144,24 @@ public class EntitySwitch<T> extends Switch<T>
 			{
 				CategorizedItem categorizedItem = (CategorizedItem)theEObject;
 				T result = caseCategorizedItem(categorizedItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.ORGANIZATION:
+			{
+				Organization organization = (Organization)theEObject;
+				T result = caseOrganization(organization);
+				if (result == null) result = caseEntity(organization);
+				if (result == null) result = caseGroup(organization);
+				if (result == null) result = caseIdentity(organization);
+				if (result == null) result = caseLinkable(organization);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.IDENTITY:
+			{
+				Identity identity = (Identity)theEObject;
+				T result = caseIdentity(identity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -247,6 +277,54 @@ public class EntitySwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseCategorizedItem(CategorizedItem object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Organization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Organization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOrganization(Organization object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Identity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Identity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIdentity(Identity object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkable(Linkable object)
 	{
 		return null;
 	}

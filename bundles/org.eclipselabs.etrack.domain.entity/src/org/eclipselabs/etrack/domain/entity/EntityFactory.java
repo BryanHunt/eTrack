@@ -14,9 +14,7 @@ package org.eclipselabs.etrack.domain.entity;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -83,9 +81,9 @@ public class EntityFactory extends EFactoryImpl
 		{
 			case EntityPackage.ADDRESS: return createAddress();
 			case EntityPackage.EMAIL: return createEmail();
-			case EntityPackage.GROUP: return createGroup();
 			case EntityPackage.PERSON: return createPerson();
 			case EntityPackage.PHONE: return createPhone();
+			case EntityPackage.ORGANIZATION: return createOrganization();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -118,17 +116,6 @@ public class EntityFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Group createGroup()
-	{
-		Group group = new Group();
-		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Person createPerson()
 	{
 		Person person = new Person();
@@ -144,6 +131,17 @@ public class EntityFactory extends EFactoryImpl
 	{
 		Phone phone = new Phone();
 		return phone;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Organization createOrganization()
+	{
+		Organization organization = new Organization();
+		return organization;
 	}
 
 	/**

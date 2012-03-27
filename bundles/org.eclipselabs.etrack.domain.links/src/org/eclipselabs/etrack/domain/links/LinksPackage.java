@@ -144,6 +144,34 @@ public class LinksPackage extends EPackageImpl
 	public static final int LINK_MAP_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.links.Linkable <em>Linkable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.links.Linkable
+	 * @see org.eclipselabs.etrack.domain.links.LinksPackage#getLinkable()
+	 * @generated
+	 */
+	public static final int LINKABLE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Links</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LINKABLE__LINKS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Linkable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LINKABLE_FEATURE_COUNT = 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -156,6 +184,13 @@ public class LinksPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass linkMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkableEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -306,6 +341,35 @@ public class LinksPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.links.Linkable <em>Linkable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Linkable</em>'.
+	 * @see org.eclipselabs.etrack.domain.links.Linkable
+	 * @generated
+	 */
+	public EClass getLinkable()
+	{
+		return linkableEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the map '{@link org.eclipselabs.etrack.domain.links.Linkable#getLinks <em>Links</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Links</em>'.
+	 * @see org.eclipselabs.etrack.domain.links.Linkable#getLinks()
+	 * @see #getLinkable()
+	 * @generated
+	 */
+	public EReference getLinkable_Links()
+	{
+		return (EReference)linkableEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +408,9 @@ public class LinksPackage extends EPackageImpl
 		linkMapEClass = createEClass(LINK_MAP);
 		createEAttribute(linkMapEClass, LINK_MAP__KEY);
 		createEReference(linkMapEClass, LINK_MAP__VALUE);
+
+		linkableEClass = createEClass(LINKABLE);
+		createEReference(linkableEClass, LINKABLE__LINKS);
 	}
 
 	/**
@@ -384,6 +451,9 @@ public class LinksPackage extends EPackageImpl
 		initEClass(linkMapEClass, Map.Entry.class, "LinkMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLinkMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLinkMap_Value(), this.getLinkedContent(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(linkableEClass, Linkable.class, "Linkable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLinkable_Links(), this.getLinkMap(), null, "links", null, 0, -1, Linkable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -454,6 +524,24 @@ public class LinksPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference LINK_MAP__VALUE = eINSTANCE.getLinkMap_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.links.Linkable <em>Linkable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.links.Linkable
+		 * @see org.eclipselabs.etrack.domain.links.LinksPackage#getLinkable()
+		 * @generated
+		 */
+		public static final EClass LINKABLE = eINSTANCE.getLinkable();
+
+		/**
+		 * The meta object literal for the '<em><b>Links</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference LINKABLE__LINKS = eINSTANCE.getLinkable_Links();
 
 	}
 

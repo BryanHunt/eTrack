@@ -168,6 +168,11 @@ public class AccountsItemProvider
 			(createChildParameter
 				(DatabasePackage.Literals.ACCOUNTS__ACCOUNTS,
 				 AccountFactory.eINSTANCE.createAccount()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatabasePackage.Literals.ACCOUNTS__ACCOUNTS,
+				 AccountFactory.eINSTANCE.createLocalAccount()));
 	}
 
 	/**

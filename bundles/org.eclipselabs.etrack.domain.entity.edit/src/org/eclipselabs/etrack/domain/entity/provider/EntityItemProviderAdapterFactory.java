@@ -133,31 +133,6 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.entity.Group} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GroupItemProvider groupItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.entity.Group}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGroupAdapter()
-	{
-		if (groupItemProvider == null)
-		{
-			groupItemProvider = new GroupItemProvider(this);
-		}
-
-		return groupItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.entity.Person} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,28 +183,28 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.entity.CategorizedItem} instances.
+	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.entity.Organization} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CategorizedItemItemProvider categorizedItemItemProvider;
+	protected OrganizationItemProvider organizationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.entity.CategorizedItem}.
+	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.entity.Organization}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCategorizedItemAdapter()
+	public Adapter createOrganizationAdapter()
 	{
-		if (categorizedItemItemProvider == null)
+		if (organizationItemProvider == null)
 		{
-			categorizedItemItemProvider = new CategorizedItemItemProvider(this);
+			organizationItemProvider = new OrganizationItemProvider(this);
 		}
 
-		return categorizedItemItemProvider;
+		return organizationItemProvider;
 	}
 
 	/**
@@ -345,10 +320,9 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
 	{
 		if (addressItemProvider != null) addressItemProvider.dispose();
 		if (emailItemProvider != null) emailItemProvider.dispose();
-		if (groupItemProvider != null) groupItemProvider.dispose();
 		if (personItemProvider != null) personItemProvider.dispose();
 		if (phoneItemProvider != null) phoneItemProvider.dispose();
-		if (categorizedItemItemProvider != null) categorizedItemItemProvider.dispose();
+		if (organizationItemProvider != null) organizationItemProvider.dispose();
 	}
 
 }

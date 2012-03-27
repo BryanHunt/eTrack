@@ -209,12 +209,12 @@ public class AccountRequestItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(AccountPackage.Literals.ACCOUNT_REQUEST__ENTITY,
-				 EntityFactory.eINSTANCE.createGroup()));
+				 EntityFactory.eINSTANCE.createPerson()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(AccountPackage.Literals.ACCOUNT_REQUEST__ENTITY,
-				 EntityFactory.eINSTANCE.createPerson()));
+				 EntityFactory.eINSTANCE.createOrganization()));
 	}
 
 	/**

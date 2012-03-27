@@ -167,12 +167,12 @@ public class EntitiesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DatabasePackage.Literals.ENTITIES__ENTITIES,
-				 EntityFactory.eINSTANCE.createGroup()));
+				 EntityFactory.eINSTANCE.createPerson()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DatabasePackage.Literals.ENTITIES__ENTITIES,
-				 EntityFactory.eINSTANCE.createPerson()));
+				 EntityFactory.eINSTANCE.createOrganization()));
 	}
 
 	/**

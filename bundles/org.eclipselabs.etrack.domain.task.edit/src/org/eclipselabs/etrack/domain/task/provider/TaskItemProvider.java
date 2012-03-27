@@ -332,7 +332,7 @@ public class TaskItemProvider
 		if (childrenFeatures == null)
 		{
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TaskPackage.Literals.TASK__LINKS);
+			childrenFeatures.add(LinksPackage.Literals.LINKABLE__LINKS);
 			childrenFeatures.add(TaskPackage.Literals.TASK__ATTACHMENTS);
 			childrenFeatures.add(TaskPackage.Literals.TASK__COMMENTS);
 			childrenFeatures.add(TaskPackage.Literals.TASK__STATE_HISTORY);
@@ -425,7 +425,7 @@ public class TaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TaskPackage.Literals.TASK__LINKS,
+				(LinksPackage.Literals.LINKABLE__LINKS,
 				 LinksFactory.eINSTANCE.create(LinksPackage.Literals.LINK_MAP)));
 
 		newChildDescriptors.add

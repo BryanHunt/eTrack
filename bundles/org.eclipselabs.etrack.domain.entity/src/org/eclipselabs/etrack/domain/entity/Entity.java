@@ -14,22 +14,17 @@ package org.eclipselabs.etrack.domain.entity;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipselabs.etrack.domain.links.LinkMap;
+import org.eclipselabs.etrack.domain.links.Linkable;
 import org.eclipselabs.etrack.domain.links.LinkedContent;
 import org.eclipselabs.etrack.domain.links.LinksPackage;
 
@@ -44,7 +39,6 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getEmails <em>Emails</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getPhoneNumbers <em>Phone Numbers</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getAddresses <em>Addresses</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.entity.Entity#getLinks <em>Links</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,8 +46,18 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  * @model kind="class" abstract="true"
  * @generated
  */
-public abstract class Entity extends EObjectImpl implements EObject
+public abstract class Entity extends EObjectImpl implements Identity, Linkable
 {
+	/**
+	 * The cached value of the '{@link #getLinks() <em>Links</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, LinkedContent> links;
+
 	/**
 	 * The cached value of the '{@link #getEmails() <em>Emails</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -83,16 +87,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EList<Address> addresses;
-
-	/**
-	 * The cached value of the '{@link #getLinks() <em>Links</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLinks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, LinkedContent> links;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,7 +189,7 @@ public abstract class Entity extends EObjectImpl implements EObject
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Links</em>' map.
-	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getEntity_Links()
+	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getLinkable_Links()
 	 * @model mapType="org.eclipselabs.etrack.domain.links.LinkMap<org.eclipse.emf.ecore.EString, org.eclipselabs.etrack.domain.links.LinkedContent>"
 	 * @generated
 	 */
@@ -218,14 +212,14 @@ public abstract class Entity extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case EntityPackage.ENTITY__LINKS:
+				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
 			case EntityPackage.ENTITY__EMAILS:
 				return ((InternalEList<?>)getEmails()).basicRemove(otherEnd, msgs);
 			case EntityPackage.ENTITY__PHONE_NUMBERS:
 				return ((InternalEList<?>)getPhoneNumbers()).basicRemove(otherEnd, msgs);
 			case EntityPackage.ENTITY__ADDRESSES:
 				return ((InternalEList<?>)getAddresses()).basicRemove(otherEnd, msgs);
-			case EntityPackage.ENTITY__LINKS:
-				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -240,15 +234,15 @@ public abstract class Entity extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case EntityPackage.ENTITY__LINKS:
+				if (coreType) return getLinks();
+				else return getLinks().map();
 			case EntityPackage.ENTITY__EMAILS:
 				return getEmails();
 			case EntityPackage.ENTITY__PHONE_NUMBERS:
 				return getPhoneNumbers();
 			case EntityPackage.ENTITY__ADDRESSES:
 				return getAddresses();
-			case EntityPackage.ENTITY__LINKS:
-				if (coreType) return getLinks();
-				else return getLinks().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,6 +258,9 @@ public abstract class Entity extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case EntityPackage.ENTITY__LINKS:
+				((EStructuralFeature.Setting)getLinks()).set(newValue);
+				return;
 			case EntityPackage.ENTITY__EMAILS:
 				getEmails().clear();
 				getEmails().addAll((Collection<? extends Email>)newValue);
@@ -275,9 +272,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 			case EntityPackage.ENTITY__ADDRESSES:
 				getAddresses().clear();
 				getAddresses().addAll((Collection<? extends Address>)newValue);
-				return;
-			case EntityPackage.ENTITY__LINKS:
-				((EStructuralFeature.Setting)getLinks()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -293,6 +287,9 @@ public abstract class Entity extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case EntityPackage.ENTITY__LINKS:
+				getLinks().clear();
+				return;
 			case EntityPackage.ENTITY__EMAILS:
 				getEmails().clear();
 				return;
@@ -301,9 +298,6 @@ public abstract class Entity extends EObjectImpl implements EObject
 				return;
 			case EntityPackage.ENTITY__ADDRESSES:
 				getAddresses().clear();
-				return;
-			case EntityPackage.ENTITY__LINKS:
-				getLinks().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -319,16 +313,54 @@ public abstract class Entity extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case EntityPackage.ENTITY__LINKS:
+				return links != null && !links.isEmpty();
 			case EntityPackage.ENTITY__EMAILS:
 				return emails != null && !emails.isEmpty();
 			case EntityPackage.ENTITY__PHONE_NUMBERS:
 				return phoneNumbers != null && !phoneNumbers.isEmpty();
 			case EntityPackage.ENTITY__ADDRESSES:
 				return addresses != null && !addresses.isEmpty();
-			case EntityPackage.ENTITY__LINKS:
-				return links != null && !links.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == Linkable.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case EntityPackage.ENTITY__LINKS: return LinksPackage.LINKABLE__LINKS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+	{
+		if (baseClass == Linkable.class)
+		{
+			switch (baseFeatureID)
+			{
+				case LinksPackage.LINKABLE__LINKS: return EntityPackage.ENTITY__LINKS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } // Entity

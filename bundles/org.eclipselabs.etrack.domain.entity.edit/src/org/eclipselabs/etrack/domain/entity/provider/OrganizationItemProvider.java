@@ -29,15 +29,15 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
-import org.eclipselabs.etrack.domain.entity.Group;
+import org.eclipselabs.etrack.domain.entity.Organization;
 
 /**
- * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.entity.Group} object.
+ * This is the item provider adapter for a {@link org.eclipselabs.etrack.domain.entity.Organization} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GroupItemProvider
+public class OrganizationItemProvider
 	extends EntityItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -52,7 +52,7 @@ public class GroupItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GroupItemProvider(AdapterFactory adapterFactory)
+	public OrganizationItemProvider(AdapterFactory adapterFactory)
 	{
 		super(adapterFactory);
 	}
@@ -72,7 +72,6 @@ public class GroupItemProvider
 
 			addNamePropertyDescriptor(object);
 			addMembersPropertyDescriptor(object);
-			addAdminsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -124,30 +123,7 @@ public class GroupItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Admins feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAdminsPropertyDescriptor(Object object)
-	{
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Group_admins_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Group_admins_feature", "_UI_Group_type"),
-				 EntityPackage.Literals.GROUP__ADMINS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Group.gif.
+	 * This returns Organization.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -155,7 +131,7 @@ public class GroupItemProvider
 	@Override
 	public Object getImage(Object object)
 	{
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Group"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Organization"));
 	}
 
 	/**
@@ -167,10 +143,10 @@ public class GroupItemProvider
 	@Override
 	public String getText(Object object)
 	{
-		String label = ((Group)object).getName();
+		String label = ((Organization)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Group_type") :
-			getString("_UI_Group_type") + " " + label;
+			getString("_UI_Organization_type") :
+			getString("_UI_Organization_type") + " " + label;
 	}
 
 	/**
@@ -185,9 +161,9 @@ public class GroupItemProvider
 	{
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Group.class))
+		switch (notification.getFeatureID(Organization.class))
 		{
-			case EntityPackage.GROUP__NAME:
+			case EntityPackage.ORGANIZATION__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

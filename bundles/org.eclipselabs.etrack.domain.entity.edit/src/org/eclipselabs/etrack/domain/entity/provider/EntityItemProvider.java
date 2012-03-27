@@ -95,10 +95,10 @@ public class EntityItemProvider
 		if (childrenFeatures == null)
 		{
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(LinksPackage.Literals.LINKABLE__LINKS);
 			childrenFeatures.add(EntityPackage.Literals.ENTITY__EMAILS);
 			childrenFeatures.add(EntityPackage.Literals.ENTITY__PHONE_NUMBERS);
 			childrenFeatures.add(EntityPackage.Literals.ENTITY__ADDRESSES);
-			childrenFeatures.add(EntityPackage.Literals.ENTITY__LINKS);
 		}
 		return childrenFeatures;
 	}
@@ -143,10 +143,10 @@ public class EntityItemProvider
 
 		switch (notification.getFeatureID(Entity.class))
 		{
+			case EntityPackage.ENTITY__LINKS:
 			case EntityPackage.ENTITY__EMAILS:
 			case EntityPackage.ENTITY__PHONE_NUMBERS:
 			case EntityPackage.ENTITY__ADDRESSES:
-			case EntityPackage.ENTITY__LINKS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,6 +167,11 @@ public class EntityItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(LinksPackage.Literals.LINKABLE__LINKS,
+				 LinksFactory.eINSTANCE.create(LinksPackage.Literals.LINK_MAP)));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EntityPackage.Literals.ENTITY__EMAILS,
 				 EntityFactory.eINSTANCE.createEmail()));
 
@@ -179,11 +184,6 @@ public class EntityItemProvider
 			(createChildParameter
 				(EntityPackage.Literals.ENTITY__ADDRESSES,
 				 EntityFactory.eINSTANCE.createAddress()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EntityPackage.Literals.ENTITY__LINKS,
-				 LinksFactory.eINSTANCE.create(LinksPackage.Literals.LINK_MAP)));
 	}
 
 	/**

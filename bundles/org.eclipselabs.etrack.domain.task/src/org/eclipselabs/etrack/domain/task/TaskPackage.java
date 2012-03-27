@@ -461,13 +461,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__OWNER = ASSIGNABLE_ITEM__OWNER;
 
 	/**
+	 * The feature id for the '<em><b>Links</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__LINKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Summary</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__SUMMARY = ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+	public static final int TASK__SUMMARY = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -476,7 +485,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__DESCRIPTION = ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
+	public static final int TASK__DESCRIPTION = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Created</b></em>' attribute.
@@ -485,7 +494,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__CREATED = ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
+	public static final int TASK__CREATED = ASSIGNABLE_ITEM_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Last Modified</b></em>' attribute.
@@ -494,16 +503,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__LAST_MODIFIED = ASSIGNABLE_ITEM_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Links</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__LINKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 4;
+	public static final int TASK__LAST_MODIFIED = ASSIGNABLE_ITEM_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
@@ -917,20 +917,6 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
-	 * Returns the meta object for the map '{@link org.eclipselabs.etrack.domain.task.Task#getLinks <em>Links</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Links</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Task#getLinks()
-	 * @see #getTask()
-	 * @generated
-	 */
-	public EReference getTask_Links()
-	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.task.Task#getAttachments <em>Attachments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -941,7 +927,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Attachments()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(5);
+		return (EReference)taskEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -955,7 +941,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Comments()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(6);
+		return (EReference)taskEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -969,7 +955,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_State()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(7);
+		return (EReference)taskEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -983,7 +969,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_StateHistory()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(8);
+		return (EReference)taskEClass.getEStructuralFeatures().get(7);
 	}
 
 
@@ -998,7 +984,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Subscribers()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(9);
+		return (EReference)taskEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1012,7 +998,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Type()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(10);
+		return (EReference)taskEClass.getEStructuralFeatures().get(9);
 	}
 
 
@@ -1027,7 +1013,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_DependsOn()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(11);
+		return (EReference)taskEClass.getEStructuralFeatures().get(10);
 	}
 
 
@@ -1042,7 +1028,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTask_Blocks()
 	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(12);
+		return (EReference)taskEClass.getEStructuralFeatures().get(11);
 	}
 
 
@@ -1576,7 +1562,6 @@ public class TaskPackage extends EPackageImpl
 		createEAttribute(taskEClass, TASK__DESCRIPTION);
 		createEAttribute(taskEClass, TASK__CREATED);
 		createEAttribute(taskEClass, TASK__LAST_MODIFIED);
-		createEReference(taskEClass, TASK__LINKS);
 		createEReference(taskEClass, TASK__ATTACHMENTS);
 		createEReference(taskEClass, TASK__COMMENTS);
 		createEReference(taskEClass, TASK__STATE);
@@ -1635,6 +1620,7 @@ public class TaskPackage extends EPackageImpl
 		attachmentEClass.getESuperTypes().add(this.getAssignableItem());
 		commentEClass.getESuperTypes().add(this.getAssignableItem());
 		taskEClass.getESuperTypes().add(this.getAssignableItem());
+		taskEClass.getESuperTypes().add(theLinksPackage.getLinkable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(assignableItemEClass, AssignableItem.class, "AssignableItem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1676,7 +1662,6 @@ public class TaskPackage extends EPackageImpl
 		initEAttribute(getTask_Description(), ecorePackage.getEString(), "description", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Created(), ecorePackage.getEDate(), "created", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_LastModified(), ecorePackage.getEDate(), "lastModified", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Links(), theLinksPackage.getLinkMap(), null, "links", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Attachments(), this.getAttachment(), null, "attachments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Comments(), this.getComment(), null, "comments", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_State(), this.getState(), null, "state", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1774,14 +1759,6 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK__LAST_MODIFIED = eINSTANCE.getTask_LastModified();
-
-		/**
-		 * The meta object literal for the '<em><b>Links</b></em>' map feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference TASK__LINKS = eINSTANCE.getTask_Links();
 
 		/**
 		 * The meta object literal for the '<em><b>Attachments</b></em>' containment reference list feature.
