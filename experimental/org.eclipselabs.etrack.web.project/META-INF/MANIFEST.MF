@@ -10,6 +10,10 @@ Import-Package: org.eclipse.emf.common.util,
  org.eclipselabs.etrack.domain.project,
  org.eclipselabs.etrack.web.storage.representations,
  org.eclipselabs.etrack.web.storage.resources,
+ org.restlet,
  org.restlet.ext.emf,
+ org.restlet.ext.osgi,
  org.restlet.ext.wadl,
- org.restlet.representation
+ org.restlet.representation,
+ org.restlet.resource
+Service-Component: OSGI-INF/resources/project.xml

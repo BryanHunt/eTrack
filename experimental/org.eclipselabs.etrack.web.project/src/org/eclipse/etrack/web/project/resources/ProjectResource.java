@@ -27,8 +27,8 @@ public class ProjectResource extends StorageResource<Project>
 	protected void mapStorageURI(Map<URI, URI> uriMap)
 	{
 		// FIXME : determine the mapping dynamically from the ResourceProvider
-		URI logicalURI = URI.createURI(System.getProperty("baseURI", "http://localhost:8080")).appendSegments(new String[] { "storage", "projects" });
-		URI physicalURI = URI.createURI(System.getProperty("mongodb", "mongo://localhost/etrack")).appendSegment("projects");
+		URI logicalURI = URI.createURI(System.getProperty("baseURI", "http://localhost:8080/etrack")).appendSegments(new String[] { "storage", "" });
+		URI physicalURI = URI.createURI(System.getProperty("mongodb", "mongo://localhost/etrack/"));
 		uriMap.put(logicalURI, physicalURI);
 	}
 }

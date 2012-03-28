@@ -58,7 +58,7 @@ public abstract class StorageResource<T extends EObject> extends WadlServerResou
 		EObject object = emfRepresentation.getObject();
 		ResourceSet resourceSet = createResourceSet();
 
-		Resource resource = resourceSet.getResource(URI.createURI(getReference().toString()), true);
+		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
 		resource.getContents().add(object);
 		resource.save(null);
 	}
