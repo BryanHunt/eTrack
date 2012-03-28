@@ -14,14 +14,14 @@ package org.eclipse.etrack.web.project.resources;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipselabs.etrack.domain.project.Project;
 import org.eclipselabs.etrack.web.storage.resources.StorageResource;
 
 /**
  * @author bhunt
  * 
  */
-public class ProjectResource extends StorageResource<EObject>
+public class ProjectResource extends StorageResource<Project>
 {
 	@Override
 	protected void mapStorageURI(Map<URI, URI> uriMap)
