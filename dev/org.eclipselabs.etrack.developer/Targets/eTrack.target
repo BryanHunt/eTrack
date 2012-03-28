@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
 
-<target name="Running Platform" sequenceNumber="35">
+<target name="Running Platform" sequenceNumber="36">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.8.0.v20120319-0555"/>
@@ -43,11 +43,11 @@
 <repository location="http://bryanhunt.github.com/mongo-emf/mongodb/2.7.2/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipselabs.mongo.emf.freemarker.feature.feature.group" version="0.6.0.201203260933"/>
-<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.6.0.201203260933"/>
-<unit id="org.eclipselabs.mongo.emf.developer.junit.feature.source.feature.group" version="0.6.0.201203260933"/>
-<unit id="org.eclipselabs.mongo.emf.log.feature.feature.group" version="0.6.0.201203260933"/>
-<unit id="org.eclipselabs.mongo.emf.query.simple.feature.source.feature.group" version="0.6.0.201203260933"/>
+<unit id="org.eclipselabs.mongo.emf.log.feature.feature.group" version="0.6.0.201203280725"/>
+<unit id="org.eclipselabs.mongo.emf.freemarker.feature.feature.group" version="0.6.0.201203280725"/>
+<unit id="org.eclipselabs.mongo.emf.developer.junit.feature.feature.group" version="0.6.0.201203280725"/>
+<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.6.0.201203280725"/>
+<unit id="org.eclipselabs.mongo.emf.query.simple.feature.feature.group" version="0.6.0.201203280725"/>
 <repository location="http://bryanhunt.github.com/mongo-emf/releases/0.6.0"/>
 </location>
 </locations>
