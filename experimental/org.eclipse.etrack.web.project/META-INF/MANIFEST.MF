@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Project
+Bundle-SymbolicName: org.eclipse.etrack.web.project
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
+ org.eclipselabs.etrack.domain.project,
+ org.eclipselabs.etrack.web.storage.representations,
+ org.eclipselabs.etrack.web.storage.resources,
+ org.restlet.ext.emf,
+ org.restlet.ext.wadl,
+ org.restlet.representation
