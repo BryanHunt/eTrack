@@ -12,7 +12,6 @@
 package org.eclipselabs.etrack.web.storage.resources;
 
 import java.io.IOException;
-import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -22,6 +21,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipselabs.etrack.web.storage.providers.IStorageResource;
+import org.eclipselabs.etrack.web.storage.providers.StorageResourceProvider;
 import org.eclipselabs.etrack.web.storage.representations.EmfJsonRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
 import org.restlet.data.MediaType;
@@ -35,20 +36,20 @@ import org.restlet.resource.Post;
  * @author bhunt
  * 
  */
-public abstract class StorageResource<T extends EObject> extends WadlServerResource
+public abstract class StorageResource extends WadlServerResource implements IStorageResource
 {
 	@Get("xmi+xml")
-	public EmfRepresentation<T> getXMI()
+	public EmfRepresentation<EObject> getXMI()
 	{
-		T object = getModel();
-		return new EmfRepresentation<T>(MediaType.APPLICATION_XMI, object);
+		EObject object = getModel();
+		return new EmfRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
 	}
 
 	@Get("json")
-	public EmfRepresentation<T> getJSON()
+	public EmfRepresentation<EObject> getJSON()
 	{
-		T object = getModel();
-		return new EmfJsonRepresentation<T>(MediaType.APPLICATION_JSON, object);
+		EObject object = getModel();
+		return new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, object);
 	}
 
 	@Post("json")
@@ -63,26 +64,55 @@ public abstract class StorageResource<T extends EObject> extends WadlServerResou
 		resource.save(null);
 	}
 
-	@SuppressWarnings("unchecked")
-	protected T getModel()
+	@Override
+	public void setResourceProvider(StorageResourceProvider resourceProvider)
+	{
+		this.resourceProvider = resourceProvider;
+	}
+
+	protected EObject getModel()
 	{
 		ResourceSet resourceSet = createResourceSet();
 
 		Resource resource = resourceSet.getResource(URI.createURI(getReference().toString()), true);
-		return (T) resource.getContents().get(0);
+		return resource.getContents().get(0);
 	}
 
 	protected ResourceSet createResourceSet()
 	{
+		// FIXME this algorithm can be significantly improved. Look at caching and pre-compiling the
+		// regex
+
 		ResourceSet resourceSet = new ResourceSetImpl();
 		URIConverter uriConverter = resourceSet.getURIConverter();
-		mapStorageURI(uriConverter.getURIMap());
+
+// mapStorageURI(uriConverter.getURIMap(), resourceProvider);
 // uriConverter.getURIMap().put(URI.createURI("http://localhost:8080/etrack/storage/"),
 // URI.createURI("mongo://localhost/etrack/"));
+
+		URI logicalURI = URI.createURI(getReference().toString());
+		int targetSegmentIndex = 0;
+
+		for (String segment : logicalURI.segments())
+		{
+			if (segment.equals(resourceProvider.getLogicalPath()))
+				break;
+
+			targetSegmentIndex++;
+		}
+
+		logicalURI.trimSegments(logicalURI.segmentCount() - targetSegmentIndex);
+
+		URI physicalURI = URI.createURI(System.getProperty("mongodb", "mongo://localhost"));
+		physicalURI.appendSegments(resourceProvider.getPhysicalPath().split("/"));
+		uriConverter.getURIMap().put(logicalURI, physicalURI);
+
 		EList<URIHandler> uriHandlers = uriConverter.getURIHandlers();
 		uriHandlers.add(0, new MongoURIHandlerImpl());
 		return resourceSet;
 	}
 
-	protected abstract void mapStorageURI(Map<URI, URI> uriMap);
+// protected abstract void mapStorageURI(Map<URI, URI> uriMap, IResourceProvider resourceProvider);
+
+	private StorageResourceProvider resourceProvider;
 }

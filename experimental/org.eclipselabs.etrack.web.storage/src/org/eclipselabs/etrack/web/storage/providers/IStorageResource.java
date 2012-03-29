@@ -9,23 +9,13 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipse.etrack.web.project.providers;
-
-import org.eclipselabs.etrack.web.storage.providers.StorageFinder;
-import org.eclipselabs.etrack.web.storage.providers.StorageResourceProvider;
-import org.eclipselabs.etrack.web.storage.resources.StorageResource;
-import org.restlet.Context;
-import org.restlet.resource.Finder;
+package org.eclipselabs.etrack.web.storage.providers;
 
 /**
  * @author bhunt
  * 
  */
-public class ProjectResourceProvider extends StorageResourceProvider
+public interface IStorageResource
 {
-	@Override
-	protected Finder createFinder(Context context)
-	{
-		return new StorageFinder(context, StorageResource.class, this);
-	}
+	void setResourceProvider(StorageResourceProvider resourceProvider);
 }
