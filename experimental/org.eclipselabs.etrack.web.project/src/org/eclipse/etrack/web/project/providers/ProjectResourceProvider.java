@@ -11,20 +11,19 @@
 
 package org.eclipse.etrack.web.project.providers;
 
-import org.eclipselabs.etrack.web.storage.providers.StorageFinder;
-import org.eclipselabs.etrack.web.storage.providers.StorageResourceProvider;
 import org.restlet.Context;
+import org.restlet.ext.osgi.ResourceProvider;
 import org.restlet.resource.Finder;
 
 /**
  * @author bhunt
  * 
  */
-public class ProjectResourceProvider extends StorageResourceProvider
+public class ProjectResourceProvider extends ResourceProvider
 {
 	@Override
 	protected Finder createFinder(Context context)
 	{
-		return new StorageFinder(context, ProjectResource.class, this);
+		return new Finder(context, ProjectResource.class);
 	}
 }

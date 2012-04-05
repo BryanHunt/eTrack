@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipselabs.etrack.web.storage.providers.IStorageResource;
-import org.eclipselabs.etrack.web.storage.providers.StorageResourceProvider;
 import org.eclipselabs.etrack.web.storage.representations.EmfJsonRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
 import org.restlet.data.MediaType;
@@ -36,7 +34,7 @@ import org.restlet.resource.Post;
  * @author bhunt
  * 
  */
-public abstract class StorageResource extends WadlServerResource implements IStorageResource
+public abstract class StorageResource extends WadlServerResource
 {
 	@Get("xmi+xml")
 	public EmfRepresentation<EObject> getXMI()
@@ -64,12 +62,6 @@ public abstract class StorageResource extends WadlServerResource implements ISto
 		resource.save(null);
 	}
 
-	@Override
-	public void setResourceProvider(StorageResourceProvider resourceProvider)
-	{
-		this.resourceProvider = resourceProvider;
-	}
-
 	protected EObject getModel()
 	{
 		ResourceSet resourceSet = createResourceSet();
@@ -80,39 +72,29 @@ public abstract class StorageResource extends WadlServerResource implements ISto
 
 	protected ResourceSet createResourceSet()
 	{
-		// FIXME this algorithm can be significantly improved. Look at caching and pre-compiling the
-		// regex
+		// FIXME this algorithm can be significantly improved. Look at caching the mapping.
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 		URIConverter uriConverter = resourceSet.getURIConverter();
-
-// mapStorageURI(uriConverter.getURIMap(), resourceProvider);
-// uriConverter.getURIMap().put(URI.createURI("http://localhost:8080/etrack/storage/"),
-// URI.createURI("mongo://localhost/etrack/"));
 
 		URI logicalURI = URI.createURI(getReference().toString());
 		int targetSegmentIndex = 0;
 
 		for (String segment : logicalURI.segments())
 		{
-			if (segment.equals(resourceProvider.getLogicalPath()))
+			if ("storage".equals(segment))
 				break;
 
 			targetSegmentIndex++;
 		}
 
-		logicalURI.trimSegments(logicalURI.segmentCount() - targetSegmentIndex);
+		logicalURI = logicalURI.trimSegments(logicalURI.segmentCount() - (targetSegmentIndex + 1)).appendSegment("");
 
 		URI physicalURI = URI.createURI(System.getProperty("mongodb", "mongo://localhost"));
-		physicalURI.appendSegments(resourceProvider.getPhysicalPath().split("/"));
 		uriConverter.getURIMap().put(logicalURI, physicalURI);
 
 		EList<URIHandler> uriHandlers = uriConverter.getURIHandlers();
 		uriHandlers.add(0, new MongoURIHandlerImpl());
 		return resourceSet;
 	}
-
-// protected abstract void mapStorageURI(Map<URI, URI> uriMap, IResourceProvider resourceProvider);
-
-	private StorageResourceProvider resourceProvider;
 }
