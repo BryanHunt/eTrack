@@ -11,6 +11,7 @@ Import-Package: org.eclipse.emf.common.util,
  org.eclipse.emf.ecore.resource.impl,
  org.eclipse.emf.ecore.xmi,
  org.eclipselabs.emfjson.resource,
+ org.eclipselabs.etrack.web.emf,
  org.eclipselabs.mongo.emf,
  org.osgi.service.component;version="1.2.0",
  org.restlet,
@@ -21,5 +22,4 @@ Import-Package: org.eclipse.emf.common.util,
  org.restlet.representation,
  org.restlet.resource
 Export-Package: org.eclipselabs.etrack.web.storage.providers,
- org.eclipselabs.etrack.web.storage.representations,
  org.eclipselabs.etrack.web.storage.resources

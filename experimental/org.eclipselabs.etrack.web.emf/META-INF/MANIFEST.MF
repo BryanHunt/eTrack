@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF Representations
+Bundle-SymbolicName: org.eclipselabs.etrack.web.emf
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipselabs.emfjson.resource,
+ org.restlet.data,
+ org.restlet.ext.emf,
+ org.restlet.representation
+Export-Package: org.eclipselabs.etrack.web.emf

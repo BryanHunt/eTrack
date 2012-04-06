@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipselabs.etrack.web.storage.representations.EmfJsonRepresentation;
+import org.eclipselabs.etrack.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
@@ -66,7 +66,12 @@ public abstract class StorageResource extends WadlServerResource
 	{
 		ResourceSet resourceSet = createResourceSet();
 
-		Resource resource = resourceSet.getResource(URI.createURI(getReference().toString()), true);
+		URI uri = URI.createURI(getReference().toString());
+
+		if ("*".equals(uri.query()))
+			uri = uri.trimQuery().appendQuery("");
+
+		Resource resource = resourceSet.getResource(uri, true);
 		return resource.getContents().get(0);
 	}
 
@@ -88,7 +93,7 @@ public abstract class StorageResource extends WadlServerResource
 			targetSegmentIndex++;
 		}
 
-		logicalURI = logicalURI.trimSegments(logicalURI.segmentCount() - (targetSegmentIndex + 1)).appendSegment("");
+		logicalURI = logicalURI.trimQuery().trimSegments(logicalURI.segmentCount() - (targetSegmentIndex + 1)).appendSegment("");
 
 		URI physicalURI = URI.createURI(System.getProperty("mongodb", "mongo://localhost"));
 		uriConverter.getURIMap().put(logicalURI, physicalURI);

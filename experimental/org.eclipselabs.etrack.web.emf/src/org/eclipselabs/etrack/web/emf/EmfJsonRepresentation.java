@@ -9,7 +9,7 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.web.storage.representations;
+package org.eclipselabs.etrack.web.emf;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
