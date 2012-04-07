@@ -23,3 +23,4 @@ Import-Package: org.eclipse.emf.common.util,
  org.restlet.resource
 Export-Package: org.eclipselabs.etrack.web.storage.providers,
  org.eclipselabs.etrack.web.storage.resources
+Service-Component: OSGI-INF/resources/storage.xml
