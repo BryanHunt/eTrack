@@ -11,14 +11,17 @@
 
 package org.eclipselabs.etrack.web.storage.providers;
 
+import org.eclipselabs.etrack.web.storage.resources.StorageResource;
 import org.osgi.service.component.ComponentContext;
+import org.restlet.Context;
 import org.restlet.ext.osgi.ResourceProvider;
+import org.restlet.resource.Finder;
 
 /**
  * @author bhunt
  * 
  */
-public abstract class StorageResourceProvider extends ResourceProvider
+public class StorageResourceProvider extends ResourceProvider
 {
 	public String getLogicalPath()
 	{
@@ -36,6 +39,12 @@ public abstract class StorageResourceProvider extends ResourceProvider
 		logicalPath = (String) context.getProperties().get("logicalPath");
 		physicalPath = (String) context.getProperties().get("physicalPath");
 		super.activate(context);
+	}
+
+	@Override
+	protected Finder createFinder(Context context)
+	{
+		return new Finder(context, StorageResource.class);
 	}
 
 	private String logicalPath;

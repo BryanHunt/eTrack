@@ -34,7 +34,7 @@ import org.restlet.resource.Post;
  * @author bhunt
  * 
  */
-public abstract class StorageResource extends WadlServerResource
+public class StorageResource extends WadlServerResource
 {
 	@Get("xmi+xml")
 	public EmfRepresentation<EObject> getXMI()
