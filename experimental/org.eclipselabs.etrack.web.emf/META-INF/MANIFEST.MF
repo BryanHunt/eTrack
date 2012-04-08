@@ -12,3 +12,4 @@ Import-Package: org.eclipse.emf.ecore,
  org.restlet.ext.emf,
  org.restlet.representation
 Export-Package: org.eclipselabs.etrack.web.emf
+Bundle-Vendor: EclipseLabs

@@ -17,15 +17,27 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipselabs.mongo.emf"/>
+      <import plugin="org.restlet"/>
+      <import plugin="org.restlet.ext.emf"/>
+      <import plugin="org.restlet.ext.osgi"/>
+      <import plugin="org.restlet.ext.wadl"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipselabs.emfjson"/>
+   </requires>
+
    <plugin
-         id="org.eclipselabs.etrack.web.emf"
+         id="org.eclipselabs.etrack.web.storage"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.eclipselabs.etrack.web.storage"
+         id="org.eclipselabs.etrack.web.emf"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -36,6 +48,7 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="true"/>
+         fragment="true"
+         unpack="false"/>
 
 </feature>

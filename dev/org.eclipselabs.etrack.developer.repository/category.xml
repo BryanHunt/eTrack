@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
    <feature url="features/org.eclipselabs.etrack.domain.feature_0.1.0.qualifier.jar" id="org.eclipselabs.etrack.domain.feature" version="0.1.0.qualifier">
-      <category name="etrack-domain"/>
+      <category name="etrack"/>
    </feature>
-   <category-def name="etrack-domain" label="eTrack Domain">
+   <feature url="features/org.eclipselabs.etrack.web.feature_0.1.0.qualifier.jar" id="org.eclipselabs.etrack.web.feature" version="0.1.0.qualifier">
+      <category name="etrack"/>
+   </feature>
+   <category-def name="etrack" label="eTrack">
       <description>
-         eTrack Domain models
+         eTrack runtime
       </description>
    </category-def>
 </site>
