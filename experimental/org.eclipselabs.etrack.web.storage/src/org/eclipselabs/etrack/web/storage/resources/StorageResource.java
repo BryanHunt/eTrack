@@ -66,6 +66,9 @@ public class StorageResource extends WadlServerResource
 	{
 		ResourceSet resourceSet = createResourceSet();
 
+		// FIXME see if we can get the option from a HTTP header Pragma
+		resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.TRUE);
+
 		URI uri = URI.createURI(getReference().toString());
 
 		if ("*".equals(uri.query()))
