@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.resource.URIHandler;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipselabs.etrack.web.emf.EmfJsonRepresentation;
+import org.eclipselabs.etrack.web.emf.EmfXmlRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
@@ -40,7 +41,7 @@ public class StorageResource extends WadlServerResource
 	public EmfRepresentation<EObject> getXMI()
 	{
 		EObject object = getModel();
-		return new EmfRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
+		return new EmfXmlRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
 	}
 
 	@Get("json")
