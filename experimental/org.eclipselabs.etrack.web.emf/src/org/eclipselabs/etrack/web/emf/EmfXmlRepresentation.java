@@ -33,6 +33,7 @@ public class EmfXmlRepresentation<T extends EObject> extends EmfRepresentation<T
 	public EmfXmlRepresentation(MediaType mediaType, T object)
 	{
 		super(mediaType, object);
+		setUsingEncodedAttributeStyle(false);
 	}
 
 	/**
@@ -41,6 +42,7 @@ public class EmfXmlRepresentation<T extends EObject> extends EmfRepresentation<T
 	public EmfXmlRepresentation(Representation representation)
 	{
 		super(representation);
+		setUsingEncodedAttributeStyle(false);
 	}
 
 	@Override
