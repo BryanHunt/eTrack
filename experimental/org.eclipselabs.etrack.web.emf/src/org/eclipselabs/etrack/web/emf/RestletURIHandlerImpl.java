@@ -36,8 +36,7 @@ public class RestletURIHandlerImpl extends URIHandlerImpl
 	@Override
 	public OutputStream createOutputStream(URI uri, Map<?, ?> options) throws IOException
 	{
-		// TODO Auto-generated method stub
-		return super.createOutputStream(uri, options);
+		return new RestletEmfOutputStream(uri, options);
 	}
 
 	@Override

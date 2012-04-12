@@ -11,8 +11,8 @@
 
 package org.eclipselabs.etrack.web.emf;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
@@ -20,60 +20,45 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.restlet.data.MediaType;
-import org.restlet.representation.Representation;
+import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.resource.ClientResource;
-import org.restlet.resource.ResourceException;
 
 /**
  * @author bhunt
  * 
  */
-public class RestletEmfInputStream extends InputStream implements URIConverter.Loadable
+public class RestletEmfOutputStream extends ByteArrayOutputStream implements URIConverter.Saveable
 {
-	public RestletEmfInputStream(URI uri, Map<?, ?> options)
+	public RestletEmfOutputStream(URI uri, Map<?, ?> options)
 	{
 		this.uri = uri;
 		this.options = options;
 	}
 
 	@Override
-	public void loadResource(final Resource resource) throws IOException
+	public void close() throws IOException
 	{
+		super.close();
 		ClientResource client = new ClientResource(uri.toString());
-
-		try
+		EmfRepresentation<EObject> representation = new EmfRepresentation<EObject>(MediaType.APPLICATION_XMI, resource.getContents().get(0))
 		{
-			// FIXME use EMF binary for optimal performance
-
-			Representation representation = client.get(MediaType.APPLICATION_XMI);
-
-			EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation)
+			@Override
+			protected Map<?, ?> getSaveOptions()
 			{
-				@Override
-				protected Map<?, ?> getLoadOptions()
-				{
-					return options;
-				}
-			};
+				return options;
+			}
+		};
 
-			resource.getContents().add(emfRepresentation.getObject());
-		}
-		catch (ResourceException e)
-		{
-			throw new IOException(e);
-		}
+		client.post(representation);
 	}
 
 	@Override
-	public int read() throws IOException
+	public void saveResource(Resource resource) throws IOException
 	{
-		// InputStream requires that we implement this function. It will never be called since this
-		// implementation implements URIConverter.Loadable. The loadResource() function will be called
-		// instead.
-
-		return 0;
+		this.resource = resource;
 	}
 
 	private URI uri;
 	private Map<?, ?> options;
+	private Resource resource;
 }
