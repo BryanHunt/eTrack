@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.web.security.auth.basic.provider">
+   <implementation class="org.eclipselabs.etrack.web.security.auth.basic.BasicAuthenticationFilterProvider"/>
+   <service>
+      <provide interface="org.restlet.ext.osgi.IFilterProvider"/>
+   </service>
+   <reference bind="bindSecurityService" cardinality="1..1" interface="org.eclipselabs.etrack.security.ISecurityService" name="ISecurityService" policy="static" unbind="unbindSecurityService"/>
+   <property name="filterType" type="String" value="authentication"/>
+</scr:component>
