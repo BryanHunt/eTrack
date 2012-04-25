@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="require" name="org.eclipselabs.etrack.app.security.ldap">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="require" immediate="true" name="org.eclipselabs.etrack.app.security.ldap">
    <implementation class="org.eclipselabs.etrack.app.security.ldap.impl.LdapSecurityService"/>
    <service>
-      <provide interface="org.eclipselabs.etrack.app.security.ldap.ILdapSecurityService"/>
+      <provide interface="org.eclipselabs.etrack.security.ISecurityService"/>
+      <provide interface="org.eclipselabs.etrack.app.security.ldap.ILdapService"/>
    </service>
 </scr:component>

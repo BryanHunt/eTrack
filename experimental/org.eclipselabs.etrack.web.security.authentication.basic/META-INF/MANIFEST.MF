@@ -13,3 +13,4 @@ Import-Package: org.eclipselabs.etrack.security,
  org.restlet.routing,
  org.restlet.security
 Service-Component: OSGI-INF/authentication.xml
+Bundle-ActivationPolicy: lazy

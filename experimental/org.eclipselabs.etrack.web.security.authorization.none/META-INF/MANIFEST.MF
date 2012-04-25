@@ -10,3 +10,4 @@ Import-Package: org.restlet,
  org.restlet.routing,
  org.restlet.security
 Service-Component: OSGI-INF/authorization.xml
+Bundle-ActivationPolicy: lazy

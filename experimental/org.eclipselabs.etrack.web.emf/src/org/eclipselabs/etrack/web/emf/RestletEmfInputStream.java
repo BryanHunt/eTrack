@@ -39,7 +39,7 @@ public class RestletEmfInputStream extends InputStream implements URIConverter.L
 	@Override
 	public void loadResource(final Resource resource) throws IOException
 	{
-		ClientResource client = new ClientResource(uri.toString());
+		ClientResource client = RestletURIHandlerImpl.createClient(uri, options);
 
 		try
 		{
@@ -71,7 +71,7 @@ public class RestletEmfInputStream extends InputStream implements URIConverter.L
 		// implementation implements URIConverter.Loadable. The loadResource() function will be called
 		// instead.
 
-		return 0;
+		throw new IOException("read() should never be called - something that should never happen has happended - please head to the nearest fallout shelter and await further instructions");
 	}
 
 	private URI uri;

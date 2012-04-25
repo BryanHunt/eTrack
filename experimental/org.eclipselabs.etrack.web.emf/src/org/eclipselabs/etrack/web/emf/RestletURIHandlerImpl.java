@@ -18,6 +18,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.URIHandlerImpl;
+import org.restlet.data.ChallengeResponse;
 import org.restlet.resource.ClientResource;
 import org.restlet.resource.ResourceException;
 
@@ -27,6 +28,8 @@ import org.restlet.resource.ResourceException;
  */
 public class RestletURIHandlerImpl extends URIHandlerImpl
 {
+	public static final String OPTION_CHALLENGE_RESPONSE = "OPTION_CHALLENGE_RESPONSE";
+
 	@Override
 	public boolean canHandle(URI uri)
 	{
@@ -48,7 +51,7 @@ public class RestletURIHandlerImpl extends URIHandlerImpl
 	@Override
 	public void delete(URI uri, Map<?, ?> options) throws IOException
 	{
-		ClientResource client = new ClientResource(uri.toString());
+		ClientResource client = createClient(uri, options);
 
 		try
 		{
@@ -63,7 +66,7 @@ public class RestletURIHandlerImpl extends URIHandlerImpl
 	@Override
 	public boolean exists(URI uri, Map<?, ?> options)
 	{
-		ClientResource client = new ClientResource(uri.toString());
+		ClientResource client = createClient(uri, options);
 
 		try
 		{
@@ -74,5 +77,15 @@ public class RestletURIHandlerImpl extends URIHandlerImpl
 		{
 			return false;
 		}
+	}
+
+	public static ClientResource createClient(URI uri, Map<?, ?> options)
+	{
+		ClientResource client = new ClientResource(uri.toString());
+
+		ChallengeResponse challengeResponse = (ChallengeResponse) options.get(OPTION_CHALLENGE_RESPONSE);
+		client.setChallengeResponse(challengeResponse);
+
+		return client;
 	}
 }

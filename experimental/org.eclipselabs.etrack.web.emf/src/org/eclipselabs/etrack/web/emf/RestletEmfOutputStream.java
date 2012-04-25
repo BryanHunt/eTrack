@@ -40,7 +40,8 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 	public void close() throws IOException
 	{
 		super.close();
-		ClientResource client = new ClientResource(uri.toString());
+		ClientResource client = RestletURIHandlerImpl.createClient(uri, options);
+
 		EmfRepresentation<EObject> representation = new EmfRepresentation<EObject>(MediaType.APPLICATION_XMI, resource.getContents().get(0))
 		{
 			@Override

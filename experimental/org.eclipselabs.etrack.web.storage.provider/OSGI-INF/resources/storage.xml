@@ -8,4 +8,5 @@
    <service>
       <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
    </service>
+   <property name="visibility" type="String" value="secure"/>
 </scr:component>
