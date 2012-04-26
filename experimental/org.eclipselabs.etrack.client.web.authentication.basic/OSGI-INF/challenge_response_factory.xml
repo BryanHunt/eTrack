@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.client.web.authentication.basic.challengeResponseFactory">
+   <implementation class="org.eclipselabs.etrack.client.web.authentication.basic.BasicChallengeResponseFactory"/>
+   <service>
+      <provide interface="org.eclipselabs.etrack.client.web.IChallengeResponseFactory"/>
+   </service>
+</scr:component>

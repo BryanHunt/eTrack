@@ -129,4 +129,25 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.eclipselabs.etrack.client.web"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.client.web.authentication.basic"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.client.web.mylyn"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
