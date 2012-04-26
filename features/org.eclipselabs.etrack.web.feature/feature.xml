@@ -27,6 +27,18 @@
       <import plugin="org.restlet.ext.wadl"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipselabs.emfjson"/>
+      <import plugin="org.eclipselabs.etrack.web.storage" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.emf.query.simple"/>
+      <import plugin="org.eclipselabs.etrack.domain.entity"/>
+      <import plugin="org.junit" version="4.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.mongo.emf.developer.junit"/>
+      <import plugin="org.hamcrest.core"/>
+      <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="org.eclipselabs.etrack.web.task" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.mylyn.commons.net"/>
+      <import plugin="org.eclipse.mylyn.tasks.core"/>
+      <import plugin="org.eclipse.osgi"/>
    </requires>
 
    <plugin
