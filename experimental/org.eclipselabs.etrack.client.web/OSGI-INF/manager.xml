@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipselabs.etrack.client.web.dynamicClientManager">
-   <implementation class="org.eclipselabs.etrack.client.web.services.DynamicClientManager"/>
-   <reference bind="bindDynamicClientResource" cardinality="0..n" interface="org.eclipselabs.etrack.client.web.IDynamicClientResource" name="IDynamicClientResource" policy="dynamic" unbind="unbindDynamicClientResource"/>
-   <reference bind="bindChallengeResponseFactory" cardinality="0..n" interface="org.eclipselabs.etrack.client.web.IChallengeResponseFactory" name="IChallengeResponseFactory" policy="dynamic" unbind="unbindChallengeResponseFactory"/>
-</scr:component>

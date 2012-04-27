@@ -1,5 +1,5 @@
 
-package org.eclipselabs.etrack.client.web.mylyn.bundle;
+package org.eclipselabs.etrack.client.web.mylyn;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

@@ -11,13 +11,13 @@
 
 package org.eclipselabs.etrack.client.web.mylyn;
 
+import java.util.Hashtable;
+
 import org.eclipse.mylyn.commons.net.AuthenticationCredentials;
 import org.eclipse.mylyn.commons.net.AuthenticationType;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipselabs.etrack.client.web.IChallengeResponseFactory;
 import org.eclipselabs.etrack.client.web.IClientResourceFactory;
-import org.eclipselabs.etrack.client.web.IDynamicClientResource;
-import org.eclipselabs.etrack.client.web.mylyn.bundle.Activator;
 import org.osgi.framework.ServiceRegistration;
 import org.restlet.resource.ClientResource;
 
@@ -25,13 +25,17 @@ import org.restlet.resource.ClientResource;
  * @author bhunt
  * 
  */
-public class MylynClientResourceFactory implements IClientResourceFactory, IDynamicClientResource
+public class MylynClientResourceFactory implements IClientResourceFactory
 {
 	public static MylynClientResourceFactory buildFactory(TaskRepository taskRepository)
 	{
 		MylynClientResourceFactory factory = new MylynClientResourceFactory(taskRepository);
-		factory.setClientResourceFactoryRegistration(Activator.getBundleContext().registerService(IClientResourceFactory.class, factory, null));
-		factory.setDynamicClientResourceRegistration(Activator.getBundleContext().registerService(IDynamicClientResource.class, factory, null));
+
+		Hashtable<String, Object> properties = new Hashtable<String, Object>(1);
+		properties.put("uri", taskRepository.getRepositoryUrl());
+
+		factory.setClientResourceFactoryRegistration(Activator.getBundleContext().registerService(IClientResourceFactory.class, factory, properties));
+
 		return factory;
 	}
 
@@ -53,10 +57,8 @@ public class MylynClientResourceFactory implements IClientResourceFactory, IDyna
 	public void dispose()
 	{
 		clientResourceFactoryRegistration.unregister();
-		dynamicClientResourceRegistration.unregister();
 	}
 
-	@Override
 	public void setChallengeResponseFactory(IChallengeResponseFactory challengeResponseFactory)
 	{
 		this.challengeResponseFactory = challengeResponseFactory;
@@ -72,16 +74,7 @@ public class MylynClientResourceFactory implements IClientResourceFactory, IDyna
 		clientResourceFactoryRegistration = serviceRegistration;
 	}
 
-	/**
-	 * @param registerService
-	 */
-	private void setDynamicClientResourceRegistration(ServiceRegistration<IDynamicClientResource> serviceRegistration)
-	{
-		dynamicClientResourceRegistration = serviceRegistration;
-	}
-
 	private TaskRepository taskRepository;
 	private volatile IChallengeResponseFactory challengeResponseFactory;
 	private ServiceRegistration<IClientResourceFactory> clientResourceFactoryRegistration;
-	private ServiceRegistration<IDynamicClientResource> dynamicClientResourceRegistration;
 }

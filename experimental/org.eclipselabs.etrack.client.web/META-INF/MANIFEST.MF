@@ -7,5 +7,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.restlet.data,
  org.restlet.resource
 Export-Package: org.eclipselabs.etrack.client.web
-Service-Component: OSGI-INF/manager.xml
 Bundle-ActivationPolicy: lazy
