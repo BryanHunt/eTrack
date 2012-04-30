@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipselabs.etrack.client.web.security.authentication.basic.challengeResponseFactory">
+   <implementation class="org.eclipselabs.etrack.client.web.security.authentication.basic.BasicChallengeResponsseFactory"/>
+   <service>
+      <provide interface="org.eclipselabs.etrack.client.web.IChallengeResponseFactory"/>
+   </service>
+   <reference bind="bindPasswordCredentialProvider" cardinality="0..n" interface="org.eclipselabs.etrack.security.IPasswordCredentialProvider" name="IPasswordCredentialProvider" policy="dynamic" unbind="unbindPasswordCredentialProvider"/>
+</scr:component>
