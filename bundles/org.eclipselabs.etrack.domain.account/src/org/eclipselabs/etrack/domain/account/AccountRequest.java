@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipselabs.etrack.domain.entity.Entity;
+import security.PasswordCredential;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,7 +54,7 @@ public class AccountRequest extends EObjectImpl implements EObject
 	 * @generated
 	 * @ordered
 	 */
-	protected Credential credential;
+	protected PasswordCredential credential;
 
 	/**
 	 * The default value of the '{@link #getExpirationDate() <em>Expiration Date</em>}' attribute.
@@ -115,12 +116,12 @@ public class AccountRequest extends EObjectImpl implements EObject
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Credential</em>' containment reference.
-	 * @see #setCredential(Credential)
+	 * @see #setCredential(PasswordCredential)
 	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getAccountRequest_Credential()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	public Credential getCredential()
+	public PasswordCredential getCredential()
 	{
 		return credential;
 	}
@@ -130,9 +131,9 @@ public class AccountRequest extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCredential(Credential newCredential, NotificationChain msgs)
+	public NotificationChain basicSetCredential(PasswordCredential newCredential, NotificationChain msgs)
 	{
-		Credential oldCredential = credential;
+		PasswordCredential oldCredential = credential;
 		credential = newCredential;
 		if (eNotificationRequired())
 		{
@@ -150,7 +151,7 @@ public class AccountRequest extends EObjectImpl implements EObject
 	 * @see #getCredential()
 	 * @generated
 	 */
-	public void setCredential(Credential newCredential)
+	public void setCredential(PasswordCredential newCredential)
 	{
 		if (newCredential != credential)
 		{
@@ -310,7 +311,7 @@ public class AccountRequest extends EObjectImpl implements EObject
 		switch (featureID)
 		{
 			case AccountPackage.ACCOUNT_REQUEST__CREDENTIAL:
-				setCredential((Credential)newValue);
+				setCredential((PasswordCredential)newValue);
 				return;
 			case AccountPackage.ACCOUNT_REQUEST__EXPIRATION_DATE:
 				setExpirationDate((Date)newValue);
@@ -333,7 +334,7 @@ public class AccountRequest extends EObjectImpl implements EObject
 		switch (featureID)
 		{
 			case AccountPackage.ACCOUNT_REQUEST__CREDENTIAL:
-				setCredential((Credential)null);
+				setCredential((PasswordCredential)null);
 				return;
 			case AccountPackage.ACCOUNT_REQUEST__EXPIRATION_DATE:
 				setExpirationDate(EXPIRATION_DATE_EDEFAULT);

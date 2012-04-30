@@ -19,5 +19,5 @@ import org.restlet.data.ChallengeResponse;
  */
 public interface IChallengeResponseFactory
 {
-	ChallengeResponse createChallengeResponse(String id, Object secret);
+	ChallengeResponse createChallengeResponse(String uri);
 }

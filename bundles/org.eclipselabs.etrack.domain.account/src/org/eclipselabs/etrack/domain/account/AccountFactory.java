@@ -83,7 +83,6 @@ public class AccountFactory extends EFactoryImpl
 		{
 			case AccountPackage.ACCOUNT: return createAccount();
 			case AccountPackage.ACCOUNT_REQUEST: return createAccountRequest();
-			case AccountPackage.CREDENTIAL: return createCredential();
 			case AccountPackage.LOCAL_ACCOUNT: return createLocalAccount();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -110,17 +109,6 @@ public class AccountFactory extends EFactoryImpl
 	{
 		AccountRequest accountRequest = new AccountRequest();
 		return accountRequest;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Credential createCredential()
-	{
-		Credential credential = new Credential();
-		return credential;
 	}
 
 	/**

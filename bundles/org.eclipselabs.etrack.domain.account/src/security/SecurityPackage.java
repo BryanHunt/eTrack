@@ -1,6 +1,15 @@
 /**
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
-package org.eclipselabs.etrack.domain.security;
+package security;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -8,6 +17,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.eclipselabs.etrack.domain.account.AccountPackage;
 
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
 
@@ -22,7 +33,7 @@ import org.eclipselabs.etrack.domain.entity.EntityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.eclipselabs.etrack.domain.security.SecurityFactory
+ * @see security.SecurityFactory
  * @model kind="package"
  * @generated
  */
@@ -58,14 +69,14 @@ public class SecurityPackage extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final SecurityPackage eINSTANCE = org.eclipselabs.etrack.domain.security.SecurityPackage.init();
+	public static final SecurityPackage eINSTANCE = security.SecurityPackage.init();
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.security.PermissionGroup <em>Permission Group</em>}' class.
+	 * The meta object id for the '{@link security.PermissionGroup <em>Permission Group</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.security.PermissionGroup
-	 * @see org.eclipselabs.etrack.domain.security.SecurityPackage#getPermissionGroup()
+	 * @see security.PermissionGroup
+	 * @see security.SecurityPackage#getPermissionGroup()
 	 * @generated
 	 */
 	public static final int PERMISSION_GROUP = 0;
@@ -107,11 +118,11 @@ public class SecurityPackage extends EPackageImpl
 	public static final int PERMISSION_GROUP_FEATURE_COUNT = EntityPackage.GROUP_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.security.PasswordCredential <em>Password Credential</em>}' class.
+	 * The meta object id for the '{@link security.PasswordCredential <em>Password Credential</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.security.PasswordCredential
-	 * @see org.eclipselabs.etrack.domain.security.SecurityPackage#getPasswordCredential()
+	 * @see security.PasswordCredential
+	 * @see security.SecurityPackage#getPasswordCredential()
 	 * @generated
 	 */
 	public static final int PASSWORD_CREDENTIAL = 1;
@@ -168,7 +179,7 @@ public class SecurityPackage extends EPackageImpl
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.eclipselabs.etrack.domain.security.SecurityPackage#eNS_URI
+	 * @see security.SecurityPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
@@ -208,11 +219,16 @@ public class SecurityPackage extends EPackageImpl
 		// Initialize simple dependencies
 		EntityPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		AccountPackage theAccountPackage = (AccountPackage)(EPackage.Registry.INSTANCE.getEPackage(AccountPackage.eNS_URI) instanceof AccountPackage ? EPackage.Registry.INSTANCE.getEPackage(AccountPackage.eNS_URI) : AccountPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theSecurityPackage.createPackageContents();
+		theAccountPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSecurityPackage.initializePackageContents();
+		theAccountPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSecurityPackage.freeze();
@@ -225,11 +241,11 @@ public class SecurityPackage extends EPackageImpl
 
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.security.PermissionGroup <em>Permission Group</em>}'.
+	 * Returns the meta object for class '{@link security.PermissionGroup <em>Permission Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Permission Group</em>'.
-	 * @see org.eclipselabs.etrack.domain.security.PermissionGroup
+	 * @see security.PermissionGroup
 	 * @generated
 	 */
 	public EClass getPermissionGroup()
@@ -238,11 +254,11 @@ public class SecurityPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.security.PermissionGroup#getAdmins <em>Admins</em>}'.
+	 * Returns the meta object for the reference list '{@link security.PermissionGroup#getAdmins <em>Admins</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Admins</em>'.
-	 * @see org.eclipselabs.etrack.domain.security.PermissionGroup#getAdmins()
+	 * @see security.PermissionGroup#getAdmins()
 	 * @see #getPermissionGroup()
 	 * @generated
 	 */
@@ -252,11 +268,11 @@ public class SecurityPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.security.PasswordCredential <em>Password Credential</em>}'.
+	 * Returns the meta object for class '{@link security.PasswordCredential <em>Password Credential</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Password Credential</em>'.
-	 * @see org.eclipselabs.etrack.domain.security.PasswordCredential
+	 * @see security.PasswordCredential
 	 * @generated
 	 */
 	public EClass getPasswordCredential()
@@ -264,13 +280,12 @@ public class SecurityPackage extends EPackageImpl
 		return passwordCredentialEClass;
 	}
 
-
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.security.PasswordCredential#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link security.PasswordCredential#getId <em>Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.eclipselabs.etrack.domain.security.PasswordCredential#getId()
+	 * @see security.PasswordCredential#getId()
 	 * @see #getPasswordCredential()
 	 * @generated
 	 */
@@ -279,13 +294,12 @@ public class SecurityPackage extends EPackageImpl
 		return (EAttribute)passwordCredentialEClass.getEStructuralFeatures().get(0);
 	}
 
-
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.security.PasswordCredential#getPassword <em>Password</em>}'.
+	 * Returns the meta object for the attribute '{@link security.PasswordCredential#getPassword <em>Password</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Password</em>'.
-	 * @see org.eclipselabs.etrack.domain.security.PasswordCredential#getPassword()
+	 * @see security.PasswordCredential#getPassword()
 	 * @see #getPasswordCredential()
 	 * @generated
 	 */
@@ -293,7 +307,6 @@ public class SecurityPackage extends EPackageImpl
 	{
 		return (EAttribute)passwordCredentialEClass.getEStructuralFeatures().get(1);
 	}
-
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -396,11 +409,11 @@ public class SecurityPackage extends EPackageImpl
 	public interface Literals
 	{
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.security.PermissionGroup <em>Permission Group</em>}' class.
+		 * The meta object literal for the '{@link security.PermissionGroup <em>Permission Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.etrack.domain.security.PermissionGroup
-		 * @see org.eclipselabs.etrack.domain.security.SecurityPackage#getPermissionGroup()
+		 * @see security.PermissionGroup
+		 * @see security.SecurityPackage#getPermissionGroup()
 		 * @generated
 		 */
 		public static final EClass PERMISSION_GROUP = eINSTANCE.getPermissionGroup();
@@ -414,11 +427,11 @@ public class SecurityPackage extends EPackageImpl
 		public static final EReference PERMISSION_GROUP__ADMINS = eINSTANCE.getPermissionGroup_Admins();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.security.PasswordCredential <em>Password Credential</em>}' class.
+		 * The meta object literal for the '{@link security.PasswordCredential <em>Password Credential</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.etrack.domain.security.PasswordCredential
-		 * @see org.eclipselabs.etrack.domain.security.SecurityPackage#getPasswordCredential()
+		 * @see security.PasswordCredential
+		 * @see security.SecurityPackage#getPasswordCredential()
 		 * @generated
 		 */
 		public static final EClass PASSWORD_CREDENTIAL = eINSTANCE.getPasswordCredential();

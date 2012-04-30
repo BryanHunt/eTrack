@@ -1,6 +1,15 @@
 /**
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
-package org.eclipselabs.etrack.domain.security.util;
+package security.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -12,14 +21,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipselabs.etrack.domain.entity.Group;
 import org.eclipselabs.etrack.domain.entity.Identity;
 
-import org.eclipselabs.etrack.domain.security.*;
+import security.*;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipselabs.etrack.domain.security.SecurityPackage
+ * @see security.SecurityPackage
  * @generated
  */
 public class SecurityAdapterFactory extends AdapterFactoryImpl
@@ -120,13 +129,13 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.security.PermissionGroup <em>Permission Group</em>}'.
+	 * Creates a new adapter for an object of class '{@link security.PermissionGroup <em>Permission Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.etrack.domain.security.PermissionGroup
+	 * @see security.PermissionGroup
 	 * @generated
 	 */
 	public Adapter createPermissionGroupAdapter()
@@ -135,13 +144,13 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.security.PasswordCredential <em>Password Credential</em>}'.
+	 * Creates a new adapter for an object of class '{@link security.PasswordCredential <em>Password Credential</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.etrack.domain.security.PasswordCredential
+	 * @see security.PasswordCredential
 	 * @generated
 	 */
 	public Adapter createPasswordCredentialAdapter()

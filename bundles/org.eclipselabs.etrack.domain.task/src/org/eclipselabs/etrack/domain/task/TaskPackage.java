@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
 import org.eclipselabs.etrack.domain.links.LinksPackage;
+import org.eclipselabs.etrack.domain.project.ProjectPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -578,13 +579,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__BLOCKS = ASSIGNABLE_ITEM_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Project</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__PROJECT = ASSIGNABLE_ITEM_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 13;
+	public static final int TASK_FEATURE_COUNT = ASSIGNABLE_ITEM_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -800,7 +810,7 @@ public class TaskPackage extends EPackageImpl
 		isInited = true;
 
 		// Initialize simple dependencies
-		EntityPackage.eINSTANCE.eClass();
+		ProjectPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theTaskPackage.createPackageContents();
@@ -1029,6 +1039,21 @@ public class TaskPackage extends EPackageImpl
 	public EReference getTask_Blocks()
 	{
 		return (EReference)taskEClass.getEStructuralFeatures().get(11);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Task#getProject <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Project</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getProject()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_Project()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(12);
 	}
 
 
@@ -1570,6 +1595,7 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskEClass, TASK__TYPE);
 		createEReference(taskEClass, TASK__DEPENDS_ON);
 		createEReference(taskEClass, TASK__BLOCKS);
+		createEReference(taskEClass, TASK__PROJECT);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
@@ -1610,6 +1636,7 @@ public class TaskPackage extends EPackageImpl
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		LinksPackage theLinksPackage = (LinksPackage)EPackage.Registry.INSTANCE.getEPackage(LinksPackage.eNS_URI);
+		ProjectPackage theProjectPackage = (ProjectPackage)EPackage.Registry.INSTANCE.getEPackage(ProjectPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1670,6 +1697,7 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTask_Type(), this.getTaskType(), null, "type", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_DependsOn(), this.getTask(), this.getTask_Blocks(), "dependsOn", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Blocks(), this.getTask(), this.getTask_DependsOn(), "blocks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Project(), theProjectPackage.getProject(), null, "project", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1823,6 +1851,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK__BLOCKS = eINSTANCE.getTask_Blocks();
+
+		/**
+		 * The meta object literal for the '<em><b>Project</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__PROJECT = eINSTANCE.getTask_Project();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.State <em>State</em>}' class.

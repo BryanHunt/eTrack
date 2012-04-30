@@ -8,3 +8,4 @@ Import-Package: org.restlet.data,
  org.restlet.resource
 Export-Package: org.eclipselabs.etrack.client.web
 Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/factory.xml

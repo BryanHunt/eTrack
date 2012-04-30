@@ -19,5 +19,7 @@ import org.restlet.resource.ClientResource;
  */
 public interface IClientResourceFactory
 {
-	ClientResource createClientResource(String path);
+	ClientResource createClientResource(String uri);
+
+	ClientResource createClientResource(String baseURI, String path);
 }

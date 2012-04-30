@@ -1,15 +1,6 @@
 /**
- * Copyright (c) 2011 Bryan Hunt.
- * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Bryan Hunt - initial API and implementation
  */
-package org.eclipselabs.etrack.domain.account;
+package org.eclipselabs.etrack.domain.security;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,22 +12,22 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Credential</b></em>'.
+ * A representation of the model object '<em><b>Password Credential</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.etrack.domain.account.Credential#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.account.Credential#getPassword <em>Password</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.security.PasswordCredential#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.security.PasswordCredential#getPassword <em>Password</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.etrack.domain.account.AccountPackage#getCredential()
+ * @see org.eclipselabs.etrack.domain.security.SecurityPackage#getPasswordCredential()
  * @model kind="class"
  * @generated
  */
-public class Credential extends EObjectImpl implements EObject
+public class PasswordCredential extends EObjectImpl implements EObject
 {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -83,7 +74,7 @@ public class Credential extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Credential()
+	protected PasswordCredential()
 	{
 		super();
 	}
@@ -96,7 +87,7 @@ public class Credential extends EObjectImpl implements EObject
 	@Override
 	protected EClass eStaticClass()
 	{
-		return AccountPackage.Literals.CREDENTIAL;
+		return SecurityPackage.Literals.PASSWORD_CREDENTIAL;
 	}
 
 	/**
@@ -109,7 +100,7 @@ public class Credential extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
-	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getCredential_Id()
+	 * @see org.eclipselabs.etrack.domain.security.SecurityPackage#getPasswordCredential_Id()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -119,7 +110,7 @@ public class Credential extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.account.Credential#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.security.PasswordCredential#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Id</em>' attribute.
@@ -131,7 +122,7 @@ public class Credential extends EObjectImpl implements EObject
 		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AccountPackage.CREDENTIAL__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, SecurityPackage.PASSWORD_CREDENTIAL__ID, oldId, id));
 	}
 
 	/**
@@ -144,7 +135,7 @@ public class Credential extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Password</em>' attribute.
 	 * @see #setPassword(String)
-	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getCredential_Password()
+	 * @see org.eclipselabs.etrack.domain.security.SecurityPackage#getPasswordCredential_Password()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -154,7 +145,7 @@ public class Credential extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.account.Credential#getPassword <em>Password</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.security.PasswordCredential#getPassword <em>Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Password</em>' attribute.
@@ -166,7 +157,7 @@ public class Credential extends EObjectImpl implements EObject
 		String oldPassword = password;
 		password = newPassword;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AccountPackage.CREDENTIAL__PASSWORD, oldPassword, password));
+			eNotify(new ENotificationImpl(this, Notification.SET, SecurityPackage.PASSWORD_CREDENTIAL__PASSWORD, oldPassword, password));
 	}
 
 	/**
@@ -179,9 +170,9 @@ public class Credential extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.CREDENTIAL__ID:
+			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				return getId();
-			case AccountPackage.CREDENTIAL__PASSWORD:
+			case SecurityPackage.PASSWORD_CREDENTIAL__PASSWORD:
 				return getPassword();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -197,10 +188,10 @@ public class Credential extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.CREDENTIAL__ID:
+			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				setId((String)newValue);
 				return;
-			case AccountPackage.CREDENTIAL__PASSWORD:
+			case SecurityPackage.PASSWORD_CREDENTIAL__PASSWORD:
 				setPassword((String)newValue);
 				return;
 		}
@@ -217,10 +208,10 @@ public class Credential extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.CREDENTIAL__ID:
+			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case AccountPackage.CREDENTIAL__PASSWORD:
+			case SecurityPackage.PASSWORD_CREDENTIAL__PASSWORD:
 				setPassword(PASSWORD_EDEFAULT);
 				return;
 		}
@@ -237,9 +228,9 @@ public class Credential extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
-			case AccountPackage.CREDENTIAL__ID:
+			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case AccountPackage.CREDENTIAL__PASSWORD:
+			case SecurityPackage.PASSWORD_CREDENTIAL__PASSWORD:
 				return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
 		}
 		return super.eIsSet(featureID);
@@ -264,4 +255,4 @@ public class Credential extends EObjectImpl implements EObject
 		return result.toString();
 	}
 
-} // Credential
+} // PasswordCredential

@@ -1,6 +1,15 @@
 /**
+ * Copyright (c) 2011 Bryan Hunt.
+ * 
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Bryan Hunt - initial API and implementation
  */
-package org.eclipselabs.etrack.domain.security.util;
+package security.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -10,7 +19,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipselabs.etrack.domain.entity.Group;
 import org.eclipselabs.etrack.domain.entity.Identity;
 
-import org.eclipselabs.etrack.domain.security.*;
+import security.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +31,7 @@ import org.eclipselabs.etrack.domain.security.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.eclipselabs.etrack.domain.security.SecurityPackage
+ * @see security.SecurityPackage
  * @generated
  */
 public class SecuritySwitch<T> extends Switch<T>

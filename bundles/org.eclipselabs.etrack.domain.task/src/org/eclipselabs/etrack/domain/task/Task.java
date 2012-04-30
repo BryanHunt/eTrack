@@ -33,6 +33,7 @@ import org.eclipselabs.etrack.domain.links.LinkMap;
 import org.eclipselabs.etrack.domain.links.Linkable;
 import org.eclipselabs.etrack.domain.links.LinkedContent;
 import org.eclipselabs.etrack.domain.links.LinksPackage;
+import org.eclipselabs.etrack.domain.project.Project;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +55,7 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getDependsOn <em>Depends On</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getBlocks <em>Blocks</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getProject <em>Project</em>}</li>
  * </ul>
  * </p>
  *
@@ -242,6 +244,16 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	 * @ordered
 	 */
 	protected EList<Task> blocks;
+
+	/**
+	 * The cached value of the '{@link #getProject() <em>Project</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProject()
+	 * @generated
+	 * @ordered
+	 */
+	protected Project project;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -736,6 +748,61 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Project</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Project</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Project</em>' reference.
+	 * @see #setProject(Project)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Project()
+	 * @model
+	 * @generated
+	 */
+	public Project getProject()
+	{
+		if (project != null && project.eIsProxy())
+		{
+			InternalEObject oldProject = (InternalEObject)project;
+			project = (Project)eResolveProxy(oldProject);
+			if (project != oldProject)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__PROJECT, oldProject, project));
+			}
+		}
+		return project;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Project basicGetProject()
+	{
+		return project;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getProject <em>Project</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Project</em>' reference.
+	 * @see #getProject()
+	 * @generated
+	 */
+	public void setProject(Project newProject)
+	{
+		Project oldProject = project;
+		project = newProject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__PROJECT, oldProject, project));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -822,6 +889,9 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 				return getDependsOn();
 			case TaskPackage.TASK__BLOCKS:
 				return getBlocks();
+			case TaskPackage.TASK__PROJECT:
+				if (resolve) return getProject();
+				return basicGetProject();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -885,6 +955,9 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 				getBlocks().clear();
 				getBlocks().addAll((Collection<? extends Task>)newValue);
 				return;
+			case TaskPackage.TASK__PROJECT:
+				setProject((Project)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -941,6 +1014,9 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 			case TaskPackage.TASK__BLOCKS:
 				getBlocks().clear();
 				return;
+			case TaskPackage.TASK__PROJECT:
+				setProject((Project)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -983,6 +1059,8 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 				return dependsOn != null && !dependsOn.isEmpty();
 			case TaskPackage.TASK__BLOCKS:
 				return blocks != null && !blocks.isEmpty();
+			case TaskPackage.TASK__PROJECT:
+				return project != null;
 		}
 		return super.eIsSet(featureID);
 	}

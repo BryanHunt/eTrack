@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipselabs.etrack.client.web.clientResourceFactory">
+   <implementation class="org.eclipselabs.etrack.client.web.services.ClientResourceFactory"/>
+   <service>
+      <provide interface="org.eclipselabs.etrack.client.web.IClientResourceFactory"/>
+   </service>
+   <reference bind="bindChallengeResponseFactory" cardinality="0..1" interface="org.eclipselabs.etrack.client.web.IChallengeResponseFactory" name="IChallengeResponseFactory" policy="dynamic" unbind="unbindChallengeResponseFactory"/>
+</scr:component>

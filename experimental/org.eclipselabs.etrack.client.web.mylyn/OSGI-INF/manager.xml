@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipselabs.etrack.client.web.mylyn.clientResourceFactoryManager">
-   <implementation class="org.eclipselabs.etrack.client.web.mylyn.MylynClientResourceFactoryManager"/>
-   <reference bind="bindClientResourceFactory" cardinality="0..1" interface="org.eclipselabs.etrack.client.web.IClientResourceFactory" name="IClientResourceFactory" policy="dynamic" unbind="unbindClientResourceFactory"/>
+   <implementation class="org.eclipselabs.etrack.client.web.mylyn.MylynPasswordCredentialProviderManager"/>
 </scr:component>

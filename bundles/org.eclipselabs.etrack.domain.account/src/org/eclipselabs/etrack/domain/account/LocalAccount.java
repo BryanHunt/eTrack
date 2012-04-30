@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import security.PasswordCredential;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +46,7 @@ public class LocalAccount extends Account
 	 * @generated
 	 * @ordered
 	 */
-	protected Credential credential;
+	protected PasswordCredential credential;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,12 +78,12 @@ public class LocalAccount extends Account
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Credential</em>' containment reference.
-	 * @see #setCredential(Credential)
+	 * @see #setCredential(PasswordCredential)
 	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getLocalAccount_Credential()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	public Credential getCredential()
+	public PasswordCredential getCredential()
 	{
 		return credential;
 	}
@@ -92,9 +93,9 @@ public class LocalAccount extends Account
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCredential(Credential newCredential, NotificationChain msgs)
+	public NotificationChain basicSetCredential(PasswordCredential newCredential, NotificationChain msgs)
 	{
-		Credential oldCredential = credential;
+		PasswordCredential oldCredential = credential;
 		credential = newCredential;
 		if (eNotificationRequired())
 		{
@@ -112,7 +113,7 @@ public class LocalAccount extends Account
 	 * @see #getCredential()
 	 * @generated
 	 */
-	public void setCredential(Credential newCredential)
+	public void setCredential(PasswordCredential newCredential)
 	{
 		if (newCredential != credential)
 		{
@@ -171,7 +172,7 @@ public class LocalAccount extends Account
 		switch (featureID)
 		{
 			case AccountPackage.LOCAL_ACCOUNT__CREDENTIAL:
-				setCredential((Credential)newValue);
+				setCredential((PasswordCredential)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -188,7 +189,7 @@ public class LocalAccount extends Account
 		switch (featureID)
 		{
 			case AccountPackage.LOCAL_ACCOUNT__CREDENTIAL:
-				setCredential((Credential)null);
+				setCredential((PasswordCredential)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
+import security.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -153,43 +154,6 @@ public class AccountPackage extends EPackageImpl
 	public static final int ACCOUNT_REQUEST_FEATURE_COUNT = 3;
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.account.Credential <em>Credential</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.account.Credential
-	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getCredential()
-	 * @generated
-	 */
-	public static final int CREDENTIAL = 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CREDENTIAL__ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Password</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CREDENTIAL__PASSWORD = 1;
-
-	/**
-	 * The number of structural features of the '<em>Credential</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CREDENTIAL_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.account.LocalAccount <em>Local Account</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,7 +161,7 @@ public class AccountPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getLocalAccount()
 	 * @generated
 	 */
-	public static final int LOCAL_ACCOUNT = 3;
+	public static final int LOCAL_ACCOUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Creation Date</b></em>' attribute.
@@ -248,13 +212,6 @@ public class AccountPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass accountRequestEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass credentialEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,11 +271,16 @@ public class AccountPackage extends EPackageImpl
 		// Initialize simple dependencies
 		EntityPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		SecurityPackage theSecurityPackage = (SecurityPackage)(EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI) instanceof SecurityPackage ? EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI) : SecurityPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theAccountPackage.createPackageContents();
+		theSecurityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAccountPackage.initializePackageContents();
+		theSecurityPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAccountPackage.freeze();
@@ -427,47 +389,6 @@ public class AccountPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.account.Credential <em>Credential</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Credential</em>'.
-	 * @see org.eclipselabs.etrack.domain.account.Credential
-	 * @generated
-	 */
-	public EClass getCredential()
-	{
-		return credentialEClass;
-	}
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.account.Credential#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.eclipselabs.etrack.domain.account.Credential#getId()
-	 * @see #getCredential()
-	 * @generated
-	 */
-	public EAttribute getCredential_Id()
-	{
-		return (EAttribute)credentialEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.account.Credential#getPassword <em>Password</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Password</em>'.
-	 * @see org.eclipselabs.etrack.domain.account.Credential#getPassword()
-	 * @see #getCredential()
-	 * @generated
-	 */
-	public EAttribute getCredential_Password()
-	{
-		return (EAttribute)credentialEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.account.LocalAccount <em>Local Account</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -537,10 +458,6 @@ public class AccountPackage extends EPackageImpl
 		createEAttribute(accountRequestEClass, ACCOUNT_REQUEST__EXPIRATION_DATE);
 		createEReference(accountRequestEClass, ACCOUNT_REQUEST__ENTITY);
 
-		credentialEClass = createEClass(CREDENTIAL);
-		createEAttribute(credentialEClass, CREDENTIAL__ID);
-		createEAttribute(credentialEClass, CREDENTIAL__PASSWORD);
-
 		localAccountEClass = createEClass(LOCAL_ACCOUNT);
 		createEReference(localAccountEClass, LOCAL_ACCOUNT__CREDENTIAL);
 	}
@@ -571,6 +488,7 @@ public class AccountPackage extends EPackageImpl
 
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -585,16 +503,12 @@ public class AccountPackage extends EPackageImpl
 		initEReference(getAccount_Entity(), theEntityPackage.getEntity(), null, "entity", null, 1, 1, Account.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(accountRequestEClass, AccountRequest.class, "AccountRequest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAccountRequest_Credential(), this.getCredential(), null, "credential", null, 1, 1, AccountRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAccountRequest_Credential(), theSecurityPackage.getPasswordCredential(), null, "credential", null, 1, 1, AccountRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAccountRequest_ExpirationDate(), ecorePackage.getEDate(), "expirationDate", null, 1, 1, AccountRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAccountRequest_Entity(), theEntityPackage.getEntity(), null, "entity", null, 1, 1, AccountRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(credentialEClass, Credential.class, "Credential", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCredential_Id(), ecorePackage.getEString(), "id", null, 1, 1, Credential.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCredential_Password(), ecorePackage.getEString(), "password", null, 1, 1, Credential.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(localAccountEClass, LocalAccount.class, "LocalAccount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLocalAccount_Credential(), this.getCredential(), null, "credential", null, 1, 1, LocalAccount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocalAccount_Credential(), theSecurityPackage.getPasswordCredential(), null, "credential", null, 1, 1, LocalAccount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -673,32 +587,6 @@ public class AccountPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference ACCOUNT_REQUEST__ENTITY = eINSTANCE.getAccountRequest_Entity();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.account.Credential <em>Credential</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.etrack.domain.account.Credential
-		 * @see org.eclipselabs.etrack.domain.account.AccountPackage#getCredential()
-		 * @generated
-		 */
-		public static final EClass CREDENTIAL = eINSTANCE.getCredential();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EAttribute CREDENTIAL__ID = eINSTANCE.getCredential_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EAttribute CREDENTIAL__PASSWORD = eINSTANCE.getCredential_Password();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.account.LocalAccount <em>Local Account</em>}' class.
