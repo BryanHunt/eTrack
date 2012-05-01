@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipselabs.etrack.web.forms.entity.person.directory">
-   <implementation class="org.ecliplselabs.etrack.web.forms.entity.providers.PersonDirectoryResourceProvider"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipselabs.etrack.server.web.forms.entity.person.directory">
+   <implementation class="org.ecliplselabs.etrack.server.web.forms.entity.providers.PersonDirectoryResourceProvider"/>
    <service>
       <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
    </service>

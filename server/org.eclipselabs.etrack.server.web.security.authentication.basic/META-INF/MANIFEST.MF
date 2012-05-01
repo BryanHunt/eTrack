@@ -5,8 +5,8 @@ Bundle-SymbolicName: org.eclipselabs.etrack.server.web.security.authentication.b
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipselabs.etrack.util.security,
- org.eclipselabs.etrack.web.security,
+Import-Package: org.eclipselabs.etrack.server.web.security,
+ org.eclipselabs.etrack.util.security,
  org.restlet,
  org.restlet.data,
  org.restlet.ext.osgi,

@@ -11,8 +11,8 @@
 
 package org.eclipselabs.etrack.server.web.security.auth.basic;
 
+import org.eclipselabs.etrack.server.web.security.CredentialVerifier;
 import org.eclipselabs.etrack.util.security.ISecurityService;
-import org.eclipselabs.etrack.web.security.CredentialVerifier;
 import org.restlet.Context;
 import org.restlet.data.ChallengeScheme;
 import org.restlet.ext.osgi.FilterProvider;
