@@ -8,6 +8,6 @@ Bundle-ActivationPolicy: lazy
 Bundle-Vendor: EclipseLabs
 Import-Package: org.eclipselabs.etrack.client.web,
  org.eclipselabs.etrack.domain.security,
- org.eclipselabs.etrack.security,
+ org.eclipselabs.etrack.util.security,
  org.restlet.data
 Service-Component: OSGI-INF/factory.xml

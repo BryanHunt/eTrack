@@ -9,19 +9,13 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.web.security.authentication.basic.junit.integration.support;
-
-import org.eclipselabs.etrack.util.security.ISecurityService;
+package org.eclipselabs.etrack.util.security;
 
 /**
  * @author bhunt
  * 
  */
-public class SecurityService implements ISecurityService
+public interface ISecurityService
 {
-	@Override
-	public boolean authenticate(String id, char[] password)
-	{
-		return "junit".equals(id) && "junit".equals(new String(password));
-	}
+	boolean authenticate(String id, char[] password);
 }

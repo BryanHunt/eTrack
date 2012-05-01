@@ -11,7 +11,7 @@
 
 package org.eclipselabs.etrack.web.security;
 
-import org.eclipselabs.etrack.security.ISecurityService;
+import org.eclipselabs.etrack.util.security.ISecurityService;
 import org.restlet.security.SecretVerifier;
 
 /**

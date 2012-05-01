@@ -9,19 +9,17 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.web.security.authentication.basic.junit.integration.support;
+package org.eclipselabs.etrack.util.security.ldap;
 
-import org.eclipselabs.etrack.util.security.ISecurityService;
+import javax.naming.directory.Attributes;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * @author bhunt
  * 
  */
-public class SecurityService implements ISecurityService
+public interface IEObjectBuilder
 {
-	@Override
-	public boolean authenticate(String id, char[] password)
-	{
-		return "junit".equals(id) && "junit".equals(new String(password));
-	}
+	EObject buildEObject(Attributes attributes);
 }

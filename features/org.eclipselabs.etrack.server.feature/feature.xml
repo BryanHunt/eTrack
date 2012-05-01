@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipselabs.etrack.server.feature"
+      label="eTrack Server Feature"
+      version="0.1.0.qualifier"
+      provider-name="EclipseLabs">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.eclipselabs.etrack.domain.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipslabs.etrack.util.feature"
+         version="0.0.0"/>
+
+   <requires>
+      <import plugin="org.restlet"/>
+      <import plugin="org.restlet.ext.osgi"/>
+      <import plugin="org.restlet.ext.wadl"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipselabs.emf.query.simple"/>
+      <import plugin="org.eclipselabs.etrack.domain.entity"/>
+      <import plugin="org.eclipselabs.mongo.emf"/>
+      <import plugin="org.restlet.ext.emf"/>
+      <import plugin="org.eclipselabs.mongo.emf.ext"/>
+      <import plugin="org.eclipselabs.etrack.util.security"/>
+      <import plugin="org.eclipselabs.etrack.util.web.emf"/>
+      <import plugin="org.eclipselabs.etrack.server.web.storage" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.etrack.server.web.task" version="0.1.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.app"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.forms.entity"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.routing"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.security"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.security.authentication.basic"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.security.authorization.none"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.storage"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.storage.provider"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.task"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.task.provider"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+</feature>

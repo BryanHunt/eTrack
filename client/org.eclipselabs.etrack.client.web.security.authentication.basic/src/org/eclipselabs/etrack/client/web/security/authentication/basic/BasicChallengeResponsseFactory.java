@@ -16,7 +16,7 @@ import java.util.Map.Entry;
 
 import org.eclipselabs.etrack.client.web.IChallengeResponseFactory;
 import org.eclipselabs.etrack.domain.security.PasswordCredential;
-import org.eclipselabs.etrack.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
 import org.restlet.data.ChallengeResponse;
 import org.restlet.data.ChallengeScheme;
 

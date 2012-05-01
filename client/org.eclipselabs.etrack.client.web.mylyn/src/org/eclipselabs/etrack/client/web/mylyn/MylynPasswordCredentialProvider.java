@@ -16,7 +16,7 @@ import org.eclipse.mylyn.commons.net.AuthenticationType;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipselabs.etrack.domain.security.PasswordCredential;
 import org.eclipselabs.etrack.domain.security.SecurityFactory;
-import org.eclipselabs.etrack.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
 import org.osgi.framework.ServiceRegistration;
 
 /**
