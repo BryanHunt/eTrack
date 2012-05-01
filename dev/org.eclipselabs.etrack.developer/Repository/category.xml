@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipselabs.etrack.domain.feature_0.1.0.qualifier.jar" id="org.eclipselabs.etrack.domain.feature" version="0.1.0.qualifier">
+      <category name="etrack"/>
+   </feature>
+   <feature url="features/org.eclipselabs.etrack.client.feature_0.1.0.qualifier.jar" id="org.eclipselabs.etrack.client.feature" version="0.1.0.qualifier">
+      <category name="etrack"/>
+   </feature>
+   <feature url="features/org.eclipselabs.etrack.server.feature_0.1.0.qualifier.jar" id="org.eclipselabs.etrack.server.feature" version="0.1.0.qualifier">
+      <category name="etrack"/>
+   </feature>
+   <feature url="features/org.eclipslabs.etrack.util.feature_0.1.0.qualifier.jar" id="org.eclipslabs.etrack.util.feature" version="0.1.0.qualifier">
+      <category name="etrack"/>
+   </feature>
+   <category-def name="etrack" label="eTrack">
+      <description>
+         eTrack runtime
+      </description>
+   </category-def>
+</site>

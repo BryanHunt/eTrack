@@ -9,7 +9,7 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.web.security.auth.basic;
+package org.eclipselabs.etrack.server.web.security.auth.basic;
 
 import org.eclipselabs.etrack.util.security.ISecurityService;
 import org.eclipselabs.etrack.web.security.CredentialVerifier;

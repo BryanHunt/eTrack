@@ -9,21 +9,21 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.web.security.authorization.none;
+package org.eclipselabs.etrack.server.web.security.authorization.none;
 
-import org.restlet.Context;
-import org.restlet.ext.osgi.FilterProvider;
-import org.restlet.routing.Filter;
+import org.restlet.Request;
+import org.restlet.Response;
+import org.restlet.security.Authorizer;
 
 /**
  * @author bhunt
  * 
  */
-public class AuthenticatedAuthorizerFilterProvider extends FilterProvider
+public class AuthenticatedAuthorizer extends Authorizer
 {
 	@Override
-	protected Filter createFilter(Context context)
+	protected boolean authorize(Request request, Response response)
 	{
-		return new AuthenticatedAuthorizer();
+		return request.getClientInfo().isAuthenticated();
 	}
 }
