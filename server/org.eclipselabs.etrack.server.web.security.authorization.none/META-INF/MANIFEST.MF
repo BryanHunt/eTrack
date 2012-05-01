@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: None
+Bundle-SymbolicName: org.eclipselabs.etrack.server.web.security.authorization.none
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.restlet,
+ org.restlet.data,
+ org.restlet.ext.osgi,
+ org.restlet.routing,
+ org.restlet.security
+Service-Component: OSGI-INF/authorization.xml
+Bundle-ActivationPolicy: lazy

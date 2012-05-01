@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eTrack Basic Web Authentication JUnit Integration Tests
+Bundle-SymbolicName: org.eclipselabs.etrack.server.web.security.authentication.basic.junit.integration
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipselabs.etrack.security,
+ org.eclipselabs.mongo.emf.developer.junit,
+ org.hamcrest;version="1.3.0",
+ org.osgi.service.http;version="1.2.1",
+ org.restlet,
+ org.restlet.data,
+ org.restlet.ext.osgi,
+ org.restlet.representation,
+ org.restlet.resource
+Require-Bundle: org.junit;bundle-version="4.9.0"
+Service-Component: OSGI-INF/junit.xml,OSGI-INF/resource.xml,
+ OSGI-INF/security.xml

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eTrack Web Security
+Bundle-SymbolicName: org.eclipselabs.etrack.server.web.security
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipselabs.etrack.security,
+ org.restlet.security
+Export-Package: org.eclipselabs.etrack.web.security

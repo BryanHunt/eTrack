@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eTrack LDAP Security
+Bundle-SymbolicName: org.eclipselabs.etrack.util.security.ldap
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.resource,
+ org.eclipse.emf.ecore.resource.impl,
+ org.eclipselabs.etrack.domain.entity,
+ org.eclipselabs.etrack.security
+Service-Component: OSGI-INF/ldap.xml
+Export-Package: org.eclipselabs.etrack.app.security.ldap
+Bundle-ActivationPolicy: lazy
