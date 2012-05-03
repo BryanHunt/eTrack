@@ -34,10 +34,10 @@
       <import plugin="org.eclipselabs.emf.query.simple"/>
       <import plugin="org.eclipselabs.etrack.domain.entity"/>
       <import plugin="org.eclipselabs.mongo.emf"/>
-      <import plugin="org.restlet.ext.emf"/>
       <import plugin="org.eclipselabs.mongo.emf.ext"/>
       <import plugin="org.eclipselabs.etrack.util.security"/>
       <import plugin="org.eclipselabs.etrack.util.web.emf"/>
+      <import plugin="org.restlet.ext.emf"/>
       <import plugin="org.eclipselabs.etrack.server.web.storage" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipselabs.etrack.server.web.task" version="0.1.0" match="greaterOrEqual"/>
    </requires>
@@ -112,6 +112,13 @@
          install-size="0"
          version="0.0.0"
          fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.server.web.storage.mapping"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>

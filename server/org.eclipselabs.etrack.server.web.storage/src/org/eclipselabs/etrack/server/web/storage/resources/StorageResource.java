@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
@@ -59,7 +58,7 @@ public class StorageResource extends WadlServerResource
 	{
 		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
 		EObject object = emfRepresentation.getObject();
-		ResourceSet resourceSet = createResourceSet();
+		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
 
 		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
 		resource.getContents().add(object);
@@ -68,7 +67,7 @@ public class StorageResource extends WadlServerResource
 
 	protected EObject getModel()
 	{
-		ResourceSet resourceSet = createResourceSet();
+		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
 
 		// FIXME see if we can get the option from a HTTP header Pragma
 		resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.TRUE);
@@ -80,32 +79,6 @@ public class StorageResource extends WadlServerResource
 
 		Resource resource = resourceSet.getResource(uri, true);
 		return resource.getContents().get(0);
-	}
-
-	protected ResourceSet createResourceSet()
-	{
-		// FIXME this algorithm can be significantly improved. Look at caching the mapping.
-
-		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
-		URIConverter uriConverter = resourceSet.getURIConverter();
-
-		URI logicalURI = URI.createURI(getReference().toString());
-		int targetSegmentIndex = 0;
-
-		for (String segment : logicalURI.segments())
-		{
-			if ("storage".equals(segment))
-				break;
-
-			targetSegmentIndex++;
-		}
-
-		logicalURI = logicalURI.trimQuery().trimSegments(logicalURI.segmentCount() - (targetSegmentIndex + 1)).appendSegment("");
-
-		URI physicalURI = URI.createURI(System.getProperty("mongodb", "mongodb://localhost"));
-		uriConverter.getURIMap().put(logicalURI, physicalURI);
-
-		return resourceSet;
 	}
 
 	private static IResourceSetFactory resourceSetFactory;

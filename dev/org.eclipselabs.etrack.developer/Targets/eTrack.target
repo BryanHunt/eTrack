@@ -43,12 +43,12 @@
 <repository location="http://bryanhunt.github.com/mongo-emf/mongodb/2.7.2/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.7.0.201204301823"/>
-<unit id="org.eclipselabs.mongo.emf.feature.source.feature.group" version="0.7.0.201204301823"/>
-<unit id="org.eclipselabs.mongo.emf.developer.junit.feature.feature.group" version="0.7.0.201204301823"/>
-<unit id="org.eclipselabs.mongo.emf.developer.junit.feature.source.feature.group" version="0.7.0.201204301823"/>
-<unit id="org.eclipselabs.mongo.emf.query.simple.feature.source.feature.group" version="0.7.0.201204301823"/>
-<unit id="org.eclipselabs.mongo.emf.query.simple.feature.feature.group" version="0.7.0.201204301823"/>
+<unit id="org.eclipselabs.mongo.emf.feature.feature.group" version="0.7.0.201205022206"/>
+<unit id="org.eclipselabs.mongo.emf.feature.source.feature.group" version="0.7.0.201205022206"/>
+<unit id="org.eclipselabs.mongo.emf.developer.junit.feature.feature.group" version="0.7.0.201205022206"/>
+<unit id="org.eclipselabs.mongo.emf.developer.junit.feature.source.feature.group" version="0.7.0.201205022206"/>
+<unit id="org.eclipselabs.mongo.emf.query.simple.feature.source.feature.group" version="0.7.0.201205022206"/>
+<unit id="org.eclipselabs.mongo.emf.query.simple.feature.feature.group" version="0.7.0.201205022206"/>
 <repository location="http://bryanhunt.github.com/mongo-emf/releases/0.7.0/"/>
 </location>
 </locations>

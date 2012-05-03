@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: eTrack Web Storage EMF Mapping
+Bundle-SymbolicName: org.eclipselabs.etrack.server.web.storage.mapping
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore.resource,
+ org.eclipselabs.mongo.emf.ext
+Service-Component: OSGI-INF/mapper.xml
+Bundle-ActivationPolicy: lazy
