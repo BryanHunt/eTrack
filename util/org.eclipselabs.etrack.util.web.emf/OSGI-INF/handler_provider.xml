@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.util.web.emf.uriHandlerProvider">
+   <implementation class="org.eclipselabs.etrack.util.web.emf.impl.RestletUriHandlerProvider"/>
+   <service>
+      <provide interface="org.eclipselabs.mongo.emf.ext.IUriHandlerProvider"/>
+   </service>
+   <reference bind="bindClientResourceFactory" cardinality="1..1" interface="org.eclipselabs.etrack.client.web.IClientResourceFactory" name="IClientResourceFactory" policy="static"/>
+</scr:component>

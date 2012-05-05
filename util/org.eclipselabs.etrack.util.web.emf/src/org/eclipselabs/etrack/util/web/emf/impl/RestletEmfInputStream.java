@@ -9,16 +9,16 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.util.web.emf;
+package org.eclipselabs.etrack.util.web.emf.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
 import org.restlet.resource.ClientResource;
@@ -30,17 +30,15 @@ import org.restlet.resource.ResourceException;
  */
 public class RestletEmfInputStream extends InputStream implements URIConverter.Loadable
 {
-	public RestletEmfInputStream(URI uri, Map<?, ?> options)
+	public RestletEmfInputStream(ClientResource client, Map<?, ?> options)
 	{
-		this.uri = uri;
+		this.client = client;
 		this.options = options;
 	}
 
 	@Override
 	public void loadResource(final Resource resource) throws IOException
 	{
-		ClientResource client = RestletURIHandlerImpl.createClient(uri, options);
-
 		try
 		{
 			// FIXME use EMF binary for optimal performance
@@ -74,6 +72,6 @@ public class RestletEmfInputStream extends InputStream implements URIConverter.L
 		throw new IOException("read() should never be called - something that should never happen has happended - please head to the nearest fallout shelter and await further instructions");
 	}
 
-	private URI uri;
+	private ClientResource client;
 	private Map<?, ?> options;
 }

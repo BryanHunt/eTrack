@@ -9,14 +9,13 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.util.web.emf;
+package org.eclipselabs.etrack.util.web.emf.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
@@ -30,9 +29,9 @@ import org.restlet.resource.ClientResource;
  */
 public class RestletEmfOutputStream extends ByteArrayOutputStream implements URIConverter.Saveable
 {
-	public RestletEmfOutputStream(URI uri, Map<?, ?> options)
+	public RestletEmfOutputStream(ClientResource client, Map<?, ?> options)
 	{
-		this.uri = uri;
+		this.client = client;
 		this.options = options;
 	}
 
@@ -40,7 +39,6 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 	public void close() throws IOException
 	{
 		super.close();
-		ClientResource client = RestletURIHandlerImpl.createClient(uri, options);
 
 		EmfRepresentation<EObject> representation = new EmfRepresentation<EObject>(MediaType.APPLICATION_XMI, resource.getContents().get(0))
 		{
@@ -66,7 +64,7 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 		this.resource = resource;
 	}
 
-	private URI uri;
+	private ClientResource client;
 	private Map<?, ?> options;
 	private Resource resource;
 }
