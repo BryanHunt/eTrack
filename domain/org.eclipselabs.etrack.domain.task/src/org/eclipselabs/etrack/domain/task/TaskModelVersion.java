@@ -12,10 +12,8 @@
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -45,7 +43,7 @@ public class TaskModelVersion extends EObjectImpl implements EObject
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int VERSION_EDEFAULT = 0;
+	protected static final int VERSION_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -80,6 +78,7 @@ public class TaskModelVersion extends EObjectImpl implements EObject
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Version</em>' attribute isn't clear,
@@ -89,7 +88,7 @@ public class TaskModelVersion extends EObjectImpl implements EObject
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(int)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskModelVersion_Version()
-	 * @model
+	 * @model default="1"
 	 * @generated
 	 */
 	public int getVersion()

@@ -19,7 +19,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipselabs.etrack.domain.links.Linkable;
-import org.eclipselabs.etrack.domain.task.*;
 import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
@@ -30,6 +29,7 @@ import org.eclipselabs.etrack.domain.task.StateHistory;
 import org.eclipselabs.etrack.domain.task.StateTransition;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
+import org.eclipselabs.etrack.domain.task.TaskModelVersion;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
 import org.eclipselabs.etrack.domain.task.TaskType;
 

@@ -11,7 +11,7 @@
 
 package org.eclipselabs.etrack.server.web.task.providers;
 
-import org.eclipselabs.etrack.server.web.task.resources.ConnectionValidationResource;
+import org.eclipselabs.etrack.server.web.task.resources.TaskModelVersionResource;
 import org.restlet.Context;
 import org.restlet.ext.osgi.ResourceProvider;
 import org.restlet.resource.Finder;
@@ -20,11 +20,11 @@ import org.restlet.resource.Finder;
  * @author bhunt
  * 
  */
-public class ConnectionValidationResourceProvider extends ResourceProvider
+public class TaskModelVersionResourceProvider extends ResourceProvider
 {
 	@Override
 	protected Finder createFinder(Context context)
 	{
-		return new Finder(context, ConnectionValidationResource.class);
+		return new Finder(context, TaskModelVersionResource.class);
 	}
 }
