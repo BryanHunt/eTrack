@@ -1,30 +1,24 @@
 /**
- * Copyright (c) 2011 Bryan Hunt.
- * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Bryan Hunt - initial API and implementation
  */
-package org.eclipselabs.etrack.domain.task.provider;
+package org.eclipselabs.etrack.domain.project.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipselabs.etrack.domain.entity.provider.EntityEditPlugin;
+
 import org.eclipselabs.etrack.domain.links.provider.LinksEditPlugin;
-import org.eclipselabs.etrack.domain.project.provider.ProjectEditPlugin;
+
 import org.eclipselabs.etrack.domain.security.provider.SecurityEditPlugin;
 
 /**
- * This is the central singleton for the Task edit plugin.
+ * This is the central singleton for the Project edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class TaskEditPlugin extends EMFPlugin
+public final class ProjectEditPlugin extends EMFPlugin
 {
 	/**
 	 * Keep track of the singleton.
@@ -32,7 +26,7 @@ public final class TaskEditPlugin extends EMFPlugin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final TaskEditPlugin INSTANCE = new TaskEditPlugin();
+	public static final ProjectEditPlugin INSTANCE = new ProjectEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -48,14 +42,13 @@ public final class TaskEditPlugin extends EMFPlugin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TaskEditPlugin()
+	public ProjectEditPlugin()
 	{
 		super
 		  (new ResourceLocator [] 
 		   {
 		     EntityEditPlugin.INSTANCE,
 		     LinksEditPlugin.INSTANCE,
-		     ProjectEditPlugin.INSTANCE,
 		     SecurityEditPlugin.INSTANCE,
 		   });
 	}

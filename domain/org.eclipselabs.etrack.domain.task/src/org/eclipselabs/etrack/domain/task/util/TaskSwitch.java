@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipselabs.etrack.domain.links.Linkable;
+import org.eclipselabs.etrack.domain.task.*;
 import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
@@ -183,6 +184,13 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TaskPackage.TASK_MODEL_VERSION:
+			{
+				TaskModelVersion taskModelVersion = (TaskModelVersion)theEObject;
+				T result = caseTaskModelVersion(taskModelVersion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -327,6 +335,22 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseTaskType(TaskType object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Model Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Model Version</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaskModelVersion(TaskModelVersion object)
 	{
 		return null;
 	}

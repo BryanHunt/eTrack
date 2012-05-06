@@ -281,6 +281,31 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipselabs.etrack.domain.task.TaskModelVersion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskModelVersionItemProvider taskModelVersionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.eclipselabs.etrack.domain.task.TaskModelVersion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskModelVersionAdapter()
+	{
+		if (taskModelVersionItemProvider == null)
+		{
+			taskModelVersionItemProvider = new TaskModelVersionItemProvider(this);
+		}
+
+		return taskModelVersionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -477,6 +502,7 @@ public class TaskItemProviderAdapterFactory extends TaskAdapterFactory implement
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (taskDomainItemProvider != null) taskDomainItemProvider.dispose();
 		if (taskTypeItemProvider != null) taskTypeItemProvider.dispose();
+		if (taskModelVersionItemProvider != null) taskModelVersionItemProvider.dispose();
 	}
 
 }

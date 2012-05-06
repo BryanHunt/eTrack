@@ -84,6 +84,7 @@ public class TaskItemProvider
 			addTypePropertyDescriptor(object);
 			addDependsOnPropertyDescriptor(object);
 			addBlocksPropertyDescriptor(object);
+			addProjectPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -310,6 +311,29 @@ public class TaskItemProvider
 				 getString("_UI_Task_blocks_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Task_blocks_feature", "_UI_Task_type"),
 				 TaskPackage.Literals.TASK__BLOCKS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Project feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProjectPropertyDescriptor(Object object)
+	{
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_project_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_project_feature", "_UI_Task_type"),
+				 TaskPackage.Literals.TASK__PROJECT,
 				 true,
 				 false,
 				 true,

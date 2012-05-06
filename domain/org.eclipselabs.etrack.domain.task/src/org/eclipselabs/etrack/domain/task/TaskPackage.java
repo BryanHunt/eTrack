@@ -678,6 +678,34 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_TYPE_FEATURE_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskModelVersion
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskModelVersion()
+	 * @generated
+	 */
+	public static final int TASK_MODEL_VERSION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_MODEL_VERSION__VERSION = 0;
+
+	/**
+	 * The number of structural features of the '<em>Model Version</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_MODEL_VERSION_FEATURE_COUNT = 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -739,6 +767,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskModelVersionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1398,6 +1433,35 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model Version</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskModelVersion
+	 * @generated
+	 */
+	public EClass getTaskModelVersion()
+	{
+		return taskModelVersionEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion#getVersion <em>Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Version</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskModelVersion#getVersion()
+	 * @see #getTaskModelVersion()
+	 * @generated
+	 */
+	public EAttribute getTaskModelVersion_Version()
+	{
+		return (EAttribute)taskModelVersionEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>State Transition Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1607,6 +1671,9 @@ public class TaskPackage extends EPackageImpl
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
 		createEReference(taskTypeEClass, TASK_TYPE__STATES);
 		createEReference(taskTypeEClass, TASK_TYPE__EXTENSION);
+
+		taskModelVersionEClass = createEClass(TASK_MODEL_VERSION);
+		createEAttribute(taskModelVersionEClass, TASK_MODEL_VERSION__VERSION);
 	}
 
 	/**
@@ -1709,6 +1776,9 @@ public class TaskPackage extends EPackageImpl
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_States(), this.getStateTransitionMap(), null, "states", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_Extension(), ecorePackage.getEPackage(), null, "extension", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskModelVersionEClass, TaskModelVersion.class, "TaskModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskModelVersion_Version(), ecorePackage.getEInt(), "version", null, 0, 1, TaskModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -2065,6 +2135,24 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_TYPE__EXTENSION = eINSTANCE.getTaskType_Extension();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.TaskModelVersion
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskModelVersion()
+		 * @generated
+		 */
+		public static final EClass TASK_MODEL_VERSION = eINSTANCE.getTaskModelVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_MODEL_VERSION__VERSION = eINSTANCE.getTaskModelVersion_Version();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.StateTransitionMap <em>State Transition Map</em>}' class.
