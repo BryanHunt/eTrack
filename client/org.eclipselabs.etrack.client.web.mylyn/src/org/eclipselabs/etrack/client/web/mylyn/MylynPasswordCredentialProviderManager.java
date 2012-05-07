@@ -65,7 +65,7 @@ public class MylynPasswordCredentialProviderManager implements IRepositoryListen
 	{
 		synchronized (providers)
 		{
-			providers.get(repository.getRepositoryUrl()).dispose();
+			providers.remove(repository.getRepositoryUrl()).dispose();
 		}
 	}
 
