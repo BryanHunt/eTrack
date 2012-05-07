@@ -4,5 +4,5 @@
    <service>
       <provide interface="org.eclipselabs.etrack.client.web.IChallengeResponseFactory"/>
    </service>
-   <reference bind="bindPasswordCredentialProvider" cardinality="0..n" interface="org.eclipselabs.etrack.security.IPasswordCredentialProvider" name="IPasswordCredentialProvider" policy="dynamic" unbind="unbindPasswordCredentialProvider"/>
+   <reference bind="bindPasswordCredentialProvider" cardinality="0..n" interface="org.eclipselabs.etrack.util.security.IPasswordCredentialProvider" name="IPasswordCredentialProvider" policy="dynamic" unbind="unbindPasswordCredentialProvider"/>
 </scr:component>
