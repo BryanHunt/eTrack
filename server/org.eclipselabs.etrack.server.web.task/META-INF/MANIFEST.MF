@@ -13,5 +13,5 @@ Import-Package: org.eclipse.emf.ecore,
  org.restlet.ext.osgi,
  org.restlet.resource
 Bundle-ActivationPolicy: lazy
-Service-Component: OSGI-INF/resources/task_connection_validation.xml
+Service-Component: OSGI-INF/resources/version.xml
 Export-Package: org.eclipselabs.etrack.server.web.task.resources
