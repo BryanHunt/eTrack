@@ -53,8 +53,20 @@ public class StorageResource extends WadlServerResource
 		return new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, object);
 	}
 
+	@Post("xmi+xml")
+	public void addXmiObject(Representation representation) throws IOException
+	{
+		EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation);
+		EObject object = emfRepresentation.getObject();
+		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
+
+		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
+		resource.getContents().add(object);
+		resource.save(null);
+	}
+
 	@Post("json")
-	public void addObject(Representation representation) throws IOException
+	public void addJsonObject(Representation representation) throws IOException
 	{
 		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
 		EObject object = emfRepresentation.getObject();
