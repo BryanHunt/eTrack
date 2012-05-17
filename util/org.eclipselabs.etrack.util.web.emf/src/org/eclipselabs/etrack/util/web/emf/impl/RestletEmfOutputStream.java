@@ -60,7 +60,7 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 
 		Representation result = client.post(representation);
 
-		if (client.getStatus() == Status.SUCCESS_OK)
+		if (client.getStatus().equals(Status.SUCCESS_OK))
 			resource.setURI(URI.createURI(result.getText()));
 	}
 
