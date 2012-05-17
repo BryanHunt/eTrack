@@ -16,11 +16,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.restlet.data.MediaType;
+import org.restlet.data.Status;
 import org.restlet.ext.emf.EmfRepresentation;
+import org.restlet.representation.Representation;
 import org.restlet.resource.ClientResource;
 
 /**
@@ -55,7 +58,10 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 			}
 		};
 
-		client.post(representation);
+		Representation result = client.post(representation);
+
+		if (client.getStatus() == Status.SUCCESS_OK)
+			resource.setURI(URI.createURI(result.getText()));
 	}
 
 	@Override

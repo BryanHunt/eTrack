@@ -25,6 +25,7 @@ import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.representation.Representation;
+import org.restlet.representation.StringRepresentation;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 
@@ -54,27 +55,19 @@ public class StorageResource extends WadlServerResource
 	}
 
 	@Post("xmi+xml")
-	public void addXmiObject(Representation representation) throws IOException
+	public Representation addXmiObject(Representation representation) throws IOException
 	{
 		EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation);
-		EObject object = emfRepresentation.getObject();
-		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
-
-		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
-		resource.getContents().add(object);
-		resource.save(null);
+		URI uri = saveObject(emfRepresentation.getObject());
+		return new StringRepresentation(uri.toString());
 	}
 
 	@Post("json")
-	public void addJsonObject(Representation representation) throws IOException
+	public Representation addJsonObject(Representation representation) throws IOException
 	{
 		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
-		EObject object = emfRepresentation.getObject();
-		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
-
-		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
-		resource.getContents().add(object);
-		resource.save(null);
+		URI uri = saveObject(emfRepresentation.getObject());
+		return new StringRepresentation(uri.toString());
 	}
 
 	protected EObject getModel()
@@ -91,6 +84,16 @@ public class StorageResource extends WadlServerResource
 
 		Resource resource = resourceSet.getResource(uri, true);
 		return resource.getContents().get(0);
+	}
+
+	private URI saveObject(EObject object) throws IOException
+	{
+		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
+
+		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
+		resource.getContents().add(object);
+		resource.save(null);
+		return resource.getURI();
 	}
 
 	private static IResourceSetFactory resourceSetFactory;
