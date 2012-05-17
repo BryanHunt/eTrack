@@ -11,6 +11,7 @@
 
 package org.eclipselabs.etrack.util.security.ldap.impl;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -22,6 +23,8 @@ import javax.naming.directory.InitialDirContext;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.net.BCodec;
 import org.eclipselabs.etrack.util.security.ISecurityService;
 import org.eclipselabs.etrack.util.security.ldap.ILdapService;
 
@@ -31,12 +34,22 @@ import org.eclipselabs.etrack.util.security.ldap.ILdapService;
  */
 public class LdapSecurityService implements ILdapService, ISecurityService
 {
-	private String url;
-	private String baseDN;
-
 	@Override
 	public boolean authenticate(String id, char[] password)
 	{
+		String cachedPassword = credentialCache.get(id);
+		String encodedPassword = null;
+
+		try
+		{
+			encodedPassword = codec.encode(new String(password));
+		}
+		catch (EncoderException e1)
+		{}
+
+		if (cachedPassword != null && encodedPassword != null && cachedPassword.equals(encodedPassword))
+			return true;
+
 		Hashtable<String, String> environment = new Hashtable<String, String>();
 		environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
 		environment.put(Context.PROVIDER_URL, url);
@@ -48,6 +61,10 @@ public class LdapSecurityService implements ILdapService, ISecurityService
 		{
 			InitialDirContext context = new InitialDirContext(environment);
 			context.close();
+
+			if (encodedPassword != null)
+				credentialCache.put(id, encodedPassword);
+
 			return true;
 		}
 		catch (NamingException e)
@@ -95,4 +112,8 @@ public class LdapSecurityService implements ILdapService, ISecurityService
 	}
 
 	private InitialDirContext searchContext;
+	private Map<String, String> credentialCache = new HashMap<String, String>();
+	private String url;
+	private String baseDN;
+	private BCodec codec = new BCodec();
 }
