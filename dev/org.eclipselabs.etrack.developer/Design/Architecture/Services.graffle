@@ -3039,7 +3039,7 @@
 			<key>OrthogonalBarPoint</key>
 			<string>{0, 0}</string>
 			<key>OrthogonalBarPosition</key>
-			<real>80</real>
+			<real>78.599990844726562</real>
 			<key>Points</key>
 			<array>
 				<string>{967.49998650000009, 494.5}</string>
@@ -4922,7 +4922,7 @@
 			<key>OrthogonalBarPoint</key>
 			<string>{0, 0}</string>
 			<key>OrthogonalBarPosition</key>
-			<real>57.537494659423828</real>
+			<real>83</real>
 			<key>Points</key>
 			<array>
 				<string>{2204.8749865, 668.5}</string>
@@ -6329,7 +6329,7 @@
 			<key>OrthogonalBarPoint</key>
 			<string>{0, 0}</string>
 			<key>OrthogonalBarPosition</key>
-			<real>74.849990844726562</real>
+			<real>95</real>
 			<key>Points</key>
 			<array>
 				<string>{919.00001349999991, 114}</string>
@@ -6761,7 +6761,7 @@
 		<key>NSPaperName</key>
 		<array>
 			<string>string</string>
-			<string>923955AF-58CF-4599-A084-FEE44AEE1D40</string>
+			<string>ANSI E</string>
 		</array>
 		<key>NSPaperSize</key>
 		<array>
@@ -6816,7 +6816,7 @@
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{-8, 87}, {3248, 1091}}</string>
+		<string>{{0, 53}, {1680, 975}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -6830,15 +6830,15 @@
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{0, 0}, {3099, 937}}</string>
+		<string>{{713, 7}, {765.5, 410.5}}</string>
 		<key>Zoom</key>
-		<real>1</real>
+		<real>2</real>
 		<key>ZoomValues</key>
 		<array>
 			<array>
 				<string>Canvas 1</string>
-				<real>1</real>
 				<real>2</real>
+				<real>1</real>
 			</array>
 		</array>
 	</dict>
