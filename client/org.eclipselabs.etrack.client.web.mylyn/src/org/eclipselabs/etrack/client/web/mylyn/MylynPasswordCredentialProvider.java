@@ -49,7 +49,7 @@ public class MylynPasswordCredentialProvider implements IPasswordCredentialProvi
 	{
 		PasswordCredential credentials = SecurityFactory.eINSTANCE.createPasswordCredential();
 		AuthenticationCredentials authenticationCredentials = taskRepository.getCredentials(AuthenticationType.REPOSITORY);
-		credentials.setId(authenticationCredentials.getUserName());
+		credentials.setID(authenticationCredentials.getUserName());
 		credentials.setPassword(authenticationCredentials.getPassword());
 		return credentials;
 	}

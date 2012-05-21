@@ -2,19 +2,15 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.eclipselabs.org/etrack/domain/task"
+            uri="org.eclipselabs.etrack.domain.task"
             class="org.eclipselabs.etrack.domain.task.TaskPackage"
-            genModel="model/task.genmodel"/>
+            genModel="model/task.xcore"/>
    </extension>
 
 </plugin>

@@ -1,0 +1,71 @@
+@GenModel(suppressInterfaces="true")
+package org.eclipselabs.etrack.domain.task
+
+import org.eclipselabs.etrack.domain.entity.AssignableItem
+import org.eclipselabs.etrack.domain.audit.AuditableItem
+import java.util.Date
+import org.eclipselabs.etrack.domain.data.Artifact
+import org.eclipselabs.etrack.domain.entity.Person
+import org.eclipselabs.etrack.domain.data.Linkable
+import org.eclipselabs.etrack.domain.state.State
+import org.eclipselabs.etrack.domain.state.StateTransition
+import org.eclipselabs.etrack.domain.security.PermissionGroup
+import org.eclipselabs.etrack.domain.state.StateTransitionMapping
+import java.util.Map
+import org.eclipse.etrack.domain.project.Project
+
+class TaskDomain
+{
+	String name
+	contains State[] states
+	contains StateTransition[] stateTransitions
+	contains TaskType[] taskTypes
+}
+
+class Task extends AssignableItem, AuditableItem, Linkable
+{
+	String summary
+	String description
+	Date createdOn
+	refers Person[] subscribers
+	contains Comment[] comments
+	contains Attachment[] attachments
+	refers State currentState
+	refers TaskType taskType
+	refers Project project
+}
+
+class TaskType
+{
+	String name
+	contains StateTransitionMappingPerRole[] states
+}
+
+class StateTransitionMappingPerRole wraps Map$Entry
+{
+	refers PermissionGroup key
+	refers StateTransitionMapping value	
+}
+
+class Comment extends AssignableItem
+{
+	String text
+	Date createdOn
+}
+
+class Attachment extends Artifact
+{
+	String description
+	long sizeInBytes
+	contains AttachmentData dataContainer
+}
+
+class AttachmentData
+{
+	Byte[] data
+}
+
+class TaskModelVersion
+{
+	int version
+}

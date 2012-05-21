@@ -1,0 +1,16 @@
+@GenModel(suppressInterfaces="true")
+package org.eclipselabs.etrack.domain.audit
+
+import java.util.Date
+import org.eclipselabs.etrack.domain.entity.Entity
+
+interface AuditableItem
+{
+	contains Action[] history
+}
+
+class Action
+{
+	Date on
+	refers Entity by
+}

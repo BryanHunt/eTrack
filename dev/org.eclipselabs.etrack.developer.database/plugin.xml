@@ -2,19 +2,15 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.eclipselabs.org/etrack/domain/database"
-            class="org.eclilpselabs.etrack.developer.database.DatabasePackage"
-            genModel="model/database.genmodel"/>
+            uri="org.eclipselabs.etrack.developer.database"
+            class="org.eclipselabs.etrack.developer.database.DatabasePackage"
+            genModel="model/database.xcore"/>
    </extension>
 
 </plugin>

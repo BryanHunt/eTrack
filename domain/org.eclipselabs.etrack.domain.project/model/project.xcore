@@ -1,0 +1,17 @@
+@GenModel(suppressInterfaces="true")
+package org.eclipse.etrack.domain.project
+
+import org.eclipselabs.etrack.domain.security.PermissionGroup
+import org.eclipselabs.etrack.domain.entity.Identity
+
+class Project
+{
+	String name
+	contains Team[] teams
+	refers Identity[] admins
+}
+
+class Team extends PermissionGroup
+{
+	contains Team[] subTeams
+}

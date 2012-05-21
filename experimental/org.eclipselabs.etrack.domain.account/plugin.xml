@@ -2,19 +2,15 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.eclipselabs.org/etrack/domain/account"
+            uri="org.eclipselabs.etrack.domain.account"
             class="org.eclipselabs.etrack.domain.account.AccountPackage"
-            genModel="model/account.genmodel"/>
+            genModel="model/account.xcore"/>
    </extension>
 
 </plugin>

@@ -8,9 +8,9 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="http://www.eclipselabs.org/etrack/domain/project"
-            class="org.eclipselabs.etrack.domain.project.ProjectPackage"
-            genModel="model/project.genmodel"/>
+            uri="org.eclipse.etrack.domain.project"
+            class="org.eclipse.etrack.domain.project.ProjectPackage"
+            genModel="model/project.xcore"/>
    </extension>
 
 </plugin>

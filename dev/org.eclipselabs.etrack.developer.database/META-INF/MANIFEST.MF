@@ -7,12 +7,17 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclilpselabs.etrack.developer.database,
- org.eclilpselabs.etrack.developer.database.util
+Export-Package: org.eclipselabs.etrack.developer.database,
+ org.eclipselabs.etrack.developer.database.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipselabs.etrack.domain.account;visibility:=reexport,
+ org.eclipse.xtext.xbase.lib;visibility:=reexport,
+ org.eclipselabs.etrack.domain.audit;visibility:=reexport,
+ org.eclipselabs.etrack.domain.data;visibility:=reexport,
+ org.eclipselabs.etrack.domain.project;visibility:=reexport,
  org.eclipselabs.etrack.domain.entity;visibility:=reexport,
- org.eclipselabs.etrack.domain.links;visibility:=reexport,
- org.eclipselabs.etrack.domain.task;visibility:=reexport
+ org.eclipselabs.etrack.domain.security;visibility:=reexport,
+ org.eclipselabs.etrack.domain.task;visibility:=reexport,
+ org.eclipselabs.etrack.domain.state;visibility:=reexport,
+ org.eclipselabs.etrack.domain.account;visibility:=reexport
 Bundle-ActivationPolicy: lazy

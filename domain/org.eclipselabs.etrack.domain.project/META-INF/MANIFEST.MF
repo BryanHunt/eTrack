@@ -2,16 +2,17 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipselabs.etrack.domain.project;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipselabs.etrack.domain.project,
- org.eclipselabs.etrack.domain.project.util
+Export-Package: org.eclipse.etrack.domain.project,
+ org.eclipse.etrack.domain.project.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipselabs.etrack.domain.entity;visibility:=reexport,
- org.eclipselabs.etrack.domain.links;visibility:=reexport,
- org.eclipselabs.etrack.domain.security;visibility:=reexport
+ org.eclipse.xtext.xbase.lib;visibility:=reexport,
+ org.eclipselabs.etrack.domain.data;visibility:=reexport,
+ org.eclipselabs.etrack.domain.security;visibility:=reexport,
+ org.eclipselabs.etrack.domain.entity;visibility:=reexport
 Bundle-ActivationPolicy: lazy

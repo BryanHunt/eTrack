@@ -1,0 +1,24 @@
+@GenModel(suppressInterfaces="true")
+package org.eclipselabs.etrack.domain.account
+
+import org.eclipselabs.etrack.domain.entity.Entity
+import java.util.Date
+import org.eclipselabs.etrack.domain.security.PasswordCredential
+
+class Account
+{
+	Date createdOn
+	refers Entity entity
+}
+
+class LocalAccount extends Account
+{
+	contains PasswordCredential credential
+}
+
+class AccountRequest
+{
+	Date expiresOn
+	contains Entity entity
+	contains PasswordCredential credential
+}

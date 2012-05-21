@@ -1,0 +1,43 @@
+@GenModel(suppressInterfaces="true")
+package org.eclipselabs.etrack.developer.database
+
+import org.eclipselabs.etrack.domain.task.Task
+import org.eclipselabs.etrack.domain.entity.Entity
+import org.eclipselabs.etrack.domain.account.Account
+import org.eclipselabs.etrack.domain.account.AccountRequest
+import org.eclipselabs.etrack.domain.task.TaskDomain
+
+class Database
+{
+	String name
+	contains TaskDomains[] taskDomains
+	contains Tasks[] tasks
+	contains Entities[] entities
+	contains Accounts[] accounts
+	contains AccountRequests[] accountRequests
+}
+
+class Tasks
+{
+	contains Task[] tasks
+}
+
+class TaskDomains
+{
+	contains TaskDomain[] taskDomains
+}
+
+class Entities
+{
+	contains Entity[] entities
+}
+
+class Accounts
+{
+	contains Account[] accounts
+}
+
+class AccountRequests
+{
+	contains AccountRequest[] accountRequests
+}

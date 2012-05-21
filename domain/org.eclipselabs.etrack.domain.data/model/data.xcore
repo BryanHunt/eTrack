@@ -1,0 +1,41 @@
+@GenModel(suppressInterfaces="true")
+package org.eclipselabs.etrack.domain.data
+
+import java.util.Map
+import java.util.Date
+import org.eclipse.emf.common.util.URI
+
+interface CategorizedItem
+{
+	String category
+}
+
+interface Linkable
+{
+	contains LinkMapping[] linksByName
+}
+
+class LinkedContent
+{
+	String name
+	String description
+}
+
+class LinkMapping wraps Map$Entry
+{
+	String key
+	contains LinkedContent value
+}
+
+class Artifact
+{
+	String name
+	Date createdOn
+}
+
+class Resource extends Artifact
+{
+	URI uri
+}
+
+type URI wraps URI

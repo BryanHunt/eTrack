@@ -34,7 +34,7 @@ public class BasicChallengeResponsseFactory implements IChallengeResponseFactory
 		if (credentials == null)
 			return null;
 
-		ChallengeResponse challengeResponse = new ChallengeResponse(ChallengeScheme.HTTP_BASIC, credentials.getId(), credentials.getPassword());
+		ChallengeResponse challengeResponse = new ChallengeResponse(ChallengeScheme.HTTP_BASIC, credentials.getID(), credentials.getPassword());
 		return challengeResponse;
 	}
 
