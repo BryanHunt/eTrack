@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipselabs.etrack.domain.audit.Action;
 import org.eclipselabs.etrack.domain.audit.AuditableItem;
 
 import org.eclipselabs.etrack.domain.data.Artifact;
@@ -129,6 +130,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
         return createTaskModelVersionAdapter();
       }
       @Override
+      public Adapter caseAttributeChange(AttributeChange object)
+      {
+        return createAttributeChangeAdapter();
+      }
+      @Override
       public Adapter caseAssignableItem(AssignableItem object)
       {
         return createAssignableItemAdapter();
@@ -147,6 +153,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
       public Adapter caseArtifact(Artifact object)
       {
         return createArtifactAdapter();
+      }
+      @Override
+      public Adapter caseAction(Action object)
+      {
+        return createActionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -291,6 +302,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.AttributeChange <em>Attribute Change</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.etrack.domain.task.AttributeChange
+   * @generated
+   */
+  public Adapter createAttributeChangeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.entity.AssignableItem <em>Assignable Item</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -346,6 +372,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArtifactAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.audit.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.etrack.domain.audit.Action
+   * @generated
+   */
+  public Adapter createActionAdapter()
   {
     return null;
   }

@@ -87,6 +87,7 @@ public class TaskFactory extends EFactoryImpl
       case TaskPackage.ATTACHMENT: return createAttachment();
       case TaskPackage.ATTACHMENT_DATA: return createAttachmentData();
       case TaskPackage.TASK_MODEL_VERSION: return createTaskModelVersion();
+      case TaskPackage.ATTRIBUTE_CHANGE: return createAttributeChange();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -178,6 +179,17 @@ public class TaskFactory extends EFactoryImpl
   {
     TaskModelVersion taskModelVersion = new TaskModelVersion();
     return taskModelVersion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AttributeChange createAttributeChange()
+  {
+    AttributeChange attributeChange = new AttributeChange();
+    return attributeChange;
   }
 
   /**

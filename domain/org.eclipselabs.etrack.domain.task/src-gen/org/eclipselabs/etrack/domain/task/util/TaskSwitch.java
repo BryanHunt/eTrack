@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.eclipselabs.etrack.domain.audit.Action;
 import org.eclipselabs.etrack.domain.audit.AuditableItem;
 
 import org.eclipselabs.etrack.domain.data.Artifact;
@@ -147,6 +148,14 @@ public class TaskSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TaskPackage.ATTRIBUTE_CHANGE:
+      {
+        AttributeChange attributeChange = (AttributeChange)theEObject;
+        T result = caseAttributeChange(attributeChange);
+        if (result == null) result = caseAction(attributeChange);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -280,6 +289,22 @@ public class TaskSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Attribute Change</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attribute Change</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttributeChange(AttributeChange object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Assignable Item</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -339,6 +364,22 @@ public class TaskSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseArtifact(Artifact object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAction(Action object)
   {
     return null;
   }

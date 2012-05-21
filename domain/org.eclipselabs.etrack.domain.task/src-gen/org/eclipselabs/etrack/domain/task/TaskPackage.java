@@ -570,6 +570,61 @@ public class TaskPackage extends EPackageImpl
   public static final int TASK_MODEL_VERSION_OPERATION_COUNT = 0;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.AttributeChange <em>Attribute Change</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.etrack.domain.task.AttributeChange
+   * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttributeChange()
+   * @generated
+   */
+  public static final int ATTRIBUTE_CHANGE = 8;
+
+  /**
+   * The feature id for the '<em><b>On</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  public static final int ATTRIBUTE_CHANGE__ON = AuditPackage.ACTION__ON;
+
+  /**
+   * The feature id for the '<em><b>By</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  public static final int ATTRIBUTE_CHANGE__BY = AuditPackage.ACTION__BY;
+
+  /**
+   * The feature id for the '<em><b>Old Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  public static final int ATTRIBUTE_CHANGE__OLD_VALUE = AuditPackage.ACTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Attribute Change</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  public static final int ATTRIBUTE_CHANGE_FEATURE_COUNT = AuditPackage.ACTION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of operations of the '<em>Attribute Change</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  public static final int ATTRIBUTE_CHANGE_OPERATION_COUNT = AuditPackage.ACTION_OPERATION_COUNT + 0;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -626,6 +681,13 @@ public class TaskPackage extends EPackageImpl
   private EClass taskModelVersionEClass = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass attributeChangeEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -674,8 +736,8 @@ public class TaskPackage extends EPackageImpl
     isInited = true;
 
     // Initialize simple dependencies
-    ProjectPackage.eINSTANCE.eClass();
     StatePackage.eINSTANCE.eClass();
+    ProjectPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theTaskPackage.createPackageContents();
@@ -1136,6 +1198,35 @@ public class TaskPackage extends EPackageImpl
   }
 
   /**
+   * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.AttributeChange <em>Attribute Change</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute Change</em>'.
+   * @see org.eclipselabs.etrack.domain.task.AttributeChange
+   * @generated
+   */
+  public EClass getAttributeChange()
+  {
+    return attributeChangeEClass;
+  }
+
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.AttributeChange#getOldValue <em>Old Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Old Value</em>'.
+   * @see org.eclipselabs.etrack.domain.task.AttributeChange#getOldValue()
+   * @see #getAttributeChange()
+   * @generated
+   */
+  public EAttribute getAttributeChange_OldValue()
+  {
+    return (EAttribute)attributeChangeEClass.getEStructuralFeatures().get(0);
+  }
+
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1206,6 +1297,9 @@ public class TaskPackage extends EPackageImpl
 
     taskModelVersionEClass = createEClass(TASK_MODEL_VERSION);
     createEAttribute(taskModelVersionEClass, TASK_MODEL_VERSION__VERSION);
+
+    attributeChangeEClass = createEClass(ATTRIBUTE_CHANGE);
+    createEAttribute(attributeChangeEClass, ATTRIBUTE_CHANGE__OLD_VALUE);
   }
 
   /**
@@ -1251,6 +1345,7 @@ public class TaskPackage extends EPackageImpl
     taskEClass.getESuperTypes().add(theDataPackage.getLinkable());
     commentEClass.getESuperTypes().add(theEntityPackage.getAssignableItem());
     attachmentEClass.getESuperTypes().add(theDataPackage.getArtifact());
+    attributeChangeEClass.getESuperTypes().add(theAuditPackage.getAction());
 
     // Initialize classes, features, and operations; add parameters
     initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1292,6 +1387,9 @@ public class TaskPackage extends EPackageImpl
 
     initEClass(taskModelVersionEClass, TaskModelVersion.class, "TaskModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTaskModelVersion_Version(), theEcorePackage.getEInt(), "version", null, 0, 1, TaskModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(attributeChangeEClass, AttributeChange.class, "AttributeChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAttributeChange_OldValue(), theEcorePackage.getEString(), "oldValue", null, 0, 1, AttributeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
@@ -1583,6 +1681,24 @@ public class TaskPackage extends EPackageImpl
      * @generated
      */
     public static final EAttribute TASK_MODEL_VERSION__VERSION = eINSTANCE.getTaskModelVersion_Version();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AttributeChange <em>Attribute Change</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.etrack.domain.task.AttributeChange
+     * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttributeChange()
+     * @generated
+     */
+    public static final EClass ATTRIBUTE_CHANGE = eINSTANCE.getAttributeChange();
+
+    /**
+     * The meta object literal for the '<em><b>Old Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final EAttribute ATTRIBUTE_CHANGE__OLD_VALUE = eINSTANCE.getAttributeChange_OldValue();
 
   }
 
