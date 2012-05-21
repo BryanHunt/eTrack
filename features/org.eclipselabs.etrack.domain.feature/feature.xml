@@ -21,10 +21,6 @@
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.xtext.xbase.lib"/>
-      <import plugin="org.eclipselabs.etrack.domain.state" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.etrack.domain.security" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.etrack.domain.project" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.etrack.domain.audit" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
