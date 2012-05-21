@@ -8,8 +8,8 @@
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
-            uri="org.eclipse.etrack.domain.project"
-            class="org.eclipse.etrack.domain.project.ProjectPackage"
+            uri="org.eclipselabs.etrack.domain.project"
+            class="org.eclipselabs.etrack.domain.project.ProjectPackage"
             genModel="model/project.xcore"/>
    </extension>
 

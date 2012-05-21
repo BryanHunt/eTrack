@@ -7,27 +7,36 @@ import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.etrack.domain.project.Project;
+
 import org.eclipselabs.etrack.domain.audit.Action;
 import org.eclipselabs.etrack.domain.audit.AuditPackage;
 import org.eclipselabs.etrack.domain.audit.AuditableItem;
+
 import org.eclipselabs.etrack.domain.data.DataPackage;
 import org.eclipselabs.etrack.domain.data.LinkMapping;
 import org.eclipselabs.etrack.domain.data.Linkable;
 import org.eclipselabs.etrack.domain.data.LinkedContent;
+
 import org.eclipselabs.etrack.domain.entity.AssignableItem;
 import org.eclipselabs.etrack.domain.entity.Person;
+
+import org.eclipselabs.etrack.domain.project.Project;
+
 import org.eclipselabs.etrack.domain.state.State;
 
 /**

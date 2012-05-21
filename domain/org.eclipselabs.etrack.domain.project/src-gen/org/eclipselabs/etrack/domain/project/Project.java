@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.etrack.domain.project;
+package org.eclipselabs.etrack.domain.project;
 
 import java.util.Collection;
 
@@ -30,13 +30,13 @@ import org.eclipselabs.etrack.domain.entity.Identity;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.etrack.domain.project.Project#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.etrack.domain.project.Project#getTeams <em>Teams</em>}</li>
- *   <li>{@link org.eclipse.etrack.domain.project.Project#getAdmins <em>Admins</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.project.Project#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.project.Project#getTeams <em>Teams</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.project.Project#getAdmins <em>Admins</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.etrack.domain.project.ProjectPackage#getProject()
+ * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getProject()
  * @model kind="class"
  * @generated
  */
@@ -113,7 +113,7 @@ public class Project extends MinimalEObjectImpl.Container implements EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.eclipse.etrack.domain.project.ProjectPackage#getProject_Name()
+   * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getProject_Name()
    * @model unique="false"
    * @generated
    */
@@ -123,7 +123,7 @@ public class Project extends MinimalEObjectImpl.Container implements EObject
   }
 
   /**
-   * Sets the value of the '{@link org.eclipse.etrack.domain.project.Project#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.etrack.domain.project.Project#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -140,7 +140,7 @@ public class Project extends MinimalEObjectImpl.Container implements EObject
 
   /**
    * Returns the value of the '<em><b>Teams</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.etrack.domain.project.Team}.
+   * The list contents are of type {@link org.eclipselabs.etrack.domain.project.Team}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Teams</em>' containment reference list isn't clear,
@@ -148,7 +148,7 @@ public class Project extends MinimalEObjectImpl.Container implements EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Teams</em>' containment reference list.
-   * @see org.eclipse.etrack.domain.project.ProjectPackage#getProject_Teams()
+   * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getProject_Teams()
    * @model containment="true"
    * @generated
    */
@@ -171,7 +171,7 @@ public class Project extends MinimalEObjectImpl.Container implements EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Admins</em>' reference list.
-   * @see org.eclipse.etrack.domain.project.ProjectPackage#getProject_Admins()
+   * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getProject_Admins()
    * @model
    * @generated
    */

@@ -12,7 +12,7 @@ import org.eclipselabs.etrack.domain.state.StateTransition
 import org.eclipselabs.etrack.domain.security.PermissionGroup
 import org.eclipselabs.etrack.domain.state.StateTransitionMapping
 import java.util.Map
-import org.eclipse.etrack.domain.project.Project
+import org.eclipselabs.etrack.domain.project.Project
 
 class TaskDomain
 {

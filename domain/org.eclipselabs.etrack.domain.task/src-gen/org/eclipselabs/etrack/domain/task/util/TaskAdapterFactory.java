@@ -6,23 +6,24 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
+
 import org.eclipselabs.etrack.domain.audit.AuditableItem;
+
 import org.eclipselabs.etrack.domain.data.Artifact;
 import org.eclipselabs.etrack.domain.data.Linkable;
+
 import org.eclipselabs.etrack.domain.entity.AssignableItem;
+
 import org.eclipselabs.etrack.domain.security.PermissionGroup;
+
 import org.eclipselabs.etrack.domain.state.State;
 import org.eclipselabs.etrack.domain.state.StateTransition;
-import org.eclipselabs.etrack.domain.task.Attachment;
-import org.eclipselabs.etrack.domain.task.AttachmentData;
-import org.eclipselabs.etrack.domain.task.Comment;
-import org.eclipselabs.etrack.domain.task.Task;
-import org.eclipselabs.etrack.domain.task.TaskDomain;
-import org.eclipselabs.etrack.domain.task.TaskModelVersion;
-import org.eclipselabs.etrack.domain.task.TaskPackage;
-import org.eclipselabs.etrack.domain.task.TaskType;
+
+import org.eclipselabs.etrack.domain.task.*;
 
 /**
  * <!-- begin-user-doc -->

@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.etrack.domain.project;
+package org.eclipselabs.etrack.domain.project;
 
 import java.util.Collection;
 
@@ -24,11 +24,11 @@ import org.eclipselabs.etrack.domain.security.PermissionGroup;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.etrack.domain.project.Team#getSubTeams <em>Sub Teams</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.project.Team#getSubTeams <em>Sub Teams</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.etrack.domain.project.ProjectPackage#getTeam()
+ * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getTeam()
  * @model kind="class"
  * @generated
  */
@@ -67,7 +67,7 @@ public class Team extends PermissionGroup
 
   /**
    * Returns the value of the '<em><b>Sub Teams</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.etrack.domain.project.Team}.
+   * The list contents are of type {@link org.eclipselabs.etrack.domain.project.Team}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Sub Teams</em>' containment reference list isn't clear,
@@ -75,7 +75,7 @@ public class Team extends PermissionGroup
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sub Teams</em>' containment reference list.
-   * @see org.eclipse.etrack.domain.project.ProjectPackage#getTeam_SubTeams()
+   * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getTeam_SubTeams()
    * @model containment="true"
    * @generated
    */

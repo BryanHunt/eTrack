@@ -425,8 +425,8 @@ public class DatabasePackage extends EPackageImpl
     isInited = true;
 
     // Initialize simple dependencies
-    TaskPackage.eINSTANCE.eClass();
     AccountPackage.eINSTANCE.eClass();
+    TaskPackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theDatabasePackage.createPackageContents();

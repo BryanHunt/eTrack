@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.etrack.domain.project;
+package org.eclipselabs.etrack.domain.project;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.etrack.domain.project.ProjectPackage
+ * @see org.eclipselabs.etrack.domain.project.ProjectPackage
  * @generated
  */
 public class ProjectFactory extends EFactoryImpl
@@ -38,7 +38,7 @@ public class ProjectFactory extends EFactoryImpl
   {
     try
     {
-      ProjectFactory theProjectFactory = (ProjectFactory)EPackage.Registry.INSTANCE.getEFactory("org.eclipse.etrack.domain.project"); 
+      ProjectFactory theProjectFactory = (ProjectFactory)EPackage.Registry.INSTANCE.getEFactory("org.eclipselabs.etrack.domain.project"); 
       if (theProjectFactory != null)
       {
         return theProjectFactory;

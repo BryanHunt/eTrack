@@ -1,16 +1,16 @@
 /**
  */
-package org.eclipse.etrack.domain.project.util;
+package org.eclipselabs.etrack.domain.project.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.eclipse.etrack.domain.project.*;
-
 import org.eclipselabs.etrack.domain.entity.Group;
 import org.eclipselabs.etrack.domain.entity.Identity;
+
+import org.eclipselabs.etrack.domain.project.*;
 
 import org.eclipselabs.etrack.domain.security.PermissionGroup;
 
@@ -24,7 +24,7 @@ import org.eclipselabs.etrack.domain.security.PermissionGroup;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.eclipse.etrack.domain.project.ProjectPackage
+ * @see org.eclipselabs.etrack.domain.project.ProjectPackage
  * @generated
  */
 public class ProjectSwitch<T> extends Switch<T>

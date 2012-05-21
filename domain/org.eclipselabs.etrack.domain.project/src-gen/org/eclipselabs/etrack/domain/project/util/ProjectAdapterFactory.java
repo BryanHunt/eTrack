@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.etrack.domain.project.util;
+package org.eclipselabs.etrack.domain.project.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -9,10 +9,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.etrack.domain.project.*;
-
 import org.eclipselabs.etrack.domain.entity.Group;
 import org.eclipselabs.etrack.domain.entity.Identity;
+
+import org.eclipselabs.etrack.domain.project.*;
 
 import org.eclipselabs.etrack.domain.security.PermissionGroup;
 
@@ -21,7 +21,7 @@ import org.eclipselabs.etrack.domain.security.PermissionGroup;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.etrack.domain.project.ProjectPackage
+ * @see org.eclipselabs.etrack.domain.project.ProjectPackage
  * @generated
  */
 public class ProjectAdapterFactory extends AdapterFactoryImpl
@@ -127,13 +127,13 @@ public class ProjectAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.etrack.domain.project.Project <em>Project</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.project.Project <em>Project</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.etrack.domain.project.Project
+   * @see org.eclipselabs.etrack.domain.project.Project
    * @generated
    */
   public Adapter createProjectAdapter()
@@ -142,13 +142,13 @@ public class ProjectAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.etrack.domain.project.Team <em>Team</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.project.Team <em>Team</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.etrack.domain.project.Team
+   * @see org.eclipselabs.etrack.domain.project.Team
    * @generated
    */
   public Adapter createTeamAdapter()

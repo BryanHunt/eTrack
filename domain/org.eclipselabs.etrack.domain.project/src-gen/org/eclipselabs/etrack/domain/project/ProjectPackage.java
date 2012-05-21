@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.etrack.domain.project;
+package org.eclipselabs.etrack.domain.project;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -26,9 +26,9 @@ import org.eclipselabs.etrack.domain.security.SecurityPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.eclipse.etrack.domain.project.ProjectFactory
+ * @see org.eclipselabs.etrack.domain.project.ProjectFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel basePackage='org.eclipse.etrack.domain' suppressInterfaces='true'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel basePackage='org.eclipselabs.etrack.domain' suppressInterfaces='true'"
  * @generated
  */
 public class ProjectPackage extends EPackageImpl
@@ -47,7 +47,7 @@ public class ProjectPackage extends EPackageImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final String eNS_URI = "org.eclipse.etrack.domain.project";
+  public static final String eNS_URI = "org.eclipselabs.etrack.domain.project";
 
   /**
    * The package namespace name.
@@ -63,14 +63,14 @@ public class ProjectPackage extends EPackageImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final ProjectPackage eINSTANCE = org.eclipse.etrack.domain.project.ProjectPackage.init();
+  public static final ProjectPackage eINSTANCE = org.eclipselabs.etrack.domain.project.ProjectPackage.init();
 
   /**
-   * The meta object id for the '{@link org.eclipse.etrack.domain.project.Project <em>Project</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.etrack.domain.project.Project <em>Project</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipse.etrack.domain.project.Project
-   * @see org.eclipse.etrack.domain.project.ProjectPackage#getProject()
+   * @see org.eclipselabs.etrack.domain.project.Project
+   * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getProject()
    * @generated
    */
   public static final int PROJECT = 0;
@@ -121,11 +121,11 @@ public class ProjectPackage extends EPackageImpl
   public static final int PROJECT_OPERATION_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.eclipse.etrack.domain.project.Team <em>Team</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.etrack.domain.project.Team <em>Team</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipse.etrack.domain.project.Team
-   * @see org.eclipse.etrack.domain.project.ProjectPackage#getTeam()
+   * @see org.eclipselabs.etrack.domain.project.Team
+   * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getTeam()
    * @generated
    */
   public static final int TEAM = 1;
@@ -218,7 +218,7 @@ public class ProjectPackage extends EPackageImpl
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
-   * @see org.eclipse.etrack.domain.project.ProjectPackage#eNS_URI
+   * @see org.eclipselabs.etrack.domain.project.ProjectPackage#eNS_URI
    * @see #init()
    * @generated
    */
@@ -275,11 +275,11 @@ public class ProjectPackage extends EPackageImpl
 
 
   /**
-   * Returns the meta object for class '{@link org.eclipse.etrack.domain.project.Project <em>Project</em>}'.
+   * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.project.Project <em>Project</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for class '<em>Project</em>'.
-   * @see org.eclipse.etrack.domain.project.Project
+   * @see org.eclipselabs.etrack.domain.project.Project
    * @generated
    */
   public EClass getProject()
@@ -288,11 +288,11 @@ public class ProjectPackage extends EPackageImpl
   }
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipse.etrack.domain.project.Project#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.project.Project#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.eclipse.etrack.domain.project.Project#getName()
+   * @see org.eclipselabs.etrack.domain.project.Project#getName()
    * @see #getProject()
    * @generated
    */
@@ -302,11 +302,11 @@ public class ProjectPackage extends EPackageImpl
   }
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.etrack.domain.project.Project#getTeams <em>Teams</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.project.Project#getTeams <em>Teams</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Teams</em>'.
-   * @see org.eclipse.etrack.domain.project.Project#getTeams()
+   * @see org.eclipselabs.etrack.domain.project.Project#getTeams()
    * @see #getProject()
    * @generated
    */
@@ -316,11 +316,11 @@ public class ProjectPackage extends EPackageImpl
   }
 
   /**
-   * Returns the meta object for the reference list '{@link org.eclipse.etrack.domain.project.Project#getAdmins <em>Admins</em>}'.
+   * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.project.Project#getAdmins <em>Admins</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference list '<em>Admins</em>'.
-   * @see org.eclipse.etrack.domain.project.Project#getAdmins()
+   * @see org.eclipselabs.etrack.domain.project.Project#getAdmins()
    * @see #getProject()
    * @generated
    */
@@ -330,11 +330,11 @@ public class ProjectPackage extends EPackageImpl
   }
 
   /**
-   * Returns the meta object for class '{@link org.eclipse.etrack.domain.project.Team <em>Team</em>}'.
+   * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.project.Team <em>Team</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for class '<em>Team</em>'.
-   * @see org.eclipse.etrack.domain.project.Team
+   * @see org.eclipselabs.etrack.domain.project.Team
    * @generated
    */
   public EClass getTeam()
@@ -343,11 +343,11 @@ public class ProjectPackage extends EPackageImpl
   }
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.etrack.domain.project.Team#getSubTeams <em>Sub Teams</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.project.Team#getSubTeams <em>Sub Teams</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Sub Teams</em>'.
-   * @see org.eclipse.etrack.domain.project.Team#getSubTeams()
+   * @see org.eclipselabs.etrack.domain.project.Team#getSubTeams()
    * @see #getTeam()
    * @generated
    */
@@ -462,11 +462,11 @@ public class ProjectPackage extends EPackageImpl
   public interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.eclipse.etrack.domain.project.Project <em>Project</em>}' class.
+     * The meta object literal for the '{@link org.eclipselabs.etrack.domain.project.Project <em>Project</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipse.etrack.domain.project.Project
-     * @see org.eclipse.etrack.domain.project.ProjectPackage#getProject()
+     * @see org.eclipselabs.etrack.domain.project.Project
+     * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getProject()
      * @generated
      */
     public static final EClass PROJECT = eINSTANCE.getProject();
@@ -496,11 +496,11 @@ public class ProjectPackage extends EPackageImpl
     public static final EReference PROJECT__ADMINS = eINSTANCE.getProject_Admins();
 
     /**
-     * The meta object literal for the '{@link org.eclipse.etrack.domain.project.Team <em>Team</em>}' class.
+     * The meta object literal for the '{@link org.eclipselabs.etrack.domain.project.Team <em>Team</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipse.etrack.domain.project.Team
-     * @see org.eclipse.etrack.domain.project.ProjectPackage#getTeam()
+     * @see org.eclipselabs.etrack.domain.project.Team
+     * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getTeam()
      * @generated
      */
     public static final EClass TEAM = eINSTANCE.getTeam();

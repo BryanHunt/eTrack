@@ -9,12 +9,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.etrack.domain.project.ProjectPackage;
+
 import org.eclipselabs.etrack.domain.audit.AuditPackage;
+
 import org.eclipselabs.etrack.domain.data.DataPackage;
+
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
+
+import org.eclipselabs.etrack.domain.project.ProjectPackage;
+
 import org.eclipselabs.etrack.domain.security.SecurityPackage;
+
 import org.eclipselabs.etrack.domain.state.StatePackage;
 
 /**
@@ -667,8 +674,8 @@ public class TaskPackage extends EPackageImpl
     isInited = true;
 
     // Initialize simple dependencies
-    StatePackage.eINSTANCE.eClass();
     ProjectPackage.eINSTANCE.eClass();
+    StatePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theTaskPackage.createPackageContents();
