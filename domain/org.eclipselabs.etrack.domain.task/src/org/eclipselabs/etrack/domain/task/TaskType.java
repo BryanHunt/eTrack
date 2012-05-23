@@ -14,7 +14,6 @@ package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -25,6 +24,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipselabs.etrack.domain.state.State;
+import org.eclipselabs.etrack.domain.state.StatePackage;
+import org.eclipselabs.etrack.domain.state.StateTransition;
+import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,7 +77,7 @@ public class TaskType extends EObjectImpl implements EObject
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<State, EList<StateTransition>> states;
+	protected EMap<State, StateTransition> states;
 
 	/**
 	 * The cached value of the '{@link #getExtension() <em>Extension</em>}' containment reference.
@@ -144,8 +147,8 @@ public class TaskType extends EObjectImpl implements EObject
 
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' map.
-	 * The key is of type {@link org.eclipselabs.etrack.domain.task.State},
-	 * and the value is of type list of {@link org.eclipselabs.etrack.domain.task.StateTransition},
+	 * The key is of type {@link org.eclipselabs.etrack.domain.state.State},
+	 * and the value is of type {@link org.eclipselabs.etrack.domain.state.StateTransition},
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>States</em>' reference list isn't clear, there really should be more
@@ -154,14 +157,14 @@ public class TaskType extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' map.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_States()
-	 * @model mapType="org.eclipselabs.etrack.domain.task.StateTransitionMap<org.eclipselabs.etrack.domain.task.State, org.eclipselabs.etrack.domain.task.StateTransition>"
+	 * @model mapType="org.eclipselabs.etrack.domain.state.StateTransitionMapping<org.eclipselabs.etrack.domain.state.State, org.eclipselabs.etrack.domain.state.StateTransition>"
 	 * @generated
 	 */
-	public EMap<State, EList<StateTransition>> getStates()
+	public EMap<State, StateTransition> getStates()
 	{
 		if (states == null)
 		{
-			states = new EcoreEMap<State,EList<StateTransition>>(TaskPackage.Literals.STATE_TRANSITION_MAP, StateTransitionMap.class, this, TaskPackage.TASK_TYPE__STATES);
+			states = new EcoreEMap<State,StateTransition>(StatePackage.Literals.STATE_TRANSITION_MAPPING, StateTransitionMapping.class, this, TaskPackage.TASK_TYPE__STATES);
 		}
 		return states;
 	}

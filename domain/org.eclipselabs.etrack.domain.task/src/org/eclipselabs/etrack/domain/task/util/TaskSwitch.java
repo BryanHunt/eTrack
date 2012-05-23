@@ -11,21 +11,16 @@
  */
 package org.eclipselabs.etrack.domain.task.util;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipselabs.etrack.domain.links.Linkable;
+import org.eclipselabs.etrack.domain.audit.AuditableItem;
+import org.eclipselabs.etrack.domain.entity.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Artifact;
-import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
 import org.eclipselabs.etrack.domain.task.AttachmentData;
 import org.eclipselabs.etrack.domain.task.Comment;
-import org.eclipselabs.etrack.domain.task.State;
-import org.eclipselabs.etrack.domain.task.StateHistory;
-import org.eclipselabs.etrack.domain.task.StateTransition;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 import org.eclipselabs.etrack.domain.task.TaskModelVersion;
@@ -95,13 +90,6 @@ public class TaskSwitch<T> extends Switch<T>
 	{
 		switch (classifierID)
 		{
-			case TaskPackage.ASSIGNABLE_ITEM:
-			{
-				AssignableItem assignableItem = (AssignableItem)theEObject;
-				T result = caseAssignableItem(assignableItem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TaskPackage.ATTACHMENT:
 			{
 				Attachment attachment = (Attachment)theEObject;
@@ -133,40 +121,13 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.STATE:
-			{
-				State state = (State)theEObject;
-				T result = caseState(state);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TaskPackage.STATE_HISTORY:
-			{
-				StateHistory stateHistory = (StateHistory)theEObject;
-				T result = caseStateHistory(stateHistory);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TaskPackage.STATE_TRANSITION:
-			{
-				StateTransition stateTransition = (StateTransition)theEObject;
-				T result = caseStateTransition(stateTransition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TaskPackage.STATE_TRANSITION_MAP:
-			{
-				@SuppressWarnings("unchecked") Map.Entry<State, EList<StateTransition>> stateTransitionMap = (Map.Entry<State, EList<StateTransition>>)theEObject;
-				T result = caseStateTransitionMap(stateTransitionMap);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TaskPackage.TASK:
 			{
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
-				if (result == null) result = caseAssignableItem(task);
 				if (result == null) result = caseLinkable(task);
+				if (result == null) result = caseAssignableItem(task);
+				if (result == null) result = caseAuditableItem(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -223,54 +184,6 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseTask(Task object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>State</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>State</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseState(State object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>State History</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>State History</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStateHistory(StateHistory object)
-	{
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>State Transition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>State Transition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStateTransition(StateTransition object)
 	{
 		return null;
 	}
@@ -372,17 +285,17 @@ public class TaskSwitch<T> extends Switch<T>
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>State Transition Map</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Auditable Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>State Transition Map</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Auditable Item</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStateTransitionMap(Map.Entry<State, EList<StateTransition>> object)
+	public T caseAuditableItem(AuditableItem object)
 	{
 		return null;
 	}

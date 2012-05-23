@@ -20,20 +20,10 @@
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipselabs.etrack.domain.entity" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.etrack.domain.links" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.etrack.domain.project" version="0.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="org.eclipselabs.etrack.domain.entity"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipselabs.etrack.domain.links"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -55,6 +45,13 @@
 
    <plugin
          id="org.eclipselabs.etrack.domain.security"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.domain.data"
          download-size="0"
          install-size="0"
          version="0.0.0"

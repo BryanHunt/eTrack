@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011 Bryan Hunt.&#xA;&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;   Bryan Hunt - initial API and implementation"
-    modelDirectory="/org.eclipselabs.etrack.domain.task/src" modelPluginID="org.eclipselabs.etrack.domain.task"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.etrack.domain.task/src" modelPluginID="org.eclipselabs.etrack.domain.task"
     modelName="Task" suppressInterfaces="true" importerID="org.eclipse.emf.importer.ecore"
-    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipselabs.etrack.domain.entity/model/entity.genmodel#//entity ../../org.eclipselabs.etrack.domain.links/model/links.genmodel#//links ../../org.eclipselabs.etrack.domain.project/model/project.genmodel#//project ../../org.eclipselabs.etrack.domain.security/model/security.genmodel#//security">
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipselabs.etrack.domain.audit/model/audit.genmodel#//audit ../../org.eclipselabs.etrack.domain.entity/model/entity.genmodel#//entity ../../org.eclipselabs.etrack.domain.data/model/data.genmodel#//data ../../org.eclipselabs.etrack.domain.project/model/project.genmodel#//project ../../org.eclipselabs.etrack.domain.security/model/security.genmodel#//security ../../org.eclipselabs.etrack.domain.state/model/state.genmodel#//state">
   <foreignModel>task.ecore</foreignModel>
   <genPackages prefix="Task" basePackage="org.eclipselabs.etrack.domain" disposableProviderFactory="true"
       ecorePackage="task.ecore#/">
-    <genClasses ecoreClass="task.ecore#//AssignableItem">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//AssignableItem/owner"/>
-    </genClasses>
     <genClasses ecoreClass="task.ecore#//Attachment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Attachment/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Attachment/size"/>
@@ -26,34 +22,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Comment/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Comment/created"/>
     </genClasses>
-    <genClasses ecoreClass="task.ecore#//State">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//State/name"/>
-    </genClasses>
     <genClasses ecoreClass="task.ecore#//StateHistory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//StateHistory/transitionTime"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//StateHistory/state"/>
     </genClasses>
-    <genClasses ecoreClass="task.ecore#//StateTransition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//StateTransition/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//StateTransition/targetState"/>
-    </genClasses>
-    <genClasses ecoreClass="task.ecore#//StateTransitionMap">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//StateTransitionMap/key"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//StateTransitionMap/value"/>
-    </genClasses>
     <genClasses ecoreClass="task.ecore#//Task">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/summary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/created"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/lastModified"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//Task/createdOn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/attachments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/comments"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/state"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/currentState"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//Task/stateHistory"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/subscribers"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/dependsOn"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/blocks"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//Task/project"/>
     </genClasses>
     <genClasses ecoreClass="task.ecore#//TaskDomain">
@@ -66,6 +48,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TaskType/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TaskType/states"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference task.ecore#//TaskType/extension"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//TaskModelVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute task.ecore#//TaskModelVersion/version"/>
+    </genClasses>
+    <genClasses ecoreClass="task.ecore#//StateTransitionMappingPerRole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//StateTransitionMappingPerRole/key"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference task.ecore#//StateTransitionMappingPerRole/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

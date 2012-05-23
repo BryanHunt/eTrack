@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipselabs.etrack.domain.state.State;
+import org.eclipselabs.etrack.domain.state.StateTransition;
 
 /**
  * <!-- begin-user-doc -->
@@ -153,7 +155,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.State}.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.State}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>States</em>' containment reference list isn't clear,
@@ -176,7 +178,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 
 	/**
 	 * Returns the value of the '<em><b>Transitions</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.StateTransition}.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.StateTransition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Transitions</em>' containment reference list isn't clear,

@@ -12,6 +12,8 @@ Export-Package: org.eclipselabs.etrack.domain.task,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipselabs.etrack.domain.entity;bundle-version="0.1.0",
- org.eclipselabs.etrack.domain.links;bundle-version="0.1.0",
- org.eclipselabs.etrack.domain.project;bundle-version="0.1.0"
+ org.eclipselabs.etrack.domain.data;bundle-version="0.1.0",
+ org.eclipselabs.etrack.domain.project;bundle-version="0.1.0",
+ org.eclipselabs.etrack.domain.audit;bundle-version="0.1.0",
+ org.eclipselabs.etrack.domain.state;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

@@ -13,6 +13,10 @@ package org.eclipselabs.etrack.domain.entity;
 
 import java.util.Collection;
 
+import org.eclilpselabs.etrack.domain.data.DataPackage;
+import org.eclilpselabs.etrack.domain.data.LinkMapping;
+import org.eclilpselabs.etrack.domain.data.Linkable;
+import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
@@ -23,10 +27,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipselabs.etrack.domain.links.LinkMap;
-import org.eclipselabs.etrack.domain.links.Linkable;
-import org.eclipselabs.etrack.domain.links.LinkedContent;
-import org.eclipselabs.etrack.domain.links.LinksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,14 +49,14 @@ import org.eclipselabs.etrack.domain.links.LinksPackage;
 public abstract class Entity extends EObjectImpl implements Identity, Linkable
 {
 	/**
-	 * The cached value of the '{@link #getLinks() <em>Links</em>}' map.
+	 * The cached value of the '{@link #getLinksByName() <em>Links By Name</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLinks()
+	 * @see #getLinksByName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<String, LinkedContent> links;
+	protected EMap<String, LinkedContent> linksByName;
 
 	/**
 	 * The cached value of the '{@link #getEmails() <em>Emails</em>}' containment reference list.
@@ -107,6 +107,30 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	protected EClass eStaticClass()
 	{
 		return EntityPackage.Literals.ENTITY;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Links By Name</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link org.eclilpselabs.etrack.domain.data.LinkedContent},
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Links By Name</em>' map isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Links By Name</em>' map.
+	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getLinkable_LinksByName()
+	 * @model mapType="org.eclilpselabs.etrack.domain.data.LinkMapping<org.eclipse.emf.ecore.EString, org.eclilpselabs.etrack.domain.data.LinkedContent>"
+	 * @generated
+	 */
+	public EMap<String, LinkedContent> getLinksByName()
+	{
+		if (linksByName == null)
+		{
+			linksByName = new EcoreEMap<String,LinkedContent>(DataPackage.Literals.LINK_MAPPING, LinkMapping.class, this, EntityPackage.ENTITY__LINKS_BY_NAME);
+		}
+		return linksByName;
 	}
 
 	/**
@@ -179,27 +203,16 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Links</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link org.eclipselabs.etrack.domain.links.LinkedContent},
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Links</em>' map isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Links</em>' map.
-	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getLinkable_Links()
-	 * @model mapType="org.eclipselabs.etrack.domain.links.LinkMap<org.eclipse.emf.ecore.EString, org.eclipselabs.etrack.domain.links.LinkedContent>"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	public EMap<String, LinkedContent> getLinks()
+	public String getDisplayName()
 	{
-		if (links == null)
-		{
-			links = new EcoreEMap<String,LinkedContent>(LinksPackage.Literals.LINK_MAP, LinkMap.class, this, EntityPackage.ENTITY__LINKS);
-		}
-		return links;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -212,8 +225,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	{
 		switch (featureID)
 		{
-			case EntityPackage.ENTITY__LINKS:
-				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
+			case EntityPackage.ENTITY__LINKS_BY_NAME:
+				return ((InternalEList<?>)getLinksByName()).basicRemove(otherEnd, msgs);
 			case EntityPackage.ENTITY__EMAILS:
 				return ((InternalEList<?>)getEmails()).basicRemove(otherEnd, msgs);
 			case EntityPackage.ENTITY__PHONE_NUMBERS:
@@ -234,9 +247,9 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	{
 		switch (featureID)
 		{
-			case EntityPackage.ENTITY__LINKS:
-				if (coreType) return getLinks();
-				else return getLinks().map();
+			case EntityPackage.ENTITY__LINKS_BY_NAME:
+				if (coreType) return getLinksByName();
+				else return getLinksByName().map();
 			case EntityPackage.ENTITY__EMAILS:
 				return getEmails();
 			case EntityPackage.ENTITY__PHONE_NUMBERS:
@@ -258,8 +271,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	{
 		switch (featureID)
 		{
-			case EntityPackage.ENTITY__LINKS:
-				((EStructuralFeature.Setting)getLinks()).set(newValue);
+			case EntityPackage.ENTITY__LINKS_BY_NAME:
+				((EStructuralFeature.Setting)getLinksByName()).set(newValue);
 				return;
 			case EntityPackage.ENTITY__EMAILS:
 				getEmails().clear();
@@ -287,8 +300,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	{
 		switch (featureID)
 		{
-			case EntityPackage.ENTITY__LINKS:
-				getLinks().clear();
+			case EntityPackage.ENTITY__LINKS_BY_NAME:
+				getLinksByName().clear();
 				return;
 			case EntityPackage.ENTITY__EMAILS:
 				getEmails().clear();
@@ -313,8 +326,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	{
 		switch (featureID)
 		{
-			case EntityPackage.ENTITY__LINKS:
-				return links != null && !links.isEmpty();
+			case EntityPackage.ENTITY__LINKS_BY_NAME:
+				return linksByName != null && !linksByName.isEmpty();
 			case EntityPackage.ENTITY__EMAILS:
 				return emails != null && !emails.isEmpty();
 			case EntityPackage.ENTITY__PHONE_NUMBERS:
@@ -337,7 +350,7 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 		{
 			switch (derivedFeatureID)
 			{
-				case EntityPackage.ENTITY__LINKS: return LinksPackage.LINKABLE__LINKS;
+				case EntityPackage.ENTITY__LINKS_BY_NAME: return DataPackage.LINKABLE__LINKS_BY_NAME;
 				default: return -1;
 			}
 		}
@@ -356,7 +369,7 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 		{
 			switch (baseFeatureID)
 			{
-				case LinksPackage.LINKABLE__LINKS: return EntityPackage.ENTITY__LINKS;
+				case DataPackage.LINKABLE__LINKS_BY_NAME: return EntityPackage.ENTITY__LINKS_BY_NAME;
 				default: return -1;
 			}
 		}

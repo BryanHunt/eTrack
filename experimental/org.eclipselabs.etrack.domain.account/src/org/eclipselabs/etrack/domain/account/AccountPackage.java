@@ -15,11 +15,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
-import security.SecurityPackage;
+import org.eclipselabs.etrack.domain.security.SecurityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -269,18 +267,13 @@ public class AccountPackage extends EPackageImpl
 		isInited = true;
 
 		// Initialize simple dependencies
-		EntityPackage.eINSTANCE.eClass();
-
-		// Obtain or create and register interdependencies
-		SecurityPackage theSecurityPackage = (SecurityPackage)(EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI) instanceof SecurityPackage ? EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI) : SecurityPackage.eINSTANCE);
+		SecurityPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theAccountPackage.createPackageContents();
-		theSecurityPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAccountPackage.initializePackageContents();
-		theSecurityPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAccountPackage.freeze();

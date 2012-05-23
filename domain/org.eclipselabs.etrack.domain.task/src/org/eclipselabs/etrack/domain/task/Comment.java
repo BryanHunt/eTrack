@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipselabs.etrack.domain.entity.AssignableItem;
 import org.eclipselabs.etrack.domain.entity.Person;
 
 /**
@@ -121,7 +122,7 @@ public class Comment extends EObjectImpl implements AssignableItem
 	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(Person)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem_Owner()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	public Person getOwner()

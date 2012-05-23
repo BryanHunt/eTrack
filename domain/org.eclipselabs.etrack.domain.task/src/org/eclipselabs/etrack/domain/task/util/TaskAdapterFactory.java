@@ -11,22 +11,17 @@
  */
 package org.eclipselabs.etrack.domain.task.util;
 
-import java.util.Map;
-
+import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipselabs.etrack.domain.links.Linkable;
+import org.eclipselabs.etrack.domain.audit.AuditableItem;
+import org.eclipselabs.etrack.domain.entity.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Artifact;
-import org.eclipselabs.etrack.domain.task.AssignableItem;
 import org.eclipselabs.etrack.domain.task.Attachment;
 import org.eclipselabs.etrack.domain.task.AttachmentData;
 import org.eclipselabs.etrack.domain.task.Comment;
-import org.eclipselabs.etrack.domain.task.State;
-import org.eclipselabs.etrack.domain.task.StateHistory;
-import org.eclipselabs.etrack.domain.task.StateTransition;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 import org.eclipselabs.etrack.domain.task.TaskModelVersion;
@@ -97,11 +92,6 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 		new TaskSwitch<Adapter>()
 		{
 			@Override
-			public Adapter caseAssignableItem(AssignableItem object)
-			{
-				return createAssignableItemAdapter();
-			}
-			@Override
 			public Adapter caseAttachment(Attachment object)
 			{
 				return createAttachmentAdapter();
@@ -120,26 +110,6 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseComment(Comment object)
 			{
 				return createCommentAdapter();
-			}
-			@Override
-			public Adapter caseState(State object)
-			{
-				return createStateAdapter();
-			}
-			@Override
-			public Adapter caseStateHistory(StateHistory object)
-			{
-				return createStateHistoryAdapter();
-			}
-			@Override
-			public Adapter caseStateTransition(StateTransition object)
-			{
-				return createStateTransitionAdapter();
-			}
-			@Override
-			public Adapter caseStateTransitionMap(Map.Entry<State, EList<StateTransition>> object)
-			{
-				return createStateTransitionMapAdapter();
 			}
 			@Override
 			public Adapter caseTask(Task object)
@@ -162,9 +132,19 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createTaskModelVersionAdapter();
 			}
 			@Override
+			public Adapter caseAssignableItem(AssignableItem object)
+			{
+				return createAssignableItemAdapter();
+			}
+			@Override
 			public Adapter caseLinkable(Linkable object)
 			{
 				return createLinkableAdapter();
+			}
+			@Override
+			public Adapter caseAuditableItem(AuditableItem object)
+			{
+				return createAuditableItemAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -189,13 +169,13 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.AssignableItem <em>Assignable Item</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.entity.AssignableItem <em>Assignable Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.etrack.domain.task.AssignableItem
+	 * @see org.eclipselabs.etrack.domain.entity.AssignableItem
 	 * @generated
 	 */
 	public Adapter createAssignableItemAdapter()
@@ -214,51 +194,6 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTaskAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.State <em>State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipselabs.etrack.domain.task.State
-	 * @generated
-	 */
-	public Adapter createStateAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.StateHistory <em>State History</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipselabs.etrack.domain.task.StateHistory
-	 * @generated
-	 */
-	public Adapter createStateHistoryAdapter()
-	{
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.StateTransition <em>State Transition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipselabs.etrack.domain.task.StateTransition
-	 * @generated
-	 */
-	public Adapter createStateTransitionAdapter()
 	{
 		return null;
 	}
@@ -339,13 +274,13 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.links.Linkable <em>Linkable</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.Linkable <em>Linkable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.eclipselabs.etrack.domain.links.Linkable
+	 * @see org.eclilpselabs.etrack.domain.data.Linkable
 	 * @generated
 	 */
 	public Adapter createLinkableAdapter()
@@ -354,16 +289,16 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>State Transition Map</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.audit.AuditableItem <em>Auditable Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see java.util.Map.Entry
+	 * @see org.eclipselabs.etrack.domain.audit.AuditableItem
 	 * @generated
 	 */
-	public Adapter createStateTransitionMapAdapter()
+	public Adapter createAuditableItemAdapter()
 	{
 		return null;
 	}

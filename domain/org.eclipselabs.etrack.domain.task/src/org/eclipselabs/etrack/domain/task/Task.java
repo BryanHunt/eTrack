@@ -1,19 +1,14 @@
 /**
- * Copyright (c) 2011 Bryan Hunt.
- * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.task;
 
 import java.util.Collection;
 import java.util.Date;
 
+import org.eclilpselabs.etrack.domain.data.DataPackage;
+import org.eclilpselabs.etrack.domain.data.LinkMapping;
+import org.eclilpselabs.etrack.domain.data.Linkable;
+import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -25,15 +20,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipselabs.etrack.domain.audit.Action;
+import org.eclipselabs.etrack.domain.audit.AuditPackage;
+import org.eclipselabs.etrack.domain.audit.AuditableItem;
+import org.eclipselabs.etrack.domain.entity.AssignableItem;
+import org.eclipselabs.etrack.domain.entity.EntityPackage;
 import org.eclipselabs.etrack.domain.entity.Person;
-import org.eclipselabs.etrack.domain.links.LinkMap;
-import org.eclipselabs.etrack.domain.links.Linkable;
-import org.eclipselabs.etrack.domain.links.LinkedContent;
-import org.eclipselabs.etrack.domain.links.LinksPackage;
 import org.eclipselabs.etrack.domain.project.Project;
+import org.eclipselabs.etrack.domain.state.State;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,16 +41,12 @@ import org.eclipselabs.etrack.domain.project.Project;
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getDescription <em>Description</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCreated <em>Created</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getLastModified <em>Last Modified</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCreatedOn <em>Created On</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getAttachments <em>Attachments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getComments <em>Comments</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getState <em>State</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getStateHistory <em>State History</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCurrentState <em>Current State</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getSubscribers <em>Subscribers</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getDependsOn <em>Depends On</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getProject <em>Project</em>}</li>
  * </ul>
  * </p>
@@ -63,8 +55,18 @@ import org.eclipselabs.etrack.domain.project.Project;
  * @model kind="class"
  * @generated
  */
-public class Task extends EObjectImpl implements AssignableItem, Linkable
+public class Task extends EObjectImpl implements Linkable, AssignableItem, AuditableItem
 {
+	/**
+	 * The cached value of the '{@link #getLinksByName() <em>Links By Name</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinksByName()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, LinkedContent> linksByName;
+
 	/**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -76,14 +78,14 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	protected Person owner;
 
 	/**
-	 * The cached value of the '{@link #getLinks() <em>Links</em>}' map.
+	 * The cached value of the '{@link #getHistory() <em>History</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLinks()
+	 * @see #getHistory()
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<String, LinkedContent> links;
+	protected EList<Action> history;
 
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -126,44 +128,24 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The default value of the '{@link #getCreatedOn() <em>Created On</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date CREATED_EDEFAULT = null;
+	protected static final Date CREATED_ON_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The cached value of the '{@link #getCreatedOn() <em>Created On</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date created = CREATED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLastModified() <em>Last Modified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastModified()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date LAST_MODIFIED_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLastModified() <em>Last Modified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastModified()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date lastModified = LAST_MODIFIED_EDEFAULT;
+	protected Date createdOn = CREATED_ON_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getAttachments() <em>Attachments</em>}' containment reference list.
@@ -186,24 +168,14 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	protected EList<Comment> comments;
 
 	/**
-	 * The cached value of the '{@link #getState() <em>State</em>}' reference.
+	 * The cached value of the '{@link #getCurrentState() <em>Current State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getState()
+	 * @see #getCurrentState()
 	 * @generated
 	 * @ordered
 	 */
-	protected State state;
-
-	/**
-	 * The cached value of the '{@link #getStateHistory() <em>State History</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStateHistory()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<StateHistory> stateHistory;
+	protected State currentState;
 
 	/**
 	 * The cached value of the '{@link #getSubscribers() <em>Subscribers</em>}' reference list.
@@ -224,26 +196,6 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	 * @ordered
 	 */
 	protected TaskType type;
-
-	/**
-	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDependsOn()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Task> dependsOn;
-
-	/**
-	 * The cached value of the '{@link #getBlocks() <em>Blocks</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBlocks()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Task> blocks;
 
 	/**
 	 * The cached value of the '{@link #getProject() <em>Project</em>}' reference.
@@ -277,6 +229,30 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Links By Name</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link org.eclilpselabs.etrack.domain.data.LinkedContent},
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Links By Name</em>' map isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Links By Name</em>' map.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getLinkable_LinksByName()
+	 * @model mapType="org.eclilpselabs.etrack.domain.data.LinkMapping<org.eclipse.emf.ecore.EString, org.eclilpselabs.etrack.domain.data.LinkedContent>"
+	 * @generated
+	 */
+	public EMap<String, LinkedContent> getLinksByName()
+	{
+		if (linksByName == null)
+		{
+			linksByName = new EcoreEMap<String,LinkedContent>(DataPackage.Literals.LINK_MAPPING, LinkMapping.class, this, TaskPackage.TASK__LINKS_BY_NAME);
+		}
+		return linksByName;
+	}
+
+	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -287,7 +263,7 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(Person)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem_Owner()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	public Person getOwner()
@@ -329,6 +305,29 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 		owner = newOwner;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__OWNER, oldOwner, owner));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>History</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.audit.Action}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>History</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>History</em>' containment reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAuditableItem_History()
+	 * @model containment="true"
+	 * @generated
+	 */
+	public EList<Action> getHistory()
+	{
+		if (history == null)
+		{
+			history = new EObjectContainmentEList<Action>(Action.class, this, TaskPackage.TASK__HISTORY);
+		}
+		return history;
 	}
 
 	/**
@@ -402,97 +401,38 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Created</b></em>' attribute.
+	 * Returns the value of the '<em><b>Created On</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Created</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Created On</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Created</em>' attribute.
-	 * @see #setCreated(Date)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Created()
+	 * @return the value of the '<em>Created On</em>' attribute.
+	 * @see #setCreatedOn(Date)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_CreatedOn()
 	 * @model required="true"
 	 * @generated
 	 */
-	public Date getCreated()
+	public Date getCreatedOn()
 	{
-		return created;
+		return createdOn;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCreated <em>Created</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCreatedOn <em>Created On</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' attribute.
-	 * @see #getCreated()
+	 * @param value the new value of the '<em>Created On</em>' attribute.
+	 * @see #getCreatedOn()
 	 * @generated
 	 */
-	public void setCreated(Date newCreated)
+	public void setCreatedOn(Date newCreatedOn)
 	{
-		Date oldCreated = created;
-		created = newCreated;
+		Date oldCreatedOn = createdOn;
+		createdOn = newCreatedOn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CREATED, oldCreated, created));
-	}
-
-	/**
-	 * Returns the value of the '<em><b>Last Modified</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Last Modified</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Last Modified</em>' attribute.
-	 * @see #setLastModified(Date)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_LastModified()
-	 * @model required="true"
-	 * @generated
-	 */
-	public Date getLastModified()
-	{
-		return lastModified;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getLastModified <em>Last Modified</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Last Modified</em>' attribute.
-	 * @see #getLastModified()
-	 * @generated
-	 */
-	public void setLastModified(Date newLastModified)
-	{
-		Date oldLastModified = lastModified;
-		lastModified = newLastModified;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__LAST_MODIFIED, oldLastModified, lastModified));
-	}
-
-	/**
-	 * Returns the value of the '<em><b>Links</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link org.eclipselabs.etrack.domain.links.LinkedContent},
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Links</em>' map isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Links</em>' map.
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getLinkable_Links()
-	 * @model mapType="org.eclipselabs.etrack.domain.links.LinkMap<org.eclipse.emf.ecore.EString, org.eclipselabs.etrack.domain.links.LinkedContent>"
-	 * @generated
-	 */
-	public EMap<String, LinkedContent> getLinks()
-	{
-		if (links == null)
-		{
-			links = new EcoreEMap<String,LinkedContent>(LinksPackage.Literals.LINK_MAP, LinkMap.class, this, TaskPackage.TASK__LINKS);
-		}
-		return links;
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CREATED_ON, oldCreatedOn, createdOn));
 	}
 
 	/**
@@ -542,32 +482,32 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	}
 
 	/**
-	 * Returns the value of the '<em><b>State</b></em>' reference.
+	 * Returns the value of the '<em><b>Current State</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>State</em>' reference isn't clear,
+	 * If the meaning of the '<em>Current State</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State</em>' reference.
-	 * @see #setState(State)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_State()
+	 * @return the value of the '<em>Current State</em>' reference.
+	 * @see #setCurrentState(State)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_CurrentState()
 	 * @model required="true"
 	 * @generated
 	 */
-	public State getState()
+	public State getCurrentState()
 	{
-		if (state != null && state.eIsProxy())
+		if (currentState != null && currentState.eIsProxy())
 		{
-			InternalEObject oldState = (InternalEObject)state;
-			state = (State)eResolveProxy(oldState);
-			if (state != oldState)
+			InternalEObject oldCurrentState = (InternalEObject)currentState;
+			currentState = (State)eResolveProxy(oldCurrentState);
+			if (currentState != oldCurrentState)
 			{
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__STATE, oldState, state));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__CURRENT_STATE, oldCurrentState, currentState));
 			}
 		}
-		return state;
+		return currentState;
 	}
 
 	/**
@@ -575,48 +515,25 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State basicGetState()
+	public State basicGetCurrentState()
 	{
-		return state;
+		return currentState;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getState <em>State</em>}' reference.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCurrentState <em>Current State</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>State</em>' reference.
-	 * @see #getState()
+	 * @param value the new value of the '<em>Current State</em>' reference.
+	 * @see #getCurrentState()
 	 * @generated
 	 */
-	public void setState(State newState)
+	public void setCurrentState(State newCurrentState)
 	{
-		State oldState = state;
-		state = newState;
+		State oldCurrentState = currentState;
+		currentState = newCurrentState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__STATE, oldState, state));
-	}
-
-	/**
-	 * Returns the value of the '<em><b>State History</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.StateHistory}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>State History</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State History</em>' containment reference list.
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_StateHistory()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	public EList<StateHistory> getStateHistory()
-	{
-		if (stateHistory == null)
-		{
-			stateHistory = new EObjectContainmentEList.Resolving<StateHistory>(StateHistory.class, this, TaskPackage.TASK__STATE_HISTORY);
-		}
-		return stateHistory;
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CURRENT_STATE, oldCurrentState, currentState));
 	}
 
 	/**
@@ -698,56 +615,6 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Depends On</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.Task}.
-	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.task.Task#getBlocks <em>Blocks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Depends On</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Depends On</em>' reference list.
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_DependsOn()
-	 * @see org.eclipselabs.etrack.domain.task.Task#getBlocks
-	 * @model opposite="blocks"
-	 * @generated
-	 */
-	public EList<Task> getDependsOn()
-	{
-		if (dependsOn == null)
-		{
-			dependsOn = new EObjectWithInverseResolvingEList.ManyInverse<Task>(Task.class, this, TaskPackage.TASK__DEPENDS_ON, TaskPackage.TASK__BLOCKS);
-		}
-		return dependsOn;
-	}
-
-	/**
-	 * Returns the value of the '<em><b>Blocks</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.Task}.
-	 * It is bidirectional and its opposite is '{@link org.eclipselabs.etrack.domain.task.Task#getDependsOn <em>Depends On</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Blocks</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Blocks</em>' reference list.
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Blocks()
-	 * @see org.eclipselabs.etrack.domain.task.Task#getDependsOn
-	 * @model opposite="dependsOn"
-	 * @generated
-	 */
-	public EList<Task> getBlocks()
-	{
-		if (blocks == null)
-		{
-			blocks = new EObjectWithInverseResolvingEList.ManyInverse<Task>(Task.class, this, TaskPackage.TASK__BLOCKS, TaskPackage.TASK__DEPENDS_ON);
-		}
-		return blocks;
-	}
-
-	/**
 	 * Returns the value of the '<em><b>Project</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -807,42 +674,19 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
-			case TaskPackage.TASK__DEPENDS_ON:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependsOn()).basicAdd(otherEnd, msgs);
-			case TaskPackage.TASK__BLOCKS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBlocks()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
 		switch (featureID)
 		{
-			case TaskPackage.TASK__LINKS:
-				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK__LINKS_BY_NAME:
+				return ((InternalEList<?>)getLinksByName()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK__HISTORY:
+				return ((InternalEList<?>)getHistory()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK__ATTACHMENTS:
 				return ((InternalEList<?>)getAttachments()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK__COMMENTS:
 				return ((InternalEList<?>)getComments()).basicRemove(otherEnd, msgs);
-			case TaskPackage.TASK__STATE_HISTORY:
-				return ((InternalEList<?>)getStateHistory()).basicRemove(otherEnd, msgs);
-			case TaskPackage.TASK__DEPENDS_ON:
-				return ((InternalEList<?>)getDependsOn()).basicRemove(otherEnd, msgs);
-			case TaskPackage.TASK__BLOCKS:
-				return ((InternalEList<?>)getBlocks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -857,38 +701,32 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__LINKS_BY_NAME:
+				if (coreType) return getLinksByName();
+				else return getLinksByName().map();
 			case TaskPackage.TASK__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
-			case TaskPackage.TASK__LINKS:
-				if (coreType) return getLinks();
-				else return getLinks().map();
+			case TaskPackage.TASK__HISTORY:
+				return getHistory();
 			case TaskPackage.TASK__SUMMARY:
 				return getSummary();
 			case TaskPackage.TASK__DESCRIPTION:
 				return getDescription();
-			case TaskPackage.TASK__CREATED:
-				return getCreated();
-			case TaskPackage.TASK__LAST_MODIFIED:
-				return getLastModified();
+			case TaskPackage.TASK__CREATED_ON:
+				return getCreatedOn();
 			case TaskPackage.TASK__ATTACHMENTS:
 				return getAttachments();
 			case TaskPackage.TASK__COMMENTS:
 				return getComments();
-			case TaskPackage.TASK__STATE:
-				if (resolve) return getState();
-				return basicGetState();
-			case TaskPackage.TASK__STATE_HISTORY:
-				return getStateHistory();
+			case TaskPackage.TASK__CURRENT_STATE:
+				if (resolve) return getCurrentState();
+				return basicGetCurrentState();
 			case TaskPackage.TASK__SUBSCRIBERS:
 				return getSubscribers();
 			case TaskPackage.TASK__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
-			case TaskPackage.TASK__DEPENDS_ON:
-				return getDependsOn();
-			case TaskPackage.TASK__BLOCKS:
-				return getBlocks();
 			case TaskPackage.TASK__PROJECT:
 				if (resolve) return getProject();
 				return basicGetProject();
@@ -907,11 +745,15 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__LINKS_BY_NAME:
+				((EStructuralFeature.Setting)getLinksByName()).set(newValue);
+				return;
 			case TaskPackage.TASK__OWNER:
 				setOwner((Person)newValue);
 				return;
-			case TaskPackage.TASK__LINKS:
-				((EStructuralFeature.Setting)getLinks()).set(newValue);
+			case TaskPackage.TASK__HISTORY:
+				getHistory().clear();
+				getHistory().addAll((Collection<? extends Action>)newValue);
 				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary((String)newValue);
@@ -919,11 +761,8 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 			case TaskPackage.TASK__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case TaskPackage.TASK__CREATED:
-				setCreated((Date)newValue);
-				return;
-			case TaskPackage.TASK__LAST_MODIFIED:
-				setLastModified((Date)newValue);
+			case TaskPackage.TASK__CREATED_ON:
+				setCreatedOn((Date)newValue);
 				return;
 			case TaskPackage.TASK__ATTACHMENTS:
 				getAttachments().clear();
@@ -933,12 +772,8 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 				getComments().clear();
 				getComments().addAll((Collection<? extends Comment>)newValue);
 				return;
-			case TaskPackage.TASK__STATE:
-				setState((State)newValue);
-				return;
-			case TaskPackage.TASK__STATE_HISTORY:
-				getStateHistory().clear();
-				getStateHistory().addAll((Collection<? extends StateHistory>)newValue);
+			case TaskPackage.TASK__CURRENT_STATE:
+				setCurrentState((State)newValue);
 				return;
 			case TaskPackage.TASK__SUBSCRIBERS:
 				getSubscribers().clear();
@@ -946,14 +781,6 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 				return;
 			case TaskPackage.TASK__TYPE:
 				setType((TaskType)newValue);
-				return;
-			case TaskPackage.TASK__DEPENDS_ON:
-				getDependsOn().clear();
-				getDependsOn().addAll((Collection<? extends Task>)newValue);
-				return;
-			case TaskPackage.TASK__BLOCKS:
-				getBlocks().clear();
-				getBlocks().addAll((Collection<? extends Task>)newValue);
 				return;
 			case TaskPackage.TASK__PROJECT:
 				setProject((Project)newValue);
@@ -972,11 +799,14 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__LINKS_BY_NAME:
+				getLinksByName().clear();
+				return;
 			case TaskPackage.TASK__OWNER:
 				setOwner((Person)null);
 				return;
-			case TaskPackage.TASK__LINKS:
-				getLinks().clear();
+			case TaskPackage.TASK__HISTORY:
+				getHistory().clear();
 				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
@@ -984,11 +814,8 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 			case TaskPackage.TASK__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case TaskPackage.TASK__CREATED:
-				setCreated(CREATED_EDEFAULT);
-				return;
-			case TaskPackage.TASK__LAST_MODIFIED:
-				setLastModified(LAST_MODIFIED_EDEFAULT);
+			case TaskPackage.TASK__CREATED_ON:
+				setCreatedOn(CREATED_ON_EDEFAULT);
 				return;
 			case TaskPackage.TASK__ATTACHMENTS:
 				getAttachments().clear();
@@ -996,23 +823,14 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 			case TaskPackage.TASK__COMMENTS:
 				getComments().clear();
 				return;
-			case TaskPackage.TASK__STATE:
-				setState((State)null);
-				return;
-			case TaskPackage.TASK__STATE_HISTORY:
-				getStateHistory().clear();
+			case TaskPackage.TASK__CURRENT_STATE:
+				setCurrentState((State)null);
 				return;
 			case TaskPackage.TASK__SUBSCRIBERS:
 				getSubscribers().clear();
 				return;
 			case TaskPackage.TASK__TYPE:
 				setType((TaskType)null);
-				return;
-			case TaskPackage.TASK__DEPENDS_ON:
-				getDependsOn().clear();
-				return;
-			case TaskPackage.TASK__BLOCKS:
-				getBlocks().clear();
 				return;
 			case TaskPackage.TASK__PROJECT:
 				setProject((Project)null);
@@ -1031,34 +849,28 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	{
 		switch (featureID)
 		{
+			case TaskPackage.TASK__LINKS_BY_NAME:
+				return linksByName != null && !linksByName.isEmpty();
 			case TaskPackage.TASK__OWNER:
 				return owner != null;
-			case TaskPackage.TASK__LINKS:
-				return links != null && !links.isEmpty();
+			case TaskPackage.TASK__HISTORY:
+				return history != null && !history.isEmpty();
 			case TaskPackage.TASK__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
 			case TaskPackage.TASK__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case TaskPackage.TASK__CREATED:
-				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
-			case TaskPackage.TASK__LAST_MODIFIED:
-				return LAST_MODIFIED_EDEFAULT == null ? lastModified != null : !LAST_MODIFIED_EDEFAULT.equals(lastModified);
+			case TaskPackage.TASK__CREATED_ON:
+				return CREATED_ON_EDEFAULT == null ? createdOn != null : !CREATED_ON_EDEFAULT.equals(createdOn);
 			case TaskPackage.TASK__ATTACHMENTS:
 				return attachments != null && !attachments.isEmpty();
 			case TaskPackage.TASK__COMMENTS:
 				return comments != null && !comments.isEmpty();
-			case TaskPackage.TASK__STATE:
-				return state != null;
-			case TaskPackage.TASK__STATE_HISTORY:
-				return stateHistory != null && !stateHistory.isEmpty();
+			case TaskPackage.TASK__CURRENT_STATE:
+				return currentState != null;
 			case TaskPackage.TASK__SUBSCRIBERS:
 				return subscribers != null && !subscribers.isEmpty();
 			case TaskPackage.TASK__TYPE:
 				return type != null;
-			case TaskPackage.TASK__DEPENDS_ON:
-				return dependsOn != null && !dependsOn.isEmpty();
-			case TaskPackage.TASK__BLOCKS:
-				return blocks != null && !blocks.isEmpty();
 			case TaskPackage.TASK__PROJECT:
 				return project != null;
 		}
@@ -1073,11 +885,19 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == Linkable.class)
+		if (baseClass == AssignableItem.class)
 		{
 			switch (derivedFeatureID)
 			{
-				case TaskPackage.TASK__LINKS: return LinksPackage.LINKABLE__LINKS;
+				case TaskPackage.TASK__OWNER: return EntityPackage.ASSIGNABLE_ITEM__OWNER;
+				default: return -1;
+			}
+		}
+		if (baseClass == AuditableItem.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case TaskPackage.TASK__HISTORY: return AuditPackage.AUDITABLE_ITEM__HISTORY;
 				default: return -1;
 			}
 		}
@@ -1092,11 +912,19 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == Linkable.class)
+		if (baseClass == AssignableItem.class)
 		{
 			switch (baseFeatureID)
 			{
-				case LinksPackage.LINKABLE__LINKS: return TaskPackage.TASK__LINKS;
+				case EntityPackage.ASSIGNABLE_ITEM__OWNER: return TaskPackage.TASK__OWNER;
+				default: return -1;
+			}
+		}
+		if (baseClass == AuditableItem.class)
+		{
+			switch (baseFeatureID)
+			{
+				case AuditPackage.AUDITABLE_ITEM__HISTORY: return TaskPackage.TASK__HISTORY;
 				default: return -1;
 			}
 		}
@@ -1118,10 +946,8 @@ public class Task extends EObjectImpl implements AssignableItem, Linkable
 		result.append(summary);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", created: ");
-		result.append(created);
-		result.append(", lastModified: ");
-		result.append(lastModified);
+		result.append(", createdOn: ");
+		result.append(createdOn);
 		result.append(')');
 		return result.toString();
 	}
