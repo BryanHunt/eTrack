@@ -9,6 +9,7 @@
  * Contributors:
  *    Bryan Hunt - initial API and implementation
  */
+
 package org.eclipselabs.etrack.domain.entity;
 
 import java.util.Collection;
@@ -23,8 +24,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Organization</b></em>'.
  * <!-- end-user-doc -->
- *
- *
+ * 
+ * 
  * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getOrganization()
  * @model kind="class"
  * @generated
@@ -35,6 +36,7 @@ public class Organization extends Entity implements Group
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -45,6 +47,7 @@ public class Organization extends Entity implements Group
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -55,6 +58,7 @@ public class Organization extends Entity implements Group
 	 * The cached value of the '{@link #getMembers() <em>Members</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMembers()
 	 * @generated
 	 * @ordered
@@ -64,6 +68,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Organization()
@@ -74,6 +79,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,10 +92,11 @@ public class Organization extends Entity implements Group
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getGroup_Name()
@@ -102,9 +109,11 @@ public class Organization extends Entity implements Group
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Organization#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Organization#getName
+	 * <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Name</em>' attribute.
 	 * @see #getName()
 	 * @generated
@@ -122,10 +131,11 @@ public class Organization extends Entity implements Group
 	 * The list contents are of type {@link org.eclipselabs.etrack.domain.entity.Identity}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Members</em>' reference list isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Members</em>' reference list isn't clear, there really should be
+	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Members</em>' reference list.
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getGroup_Members()
 	 * @model
@@ -143,6 +153,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -161,6 +172,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -170,11 +182,11 @@ public class Organization extends Entity implements Group
 		switch (featureID)
 		{
 			case EntityPackage.ORGANIZATION__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case EntityPackage.ORGANIZATION__MEMBERS:
 				getMembers().clear();
-				getMembers().addAll((Collection<? extends Identity>)newValue);
+				getMembers().addAll((Collection<? extends Identity>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,6 +195,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -203,6 +216,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -221,6 +235,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -230,9 +245,12 @@ public class Organization extends Entity implements Group
 		{
 			switch (derivedFeatureID)
 			{
-				case EntityPackage.ORGANIZATION__NAME: return EntityPackage.GROUP__NAME;
-				case EntityPackage.ORGANIZATION__MEMBERS: return EntityPackage.GROUP__MEMBERS;
-				default: return -1;
+				case EntityPackage.ORGANIZATION__NAME:
+					return EntityPackage.GROUP__NAME;
+				case EntityPackage.ORGANIZATION__MEMBERS:
+					return EntityPackage.GROUP__MEMBERS;
+				default:
+					return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -241,6 +259,7 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -250,9 +269,12 @@ public class Organization extends Entity implements Group
 		{
 			switch (baseFeatureID)
 			{
-				case EntityPackage.GROUP__NAME: return EntityPackage.ORGANIZATION__NAME;
-				case EntityPackage.GROUP__MEMBERS: return EntityPackage.ORGANIZATION__MEMBERS;
-				default: return -1;
+				case EntityPackage.GROUP__NAME:
+					return EntityPackage.ORGANIZATION__NAME;
+				case EntityPackage.GROUP__MEMBERS:
+					return EntityPackage.ORGANIZATION__MEMBERS;
+				default:
+					return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -261,12 +283,14 @@ public class Organization extends Entity implements Group
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString()
 	{
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -275,4 +299,9 @@ public class Organization extends Entity implements Group
 		return result.toString();
 	}
 
+	@Override
+	public String getDisplayName()
+	{
+		return name;
+	}
 } // Organization

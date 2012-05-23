@@ -19,7 +19,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment" eSuperTypes="../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//AssignableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="created" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdOn" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//Linkable ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//AssignableItem ../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//AuditableItem">

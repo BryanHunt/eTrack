@@ -268,13 +268,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int COMMENT__TEXT = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMMENT__CREATED = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
+	public static final int COMMENT__CREATED_ON = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Comment</em>' class.
@@ -875,15 +875,15 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Comment#getCreated <em>Created</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Comment#getCreatedOn <em>Created On</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Created</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Comment#getCreated()
+	 * @return the meta object for the attribute '<em>Created On</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Comment#getCreatedOn()
 	 * @see #getComment()
 	 * @generated
 	 */
-	public EAttribute getComment_Created()
+	public EAttribute getComment_CreatedOn()
 	{
 		return (EAttribute)commentEClass.getEStructuralFeatures().get(1);
 	}
@@ -1153,7 +1153,7 @@ public class TaskPackage extends EPackageImpl
 
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__TEXT);
-		createEAttribute(commentEClass, COMMENT__CREATED);
+		createEAttribute(commentEClass, COMMENT__CREATED_ON);
 
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__SUMMARY);
@@ -1239,7 +1239,7 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComment_Text(), ecorePackage.getEString(), "text", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComment_Created(), ecorePackage.getEDate(), "created", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComment_CreatedOn(), ecorePackage.getEDate(), "createdOn", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Summary(), ecorePackage.getEString(), "summary", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1427,12 +1427,12 @@ public class TaskPackage extends EPackageImpl
 		public static final EAttribute COMMENT__TEXT = eINSTANCE.getComment_Text();
 
 		/**
-		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Created On</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EAttribute COMMENT__CREATED = eINSTANCE.getComment_Created();
+		public static final EAttribute COMMENT__CREATED_ON = eINSTANCE.getComment_CreatedOn();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}' class.
