@@ -4,16 +4,15 @@ package org.eclipselabs.etrack.domain.state.util;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipselabs.etrack.domain.audit.Action;
-
-import org.eclipselabs.etrack.domain.state.*;
+import org.eclipselabs.etrack.domain.state.State;
+import org.eclipselabs.etrack.domain.state.StateChange;
+import org.eclipselabs.etrack.domain.state.StateMachine;
+import org.eclipselabs.etrack.domain.state.StatePackage;
+import org.eclipselabs.etrack.domain.state.StateTransition;
 
 /**
  * <!-- begin-user-doc -->

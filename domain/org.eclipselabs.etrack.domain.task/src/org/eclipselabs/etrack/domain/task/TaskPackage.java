@@ -512,6 +512,52 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_MODEL_VERSION_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskAttributeChange <em>Attribute Change</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskAttributeChange
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskAttributeChange()
+	 * @generated
+	 */
+	public static final int TASK_ATTRIBUTE_CHANGE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Initiated On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_ATTRIBUTE_CHANGE__INITIATED_ON = AuditPackage.ACTION__INITIATED_ON;
+
+	/**
+	 * The feature id for the '<em><b>Initiated By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_ATTRIBUTE_CHANGE__INITIATED_BY = AuditPackage.ACTION__INITIATED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Old Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_ATTRIBUTE_CHANGE__OLD_VALUE = AuditPackage.ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Attribute Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_ATTRIBUTE_CHANGE_FEATURE_COUNT = AuditPackage.ACTION_FEATURE_COUNT + 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -552,6 +598,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskModelVersionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskAttributeChangeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1035,6 +1088,35 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskAttributeChange <em>Attribute Change</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute Change</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskAttributeChange
+	 * @generated
+	 */
+	public EClass getTaskAttributeChange()
+	{
+		return taskAttributeChangeEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskAttributeChange#getOldValue <em>Old Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Value</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskAttributeChange#getOldValue()
+	 * @see #getTaskAttributeChange()
+	 * @generated
+	 */
+	public EAttribute getTaskAttributeChange_OldValue()
+	{
+		return (EAttribute)taskAttributeChangeEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1179,6 +1261,9 @@ public class TaskPackage extends EPackageImpl
 
 		taskModelVersionEClass = createEClass(TASK_MODEL_VERSION);
 		createEAttribute(taskModelVersionEClass, TASK_MODEL_VERSION__VERSION);
+
+		taskAttributeChangeEClass = createEClass(TASK_ATTRIBUTE_CHANGE);
+		createEAttribute(taskAttributeChangeEClass, TASK_ATTRIBUTE_CHANGE__OLD_VALUE);
 	}
 
 	/**
@@ -1223,6 +1308,7 @@ public class TaskPackage extends EPackageImpl
 		taskEClass.getESuperTypes().add(theDataPackage.getLinkable());
 		taskEClass.getESuperTypes().add(theEntityPackage.getAssignableItem());
 		taskEClass.getESuperTypes().add(theAuditPackage.getAuditableItem());
+		taskAttributeChangeEClass.getESuperTypes().add(theAuditPackage.getAction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(attachmentEClass, Attachment.class, "Attachment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1265,6 +1351,9 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(taskModelVersionEClass, TaskModelVersion.class, "TaskModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskModelVersion_Version(), ecorePackage.getEInt(), "version", "1", 0, 1, TaskModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskAttributeChangeEClass, TaskAttributeChange.class, "TaskAttributeChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskAttributeChange_OldValue(), ecorePackage.getEString(), "oldValue", null, 0, 1, TaskAttributeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1519,6 +1608,24 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK_MODEL_VERSION__VERSION = eINSTANCE.getTaskModelVersion_Version();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskAttributeChange <em>Attribute Change</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.TaskAttributeChange
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskAttributeChange()
+		 * @generated
+		 */
+		public static final EClass TASK_ATTRIBUTE_CHANGE = eINSTANCE.getTaskAttributeChange();
+
+		/**
+		 * The meta object literal for the '<em><b>Old Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_ATTRIBUTE_CHANGE__OLD_VALUE = eINSTANCE.getTaskAttributeChange_OldValue();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.

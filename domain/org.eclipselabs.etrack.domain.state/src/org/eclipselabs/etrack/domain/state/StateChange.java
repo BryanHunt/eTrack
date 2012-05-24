@@ -3,12 +3,9 @@
 package org.eclipselabs.etrack.domain.state;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipselabs.etrack.domain.audit.Action;
 
 /**
