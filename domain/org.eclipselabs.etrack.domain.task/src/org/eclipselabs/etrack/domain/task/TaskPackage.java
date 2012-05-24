@@ -549,13 +549,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_ATTRIBUTE_CHANGE__OLD_VALUE = AuditPackage.ACTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Attribute Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_ATTRIBUTE_CHANGE__ATTRIBUTE_NAME = AuditPackage.ACTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Attribute Change</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_ATTRIBUTE_CHANGE_FEATURE_COUNT = AuditPackage.ACTION_FEATURE_COUNT + 1;
+	public static final int TASK_ATTRIBUTE_CHANGE_FEATURE_COUNT = AuditPackage.ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1117,6 +1126,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskAttributeChange#getAttributeName <em>Attribute Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attribute Name</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskAttributeChange#getAttributeName()
+	 * @see #getTaskAttributeChange()
+	 * @generated
+	 */
+	public EAttribute getTaskAttributeChange_AttributeName()
+	{
+		return (EAttribute)taskAttributeChangeEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1264,6 +1288,7 @@ public class TaskPackage extends EPackageImpl
 
 		taskAttributeChangeEClass = createEClass(TASK_ATTRIBUTE_CHANGE);
 		createEAttribute(taskAttributeChangeEClass, TASK_ATTRIBUTE_CHANGE__OLD_VALUE);
+		createEAttribute(taskAttributeChangeEClass, TASK_ATTRIBUTE_CHANGE__ATTRIBUTE_NAME);
 	}
 
 	/**
@@ -1354,6 +1379,7 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(taskAttributeChangeEClass, TaskAttributeChange.class, "TaskAttributeChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskAttributeChange_OldValue(), ecorePackage.getEString(), "oldValue", null, 0, 1, TaskAttributeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskAttributeChange_AttributeName(), ecorePackage.getEString(), "attributeName", null, 0, 1, TaskAttributeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1626,6 +1652,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK_ATTRIBUTE_CHANGE__OLD_VALUE = eINSTANCE.getTaskAttributeChange_OldValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_ATTRIBUTE_CHANGE__ATTRIBUTE_NAME = eINSTANCE.getTaskAttributeChange_AttributeName();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.

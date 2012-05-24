@@ -65,5 +65,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskAttributeChange" eSuperTypes="../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
