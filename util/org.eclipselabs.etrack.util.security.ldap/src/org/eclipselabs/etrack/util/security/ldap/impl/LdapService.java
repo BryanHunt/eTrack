@@ -37,6 +37,9 @@ public class LdapService implements ILdapService, ISecurityService
 	@Override
 	public boolean authenticate(String id, char[] password)
 	{
+		if (id == null || id.isEmpty())
+			return false;
+
 		String cachedPassword = credentialCache.get(id);
 		String encodedPassword = null;
 
