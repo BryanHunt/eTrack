@@ -42,6 +42,7 @@ import org.eclipselabs.etrack.domain.state.State;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCreatedOn <em>Created On</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCreatedBy <em>Created By</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getAttachments <em>Attachments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getComments <em>Comments</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCurrentState <em>Current State</em>}</li>
@@ -146,6 +147,16 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected Date createdOn = CREATED_ON_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCreatedBy() <em>Created By</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreatedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected Person createdBy;
 
 	/**
 	 * The cached value of the '{@link #getAttachments() <em>Attachments</em>}' containment reference list.
@@ -436,6 +447,61 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Created By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Created By</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Created By</em>' reference.
+	 * @see #setCreatedBy(Person)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_CreatedBy()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Person getCreatedBy()
+	{
+		if (createdBy != null && createdBy.eIsProxy())
+		{
+			InternalEObject oldCreatedBy = (InternalEObject)createdBy;
+			createdBy = (Person)eResolveProxy(oldCreatedBy);
+			if (createdBy != oldCreatedBy)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__CREATED_BY, oldCreatedBy, createdBy));
+			}
+		}
+		return createdBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Person basicGetCreatedBy()
+	{
+		return createdBy;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCreatedBy <em>Created By</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Created By</em>' reference.
+	 * @see #getCreatedBy()
+	 * @generated
+	 */
+	public void setCreatedBy(Person newCreatedBy)
+	{
+		Person oldCreatedBy = createdBy;
+		createdBy = newCreatedBy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CREATED_BY, oldCreatedBy, createdBy));
+	}
+
+	/**
 	 * Returns the value of the '<em><b>Attachments</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.Attachment}.
 	 * <!-- begin-user-doc -->
@@ -715,6 +781,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return getDescription();
 			case TaskPackage.TASK__CREATED_ON:
 				return getCreatedOn();
+			case TaskPackage.TASK__CREATED_BY:
+				if (resolve) return getCreatedBy();
+				return basicGetCreatedBy();
 			case TaskPackage.TASK__ATTACHMENTS:
 				return getAttachments();
 			case TaskPackage.TASK__COMMENTS:
@@ -763,6 +832,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return;
 			case TaskPackage.TASK__CREATED_ON:
 				setCreatedOn((Date)newValue);
+				return;
+			case TaskPackage.TASK__CREATED_BY:
+				setCreatedBy((Person)newValue);
 				return;
 			case TaskPackage.TASK__ATTACHMENTS:
 				getAttachments().clear();
@@ -817,6 +889,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__CREATED_ON:
 				setCreatedOn(CREATED_ON_EDEFAULT);
 				return;
+			case TaskPackage.TASK__CREATED_BY:
+				setCreatedBy((Person)null);
+				return;
 			case TaskPackage.TASK__ATTACHMENTS:
 				getAttachments().clear();
 				return;
@@ -861,6 +936,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case TaskPackage.TASK__CREATED_ON:
 				return CREATED_ON_EDEFAULT == null ? createdOn != null : !CREATED_ON_EDEFAULT.equals(createdOn);
+			case TaskPackage.TASK__CREATED_BY:
+				return createdBy != null;
 			case TaskPackage.TASK__ATTACHMENTS:
 				return attachments != null && !attachments.isEmpty();
 			case TaskPackage.TASK__COMMENTS:
