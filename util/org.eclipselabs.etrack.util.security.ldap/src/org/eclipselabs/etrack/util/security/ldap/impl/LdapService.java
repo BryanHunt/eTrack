@@ -32,7 +32,7 @@ import org.eclipselabs.etrack.util.security.ldap.ILdapService;
  * @author bhunt
  * 
  */
-public class LdapSecurityService implements ILdapService, ISecurityService
+public class LdapService implements ILdapService, ISecurityService
 {
 	@Override
 	public boolean authenticate(String id, char[] password)

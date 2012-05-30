@@ -33,11 +33,11 @@ import org.eclipselabs.etrack.util.security.ldap.ILdapService;
  */
 public class LdapEmfInputStream extends InputStream implements URIConverter.Loadable
 {
-	public LdapEmfInputStream(URI uri, IEObjectBuilder builder, ILdapService ldapSecurityService)
+	public LdapEmfInputStream(URI uri, IEObjectBuilder builder, ILdapService ldapService)
 	{
 		this.uri = uri;
 		this.builder = builder;
-		this.ldapSecurityService = ldapSecurityService;
+		this.ldapService = ldapService;
 	}
 
 	@Override
@@ -49,10 +49,25 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 
 			if (uri.hasQuery())
 			{
-				NamingEnumeration<SearchResult> results = ldapSecurityService.find(SearchControls.SUBTREE_SCOPE, uri.lastSegment(), uri.query());
+				String path = uri.lastSegment();
+				NamingEnumeration<SearchResult> results = ldapService.find(SearchControls.SUBTREE_SCOPE, path, uri.query());
 
 				if (results.hasMore())
-					attributes = results.next().getAttributes();
+				{
+					SearchResult searchResult = results.next();
+					String[] nameSegments = searchResult.getNameInNamespace().split(",");
+
+					for (int i = 0; i < nameSegments.length; i++)
+						nameSegments[i] = nameSegments[i].trim();
+
+					String[] pathSegments = path.split(",");
+
+					for (int i = 0; i < pathSegments.length; i++)
+						pathSegments[i] = pathSegments[i].trim();
+
+					resource.setURI(uri.trimSegments(1).appendSegments(nameSegments).appendSegments(pathSegments));
+					attributes = searchResult.getAttributes();
+				}
 			}
 			else
 			{
@@ -69,7 +84,7 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 					dn.append(segment);
 				}
 
-				attributes = ldapSecurityService.getAttributes(dn.toString());
+				attributes = ldapService.getAttributes(dn.toString());
 			}
 
 			if (attributes != null)
@@ -96,5 +111,5 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 
 	private URI uri;
 	private IEObjectBuilder builder;
-	private ILdapService ldapSecurityService;
+	private ILdapService ldapService;
 }

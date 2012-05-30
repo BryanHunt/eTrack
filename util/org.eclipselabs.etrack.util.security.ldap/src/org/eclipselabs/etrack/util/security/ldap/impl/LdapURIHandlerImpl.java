@@ -9,7 +9,7 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.util.security.ldap;
+package org.eclipselabs.etrack.util.security.ldap.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +18,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.URIHandlerImpl;
-import org.eclipselabs.etrack.util.security.ldap.impl.LdapEmfInputStream;
+import org.eclipselabs.etrack.util.security.ldap.IEObjectBuilder;
+import org.eclipselabs.etrack.util.security.ldap.ILdapService;
 
 /**
  * @author bhunt
@@ -28,13 +29,13 @@ public class LdapURIHandlerImpl extends URIHandlerImpl
 {
 	/**
 	 * @param builder
-	 * @param ldapSecurityService
+	 * @param ldapService
 	 */
-	public LdapURIHandlerImpl(IEObjectBuilder builder, ILdapService ldapSecurityService)
+	public LdapURIHandlerImpl(IEObjectBuilder builder, ILdapService ldapService)
 	{
 		super();
 		this.builder = builder;
-		this.ldapSecurityService = ldapSecurityService;
+		this.ldapService = ldapService;
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public class LdapURIHandlerImpl extends URIHandlerImpl
 	@Override
 	public InputStream createInputStream(URI uri, Map<?, ?> options) throws IOException
 	{
-		return new LdapEmfInputStream(uri, builder, ldapSecurityService);
+		return new LdapEmfInputStream(uri, builder, ldapService);
 	}
 
 	@Override
@@ -69,6 +70,6 @@ public class LdapURIHandlerImpl extends URIHandlerImpl
 		return false;
 	}
 
-	private ILdapService ldapSecurityService;
+	private ILdapService ldapService;
 	private IEObjectBuilder builder;
 }
