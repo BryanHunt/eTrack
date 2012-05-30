@@ -49,13 +49,11 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 
 			if (uri.hasQuery())
 			{
-				String path = uri.lastSegment();
-				NamingEnumeration<SearchResult> results = ldapService.find(SearchControls.SUBTREE_SCOPE, path, uri.query());
+				NamingEnumeration<SearchResult> results = ldapService.find(SearchControls.SUBTREE_SCOPE, uri.lastSegment(), uri.query());
 
 				if (results.hasMore())
 				{
 					SearchResult searchResult = results.next();
-					resource.setURI(uri.trimSegments(1).appendSegment(searchResult.getNameInNamespace() + ", " + path + ", " + ldapService.getBaseDN()));
 					attributes = searchResult.getAttributes();
 				}
 			}
