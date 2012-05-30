@@ -111,6 +111,12 @@ public class LdapService implements ILdapService, ISecurityService
 		return searchContext.getAttributes(dn);
 	}
 
+	@Override
+	public String getBaseDN()
+	{
+		return baseDN;
+	}
+
 	private InitialDirContext searchContext;
 	private Map<String, String> credentialCache = new HashMap<String, String>();
 	private String url;

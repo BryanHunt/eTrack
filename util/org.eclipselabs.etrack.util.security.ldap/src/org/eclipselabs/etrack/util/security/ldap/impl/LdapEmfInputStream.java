@@ -55,17 +55,7 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 				if (results.hasMore())
 				{
 					SearchResult searchResult = results.next();
-					String[] nameSegments = searchResult.getNameInNamespace().split(",");
-
-					for (int i = 0; i < nameSegments.length; i++)
-						nameSegments[i] = nameSegments[i].trim();
-
-					String[] pathSegments = path.split(",");
-
-					for (int i = 0; i < pathSegments.length; i++)
-						pathSegments[i] = pathSegments[i].trim();
-
-					resource.setURI(uri.trimSegments(1).appendSegments(nameSegments).appendSegments(pathSegments));
+					resource.setURI(uri.trimSegments(1).appendSegment(searchResult.getNameInNamespace() + ", " + path + ", " + ldapService.getBaseDN()));
 					attributes = searchResult.getAttributes();
 				}
 			}

@@ -37,4 +37,6 @@ public interface ILdapService
 	 * @throws NamingException if there was a problem communicating with the LDAP server
 	 */
 	Attributes getAttributes(String dn) throws NamingException;
+
+	String getBaseDN();
 }
