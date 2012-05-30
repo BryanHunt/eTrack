@@ -71,20 +71,7 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 			}
 			else
 			{
-				StringBuilder dn = new StringBuilder();
-				boolean firstOne = true;
-
-				for (String segment : uri.segments())
-				{
-					if (firstOne)
-						firstOne = false;
-					else
-						dn.append(',');
-
-					dn.append(segment);
-				}
-
-				attributes = ldapService.getAttributes(dn.toString());
+				attributes = ldapService.getAttributes(uri.lastSegment());
 			}
 
 			if (attributes != null)
