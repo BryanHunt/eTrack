@@ -83,20 +83,18 @@ public class LdapService implements ILdapService, ISecurityService
 		String managerDN = (String) configuration.get(CONFIG_MANAGER_DN);
 		String managerPassword = (String) configuration.get(CONFIG_MANAGER_PASSWORD);
 
-		Hashtable<String, String> environment = new Hashtable<String, String>();
-		environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-		environment.put(Context.PROVIDER_URL, url);
+		searchEnvironment = new Hashtable<String, String>();
+		searchEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+		searchEnvironment.put(Context.PROVIDER_URL, url);
 
 		if (managerDN != null)
 		{
-			environment.put(Context.SECURITY_AUTHENTICATION, "simple");
-			environment.put(Context.SECURITY_PRINCIPAL, managerDN);
-			environment.put(Context.SECURITY_CREDENTIALS, managerPassword);
+			searchEnvironment.put(Context.SECURITY_AUTHENTICATION, "simple");
+			searchEnvironment.put(Context.SECURITY_PRINCIPAL, managerDN);
+			searchEnvironment.put(Context.SECURITY_CREDENTIALS, managerPassword);
 		}
 		else
-			environment.put(Context.SECURITY_AUTHENTICATION, "none");
-
-		searchContext = new InitialDirContext(environment);
+			searchEnvironment.put(Context.SECURITY_AUTHENTICATION, "none");
 	}
 
 	@Override
@@ -105,13 +103,20 @@ public class LdapService implements ILdapService, ISecurityService
 		SearchControls searchControls = new SearchControls();
 		searchControls.setSearchScope(scope);
 		String searchPath = path != null && !path.isEmpty() ? path + "," + baseDN : baseDN;
-		return searchContext.search(searchPath, filter, searchControls);
+
+		InitialDirContext searchContext = new InitialDirContext(searchEnvironment);
+		NamingEnumeration<SearchResult> searchResults = searchContext.search(searchPath, filter, searchControls);
+		searchContext.close();
+		return searchResults;
 	}
 
 	@Override
 	public Attributes getAttributes(String dn) throws NamingException
 	{
-		return searchContext.getAttributes(dn);
+		InitialDirContext searchContext = new InitialDirContext(searchEnvironment);
+		Attributes attributes = searchContext.getAttributes(dn);
+		searchContext.close();
+		return attributes;
 	}
 
 	@Override
@@ -120,9 +125,9 @@ public class LdapService implements ILdapService, ISecurityService
 		return baseDN;
 	}
 
-	private InitialDirContext searchContext;
 	private Map<String, String> credentialCache = new HashMap<String, String>();
 	private String url;
 	private String baseDN;
 	private BCodec codec = new BCodec();
+	private Hashtable<String, String> searchEnvironment;
 }
