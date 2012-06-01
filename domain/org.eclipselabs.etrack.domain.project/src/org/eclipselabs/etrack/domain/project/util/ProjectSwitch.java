@@ -2,16 +2,15 @@
  */
 package org.eclipselabs.etrack.domain.project.util;
 
+import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import org.eclipselabs.etrack.domain.entity.Group;
 import org.eclipselabs.etrack.domain.entity.Identity;
-
-import org.eclipselabs.etrack.domain.project.*;
-
+import org.eclipselabs.etrack.domain.project.Project;
+import org.eclipselabs.etrack.domain.project.ProjectPackage;
+import org.eclipselabs.etrack.domain.project.Team;
 import org.eclipselabs.etrack.domain.security.PermissionGroup;
 
 /**
@@ -81,6 +80,7 @@ public class ProjectSwitch<T> extends Switch<T>
 			{
 				Project project = (Project)theEObject;
 				T result = caseProject(project);
+				if (result == null) result = caseLinkable(project);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,6 +126,22 @@ public class ProjectSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseTeam(Team object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Linkable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkable(Linkable object)
 	{
 		return null;
 	}

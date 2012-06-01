@@ -4,22 +4,23 @@ package org.eclipselabs.etrack.domain.project;
 
 import java.util.Collection;
 
+import org.eclilpselabs.etrack.domain.data.DataPackage;
+import org.eclilpselabs.etrack.domain.data.LinkMapping;
+import org.eclilpselabs.etrack.domain.data.Linkable;
+import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipselabs.etrack.domain.entity.Identity;
 
 /**
@@ -40,8 +41,18 @@ import org.eclipselabs.etrack.domain.entity.Identity;
  * @model kind="class"
  * @generated
  */
-public class Project extends EObjectImpl implements EObject
+public class Project extends EObjectImpl implements Linkable
 {
+	/**
+	 * The cached value of the '{@link #getLinksByName() <em>Links By Name</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinksByName()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, LinkedContent> linksByName;
+
 	/**
 	 * The cached value of the '{@link #getTeams() <em>Teams</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -101,6 +112,30 @@ public class Project extends EObjectImpl implements EObject
 	protected EClass eStaticClass()
 	{
 		return ProjectPackage.Literals.PROJECT;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Links By Name</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link org.eclilpselabs.etrack.domain.data.LinkedContent},
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Links By Name</em>' map isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Links By Name</em>' map.
+	 * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getLinkable_LinksByName()
+	 * @model mapType="org.eclilpselabs.etrack.domain.data.LinkMapping<org.eclipse.emf.ecore.EString, org.eclilpselabs.etrack.domain.data.LinkedContent>"
+	 * @generated
+	 */
+	public EMap<String, LinkedContent> getLinksByName()
+	{
+		if (linksByName == null)
+		{
+			linksByName = new EcoreEMap<String,LinkedContent>(DataPackage.Literals.LINK_MAPPING, LinkMapping.class, this, ProjectPackage.PROJECT__LINKS_BY_NAME);
+		}
+		return linksByName;
 	}
 
 	/**
@@ -194,6 +229,8 @@ public class Project extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case ProjectPackage.PROJECT__LINKS_BY_NAME:
+				return ((InternalEList<?>)getLinksByName()).basicRemove(otherEnd, msgs);
 			case ProjectPackage.PROJECT__TEAMS:
 				return ((InternalEList<?>)getTeams()).basicRemove(otherEnd, msgs);
 		}
@@ -210,6 +247,9 @@ public class Project extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case ProjectPackage.PROJECT__LINKS_BY_NAME:
+				if (coreType) return getLinksByName();
+				else return getLinksByName().map();
 			case ProjectPackage.PROJECT__TEAMS:
 				return getTeams();
 			case ProjectPackage.PROJECT__NAME:
@@ -231,6 +271,9 @@ public class Project extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case ProjectPackage.PROJECT__LINKS_BY_NAME:
+				((EStructuralFeature.Setting)getLinksByName()).set(newValue);
+				return;
 			case ProjectPackage.PROJECT__TEAMS:
 				getTeams().clear();
 				getTeams().addAll((Collection<? extends Team>)newValue);
@@ -256,6 +299,9 @@ public class Project extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case ProjectPackage.PROJECT__LINKS_BY_NAME:
+				getLinksByName().clear();
+				return;
 			case ProjectPackage.PROJECT__TEAMS:
 				getTeams().clear();
 				return;
@@ -279,6 +325,8 @@ public class Project extends EObjectImpl implements EObject
 	{
 		switch (featureID)
 		{
+			case ProjectPackage.PROJECT__LINKS_BY_NAME:
+				return linksByName != null && !linksByName.isEmpty();
 			case ProjectPackage.PROJECT__TEAMS:
 				return teams != null && !teams.isEmpty();
 			case ProjectPackage.PROJECT__NAME:

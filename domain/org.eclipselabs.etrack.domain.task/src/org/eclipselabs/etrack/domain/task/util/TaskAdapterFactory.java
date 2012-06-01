@@ -12,6 +12,7 @@
 package org.eclipselabs.etrack.domain.task.util;
 
 import org.eclilpselabs.etrack.domain.data.Linkable;
+import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -139,6 +140,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createTaskAttributeChangeAdapter();
 			}
 			@Override
+			public Adapter caseTaskDomainLink(TaskDomainLink object)
+			{
+				return createTaskDomainLinkAdapter();
+			}
+			@Override
 			public Adapter caseAssignableItem(AssignableItem object)
 			{
 				return createAssignableItemAdapter();
@@ -157,6 +163,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseAction(Action object)
 			{
 				return createActionAdapter();
+			}
+			@Override
+			public Adapter caseLinkedContent(LinkedContent object)
+			{
+				return createLinkedContentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -301,6 +312,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.TaskDomainLink <em>Domain Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomainLink
+	 * @generated
+	 */
+	public Adapter createTaskDomainLinkAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.Linkable <em>Linkable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -341,6 +367,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createActionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.LinkedContent <em>Linked Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.domain.data.LinkedContent
+	 * @generated
+	 */
+	public Adapter createLinkedContentAdapter()
 	{
 		return null;
 	}

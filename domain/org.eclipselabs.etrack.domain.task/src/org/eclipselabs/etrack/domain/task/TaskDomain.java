@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.etrack.domain.state.State;
 import org.eclipselabs.etrack.domain.state.StateTransition;
@@ -38,6 +39,8 @@ import org.eclipselabs.etrack.domain.state.StateTransition;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getStates <em>States</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTaskTypes <em>Task Types</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getOpenStates <em>Open States</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getClosedStates <em>Closed States</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,6 +99,26 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EList<TaskType> taskTypes;
+
+	/**
+	 * The cached value of the '{@link #getOpenStates() <em>Open States</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOpenStates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<State> openStates;
+
+	/**
+	 * The cached value of the '{@link #getClosedStates() <em>Closed States</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClosedStates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<State> closedStates;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +246,52 @@ public class TaskDomain extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Open States</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.State}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Open States</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Open States</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_OpenStates()
+	 * @model
+	 * @generated
+	 */
+	public EList<State> getOpenStates()
+	{
+		if (openStates == null)
+		{
+			openStates = new EObjectResolvingEList<State>(State.class, this, TaskPackage.TASK_DOMAIN__OPEN_STATES);
+		}
+		return openStates;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Closed States</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.State}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Closed States</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Closed States</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_ClosedStates()
+	 * @model
+	 * @generated
+	 */
+	public EList<State> getClosedStates()
+	{
+		if (closedStates == null)
+		{
+			closedStates = new EObjectResolvingEList<State>(State.class, this, TaskPackage.TASK_DOMAIN__CLOSED_STATES);
+		}
+		return closedStates;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -260,6 +329,10 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return getTransitions();
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				return getTaskTypes();
+			case TaskPackage.TASK_DOMAIN__OPEN_STATES:
+				return getOpenStates();
+			case TaskPackage.TASK_DOMAIN__CLOSED_STATES:
+				return getClosedStates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,6 +363,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 				getTaskTypes().clear();
 				getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
 				return;
+			case TaskPackage.TASK_DOMAIN__OPEN_STATES:
+				getOpenStates().clear();
+				getOpenStates().addAll((Collection<? extends State>)newValue);
+				return;
+			case TaskPackage.TASK_DOMAIN__CLOSED_STATES:
+				getClosedStates().clear();
+				getClosedStates().addAll((Collection<? extends State>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -316,6 +397,12 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				getTaskTypes().clear();
 				return;
+			case TaskPackage.TASK_DOMAIN__OPEN_STATES:
+				getOpenStates().clear();
+				return;
+			case TaskPackage.TASK_DOMAIN__CLOSED_STATES:
+				getClosedStates().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,6 +425,10 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return transitions != null && !transitions.isEmpty();
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				return taskTypes != null && !taskTypes.isEmpty();
+			case TaskPackage.TASK_DOMAIN__OPEN_STATES:
+				return openStates != null && !openStates.isEmpty();
+			case TaskPackage.TASK_DOMAIN__CLOSED_STATES:
+				return closedStates != null && !closedStates.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

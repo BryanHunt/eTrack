@@ -79,6 +79,7 @@ public class TaskFactory extends EFactoryImpl
 			case TaskPackage.TASK_TYPE: return createTaskType();
 			case TaskPackage.TASK_MODEL_VERSION: return createTaskModelVersion();
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE: return createTaskAttributeChange();
+			case TaskPackage.TASK_DOMAIN_LINK: return createTaskDomainLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -181,6 +182,17 @@ public class TaskFactory extends EFactoryImpl
 	{
 		TaskAttributeChange taskAttributeChange = new TaskAttributeChange();
 		return taskAttributeChange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskDomainLink createTaskDomainLink()
+	{
+		TaskDomainLink taskDomainLink = new TaskDomainLink();
+		return taskDomainLink;
 	}
 
 	/**

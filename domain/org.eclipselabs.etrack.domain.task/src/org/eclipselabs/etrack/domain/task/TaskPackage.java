@@ -448,13 +448,31 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN__TASK_TYPES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Open States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN__OPEN_STATES = 4;
+
+	/**
+	 * The feature id for the '<em><b>Closed States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN__CLOSED_STATES = 5;
+
+	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN_FEATURE_COUNT = 4;
+	public static final int TASK_DOMAIN_FEATURE_COUNT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -576,6 +594,52 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_ATTRIBUTE_CHANGE_FEATURE_COUNT = AuditPackage.ACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskDomainLink <em>Domain Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomainLink
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomainLink()
+	 * @generated
+	 */
+	public static final int TASK_DOMAIN_LINK = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN_LINK__NAME = DataPackage.LINKED_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN_LINK__DESCRIPTION = DataPackage.LINKED_CONTENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Task Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN_LINK__TASK_DOMAIN = DataPackage.LINKED_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Domain Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN_LINK_FEATURE_COUNT = DataPackage.LINKED_CONTENT_FEATURE_COUNT + 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -623,6 +687,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskAttributeChangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskDomainLinkEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -934,6 +1005,36 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getOpenStates <em>Open States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Open States</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getOpenStates()
+	 * @see #getTaskDomain()
+	 * @generated
+	 */
+	public EReference getTaskDomain_OpenStates()
+	{
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(4);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getClosedStates <em>Closed States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Closed States</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getClosedStates()
+	 * @see #getTaskDomain()
+	 * @generated
+	 */
+	public EReference getTaskDomain_ClosedStates()
+	{
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(5);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1165,6 +1266,35 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskDomainLink <em>Domain Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Domain Link</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomainLink
+	 * @generated
+	 */
+	public EClass getTaskDomainLink()
+	{
+		return taskDomainLinkEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.TaskDomainLink#getTaskDomain <em>Task Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Task Domain</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomainLink#getTaskDomain()
+	 * @see #getTaskDomainLink()
+	 * @generated
+	 */
+	public EReference getTaskDomainLink_TaskDomain()
+	{
+		return (EReference)taskDomainLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1302,6 +1432,8 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskDomainEClass, TASK_DOMAIN__STATES);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TRANSITIONS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
+		createEReference(taskDomainEClass, TASK_DOMAIN__OPEN_STATES);
+		createEReference(taskDomainEClass, TASK_DOMAIN__CLOSED_STATES);
 
 		taskTypeEClass = createEClass(TASK_TYPE);
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
@@ -1314,6 +1446,9 @@ public class TaskPackage extends EPackageImpl
 		taskAttributeChangeEClass = createEClass(TASK_ATTRIBUTE_CHANGE);
 		createEAttribute(taskAttributeChangeEClass, TASK_ATTRIBUTE_CHANGE__OLD_VALUE);
 		createEAttribute(taskAttributeChangeEClass, TASK_ATTRIBUTE_CHANGE__ATTRIBUTE_NAME);
+
+		taskDomainLinkEClass = createEClass(TASK_DOMAIN_LINK);
+		createEReference(taskDomainLinkEClass, TASK_DOMAIN_LINK__TASK_DOMAIN);
 	}
 
 	/**
@@ -1359,6 +1494,7 @@ public class TaskPackage extends EPackageImpl
 		taskEClass.getESuperTypes().add(theEntityPackage.getAssignableItem());
 		taskEClass.getESuperTypes().add(theAuditPackage.getAuditableItem());
 		taskAttributeChangeEClass.getESuperTypes().add(theAuditPackage.getAction());
+		taskDomainLinkEClass.getESuperTypes().add(theDataPackage.getLinkedContent());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(attachmentEClass, Attachment.class, "Attachment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1394,6 +1530,8 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskDomain_States(), theStatePackage.getState(), null, "states", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_Transitions(), theStatePackage.getStateTransition(), null, "transitions", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskDomain_OpenStates(), theStatePackage.getState(), null, "openStates", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskDomain_ClosedStates(), theStatePackage.getState(), null, "closedStates", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskTypeEClass, TaskType.class, "TaskType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1406,6 +1544,9 @@ public class TaskPackage extends EPackageImpl
 		initEClass(taskAttributeChangeEClass, TaskAttributeChange.class, "TaskAttributeChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskAttributeChange_OldValue(), ecorePackage.getEString(), "oldValue", null, 0, 1, TaskAttributeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskAttributeChange_AttributeName(), ecorePackage.getEString(), "attributeName", null, 0, 1, TaskAttributeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskDomainLinkEClass, TaskDomainLink.class, "TaskDomainLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTaskDomainLink_TaskDomain(), this.getTaskDomain(), null, "taskDomain", null, 1, 1, TaskDomainLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1558,6 +1699,22 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK_DOMAIN__TASK_TYPES = eINSTANCE.getTaskDomain_TaskTypes();
 
 		/**
+		 * The meta object literal for the '<em><b>Open States</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_DOMAIN__OPEN_STATES = eINSTANCE.getTaskDomain_OpenStates();
+
+		/**
+		 * The meta object literal for the '<em><b>Closed States</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_DOMAIN__CLOSED_STATES = eINSTANCE.getTaskDomain_ClosedStates();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1694,6 +1851,24 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK_ATTRIBUTE_CHANGE__ATTRIBUTE_NAME = eINSTANCE.getTaskAttributeChange_AttributeName();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskDomainLink <em>Domain Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.TaskDomainLink
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomainLink()
+		 * @generated
+		 */
+		public static final EClass TASK_DOMAIN_LINK = eINSTANCE.getTaskDomainLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Task Domain</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_DOMAIN_LINK__TASK_DOMAIN = eINSTANCE.getTaskDomainLink_TaskDomain();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.

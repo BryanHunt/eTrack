@@ -52,6 +52,10 @@
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" upperBound="-1"
         eType="#//TaskType" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="openStates" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="closedStates" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -68,5 +72,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="TaskAttributeChange" eSuperTypes="../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//Action">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskDomainLink" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//LinkedContent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskDomain" lowerBound="1"
+        eType="#//TaskDomain"/>
   </eClassifiers>
 </ecore:EPackage>
