@@ -145,7 +145,7 @@ public class StatePackage extends EPackageImpl
 	public static final int STATE_TRANSITION_MAPPING__KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' reference.
+	 * The feature id for the '<em><b>Value</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -431,7 +431,7 @@ public class StatePackage extends EPackageImpl
 	 * @return the meta object for class '<em>Transition Mapping</em>'.
 	 * @see java.util.Map.Entry
 	 * @model keyType="org.eclipselabs.etrack.domain.state.State"
-	 *        valueType="org.eclipselabs.etrack.domain.state.StateTransition"
+	 *        valueType="org.eclipselabs.etrack.domain.state.StateTransition" valueMany="true"
 	 * @generated
 	 */
 	public EClass getStateTransitionMapping()
@@ -454,10 +454,10 @@ public class StatePackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * Returns the meta object for the reference list '{@link java.util.Map.Entry <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value</em>'.
+	 * @return the meta object for the reference list '<em>Value</em>'.
 	 * @see java.util.Map.Entry
 	 * @see #getStateTransitionMapping()
 	 * @generated
@@ -645,7 +645,7 @@ public class StatePackage extends EPackageImpl
 
 		initEClass(stateTransitionMappingEClass, Map.Entry.class, "StateTransitionMapping", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStateTransitionMapping_Key(), this.getState(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStateTransitionMapping_Value(), this.getStateTransition(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateTransitionMapping_Value(), this.getStateTransition(), null, "value", null, 0, -1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stateChangeEClass, StateChange.class, "StateChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStateChange_Transition(), this.getStateTransition(), null, "transition", null, 0, 1, StateChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -736,7 +736,7 @@ public class StatePackage extends EPackageImpl
 		public static final EReference STATE_TRANSITION_MAPPING__KEY = eINSTANCE.getStateTransitionMapping_Key();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

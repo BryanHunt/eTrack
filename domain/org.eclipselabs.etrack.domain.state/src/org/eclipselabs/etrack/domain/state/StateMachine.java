@@ -64,7 +64,7 @@ public class StateMachine extends EObjectImpl implements EObject
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<State, StateTransition> transitionsByState;
+	protected EMap<State, EList<StateTransition>> transitionsByState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,7 +136,7 @@ public class StateMachine extends EObjectImpl implements EObject
 	/**
 	 * Returns the value of the '<em><b>Transitions By State</b></em>' map.
 	 * The key is of type {@link org.eclipselabs.etrack.domain.state.State},
-	 * and the value is of type {@link org.eclipselabs.etrack.domain.state.StateTransition},
+	 * and the value is of type list of {@link org.eclipselabs.etrack.domain.state.StateTransition},
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Transitions By State</em>' map isn't clear,
@@ -148,11 +148,11 @@ public class StateMachine extends EObjectImpl implements EObject
 	 * @model mapType="org.eclipselabs.etrack.domain.state.StateTransitionMapping<org.eclipselabs.etrack.domain.state.State, org.eclipselabs.etrack.domain.state.StateTransition>"
 	 * @generated
 	 */
-	public EMap<State, StateTransition> getTransitionsByState()
+	public EMap<State, EList<StateTransition>> getTransitionsByState()
 	{
 		if (transitionsByState == null)
 		{
-			transitionsByState = new EcoreEMap<State,StateTransition>(StatePackage.Literals.STATE_TRANSITION_MAPPING, StateTransitionMapping.class, this, StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE);
+			transitionsByState = new EcoreEMap<State,EList<StateTransition>>(StatePackage.Literals.STATE_TRANSITION_MAPPING, StateTransitionMapping.class, this, StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE);
 		}
 		return transitionsByState;
 	}

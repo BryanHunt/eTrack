@@ -3,40 +3,43 @@
 
 package org.eclipselabs.etrack.domain.state;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEMap;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Transition Mapping</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link java.util.Map.Entry#getTypedKey <em>Key</em>}</li>
- * <li>{@link java.util.Map.Entry#getTypedValue <em>Value</em>}</li>
+ *   <li>{@link java.util.Map.Entry#getTypedKey <em>Key</em>}</li>
+ *   <li>{@link java.util.Map.Entry#getTypedValue <em>Value</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateTransitionMapping()
  * @model keyType="org.eclipselabs.etrack.domain.state.State"
- *        valueType="org.eclipselabs.etrack.domain.state.StateTransition"
+ *        valueType="org.eclipselabs.etrack.domain.state.StateTransition" valueMany="true"
  * @generated
  */
-public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Entry<State, StateTransition>, EObject
+public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Entry<State,EList<StateTransition>>, EObject
 {
 	/**
 	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -44,20 +47,18 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	protected State key;
 
 	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference.
+	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getTypedValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected StateTransition value;
+	protected EList<StateTransition> value;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected StateTransitionMapping()
@@ -68,7 +69,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -85,7 +85,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Key</em>' reference.
 	 * @see #setTypedKey(State)
 	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateTransitionMapping_Key()
@@ -96,8 +95,8 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	{
 		if (key != null && key.eIsProxy())
 		{
-			InternalEObject oldKey = (InternalEObject) key;
-			key = (State) eResolveProxy(oldKey);
+			InternalEObject oldKey = (InternalEObject)key;
+			key = (State)eResolveProxy(oldKey);
 			if (key != oldKey)
 			{
 				if (eNotificationRequired())
@@ -110,7 +109,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public State basicGetTypedKey()
@@ -122,7 +120,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	 * Sets the value of the '{@link java.util.Map.Entry#getTypedKey <em>Key</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @param value the new value of the '<em>Key</em>' reference.
 	 * @see #getTypedKey()
 	 * @generated
@@ -136,31 +133,24 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' reference.
+	 * Returns the value of the '<em><b>Value</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.StateTransition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value</em>' reference list isn't clear, there really should be more
 	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
-	 * @return the value of the '<em>Value</em>' reference.
-	 * @see #setTypedValue(StateTransition)
+	 * @return the value of the '<em>Value</em>' reference list.
 	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateTransitionMapping_Value()
 	 * @model
 	 * @generated
 	 */
-	public StateTransition getTypedValue()
+	public EList<StateTransition> getTypedValue()
 	{
-		if (value != null && value.eIsProxy())
+		if (value == null)
 		{
-			InternalEObject oldValue = (InternalEObject) value;
-			value = (StateTransition) eResolveProxy(oldValue);
-			if (value != oldValue)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatePackage.STATE_TRANSITION_MAPPING__VALUE, oldValue, value));
-			}
+			value = new EObjectResolvingEList<StateTransition>(StateTransition.class, this, StatePackage.STATE_TRANSITION_MAPPING__VALUE);
 		}
 		return value;
 	}
@@ -168,35 +158,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	public StateTransition basicGetTypedValue()
-	{
-		return value;
-	}
-
-	/**
-	 * Sets the value of the '{@link java.util.Map.Entry#getTypedValue <em>Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Value</em>' reference.
-	 * @see #getTypedValue()
-	 * @generated
-	 */
-	public void setTypedValue(StateTransition newValue)
-	{
-		StateTransition oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StatePackage.STATE_TRANSITION_MAPPING__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -205,13 +166,10 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 		switch (featureID)
 		{
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
-				if (resolve)
-					return getTypedKey();
+				if (resolve) return getTypedKey();
 				return basicGetTypedKey();
 			case StatePackage.STATE_TRANSITION_MAPPING__VALUE:
-				if (resolve)
-					return getTypedValue();
-				return basicGetTypedValue();
+				return getTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,19 +177,20 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
 		switch (featureID)
 		{
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
-				setTypedKey((State) newValue);
+				setTypedKey((State)newValue);
 				return;
 			case StatePackage.STATE_TRANSITION_MAPPING__VALUE:
-				setTypedValue((StateTransition) newValue);
+				getTypedValue().clear();
+				getTypedValue().addAll((Collection<? extends StateTransition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,7 +199,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -249,10 +207,10 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 		switch (featureID)
 		{
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
-				setTypedKey((State) null);
+				setTypedKey((State)null);
 				return;
 			case StatePackage.STATE_TRANSITION_MAPPING__VALUE:
-				setTypedValue((StateTransition) null);
+				getTypedValue().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,7 +219,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -272,7 +229,7 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
 				return key != null;
 			case StatePackage.STATE_TRANSITION_MAPPING__VALUE:
-				return value != null;
+				return value != null && !value.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -280,7 +237,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected int hash = -1;
@@ -288,7 +244,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getHash()
@@ -304,7 +259,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setHash(int hash)
@@ -315,7 +269,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public State getKey()
@@ -326,7 +279,6 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setKey(State key)
@@ -337,10 +289,9 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public StateTransition getValue()
+	public EList<StateTransition> getValue()
 	{
 		return getTypedValue();
 	}
@@ -348,27 +299,26 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public StateTransition setValue(StateTransition value)
+	public EList<StateTransition> setValue(EList<StateTransition> value)
 	{
-		StateTransition oldValue = getValue();
-		setTypedValue(value);
+		EList<StateTransition> oldValue = getValue();
+		getTypedValue().clear();
+		getTypedValue().addAll(value);
 		return oldValue;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public EMap<State, StateTransition> getEMap()
+	public EMap<State, EList<StateTransition>> getEMap()
 	{
 		EObject container = eContainer();
-		return container == null ? null : (EMap<State, StateTransition>) container.eGet(eContainmentFeature());
+		return container == null ? null : (EMap<State, EList<StateTransition>>)container.eGet(eContainmentFeature());
 	}
 
 } // StateTransitionMapping

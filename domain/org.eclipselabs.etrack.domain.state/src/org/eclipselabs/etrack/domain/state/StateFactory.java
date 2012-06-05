@@ -4,6 +4,7 @@ package org.eclipselabs.etrack.domain.state;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -109,7 +110,7 @@ public class StateFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<State, StateTransition> createStateTransitionMapping()
+	public Map.Entry<State, EList<StateTransition>> createStateTransitionMapping()
 	{
 		StateTransitionMapping stateTransitionMapping = new StateTransitionMapping();
 		return stateTransitionMapping;

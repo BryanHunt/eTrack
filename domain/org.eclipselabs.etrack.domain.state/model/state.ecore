@@ -11,7 +11,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateTransitionMapping" instanceClassName="java.util.Map$Entry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//StateTransition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
+        eType="#//StateTransition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateChange" eSuperTypes="../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" eType="#//StateTransition"/>

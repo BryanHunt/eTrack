@@ -7,6 +7,7 @@ import java.util.Map;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipselabs.etrack.domain.audit.Action;
 import org.eclipselabs.etrack.domain.state.State;
@@ -89,7 +90,7 @@ public class StateAdapterFactory extends AdapterFactoryImpl
 				return createStateTransitionAdapter();
 			}
 			@Override
-			public Adapter caseStateTransitionMapping(Map.Entry<State, StateTransition> object)
+			public Adapter caseStateTransitionMapping(Map.Entry<State, EList<StateTransition>> object)
 			{
 				return createStateTransitionMappingAdapter();
 			}

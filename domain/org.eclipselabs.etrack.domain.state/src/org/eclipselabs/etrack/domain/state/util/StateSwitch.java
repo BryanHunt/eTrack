@@ -4,6 +4,7 @@ package org.eclipselabs.etrack.domain.state.util;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -93,7 +94,7 @@ public class StateSwitch<T> extends Switch<T>
 			}
 			case StatePackage.STATE_TRANSITION_MAPPING:
 			{
-				@SuppressWarnings("unchecked") Map.Entry<State, StateTransition> stateTransitionMapping = (Map.Entry<State, StateTransition>)theEObject;
+				@SuppressWarnings("unchecked") Map.Entry<State, EList<StateTransition>> stateTransitionMapping = (Map.Entry<State, EList<StateTransition>>)theEObject;
 				T result = caseStateTransitionMapping(stateTransitionMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -160,7 +161,7 @@ public class StateSwitch<T> extends Switch<T>
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStateTransitionMapping(Map.Entry<State, StateTransition> object)
+	public T caseStateTransitionMapping(Map.Entry<State, EList<StateTransition>> object)
 	{
 		return null;
 	}
