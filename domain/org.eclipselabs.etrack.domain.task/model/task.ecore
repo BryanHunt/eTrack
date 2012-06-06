@@ -52,10 +52,8 @@
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" upperBound="-1"
         eType="#//TaskType" containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="openStates" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="closedStates" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stateGroups" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//StateGroup"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -64,6 +62,8 @@
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extension" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"
         containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startingState" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskModelVersion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

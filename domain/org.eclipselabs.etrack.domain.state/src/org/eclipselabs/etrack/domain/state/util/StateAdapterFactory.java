@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipselabs.etrack.domain.audit.Action;
+import org.eclipselabs.etrack.domain.state.*;
 import org.eclipselabs.etrack.domain.state.State;
 import org.eclipselabs.etrack.domain.state.StateChange;
 import org.eclipselabs.etrack.domain.state.StateMachine;
@@ -103,6 +104,11 @@ public class StateAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseStateMachine(StateMachine object)
 			{
 				return createStateMachineAdapter();
+			}
+			@Override
+			public Adapter caseStateGroup(StateGroup object)
+			{
+				return createStateGroupAdapter();
 			}
 			@Override
 			public Adapter caseAction(Action object)
@@ -202,6 +208,21 @@ public class StateAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createStateMachineAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.state.StateGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.state.StateGroup
+	 * @generated
+	 */
+	public Adapter createStateGroupAdapter()
 	{
 		return null;
 	}

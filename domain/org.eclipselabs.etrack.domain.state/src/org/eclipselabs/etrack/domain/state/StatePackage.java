@@ -246,13 +246,68 @@ public class StatePackage extends EPackageImpl
 	public static final int STATE_MACHINE__TRANSITIONS_BY_STATE = 2;
 
 	/**
+	 * The feature id for the '<em><b>State Groups</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_MACHINE__STATE_GROUPS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_MACHINE__STARTING_STATE = 4;
+
+	/**
 	 * The number of structural features of the '<em>Machine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STATE_MACHINE_FEATURE_COUNT = 3;
+	public static final int STATE_MACHINE_FEATURE_COUNT = 5;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.state.StateGroup <em>Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.state.StateGroup
+	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateGroup()
+	 * @generated
+	 */
+	public static final int STATE_GROUP = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_GROUP__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_GROUP__STATES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STATE_GROUP_FEATURE_COUNT = 2;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -288,6 +343,13 @@ public class StatePackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass stateMachineEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stateGroupEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -550,6 +612,80 @@ public class StatePackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.state.StateMachine#getStateGroups <em>State Groups</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>State Groups</em>'.
+	 * @see org.eclipselabs.etrack.domain.state.StateMachine#getStateGroups()
+	 * @see #getStateMachine()
+	 * @generated
+	 */
+	public EReference getStateMachine_StateGroups()
+	{
+		return (EReference)stateMachineEClass.getEStructuralFeatures().get(3);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.state.StateMachine#getStartingState <em>Starting State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Starting State</em>'.
+	 * @see org.eclipselabs.etrack.domain.state.StateMachine#getStartingState()
+	 * @see #getStateMachine()
+	 * @generated
+	 */
+	public EReference getStateMachine_StartingState()
+	{
+		return (EReference)stateMachineEClass.getEStructuralFeatures().get(4);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.state.StateGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Group</em>'.
+	 * @see org.eclipselabs.etrack.domain.state.StateGroup
+	 * @generated
+	 */
+	public EClass getStateGroup()
+	{
+		return stateGroupEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.state.StateGroup#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipselabs.etrack.domain.state.StateGroup#getName()
+	 * @see #getStateGroup()
+	 * @generated
+	 */
+	public EAttribute getStateGroup_Name()
+	{
+		return (EAttribute)stateGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.state.StateGroup#getStates <em>States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>States</em>'.
+	 * @see org.eclipselabs.etrack.domain.state.StateGroup#getStates()
+	 * @see #getStateGroup()
+	 * @generated
+	 */
+	public EReference getStateGroup_States()
+	{
+		return (EReference)stateGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -599,6 +735,12 @@ public class StatePackage extends EPackageImpl
 		createEReference(stateMachineEClass, STATE_MACHINE__STATES);
 		createEReference(stateMachineEClass, STATE_MACHINE__TRANSITIONS);
 		createEReference(stateMachineEClass, STATE_MACHINE__TRANSITIONS_BY_STATE);
+		createEReference(stateMachineEClass, STATE_MACHINE__STATE_GROUPS);
+		createEReference(stateMachineEClass, STATE_MACHINE__STARTING_STATE);
+
+		stateGroupEClass = createEClass(STATE_GROUP);
+		createEAttribute(stateGroupEClass, STATE_GROUP__NAME);
+		createEReference(stateGroupEClass, STATE_GROUP__STATES);
 	}
 
 	/**
@@ -654,6 +796,12 @@ public class StatePackage extends EPackageImpl
 		initEReference(getStateMachine_States(), this.getState(), null, "states", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStateMachine_Transitions(), this.getStateTransition(), null, "transitions", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStateMachine_TransitionsByState(), this.getStateTransitionMapping(), null, "transitionsByState", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateMachine_StateGroups(), this.getStateGroup(), null, "stateGroups", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateMachine_StartingState(), this.getState(), null, "startingState", null, 1, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stateGroupEClass, StateGroup.class, "StateGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStateGroup_Name(), ecorePackage.getEString(), "name", null, 1, 1, StateGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStateGroup_States(), this.getState(), null, "states", null, 0, -1, StateGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -794,6 +942,48 @@ public class StatePackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference STATE_MACHINE__TRANSITIONS_BY_STATE = eINSTANCE.getStateMachine_TransitionsByState();
+
+		/**
+		 * The meta object literal for the '<em><b>State Groups</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference STATE_MACHINE__STATE_GROUPS = eINSTANCE.getStateMachine_StateGroups();
+
+		/**
+		 * The meta object literal for the '<em><b>Starting State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference STATE_MACHINE__STARTING_STATE = eINSTANCE.getStateMachine_StartingState();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.state.StateGroup <em>Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.state.StateGroup
+		 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateGroup()
+		 * @generated
+		 */
+		public static final EClass STATE_GROUP = eINSTANCE.getStateGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute STATE_GROUP__NAME = eINSTANCE.getStateGroup_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>States</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference STATE_GROUP__STATES = eINSTANCE.getStateGroup_States();
 
 	}
 

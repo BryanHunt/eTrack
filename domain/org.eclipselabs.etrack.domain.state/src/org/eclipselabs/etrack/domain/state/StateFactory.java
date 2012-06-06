@@ -78,6 +78,7 @@ public class StateFactory extends EFactoryImpl
 			case StatePackage.STATE_TRANSITION_MAPPING: return (EObject)createStateTransitionMapping();
 			case StatePackage.STATE_CHANGE: return createStateChange();
 			case StatePackage.STATE_MACHINE: return createStateMachine();
+			case StatePackage.STATE_GROUP: return createStateGroup();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +137,17 @@ public class StateFactory extends EFactoryImpl
 	{
 		StateMachine stateMachine = new StateMachine();
 		return stateMachine;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StateGroup createStateGroup()
+	{
+		StateGroup stateGroup = new StateGroup();
+		return stateGroup;
 	}
 
 	/**

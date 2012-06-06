@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipselabs.etrack.domain.audit.Action;
+import org.eclipselabs.etrack.domain.state.*;
 import org.eclipselabs.etrack.domain.state.State;
 import org.eclipselabs.etrack.domain.state.StateChange;
 import org.eclipselabs.etrack.domain.state.StateMachine;
@@ -114,6 +115,13 @@ public class StateSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StatePackage.STATE_GROUP:
+			{
+				StateGroup stateGroup = (StateGroup)theEObject;
+				T result = caseStateGroup(stateGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -194,6 +202,22 @@ public class StateSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseStateMachine(StateMachine object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStateGroup(StateGroup object)
 	{
 		return null;
 	}

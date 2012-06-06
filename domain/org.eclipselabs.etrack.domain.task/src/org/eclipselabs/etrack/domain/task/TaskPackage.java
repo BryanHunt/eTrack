@@ -448,22 +448,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN__TASK_TYPES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Open States</b></em>' reference list.
+	 * The feature id for the '<em><b>State Groups</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN__OPEN_STATES = 4;
-
-	/**
-	 * The feature id for the '<em><b>Closed States</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK_DOMAIN__CLOSED_STATES = 5;
+	public static final int TASK_DOMAIN__STATE_GROUPS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
@@ -472,7 +463,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN_FEATURE_COUNT = 6;
+	public static final int TASK_DOMAIN_FEATURE_COUNT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -502,13 +493,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_TYPE__EXTENSION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_TYPE__STARTING_STATE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_TYPE_FEATURE_COUNT = 3;
+	public static final int TASK_TYPE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
@@ -1005,32 +1005,17 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getOpenStates <em>Open States</em>}'.
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getStateGroups <em>State Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Open States</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getOpenStates()
+	 * @return the meta object for the reference list '<em>State Groups</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getStateGroups()
 	 * @see #getTaskDomain()
 	 * @generated
 	 */
-	public EReference getTaskDomain_OpenStates()
+	public EReference getTaskDomain_StateGroups()
 	{
 		return (EReference)taskDomainEClass.getEStructuralFeatures().get(4);
-	}
-
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getClosedStates <em>Closed States</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Closed States</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getClosedStates()
-	 * @see #getTaskDomain()
-	 * @generated
-	 */
-	public EReference getTaskDomain_ClosedStates()
-	{
-		return (EReference)taskDomainEClass.getEStructuralFeatures().get(5);
 	}
 
 
@@ -1189,6 +1174,21 @@ public class TaskPackage extends EPackageImpl
 	public EReference getTaskType_Extension()
 	{
 		return (EReference)taskTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingState <em>Starting State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Starting State</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskType#getStartingState()
+	 * @see #getTaskType()
+	 * @generated
+	 */
+	public EReference getTaskType_StartingState()
+	{
+		return (EReference)taskTypeEClass.getEStructuralFeatures().get(3);
 	}
 
 
@@ -1432,13 +1432,13 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskDomainEClass, TASK_DOMAIN__STATES);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TRANSITIONS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
-		createEReference(taskDomainEClass, TASK_DOMAIN__OPEN_STATES);
-		createEReference(taskDomainEClass, TASK_DOMAIN__CLOSED_STATES);
+		createEReference(taskDomainEClass, TASK_DOMAIN__STATE_GROUPS);
 
 		taskTypeEClass = createEClass(TASK_TYPE);
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
 		createEReference(taskTypeEClass, TASK_TYPE__STATES);
 		createEReference(taskTypeEClass, TASK_TYPE__EXTENSION);
+		createEReference(taskTypeEClass, TASK_TYPE__STARTING_STATE);
 
 		taskModelVersionEClass = createEClass(TASK_MODEL_VERSION);
 		createEAttribute(taskModelVersionEClass, TASK_MODEL_VERSION__VERSION);
@@ -1530,13 +1530,13 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskDomain_States(), theStatePackage.getState(), null, "states", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_Transitions(), theStatePackage.getStateTransition(), null, "transitions", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskDomain_OpenStates(), theStatePackage.getState(), null, "openStates", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskDomain_ClosedStates(), theStatePackage.getState(), null, "closedStates", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskDomain_StateGroups(), theStatePackage.getStateGroup(), null, "stateGroups", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskTypeEClass, TaskType.class, "TaskType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_States(), theStatePackage.getStateTransitionMapping(), null, "states", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_Extension(), ecorePackage.getEPackage(), null, "extension", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskType_StartingState(), theStatePackage.getState(), null, "startingState", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskModelVersionEClass, TaskModelVersion.class, "TaskModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskModelVersion_Version(), ecorePackage.getEInt(), "version", "1", 0, 1, TaskModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1699,20 +1699,12 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK_DOMAIN__TASK_TYPES = eINSTANCE.getTaskDomain_TaskTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Open States</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>State Groups</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EReference TASK_DOMAIN__OPEN_STATES = eINSTANCE.getTaskDomain_OpenStates();
-
-		/**
-		 * The meta object literal for the '<em><b>Closed States</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference TASK_DOMAIN__CLOSED_STATES = eINSTANCE.getTaskDomain_ClosedStates();
+		public static final EReference TASK_DOMAIN__STATE_GROUPS = eINSTANCE.getTaskDomain_StateGroups();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}' class.
@@ -1807,6 +1799,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_TYPE__EXTENSION = eINSTANCE.getTaskType_Extension();
+
+		/**
+		 * The meta object literal for the '<em><b>Starting State</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_TYPE__STARTING_STATE = eINSTANCE.getTaskType_StartingState();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.

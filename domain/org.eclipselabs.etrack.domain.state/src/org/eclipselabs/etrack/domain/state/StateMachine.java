@@ -4,6 +4,7 @@ package org.eclipselabs.etrack.domain.state;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
@@ -27,6 +29,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipselabs.etrack.domain.state.StateMachine#getStates <em>States</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.state.StateMachine#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.state.StateMachine#getTransitionsByState <em>Transitions By State</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.state.StateMachine#getStateGroups <em>State Groups</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.state.StateMachine#getStartingState <em>Starting State</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +69,26 @@ public class StateMachine extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EMap<State, EList<StateTransition>> transitionsByState;
+
+	/**
+	 * The cached value of the '{@link #getStateGroups() <em>State Groups</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStateGroups()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<StateGroup> stateGroups;
+
+	/**
+	 * The cached value of the '{@link #getStartingState() <em>Starting State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartingState()
+	 * @generated
+	 * @ordered
+	 */
+	protected State startingState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,6 +182,84 @@ public class StateMachine extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>State Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.StateGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>State Groups</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>State Groups</em>' containment reference list.
+	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateMachine_StateGroups()
+	 * @model containment="true"
+	 * @generated
+	 */
+	public EList<StateGroup> getStateGroups()
+	{
+		if (stateGroups == null)
+		{
+			stateGroups = new EObjectContainmentEList<StateGroup>(StateGroup.class, this, StatePackage.STATE_MACHINE__STATE_GROUPS);
+		}
+		return stateGroups;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Starting State</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Starting State</em>' reference.
+	 * @see #setStartingState(State)
+	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateMachine_StartingState()
+	 * @model required="true"
+	 * @generated
+	 */
+	public State getStartingState()
+	{
+		if (startingState != null && startingState.eIsProxy())
+		{
+			InternalEObject oldStartingState = (InternalEObject)startingState;
+			startingState = (State)eResolveProxy(oldStartingState);
+			if (startingState != oldStartingState)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatePackage.STATE_MACHINE__STARTING_STATE, oldStartingState, startingState));
+			}
+		}
+		return startingState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State basicGetStartingState()
+	{
+		return startingState;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.state.StateMachine#getStartingState <em>Starting State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Starting State</em>' reference.
+	 * @see #getStartingState()
+	 * @generated
+	 */
+	public void setStartingState(State newStartingState)
+	{
+		State oldStartingState = startingState;
+		startingState = newStartingState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StatePackage.STATE_MACHINE__STARTING_STATE, oldStartingState, startingState));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -173,6 +275,8 @@ public class StateMachine extends EObjectImpl implements EObject
 				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
 			case StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE:
 				return ((InternalEList<?>)getTransitionsByState()).basicRemove(otherEnd, msgs);
+			case StatePackage.STATE_MACHINE__STATE_GROUPS:
+				return ((InternalEList<?>)getStateGroups()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -194,6 +298,11 @@ public class StateMachine extends EObjectImpl implements EObject
 			case StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE:
 				if (coreType) return getTransitionsByState();
 				else return getTransitionsByState().map();
+			case StatePackage.STATE_MACHINE__STATE_GROUPS:
+				return getStateGroups();
+			case StatePackage.STATE_MACHINE__STARTING_STATE:
+				if (resolve) return getStartingState();
+				return basicGetStartingState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -220,6 +329,13 @@ public class StateMachine extends EObjectImpl implements EObject
 			case StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE:
 				((EStructuralFeature.Setting)getTransitionsByState()).set(newValue);
 				return;
+			case StatePackage.STATE_MACHINE__STATE_GROUPS:
+				getStateGroups().clear();
+				getStateGroups().addAll((Collection<? extends StateGroup>)newValue);
+				return;
+			case StatePackage.STATE_MACHINE__STARTING_STATE:
+				setStartingState((State)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -243,6 +359,12 @@ public class StateMachine extends EObjectImpl implements EObject
 			case StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE:
 				getTransitionsByState().clear();
 				return;
+			case StatePackage.STATE_MACHINE__STATE_GROUPS:
+				getStateGroups().clear();
+				return;
+			case StatePackage.STATE_MACHINE__STARTING_STATE:
+				setStartingState((State)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -263,6 +385,10 @@ public class StateMachine extends EObjectImpl implements EObject
 				return transitions != null && !transitions.isEmpty();
 			case StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE:
 				return transitionsByState != null && !transitionsByState.isEmpty();
+			case StatePackage.STATE_MACHINE__STATE_GROUPS:
+				return stateGroups != null && !stateGroups.isEmpty();
+			case StatePackage.STATE_MACHINE__STARTING_STATE:
+				return startingState != null;
 		}
 		return super.eIsSet(featureID);
 	}
