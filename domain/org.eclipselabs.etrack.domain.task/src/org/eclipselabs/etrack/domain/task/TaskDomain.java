@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.etrack.domain.state.State;
 import org.eclipselabs.etrack.domain.state.StateGroup;
@@ -101,7 +100,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	protected EList<TaskType> taskTypes;
 
 	/**
-	 * The cached value of the '{@link #getStateGroups() <em>State Groups</em>}' reference list.
+	 * The cached value of the '{@link #getStateGroups() <em>State Groups</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getStateGroups()
@@ -236,7 +235,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>State Groups</b></em>' reference list.
+	 * Returns the value of the '<em><b>State Groups</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.StateGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -244,16 +243,16 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>State Groups</em>' reference list.
+	 * @return the value of the '<em>State Groups</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_StateGroups()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	public EList<StateGroup> getStateGroups()
 	{
 		if (stateGroups == null)
 		{
-			stateGroups = new EObjectResolvingEList<StateGroup>(StateGroup.class, this, TaskPackage.TASK_DOMAIN__STATE_GROUPS);
+			stateGroups = new EObjectContainmentEList<StateGroup>(StateGroup.class, this, TaskPackage.TASK_DOMAIN__STATE_GROUPS);
 		}
 		return stateGroups;
 	}
@@ -274,6 +273,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				return ((InternalEList<?>)getTaskTypes()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
+				return ((InternalEList<?>)getStateGroups()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
