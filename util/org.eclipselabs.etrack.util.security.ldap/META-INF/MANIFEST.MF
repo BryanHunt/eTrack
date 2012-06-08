@@ -13,7 +13,7 @@ Import-Package: org.apache.commons.codec;version="1.3.0",
  org.eclipselabs.etrack.domain.entity,
  org.eclipselabs.etrack.util.security,
  org.eclipselabs.mongo.emf.ext
-Service-Component: OSGI-INF/ldap.xml,
- OSGI-INF/provider.xml
+Service-Component: OSGI-INF/services/ldap.xml,
+ OSGI-INF/services/provider.xml
 Export-Package: org.eclipselabs.etrack.util.security.ldap
 Bundle-ActivationPolicy: lazy
