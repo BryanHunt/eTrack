@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
-import org.eclipselabs.emf.query.Result;
 import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
+import org.eclipselabs.mongo.emf.ext.ECollection;
 import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
 import org.restlet.data.MediaType;
 import org.restlet.ext.wadl.WadlServerResource;
@@ -60,10 +60,10 @@ public class PersonDirectoryResource extends WadlServerResource
 			resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.TRUE);
 			Resource resource = resourceSet.getResource(
 					URI.createURI("mongodb://localhost/etrack/entity/").appendQuery(URI.encodeQuery("_eClass=='http://www.eclipselabs.org/etrack/domain/entity#//Person'", false)), true);
-			Result result = (Result) resource.getContents().get(0);
+			ECollection eCollection = (ECollection) resource.getContents().get(0);
 
 // for (EObject object : ((InternalEList<EObject>) result.getValues()).basicList())
-			for (EObject object : result.getValues())
+			for (EObject object : eCollection.getValues())
 			{
 				Person person = (Person) object;
 
