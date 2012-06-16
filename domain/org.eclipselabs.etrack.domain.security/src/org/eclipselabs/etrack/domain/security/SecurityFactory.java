@@ -36,16 +36,13 @@ public class SecurityFactory extends EFactoryImpl
 	 */
 	public static SecurityFactory init()
 	{
-		try
-		{
+		try {
 			SecurityFactory theSecurityFactory = (SecurityFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/security"); 
-			if (theSecurityFactory != null)
-			{
+			if (theSecurityFactory != null) {
 				return theSecurityFactory;
 			}
 		}
-		catch (Exception exception)
-		{
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new SecurityFactory();
@@ -70,8 +67,7 @@ public class SecurityFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID())
-		{
+		switch (eClass.getClassifierID()) {
 			case SecurityPackage.PERMISSION_GROUP: return createPermissionGroup();
 			case SecurityPackage.PASSWORD_CREDENTIAL: return createPasswordCredential();
 			default:

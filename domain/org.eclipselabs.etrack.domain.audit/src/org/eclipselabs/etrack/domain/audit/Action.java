@@ -136,12 +136,10 @@ public class Action extends EObjectImpl implements EObject
 	 */
 	public Entity getInitiatedBy()
 	{
-		if (initiatedBy != null && initiatedBy.eIsProxy())
-		{
+		if (initiatedBy != null && initiatedBy.eIsProxy()) {
 			InternalEObject oldInitiatedBy = (InternalEObject)initiatedBy;
 			initiatedBy = (Entity)eResolveProxy(oldInitiatedBy);
-			if (initiatedBy != oldInitiatedBy)
-			{
+			if (initiatedBy != oldInitiatedBy) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AuditPackage.ACTION__INITIATED_BY, oldInitiatedBy, initiatedBy));
 			}
@@ -183,8 +181,7 @@ public class Action extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case AuditPackage.ACTION__INITIATED_ON:
 				return getInitiatedOn();
 			case AuditPackage.ACTION__INITIATED_BY:
@@ -202,8 +199,7 @@ public class Action extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case AuditPackage.ACTION__INITIATED_ON:
 				setInitiatedOn((Date)newValue);
 				return;
@@ -222,8 +218,7 @@ public class Action extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case AuditPackage.ACTION__INITIATED_ON:
 				setInitiatedOn(INITIATED_ON_EDEFAULT);
 				return;
@@ -242,8 +237,7 @@ public class Action extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case AuditPackage.ACTION__INITIATED_ON:
 				return INITIATED_ON_EDEFAULT == null ? initiatedOn != null : !INITIATED_ON_EDEFAULT.equals(initiatedOn);
 			case AuditPackage.ACTION__INITIATED_BY:

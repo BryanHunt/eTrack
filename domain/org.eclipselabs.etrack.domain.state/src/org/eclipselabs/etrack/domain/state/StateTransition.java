@@ -130,12 +130,10 @@ public class StateTransition extends EObjectImpl implements EObject
 	 */
 	public State getTargetState()
 	{
-		if (targetState != null && targetState.eIsProxy())
-		{
+		if (targetState != null && targetState.eIsProxy()) {
 			InternalEObject oldTargetState = (InternalEObject)targetState;
 			targetState = (State)eResolveProxy(oldTargetState);
-			if (targetState != oldTargetState)
-			{
+			if (targetState != oldTargetState) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatePackage.STATE_TRANSITION__TARGET_STATE, oldTargetState, targetState));
 			}
@@ -177,8 +175,7 @@ public class StateTransition extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case StatePackage.STATE_TRANSITION__NAME:
 				return getName();
 			case StatePackage.STATE_TRANSITION__TARGET_STATE:
@@ -196,8 +193,7 @@ public class StateTransition extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case StatePackage.STATE_TRANSITION__NAME:
 				setName((String)newValue);
 				return;
@@ -216,8 +212,7 @@ public class StateTransition extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case StatePackage.STATE_TRANSITION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -236,8 +231,7 @@ public class StateTransition extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case StatePackage.STATE_TRANSITION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case StatePackage.STATE_TRANSITION__TARGET_STATE:

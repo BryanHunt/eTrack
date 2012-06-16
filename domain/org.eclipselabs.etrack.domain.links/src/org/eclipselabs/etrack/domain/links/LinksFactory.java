@@ -47,16 +47,13 @@ public class LinksFactory extends EFactoryImpl
 	 */
 	public static LinksFactory init()
 	{
-		try
-		{
+		try {
 			LinksFactory theLinksFactory = (LinksFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/links"); 
-			if (theLinksFactory != null)
-			{
+			if (theLinksFactory != null) {
 				return theLinksFactory;
 			}
 		}
-		catch (Exception exception)
-		{
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new LinksFactory();
@@ -81,8 +78,7 @@ public class LinksFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID())
-		{
+		switch (eClass.getClassifierID()) {
 			case LinksPackage.LINK_MAP: return (EObject)createLinkMap();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");

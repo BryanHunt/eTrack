@@ -62,8 +62,7 @@ public class TaskSwitch<T> extends Switch<T>
 	 */
 	public TaskSwitch()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = TaskPackage.eINSTANCE;
 		}
 	}
@@ -92,10 +91,8 @@ public class TaskSwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID)
-		{
-			case TaskPackage.ATTACHMENT:
-			{
+		switch (classifierID) {
+			case TaskPackage.ATTACHMENT: {
 				Attachment attachment = (Attachment)theEObject;
 				T result = caseAttachment(attachment);
 				if (result == null) result = caseArtifact(attachment);
@@ -103,30 +100,26 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.ATTACHMENT_DATA:
-			{
+			case TaskPackage.ATTACHMENT_DATA: {
 				AttachmentData attachmentData = (AttachmentData)theEObject;
 				T result = caseAttachmentData(attachmentData);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.ARTIFACT:
-			{
+			case TaskPackage.ARTIFACT: {
 				Artifact artifact = (Artifact)theEObject;
 				T result = caseArtifact(artifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.COMMENT:
-			{
+			case TaskPackage.COMMENT: {
 				Comment comment = (Comment)theEObject;
 				T result = caseComment(comment);
 				if (result == null) result = caseAssignableItem(comment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK:
-			{
+			case TaskPackage.TASK: {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
 				if (result == null) result = caseLinkable(task);
@@ -135,37 +128,32 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK_DOMAIN:
-			{
+			case TaskPackage.TASK_DOMAIN: {
 				TaskDomain taskDomain = (TaskDomain)theEObject;
 				T result = caseTaskDomain(taskDomain);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK_TYPE:
-			{
+			case TaskPackage.TASK_TYPE: {
 				TaskType taskType = (TaskType)theEObject;
 				T result = caseTaskType(taskType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK_MODEL_VERSION:
-			{
+			case TaskPackage.TASK_MODEL_VERSION: {
 				TaskModelVersion taskModelVersion = (TaskModelVersion)theEObject;
 				T result = caseTaskModelVersion(taskModelVersion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK_ATTRIBUTE_CHANGE:
-			{
+			case TaskPackage.TASK_ATTRIBUTE_CHANGE: {
 				TaskAttributeChange taskAttributeChange = (TaskAttributeChange)theEObject;
 				T result = caseTaskAttributeChange(taskAttributeChange);
 				if (result == null) result = caseAction(taskAttributeChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TaskPackage.TASK_DOMAIN_LINK:
-			{
+			case TaskPackage.TASK_DOMAIN_LINK: {
 				TaskDomainLink taskDomainLink = (TaskDomainLink)theEObject;
 				T result = caseTaskDomainLink(taskDomainLink);
 				if (result == null) result = caseLinkedContent(taskDomainLink);

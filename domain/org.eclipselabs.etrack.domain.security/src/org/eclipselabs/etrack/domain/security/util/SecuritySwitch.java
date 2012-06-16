@@ -43,8 +43,7 @@ public class SecuritySwitch<T> extends Switch<T>
 	 */
 	public SecuritySwitch()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = SecurityPackage.eINSTANCE;
 		}
 	}
@@ -73,10 +72,8 @@ public class SecuritySwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID)
-		{
-			case SecurityPackage.PERMISSION_GROUP:
-			{
+		switch (classifierID) {
+			case SecurityPackage.PERMISSION_GROUP: {
 				PermissionGroup permissionGroup = (PermissionGroup)theEObject;
 				T result = casePermissionGroup(permissionGroup);
 				if (result == null) result = caseGroup(permissionGroup);
@@ -84,8 +81,7 @@ public class SecuritySwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SecurityPackage.PASSWORD_CREDENTIAL:
-			{
+			case SecurityPackage.PASSWORD_CREDENTIAL: {
 				PasswordCredential passwordCredential = (PasswordCredential)theEObject;
 				T result = casePasswordCredential(passwordCredential);
 				if (result == null) result = defaultCase(theEObject);

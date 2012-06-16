@@ -43,16 +43,13 @@ public class EntityFactory extends EFactoryImpl
 	 */
 	public static EntityFactory init()
 	{
-		try
-		{
+		try {
 			EntityFactory theEntityFactory = (EntityFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/entity"); 
-			if (theEntityFactory != null)
-			{
+			if (theEntityFactory != null) {
 				return theEntityFactory;
 			}
 		}
-		catch (Exception exception)
-		{
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new EntityFactory();
@@ -77,8 +74,7 @@ public class EntityFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID())
-		{
+		switch (eClass.getClassifierID()) {
 			case EntityPackage.ADDRESS: return createAddress();
 			case EntityPackage.EMAIL: return createEmail();
 			case EntityPackage.PERSON: return createPerson();

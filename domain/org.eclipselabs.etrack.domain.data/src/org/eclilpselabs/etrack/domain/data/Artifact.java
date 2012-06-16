@@ -179,8 +179,7 @@ public class Artifact extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case DataPackage.ARTIFACT__NAME:
 				return getName();
 			case DataPackage.ARTIFACT__CREATED_ON:
@@ -197,8 +196,7 @@ public class Artifact extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case DataPackage.ARTIFACT__NAME:
 				setName((String)newValue);
 				return;
@@ -217,8 +215,7 @@ public class Artifact extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case DataPackage.ARTIFACT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -237,8 +234,7 @@ public class Artifact extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case DataPackage.ARTIFACT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DataPackage.ARTIFACT__CREATED_ON:

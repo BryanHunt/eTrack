@@ -54,8 +54,7 @@ public class EntityAdapterFactory extends AdapterFactoryImpl
 	 */
 	public EntityAdapterFactory()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = EntityPackage.eINSTANCE;
 		}
 	}
@@ -71,12 +70,10 @@ public class EntityAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage)
-		{
+		if (object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject)
-		{
+		if (object instanceof EObject) {
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -89,66 +86,53 @@ public class EntityAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected EntitySwitch<Adapter> modelSwitch =
-		new EntitySwitch<Adapter>()
-		{
+		new EntitySwitch<Adapter>() {
 			@Override
-			public Adapter caseAddress(Address object)
-			{
+			public Adapter caseAddress(Address object) {
 				return createAddressAdapter();
 			}
 			@Override
-			public Adapter caseEmail(Email object)
-			{
+			public Adapter caseEmail(Email object) {
 				return createEmailAdapter();
 			}
 			@Override
-			public Adapter caseEntity(Entity object)
-			{
+			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
 			}
 			@Override
-			public Adapter caseGroup(Group object)
-			{
+			public Adapter caseGroup(Group object) {
 				return createGroupAdapter();
 			}
 			@Override
-			public Adapter casePerson(Person object)
-			{
+			public Adapter casePerson(Person object) {
 				return createPersonAdapter();
 			}
 			@Override
-			public Adapter casePhone(Phone object)
-			{
+			public Adapter casePhone(Phone object) {
 				return createPhoneAdapter();
 			}
 			@Override
-			public Adapter caseOrganization(Organization object)
-			{
+			public Adapter caseOrganization(Organization object) {
 				return createOrganizationAdapter();
 			}
 			@Override
-			public Adapter caseIdentity(Identity object)
-			{
+			public Adapter caseIdentity(Identity object) {
 				return createIdentityAdapter();
 			}
 			@Override
-			public Adapter caseAssignableItem(AssignableItem object)
-			{
+			public Adapter caseAssignableItem(AssignableItem object) {
 				return createAssignableItemAdapter();
 			}
 			@Override
-			public Adapter caseCategorizedItem(CategorizedItem object)
-			{
+			public Adapter caseCategorizedItem(CategorizedItem object) {
 				return createCategorizedItemAdapter();
 			}
 			@Override
-			public Adapter caseLinkable(Linkable object)
-			{
+			public Adapter caseLinkable(Linkable object) {
 				return createLinkableAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object)
-			{
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};

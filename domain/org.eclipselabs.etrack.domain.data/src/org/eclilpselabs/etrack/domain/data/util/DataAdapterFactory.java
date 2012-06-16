@@ -48,8 +48,7 @@ public class DataAdapterFactory extends AdapterFactoryImpl
 	 */
 	public DataAdapterFactory()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = DataPackage.eINSTANCE;
 		}
 	}
@@ -65,12 +64,10 @@ public class DataAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage)
-		{
+		if (object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject)
-		{
+		if (object instanceof EObject) {
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -83,41 +80,33 @@ public class DataAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected DataSwitch<Adapter> modelSwitch =
-		new DataSwitch<Adapter>()
-		{
+		new DataSwitch<Adapter>() {
 			@Override
-			public Adapter caseLinkedContent(LinkedContent object)
-			{
+			public Adapter caseLinkedContent(LinkedContent object) {
 				return createLinkedContentAdapter();
 			}
 			@Override
-			public Adapter caseLinkMapping(Map.Entry<String, LinkedContent> object)
-			{
+			public Adapter caseLinkMapping(Map.Entry<String, LinkedContent> object) {
 				return createLinkMappingAdapter();
 			}
 			@Override
-			public Adapter caseLinkable(Linkable object)
-			{
+			public Adapter caseLinkable(Linkable object) {
 				return createLinkableAdapter();
 			}
 			@Override
-			public Adapter caseCategorizedItem(CategorizedItem object)
-			{
+			public Adapter caseCategorizedItem(CategorizedItem object) {
 				return createCategorizedItemAdapter();
 			}
 			@Override
-			public Adapter caseArtifact(Artifact object)
-			{
+			public Adapter caseArtifact(Artifact object) {
 				return createArtifactAdapter();
 			}
 			@Override
-			public Adapter caseResource(Resource object)
-			{
+			public Adapter caseResource(Resource object) {
 				return createResourceAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object)
-			{
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};

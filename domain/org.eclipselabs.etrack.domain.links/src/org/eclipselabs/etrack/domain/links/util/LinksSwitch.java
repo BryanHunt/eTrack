@@ -51,8 +51,7 @@ public class LinksSwitch<T> extends Switch<T>
 	 */
 	public LinksSwitch()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = LinksPackage.eINSTANCE;
 		}
 	}
@@ -81,24 +80,20 @@ public class LinksSwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID)
-		{
-			case LinksPackage.LINKED_CONTENT:
-			{
+		switch (classifierID) {
+			case LinksPackage.LINKED_CONTENT: {
 				LinkedContent linkedContent = (LinkedContent)theEObject;
 				T result = caseLinkedContent(linkedContent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LinksPackage.LINK_MAP:
-			{
+			case LinksPackage.LINK_MAP: {
 				@SuppressWarnings("unchecked") Map.Entry<String, LinkedContent> linkMap = (Map.Entry<String, LinkedContent>)theEObject;
 				T result = caseLinkMap(linkMap);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case LinksPackage.LINKABLE:
-			{
+			case LinksPackage.LINKABLE: {
 				Linkable linkable = (Linkable)theEObject;
 				T result = caseLinkable(linkable);
 				if (result == null) result = defaultCase(theEObject);

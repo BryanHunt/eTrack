@@ -40,8 +40,7 @@ public class AuditSwitch<T> extends Switch<T>
 	 */
 	public AuditSwitch()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = AuditPackage.eINSTANCE;
 		}
 	}
@@ -70,17 +69,14 @@ public class AuditSwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID)
-		{
-			case AuditPackage.ACTION:
-			{
+		switch (classifierID) {
+			case AuditPackage.ACTION: {
 				Action action = (Action)theEObject;
 				T result = caseAction(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AuditPackage.AUDITABLE_ITEM:
-			{
+			case AuditPackage.AUDITABLE_ITEM: {
 				AuditableItem auditableItem = (AuditableItem)theEObject;
 				T result = caseAuditableItem(auditableItem);
 				if (result == null) result = defaultCase(theEObject);

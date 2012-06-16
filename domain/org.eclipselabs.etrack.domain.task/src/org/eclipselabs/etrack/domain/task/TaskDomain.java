@@ -181,8 +181,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 */
 	public EList<State> getStates()
 	{
-		if (states == null)
-		{
+		if (states == null) {
 			states = new EObjectContainmentEList<State>(State.class, this, TaskPackage.TASK_DOMAIN__STATES);
 		}
 		return states;
@@ -204,8 +203,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 */
 	public EList<StateTransition> getTransitions()
 	{
-		if (transitions == null)
-		{
+		if (transitions == null) {
 			transitions = new EObjectContainmentEList<StateTransition>(StateTransition.class, this, TaskPackage.TASK_DOMAIN__TRANSITIONS);
 		}
 		return transitions;
@@ -227,8 +225,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 */
 	public EList<TaskType> getTaskTypes()
 	{
-		if (taskTypes == null)
-		{
+		if (taskTypes == null) {
 			taskTypes = new EObjectContainmentEList<TaskType>(TaskType.class, this, TaskPackage.TASK_DOMAIN__TASK_TYPES);
 		}
 		return taskTypes;
@@ -250,8 +247,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 */
 	public EList<StateGroup> getStateGroups()
 	{
-		if (stateGroups == null)
-		{
+		if (stateGroups == null) {
 			stateGroups = new EObjectContainmentEList<StateGroup>(StateGroup.class, this, TaskPackage.TASK_DOMAIN__STATE_GROUPS);
 		}
 		return stateGroups;
@@ -265,8 +261,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.TASK_DOMAIN__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
@@ -287,8 +282,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.TASK_DOMAIN__NAME:
 				return getName();
 			case TaskPackage.TASK_DOMAIN__STATES:
@@ -312,8 +306,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.TASK_DOMAIN__NAME:
 				setName((String)newValue);
 				return;
@@ -345,8 +338,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.TASK_DOMAIN__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -374,8 +366,7 @@ public class TaskDomain extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.TASK_DOMAIN__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TaskPackage.TASK_DOMAIN__STATES:

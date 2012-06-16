@@ -44,8 +44,7 @@ public class ProjectSwitch<T> extends Switch<T>
 	 */
 	public ProjectSwitch()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = ProjectPackage.eINSTANCE;
 		}
 	}
@@ -74,18 +73,15 @@ public class ProjectSwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID)
-		{
-			case ProjectPackage.PROJECT:
-			{
+		switch (classifierID) {
+			case ProjectPackage.PROJECT: {
 				Project project = (Project)theEObject;
 				T result = caseProject(project);
 				if (result == null) result = caseLinkable(project);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ProjectPackage.TEAM:
-			{
+			case ProjectPackage.TEAM: {
 				Team team = (Team)theEObject;
 				T result = caseTeam(team);
 				if (result == null) result = casePermissionGroup(team);

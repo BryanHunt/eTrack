@@ -37,8 +37,7 @@ public class AuditAdapterFactory extends AdapterFactoryImpl
 	 */
 	public AuditAdapterFactory()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = AuditPackage.eINSTANCE;
 		}
 	}
@@ -54,12 +53,10 @@ public class AuditAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage)
-		{
+		if (object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject)
-		{
+		if (object instanceof EObject) {
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -72,21 +69,17 @@ public class AuditAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected AuditSwitch<Adapter> modelSwitch =
-		new AuditSwitch<Adapter>()
-		{
+		new AuditSwitch<Adapter>() {
 			@Override
-			public Adapter caseAction(Action object)
-			{
+			public Adapter caseAction(Action object) {
 				return createActionAdapter();
 			}
 			@Override
-			public Adapter caseAuditableItem(AuditableItem object)
-			{
+			public Adapter caseAuditableItem(AuditableItem object) {
 				return createAuditableItemAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object)
-			{
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};

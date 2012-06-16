@@ -48,8 +48,7 @@ public class LinksAdapterFactory extends AdapterFactoryImpl
 	 */
 	public LinksAdapterFactory()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = LinksPackage.eINSTANCE;
 		}
 	}
@@ -65,12 +64,10 @@ public class LinksAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage)
-		{
+		if (object == modelPackage) {
 			return true;
 		}
-		if (object instanceof EObject)
-		{
+		if (object instanceof EObject) {
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -83,26 +80,21 @@ public class LinksAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected LinksSwitch<Adapter> modelSwitch =
-		new LinksSwitch<Adapter>()
-		{
+		new LinksSwitch<Adapter>() {
 			@Override
-			public Adapter caseLinkedContent(LinkedContent object)
-			{
+			public Adapter caseLinkedContent(LinkedContent object) {
 				return createLinkedContentAdapter();
 			}
 			@Override
-			public Adapter caseLinkMap(Map.Entry<String, LinkedContent> object)
-			{
+			public Adapter caseLinkMap(Map.Entry<String, LinkedContent> object) {
 				return createLinkMapAdapter();
 			}
 			@Override
-			public Adapter caseLinkable(Linkable object)
-			{
+			public Adapter caseLinkable(Linkable object) {
 				return createLinkableAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object)
-			{
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};

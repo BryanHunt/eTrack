@@ -177,8 +177,7 @@ public abstract class LinkedContent extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case LinksPackage.LINKED_CONTENT__NAME:
 				return getName();
 			case LinksPackage.LINKED_CONTENT__DESCRIPTION:
@@ -195,8 +194,7 @@ public abstract class LinkedContent extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case LinksPackage.LINKED_CONTENT__NAME:
 				setName((String)newValue);
 				return;
@@ -215,8 +213,7 @@ public abstract class LinkedContent extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case LinksPackage.LINKED_CONTENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -235,8 +232,7 @@ public abstract class LinkedContent extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case LinksPackage.LINKED_CONTENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case LinksPackage.LINKED_CONTENT__DESCRIPTION:

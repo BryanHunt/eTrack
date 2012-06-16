@@ -137,12 +137,10 @@ public class Attachment extends Artifact implements AssignableItem
 	 */
 	public Person getOwner()
 	{
-		if (owner != null && owner.eIsProxy())
-		{
+		if (owner != null && owner.eIsProxy()) {
 			InternalEObject oldOwner = (InternalEObject)owner;
 			owner = (Person)eResolveProxy(oldOwner);
-			if (owner != oldOwner)
-			{
+			if (owner != oldOwner) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.ATTACHMENT__OWNER, oldOwner, owner));
 			}
@@ -274,8 +272,7 @@ public class Attachment extends Artifact implements AssignableItem
 	{
 		AttachmentData oldDataContainer = dataContainer;
 		dataContainer = newDataContainer;
-		if (eNotificationRequired())
-		{
+		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, newDataContainer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -292,8 +289,7 @@ public class Attachment extends Artifact implements AssignableItem
 	 */
 	public void setDataContainer(AttachmentData newDataContainer)
 	{
-		if (newDataContainer != dataContainer)
-		{
+		if (newDataContainer != dataContainer) {
 			NotificationChain msgs = null;
 			if (dataContainer != null)
 				msgs = ((InternalEObject)dataContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, msgs);
@@ -314,8 +310,7 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				return basicSetDataContainer(null, msgs);
 		}
@@ -330,8 +325,7 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.ATTACHMENT__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
@@ -353,8 +347,7 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.ATTACHMENT__OWNER:
 				setOwner((Person)newValue);
 				return;
@@ -379,8 +372,7 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.ATTACHMENT__OWNER:
 				setOwner((Person)null);
 				return;
@@ -405,8 +397,7 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case TaskPackage.ATTACHMENT__OWNER:
 				return owner != null;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
@@ -427,10 +418,8 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == AssignableItem.class)
-		{
-			switch (derivedFeatureID)
-			{
+		if (baseClass == AssignableItem.class) {
+			switch (derivedFeatureID) {
 				case TaskPackage.ATTACHMENT__OWNER: return EntityPackage.ASSIGNABLE_ITEM__OWNER;
 				default: return -1;
 			}
@@ -446,10 +435,8 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == AssignableItem.class)
-		{
-			switch (baseFeatureID)
-			{
+		if (baseClass == AssignableItem.class) {
+			switch (baseFeatureID) {
 				case EntityPackage.ASSIGNABLE_ITEM__OWNER: return TaskPackage.ATTACHMENT__OWNER;
 				default: return -1;
 			}

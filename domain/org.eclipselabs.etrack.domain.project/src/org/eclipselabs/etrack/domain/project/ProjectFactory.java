@@ -34,16 +34,13 @@ public class ProjectFactory extends EFactoryImpl
 	 */
 	public static ProjectFactory init()
 	{
-		try
-		{
+		try {
 			ProjectFactory theProjectFactory = (ProjectFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/project"); 
-			if (theProjectFactory != null)
-			{
+			if (theProjectFactory != null) {
 				return theProjectFactory;
 			}
 		}
-		catch (Exception exception)
-		{
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ProjectFactory();
@@ -68,8 +65,7 @@ public class ProjectFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID())
-		{
+		switch (eClass.getClassifierID()) {
 			case ProjectPackage.PROJECT: return createProject();
 			case ProjectPackage.TEAM: return createTeam();
 			default:

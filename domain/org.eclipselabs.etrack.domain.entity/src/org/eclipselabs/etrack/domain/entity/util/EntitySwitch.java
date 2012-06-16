@@ -58,8 +58,7 @@ public class EntitySwitch<T> extends Switch<T>
 	 */
 	public EntitySwitch()
 	{
-		if (modelPackage == null)
-		{
+		if (modelPackage == null) {
 			modelPackage = EntityPackage.eINSTANCE;
 		}
 	}
@@ -88,26 +87,22 @@ public class EntitySwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID)
-		{
-			case EntityPackage.ADDRESS:
-			{
+		switch (classifierID) {
+			case EntityPackage.ADDRESS: {
 				Address address = (Address)theEObject;
 				T result = caseAddress(address);
 				if (result == null) result = caseCategorizedItem(address);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.EMAIL:
-			{
+			case EntityPackage.EMAIL: {
 				Email email = (Email)theEObject;
 				T result = caseEmail(email);
 				if (result == null) result = caseCategorizedItem(email);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.ENTITY:
-			{
+			case EntityPackage.ENTITY: {
 				Entity entity = (Entity)theEObject;
 				T result = caseEntity(entity);
 				if (result == null) result = caseIdentity(entity);
@@ -115,16 +110,14 @@ public class EntitySwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.GROUP:
-			{
+			case EntityPackage.GROUP: {
 				Group group = (Group)theEObject;
 				T result = caseGroup(group);
 				if (result == null) result = caseIdentity(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.PERSON:
-			{
+			case EntityPackage.PERSON: {
 				Person person = (Person)theEObject;
 				T result = casePerson(person);
 				if (result == null) result = caseEntity(person);
@@ -133,16 +126,14 @@ public class EntitySwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.PHONE:
-			{
+			case EntityPackage.PHONE: {
 				Phone phone = (Phone)theEObject;
 				T result = casePhone(phone);
 				if (result == null) result = caseCategorizedItem(phone);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.ORGANIZATION:
-			{
+			case EntityPackage.ORGANIZATION: {
 				Organization organization = (Organization)theEObject;
 				T result = caseOrganization(organization);
 				if (result == null) result = caseEntity(organization);
@@ -152,15 +143,13 @@ public class EntitySwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.IDENTITY:
-			{
+			case EntityPackage.IDENTITY: {
 				Identity identity = (Identity)theEObject;
 				T result = caseIdentity(identity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EntityPackage.ASSIGNABLE_ITEM:
-			{
+			case EntityPackage.ASSIGNABLE_ITEM: {
 				AssignableItem assignableItem = (AssignableItem)theEObject;
 				T result = caseAssignableItem(assignableItem);
 				if (result == null) result = defaultCase(theEObject);

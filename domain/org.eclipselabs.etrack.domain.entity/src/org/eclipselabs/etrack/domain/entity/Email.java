@@ -174,8 +174,7 @@ public class Email extends EObjectImpl implements CategorizedItem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case EntityPackage.EMAIL__CATEGORY:
 				return getCategory();
 			case EntityPackage.EMAIL__ADDRESS:
@@ -192,8 +191,7 @@ public class Email extends EObjectImpl implements CategorizedItem
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case EntityPackage.EMAIL__CATEGORY:
 				setCategory((String)newValue);
 				return;
@@ -212,8 +210,7 @@ public class Email extends EObjectImpl implements CategorizedItem
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case EntityPackage.EMAIL__CATEGORY:
 				setCategory(CATEGORY_EDEFAULT);
 				return;
@@ -232,8 +229,7 @@ public class Email extends EObjectImpl implements CategorizedItem
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID)
-		{
+		switch (featureID) {
 			case EntityPackage.EMAIL__CATEGORY:
 				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 			case EntityPackage.EMAIL__ADDRESS:
