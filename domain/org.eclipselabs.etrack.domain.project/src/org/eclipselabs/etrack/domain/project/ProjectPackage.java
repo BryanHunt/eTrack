@@ -2,15 +2,13 @@
  */
 package org.eclipselabs.etrack.domain.project;
 
+import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipselabs.etrack.domain.entity.EntityPackage;
-
 import org.eclipselabs.etrack.domain.security.SecurityPackage;
 
 /**
@@ -73,13 +71,22 @@ public class ProjectPackage extends EPackageImpl
 	public static final int PROJECT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Links By Name</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PROJECT__LINKS_BY_NAME = DataPackage.LINKABLE__LINKS_BY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Teams</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROJECT__TEAMS = 0;
+	public static final int PROJECT__TEAMS = DataPackage.LINKABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -88,7 +95,7 @@ public class ProjectPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROJECT__NAME = 1;
+	public static final int PROJECT__NAME = DataPackage.LINKABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Admins</b></em>' reference list.
@@ -97,7 +104,7 @@ public class ProjectPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROJECT__ADMINS = 2;
+	public static final int PROJECT__ADMINS = DataPackage.LINKABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Project</em>' class.
@@ -106,7 +113,7 @@ public class ProjectPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PROJECT_FEATURE_COUNT = 3;
+	public static final int PROJECT_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.project.Team <em>Team</em>}' class.
@@ -392,6 +399,7 @@ public class ProjectPackage extends EPackageImpl
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		DataPackage theDataPackage = (DataPackage)EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage(SecurityPackage.eNS_URI);
 
@@ -400,6 +408,7 @@ public class ProjectPackage extends EPackageImpl
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		projectEClass.getESuperTypes().add(theDataPackage.getLinkable());
 		teamEClass.getESuperTypes().add(theSecurityPackage.getPermissionGroup());
 
 		// Initialize classes and features; add operations and parameters

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2011 Bryan Hunt.&#xA;&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;   Bryan Hunt - initial API and implementation"
     modelDirectory="/org.eclipselabs.etrack.domain.entity/src" modelPluginID="org.eclipselabs.etrack.domain.entity"
     modelName="Entity" suppressInterfaces="true" importerID="org.eclipse.emf.importer.ecore"
-    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipselabs.etrack.domain.links/model/links.genmodel#//links">
+    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipselabs.etrack.domain.data/model/data.genmodel#//data">
   <foreignModel>entity.ecore</foreignModel>
   <genPackages prefix="Entity" basePackage="org.eclipselabs.etrack.domain" disposableProviderFactory="true"
       ecorePackage="entity.ecore#/">
@@ -23,12 +22,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entity.ecore#//Entity/emails"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entity.ecore#//Entity/phoneNumbers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entity.ecore#//Entity/addresses"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference entity.ecore#//Entity/links"/>
     </genClasses>
     <genClasses ecoreClass="entity.ecore#//Group">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entity.ecore#//Group/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entity.ecore#//Group/members"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entity.ecore#//Group/admins"/>
     </genClasses>
     <genClasses ecoreClass="entity.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entity.ecore#//Person/firstName"/>
@@ -37,8 +34,12 @@
     <genClasses ecoreClass="entity.ecore#//Phone">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entity.ecore#//Phone/number"/>
     </genClasses>
-    <genClasses ecoreClass="entity.ecore#//CategorizedItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute entity.ecore#//CategorizedItem/category"/>
+    <genClasses ecoreClass="entity.ecore#//Organization"/>
+    <genClasses image="false" ecoreClass="entity.ecore#//Identity">
+      <genOperations ecoreOperation="entity.ecore#//Identity/getDisplayName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="entity.ecore#//AssignableItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference entity.ecore#//AssignableItem/owner"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -16,6 +16,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipselabs.etrack.domain.entity.AssignableItem;
+import org.eclipselabs.etrack.domain.entity.EntityPackage;
 import org.eclipselabs.etrack.domain.entity.Person;
 
 /**
@@ -130,7 +132,7 @@ public class Attachment extends Artifact implements AssignableItem
 	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(Person)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem_Owner()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	public Person getOwner()
@@ -255,37 +257,10 @@ public class Attachment extends Artifact implements AssignableItem
 	 * @return the value of the '<em>Data Container</em>' containment reference.
 	 * @see #setDataContainer(AttachmentData)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_DataContainer()
-	 * @model containment="true" resolveProxies="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	public AttachmentData getDataContainer()
-	{
-		if (dataContainer != null && dataContainer.eIsProxy())
-		{
-			InternalEObject oldDataContainer = (InternalEObject)dataContainer;
-			dataContainer = (AttachmentData)eResolveProxy(oldDataContainer);
-			if (dataContainer != oldDataContainer)
-			{
-				InternalEObject newDataContainer = (InternalEObject)dataContainer;
-				NotificationChain msgs = oldDataContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, null);
-				if (newDataContainer.eInternalContainer() == null)
-				{
-					msgs = newDataContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, dataContainer));
-			}
-		}
-		return dataContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AttachmentData basicGetDataContainer()
 	{
 		return dataContainer;
 	}
@@ -365,8 +340,7 @@ public class Attachment extends Artifact implements AssignableItem
 			case TaskPackage.ATTACHMENT__SIZE:
 				return getSize();
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
-				if (resolve) return getDataContainer();
-				return basicGetDataContainer();
+				return getDataContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -457,7 +431,7 @@ public class Attachment extends Artifact implements AssignableItem
 		{
 			switch (derivedFeatureID)
 			{
-				case TaskPackage.ATTACHMENT__OWNER: return TaskPackage.ASSIGNABLE_ITEM__OWNER;
+				case TaskPackage.ATTACHMENT__OWNER: return EntityPackage.ASSIGNABLE_ITEM__OWNER;
 				default: return -1;
 			}
 		}
@@ -476,7 +450,7 @@ public class Attachment extends Artifact implements AssignableItem
 		{
 			switch (baseFeatureID)
 			{
-				case TaskPackage.ASSIGNABLE_ITEM__OWNER: return TaskPackage.ATTACHMENT__OWNER;
+				case EntityPackage.ASSIGNABLE_ITEM__OWNER: return TaskPackage.ATTACHMENT__OWNER;
 				default: return -1;
 			}
 		}

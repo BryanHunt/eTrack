@@ -1,19 +1,7 @@
 /**
- * Copyright (c) 2011 Bryan Hunt.
- * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Bryan Hunt - initial API and implementation
  */
 package org.eclipselabs.etrack.domain.task;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -86,14 +74,12 @@ public class TaskFactory extends EFactoryImpl
 			case TaskPackage.ATTACHMENT_DATA: return createAttachmentData();
 			case TaskPackage.ARTIFACT: return createArtifact();
 			case TaskPackage.COMMENT: return createComment();
-			case TaskPackage.STATE: return createState();
-			case TaskPackage.STATE_HISTORY: return createStateHistory();
-			case TaskPackage.STATE_TRANSITION: return createStateTransition();
-			case TaskPackage.STATE_TRANSITION_MAP: return (EObject)createStateTransitionMap();
 			case TaskPackage.TASK: return createTask();
 			case TaskPackage.TASK_DOMAIN: return createTaskDomain();
 			case TaskPackage.TASK_TYPE: return createTaskType();
 			case TaskPackage.TASK_MODEL_VERSION: return createTaskModelVersion();
+			case TaskPackage.TASK_ATTRIBUTE_CHANGE: return createTaskAttributeChange();
+			case TaskPackage.TASK_DOMAIN_LINK: return createTaskDomainLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -104,10 +90,10 @@ public class TaskFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task createTask()
+	public Attachment createAttachment()
 	{
-		Task task = new Task();
-		return task;
+		Attachment attachment = new Attachment();
+		return attachment;
 	}
 
 	/**
@@ -115,10 +101,10 @@ public class TaskFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public State createState()
+	public AttachmentData createAttachmentData()
 	{
-		State state = new State();
-		return state;
+		AttachmentData attachmentData = new AttachmentData();
+		return attachmentData;
 	}
 
 	/**
@@ -126,32 +112,10 @@ public class TaskFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StateHistory createStateHistory()
+	public Artifact createArtifact()
 	{
-		StateHistory stateHistory = new StateHistory();
-		return stateHistory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StateTransition createStateTransition()
-	{
-		StateTransition stateTransition = new StateTransition();
-		return stateTransition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TaskDomain createTaskDomain()
-	{
-		TaskDomain taskDomain = new TaskDomain();
-		return taskDomain;
+		Artifact artifact = new Artifact();
+		return artifact;
 	}
 
 	/**
@@ -170,10 +134,21 @@ public class TaskFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attachment createAttachment()
+	public Task createTask()
 	{
-		Attachment attachment = new Attachment();
-		return attachment;
+		Task task = new Task();
+		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskDomain createTaskDomain()
+	{
+		TaskDomain taskDomain = new TaskDomain();
+		return taskDomain;
 	}
 
 	/**
@@ -203,10 +178,10 @@ public class TaskFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Map.Entry<State, EList<StateTransition>> createStateTransitionMap()
+	public TaskAttributeChange createTaskAttributeChange()
 	{
-		StateTransitionMap stateTransitionMap = new StateTransitionMap();
-		return stateTransitionMap;
+		TaskAttributeChange taskAttributeChange = new TaskAttributeChange();
+		return taskAttributeChange;
 	}
 
 	/**
@@ -214,21 +189,10 @@ public class TaskFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AttachmentData createAttachmentData()
+	public TaskDomainLink createTaskDomainLink()
 	{
-		AttachmentData attachmentData = new AttachmentData();
-		return attachmentData;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Artifact createArtifact()
-	{
-		Artifact artifact = new Artifact();
-		return artifact;
+		TaskDomainLink taskDomainLink = new TaskDomainLink();
+		return taskDomainLink;
 	}
 
 	/**

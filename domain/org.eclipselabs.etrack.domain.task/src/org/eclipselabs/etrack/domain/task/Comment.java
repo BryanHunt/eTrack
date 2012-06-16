@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipselabs.etrack.domain.entity.AssignableItem;
 import org.eclipselabs.etrack.domain.entity.Person;
 
 /**
@@ -29,7 +30,7 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Comment#getText <em>Text</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Comment#getCreated <em>Created</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Comment#getCreatedOn <em>Created On</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,24 +71,24 @@ public class Comment extends EObjectImpl implements AssignableItem
 	protected String text = TEXT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The default value of the '{@link #getCreatedOn() <em>Created On</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date CREATED_EDEFAULT = null;
+	protected static final Date CREATED_ON_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreated() <em>Created</em>}' attribute.
+	 * The cached value of the '{@link #getCreatedOn() <em>Created On</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCreated()
+	 * @see #getCreatedOn()
 	 * @generated
 	 * @ordered
 	 */
-	protected Date created = CREATED_EDEFAULT;
+	protected Date createdOn = CREATED_ON_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +122,7 @@ public class Comment extends EObjectImpl implements AssignableItem
 	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(Person)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAssignableItem_Owner()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	public Person getOwner()
@@ -201,38 +202,38 @@ public class Comment extends EObjectImpl implements AssignableItem
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Created</b></em>' attribute.
+	 * Returns the value of the '<em><b>Created On</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Created</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Created On</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Created</em>' attribute.
-	 * @see #setCreated(Date)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment_Created()
+	 * @return the value of the '<em>Created On</em>' attribute.
+	 * @see #setCreatedOn(Date)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getComment_CreatedOn()
 	 * @model required="true"
 	 * @generated
 	 */
-	public Date getCreated()
+	public Date getCreatedOn()
 	{
-		return created;
+		return createdOn;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Comment#getCreated <em>Created</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Comment#getCreatedOn <em>Created On</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' attribute.
-	 * @see #getCreated()
+	 * @param value the new value of the '<em>Created On</em>' attribute.
+	 * @see #getCreatedOn()
 	 * @generated
 	 */
-	public void setCreated(Date newCreated)
+	public void setCreatedOn(Date newCreatedOn)
 	{
-		Date oldCreated = created;
-		created = newCreated;
+		Date oldCreatedOn = createdOn;
+		createdOn = newCreatedOn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.COMMENT__CREATED, oldCreated, created));
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.COMMENT__CREATED_ON, oldCreatedOn, createdOn));
 	}
 
 	/**
@@ -250,8 +251,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 				return basicGetOwner();
 			case TaskPackage.COMMENT__TEXT:
 				return getText();
-			case TaskPackage.COMMENT__CREATED:
-				return getCreated();
+			case TaskPackage.COMMENT__CREATED_ON:
+				return getCreatedOn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,8 +273,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 			case TaskPackage.COMMENT__TEXT:
 				setText((String)newValue);
 				return;
-			case TaskPackage.COMMENT__CREATED:
-				setCreated((Date)newValue);
+			case TaskPackage.COMMENT__CREATED_ON:
+				setCreatedOn((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,8 +296,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 			case TaskPackage.COMMENT__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
-			case TaskPackage.COMMENT__CREATED:
-				setCreated(CREATED_EDEFAULT);
+			case TaskPackage.COMMENT__CREATED_ON:
+				setCreatedOn(CREATED_ON_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -316,8 +317,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 				return owner != null;
 			case TaskPackage.COMMENT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
-			case TaskPackage.COMMENT__CREATED:
-				return CREATED_EDEFAULT == null ? created != null : !CREATED_EDEFAULT.equals(created);
+			case TaskPackage.COMMENT__CREATED_ON:
+				return CREATED_ON_EDEFAULT == null ? createdOn != null : !CREATED_ON_EDEFAULT.equals(createdOn);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -335,8 +336,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (text: ");
 		result.append(text);
-		result.append(", created: ");
-		result.append(created);
+		result.append(", createdOn: ");
+		result.append(createdOn);
 		result.append(')');
 		return result.toString();
 	}

@@ -11,12 +11,12 @@
  */
 package org.eclipselabs.etrack.domain.entity;
 
+import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipselabs.etrack.domain.links.LinksPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,34 +68,6 @@ public class EntityPackage extends EPackageImpl
 	public static final EntityPackage eINSTANCE = org.eclipselabs.etrack.domain.entity.EntityPackage.init();
 
 	/**
-	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem <em>Categorized Item</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem
-	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem()
-	 * @generated
-	 */
-	public static final int CATEGORIZED_ITEM = 6;
-
-	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CATEGORIZED_ITEM__CATEGORY = 0;
-
-	/**
-	 * The number of structural features of the '<em>Categorized Item</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int CATEGORIZED_ITEM_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Address <em>Address</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,7 +84,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__CATEGORY = CATEGORIZED_ITEM__CATEGORY;
+	public static final int ADDRESS__CATEGORY = DataPackage.CATEGORIZED_ITEM__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Street</b></em>' attribute.
@@ -121,7 +93,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__STREET = CATEGORIZED_ITEM_FEATURE_COUNT + 0;
+	public static final int ADDRESS__STREET = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Additional</b></em>' attribute.
@@ -130,7 +102,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__ADDITIONAL = CATEGORIZED_ITEM_FEATURE_COUNT + 1;
+	public static final int ADDRESS__ADDITIONAL = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>City</b></em>' attribute.
@@ -139,7 +111,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__CITY = CATEGORIZED_ITEM_FEATURE_COUNT + 2;
+	public static final int ADDRESS__CITY = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -148,7 +120,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__STATE = CATEGORIZED_ITEM_FEATURE_COUNT + 3;
+	public static final int ADDRESS__STATE = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Zip</b></em>' attribute.
@@ -157,7 +129,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__ZIP = CATEGORIZED_ITEM_FEATURE_COUNT + 4;
+	public static final int ADDRESS__ZIP = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Country</b></em>' attribute.
@@ -166,7 +138,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS__COUNTRY = CATEGORIZED_ITEM_FEATURE_COUNT + 5;
+	public static final int ADDRESS__COUNTRY = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Address</em>' class.
@@ -175,7 +147,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ADDRESS_FEATURE_COUNT = CATEGORIZED_ITEM_FEATURE_COUNT + 6;
+	public static final int ADDRESS_FEATURE_COUNT = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Email <em>Email</em>}' class.
@@ -194,7 +166,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EMAIL__CATEGORY = CATEGORIZED_ITEM__CATEGORY;
+	public static final int EMAIL__CATEGORY = DataPackage.CATEGORIZED_ITEM__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
@@ -203,7 +175,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EMAIL__ADDRESS = CATEGORIZED_ITEM_FEATURE_COUNT + 0;
+	public static final int EMAIL__ADDRESS = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Email</em>' class.
@@ -212,7 +184,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EMAIL_FEATURE_COUNT = CATEGORIZED_ITEM_FEATURE_COUNT + 1;
+	public static final int EMAIL_FEATURE_COUNT = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Identity <em>Identity</em>}' class.
@@ -222,7 +194,7 @@ public class EntityPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getIdentity()
 	 * @generated
 	 */
-	public static final int IDENTITY = 8;
+	public static final int IDENTITY = 7;
 
 	/**
 	 * The number of structural features of the '<em>Identity</em>' class.
@@ -244,13 +216,13 @@ public class EntityPackage extends EPackageImpl
 	public static final int ENTITY = 2;
 
 	/**
-	 * The feature id for the '<em><b>Links</b></em>' map.
+	 * The feature id for the '<em><b>Links By Name</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENTITY__LINKS = IDENTITY_FEATURE_COUNT + 0;
+	public static final int ENTITY__LINKS_BY_NAME = IDENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Emails</b></em>' containment reference list.
@@ -336,13 +308,13 @@ public class EntityPackage extends EPackageImpl
 	public static final int PERSON = 4;
 
 	/**
-	 * The feature id for the '<em><b>Links</b></em>' map.
+	 * The feature id for the '<em><b>Links By Name</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PERSON__LINKS = ENTITY__LINKS;
+	public static final int PERSON__LINKS_BY_NAME = ENTITY__LINKS_BY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Emails</b></em>' containment reference list.
@@ -415,7 +387,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PHONE__CATEGORY = CATEGORIZED_ITEM__CATEGORY;
+	public static final int PHONE__CATEGORY = DataPackage.CATEGORIZED_ITEM__CATEGORY;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -424,7 +396,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PHONE__NUMBER = CATEGORIZED_ITEM_FEATURE_COUNT + 0;
+	public static final int PHONE__NUMBER = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Phone</em>' class.
@@ -433,7 +405,7 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PHONE_FEATURE_COUNT = CATEGORIZED_ITEM_FEATURE_COUNT + 1;
+	public static final int PHONE_FEATURE_COUNT = DataPackage.CATEGORIZED_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.Organization <em>Organization</em>}' class.
@@ -443,16 +415,16 @@ public class EntityPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getOrganization()
 	 * @generated
 	 */
-	public static final int ORGANIZATION = 7;
+	public static final int ORGANIZATION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Links</b></em>' map.
+	 * The feature id for the '<em><b>Links By Name</b></em>' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ORGANIZATION__LINKS = ENTITY__LINKS;
+	public static final int ORGANIZATION__LINKS_BY_NAME = ENTITY__LINKS_BY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Emails</b></em>' containment reference list.
@@ -509,6 +481,34 @@ public class EntityPackage extends EPackageImpl
 	public static final int ORGANIZATION_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.entity.AssignableItem <em>Assignable Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.entity.AssignableItem
+	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getAssignableItem()
+	 * @generated
+	 */
+	public static final int ASSIGNABLE_ITEM = 8;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ASSIGNABLE_ITEM__OWNER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Assignable Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ASSIGNABLE_ITEM_FEATURE_COUNT = 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -555,13 +555,6 @@ public class EntityPackage extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass categorizedItemEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass organizationEClass = null;
 
 	/**
@@ -570,6 +563,13 @@ public class EntityPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass identityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assignableItemEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -620,7 +620,7 @@ public class EntityPackage extends EPackageImpl
 		isInited = true;
 
 		// Initialize simple dependencies
-		LinksPackage.eINSTANCE.eClass();
+		DataPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theEntityPackage.createPackageContents();
@@ -927,33 +927,6 @@ public class EntityPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem <em>Categorized Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Categorized Item</em>'.
-	 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem
-	 * @generated
-	 */
-	public EClass getCategorizedItem()
-	{
-		return categorizedItemEClass;
-	}
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory <em>Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Category</em>'.
-	 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem#getCategory()
-	 * @see #getCategorizedItem()
-	 * @generated
-	 */
-	public EAttribute getCategorizedItem_Category()
-	{
-		return (EAttribute)categorizedItemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.entity.Organization <em>Organization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,6 +951,35 @@ public class EntityPackage extends EPackageImpl
 	public EClass getIdentity()
 	{
 		return identityEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.entity.AssignableItem <em>Assignable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assignable Item</em>'.
+	 * @see org.eclipselabs.etrack.domain.entity.AssignableItem
+	 * @generated
+	 */
+	public EClass getAssignableItem()
+	{
+		return assignableItemEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.entity.AssignableItem#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Owner</em>'.
+	 * @see org.eclipselabs.etrack.domain.entity.AssignableItem#getOwner()
+	 * @see #getAssignableItem()
+	 * @generated
+	 */
+	public EReference getAssignableItem_Owner()
+	{
+		return (EReference)assignableItemEClass.getEStructuralFeatures().get(0);
 	}
 
 
@@ -1040,12 +1042,12 @@ public class EntityPackage extends EPackageImpl
 		phoneEClass = createEClass(PHONE);
 		createEAttribute(phoneEClass, PHONE__NUMBER);
 
-		categorizedItemEClass = createEClass(CATEGORIZED_ITEM);
-		createEAttribute(categorizedItemEClass, CATEGORIZED_ITEM__CATEGORY);
-
 		organizationEClass = createEClass(ORGANIZATION);
 
 		identityEClass = createEClass(IDENTITY);
+
+		assignableItemEClass = createEClass(ASSIGNABLE_ITEM);
+		createEReference(assignableItemEClass, ASSIGNABLE_ITEM__OWNER);
 	}
 
 	/**
@@ -1073,20 +1075,20 @@ public class EntityPackage extends EPackageImpl
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		LinksPackage theLinksPackage = (LinksPackage)EPackage.Registry.INSTANCE.getEPackage(LinksPackage.eNS_URI);
+		DataPackage theDataPackage = (DataPackage)EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		addressEClass.getESuperTypes().add(this.getCategorizedItem());
-		emailEClass.getESuperTypes().add(this.getCategorizedItem());
+		addressEClass.getESuperTypes().add(theDataPackage.getCategorizedItem());
+		emailEClass.getESuperTypes().add(theDataPackage.getCategorizedItem());
 		entityEClass.getESuperTypes().add(this.getIdentity());
-		entityEClass.getESuperTypes().add(theLinksPackage.getLinkable());
+		entityEClass.getESuperTypes().add(theDataPackage.getLinkable());
 		groupEClass.getESuperTypes().add(this.getIdentity());
 		personEClass.getESuperTypes().add(this.getEntity());
-		phoneEClass.getESuperTypes().add(this.getCategorizedItem());
+		phoneEClass.getESuperTypes().add(theDataPackage.getCategorizedItem());
 		organizationEClass.getESuperTypes().add(this.getEntity());
 		organizationEClass.getESuperTypes().add(this.getGroup());
 
@@ -1118,12 +1120,14 @@ public class EntityPackage extends EPackageImpl
 		initEClass(phoneEClass, Phone.class, "Phone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPhone_Number(), ecorePackage.getEString(), "number", null, 0, 1, Phone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(categorizedItemEClass, CategorizedItem.class, "CategorizedItem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCategorizedItem_Category(), ecorePackage.getEString(), "category", null, 0, 1, CategorizedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(organizationEClass, Organization.class, "Organization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(identityEClass, Identity.class, "Identity", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(identityEClass, ecorePackage.getEString(), "getDisplayName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(assignableItemEClass, AssignableItem.class, "AssignableItem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAssignableItem_Owner(), this.getPerson(), null, "owner", null, 0, 1, AssignableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1324,24 +1328,6 @@ public class EntityPackage extends EPackageImpl
 		public static final EAttribute PHONE__NUMBER = eINSTANCE.getPhone_Number();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.entity.CategorizedItem <em>Categorized Item</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipselabs.etrack.domain.entity.CategorizedItem
-		 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem()
-		 * @generated
-		 */
-		public static final EClass CATEGORIZED_ITEM = eINSTANCE.getCategorizedItem();
-
-		/**
-		 * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EAttribute CATEGORIZED_ITEM__CATEGORY = eINSTANCE.getCategorizedItem_Category();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.entity.Organization <em>Organization</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1360,6 +1346,24 @@ public class EntityPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EClass IDENTITY = eINSTANCE.getIdentity();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.entity.AssignableItem <em>Assignable Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.entity.AssignableItem
+		 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getAssignableItem()
+		 * @generated
+		 */
+		public static final EClass ASSIGNABLE_ITEM = eINSTANCE.getAssignableItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference ASSIGNABLE_ITEM__OWNER = eINSTANCE.getAssignableItem_Owner();
 
 	}
 

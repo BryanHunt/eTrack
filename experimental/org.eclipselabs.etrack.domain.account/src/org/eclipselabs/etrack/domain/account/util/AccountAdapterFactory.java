@@ -13,12 +13,12 @@ package org.eclipselabs.etrack.domain.account.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipselabs.etrack.domain.account.*;
+import org.eclipselabs.etrack.domain.account.Account;
+import org.eclipselabs.etrack.domain.account.AccountPackage;
+import org.eclipselabs.etrack.domain.account.AccountRequest;
+import org.eclipselabs.etrack.domain.account.LocalAccount;
 
 /**
  * <!-- begin-user-doc -->

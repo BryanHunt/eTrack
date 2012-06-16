@@ -25,4 +25,12 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Identity extends EObject
 {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getDisplayName();
 } // Identity

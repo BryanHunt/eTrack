@@ -25,6 +25,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipselabs.etrack.domain.state.State;
+import org.eclipselabs.etrack.domain.state.StatePackage;
+import org.eclipselabs.etrack.domain.state.StateTransition;
+import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStates <em>States</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getExtension <em>Extension</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingState <em>Starting State</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +90,16 @@ public class TaskType extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EPackage extension;
+
+	/**
+	 * The cached value of the '{@link #getStartingState() <em>Starting State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartingState()
+	 * @generated
+	 * @ordered
+	 */
+	protected State startingState;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,8 +159,8 @@ public class TaskType extends EObjectImpl implements EObject
 
 	/**
 	 * Returns the value of the '<em><b>States</b></em>' map.
-	 * The key is of type {@link org.eclipselabs.etrack.domain.task.State},
-	 * and the value is of type list of {@link org.eclipselabs.etrack.domain.task.StateTransition},
+	 * The key is of type {@link org.eclipselabs.etrack.domain.state.State},
+	 * and the value is of type list of {@link org.eclipselabs.etrack.domain.state.StateTransition},
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>States</em>' reference list isn't clear, there really should be more
@@ -154,14 +169,14 @@ public class TaskType extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' map.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_States()
-	 * @model mapType="org.eclipselabs.etrack.domain.task.StateTransitionMap<org.eclipselabs.etrack.domain.task.State, org.eclipselabs.etrack.domain.task.StateTransition>"
+	 * @model mapType="org.eclipselabs.etrack.domain.state.StateTransitionMapping<org.eclipselabs.etrack.domain.state.State, org.eclipselabs.etrack.domain.state.StateTransition>"
 	 * @generated
 	 */
 	public EMap<State, EList<StateTransition>> getStates()
 	{
 		if (states == null)
 		{
-			states = new EcoreEMap<State,EList<StateTransition>>(TaskPackage.Literals.STATE_TRANSITION_MAP, StateTransitionMap.class, this, TaskPackage.TASK_TYPE__STATES);
+			states = new EcoreEMap<State,EList<StateTransition>>(StatePackage.Literals.STATE_TRANSITION_MAPPING, StateTransitionMapping.class, this, TaskPackage.TASK_TYPE__STATES);
 		}
 		return states;
 	}
@@ -227,6 +242,61 @@ public class TaskType extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Starting State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Starting State</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Starting State</em>' reference.
+	 * @see #setStartingState(State)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_StartingState()
+	 * @model required="true"
+	 * @generated
+	 */
+	public State getStartingState()
+	{
+		if (startingState != null && startingState.eIsProxy())
+		{
+			InternalEObject oldStartingState = (InternalEObject)startingState;
+			startingState = (State)eResolveProxy(oldStartingState);
+			if (startingState != oldStartingState)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_TYPE__STARTING_STATE, oldStartingState, startingState));
+			}
+		}
+		return startingState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public State basicGetStartingState()
+	{
+		return startingState;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingState <em>Starting State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Starting State</em>' reference.
+	 * @see #getStartingState()
+	 * @generated
+	 */
+	public void setStartingState(State newStartingState)
+	{
+		State oldStartingState = startingState;
+		startingState = newStartingState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_TYPE__STARTING_STATE, oldStartingState, startingState));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -261,6 +331,9 @@ public class TaskType extends EObjectImpl implements EObject
 				else return getStates().map();
 			case TaskPackage.TASK_TYPE__EXTENSION:
 				return getExtension();
+			case TaskPackage.TASK_TYPE__STARTING_STATE:
+				if (resolve) return getStartingState();
+				return basicGetStartingState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -283,6 +356,9 @@ public class TaskType extends EObjectImpl implements EObject
 				return;
 			case TaskPackage.TASK_TYPE__EXTENSION:
 				setExtension((EPackage)newValue);
+				return;
+			case TaskPackage.TASK_TYPE__STARTING_STATE:
+				setStartingState((State)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -307,6 +383,9 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__EXTENSION:
 				setExtension((EPackage)null);
 				return;
+			case TaskPackage.TASK_TYPE__STARTING_STATE:
+				setStartingState((State)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -327,6 +406,8 @@ public class TaskType extends EObjectImpl implements EObject
 				return states != null && !states.isEmpty();
 			case TaskPackage.TASK_TYPE__EXTENSION:
 				return extension != null;
+			case TaskPackage.TASK_TYPE__STARTING_STATE:
+				return startingState != null;
 		}
 		return super.eIsSet(featureID);
 	}

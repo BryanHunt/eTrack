@@ -13,10 +13,11 @@ package org.eclipselabs.etrack.domain.account.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipselabs.etrack.domain.account.*;
+import org.eclipselabs.etrack.domain.account.Account;
+import org.eclipselabs.etrack.domain.account.AccountPackage;
+import org.eclipselabs.etrack.domain.account.AccountRequest;
+import org.eclipselabs.etrack.domain.account.LocalAccount;
 
 /**
  * <!-- begin-user-doc -->

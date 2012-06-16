@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.1.0">
+	<OCD name="LDAP" id="org.eclipselabs.etrack.util.security.ldap" description="LDAP Configuration">
+		<AD name="URL"              id="url"             type="String"   description="The URL of the LDAP server of the form 'ldap://host:[port]'."/>
+		<AD name="Base DN"          id="baseDN"          type="String"   description="The base DN of the LDAP directory.  Example: dc=example,dc=com"/>
+		<AD name="User Search Base" id="userSearchBase"  type="String"   description="The user search base of the LDAP directory.  Example: ou=Users,ou=Accounts"/>
+		<AD name="User Filter"      id="userFilter"      type="String"   description="The attribute to filter users by id.  Example: sAMAccountName"/>
+		<AD name="Manager DN"       id="managerDN"       type="String"   description="The DN of the manager account used for searches.  Example: cn=manager,ou=Users,ou=Accounts,dc=example,dc=com"/>
+		<AD name="Manager Password" id="managerPassword" type="Password" description="The manager account password."/>
+	</OCD>
+	<Designate factoryPid="org.eclipselabs.etrack.util.security.ldap">
+		<Object ocdref="org.eclipselabs.etrack.util.security.ldap"/>
+	</Designate>
+</MetaData>

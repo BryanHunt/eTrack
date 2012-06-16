@@ -21,6 +21,7 @@ import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
 import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
+import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
@@ -74,8 +75,10 @@ public class StorageResource extends WadlServerResource
 	{
 		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
 
-		// FIXME see if we can get the option from a HTTP header Pragma
-		resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.TRUE);
+		Form headers = (Form) getRequestAttributes().get("");
+
+		if (headers != null)
+			resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.valueOf(headers.getFirstValue(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES)));
 
 		URI uri = URI.createURI(getReference().toString());
 

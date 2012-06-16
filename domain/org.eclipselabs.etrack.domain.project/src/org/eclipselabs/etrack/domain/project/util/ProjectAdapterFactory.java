@@ -2,18 +2,16 @@
  */
 package org.eclipselabs.etrack.domain.project.util;
 
+import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipselabs.etrack.domain.entity.Group;
 import org.eclipselabs.etrack.domain.entity.Identity;
-
-import org.eclipselabs.etrack.domain.project.*;
-
+import org.eclipselabs.etrack.domain.project.Project;
+import org.eclipselabs.etrack.domain.project.ProjectPackage;
+import org.eclipselabs.etrack.domain.project.Team;
 import org.eclipselabs.etrack.domain.security.PermissionGroup;
 
 /**
@@ -90,6 +88,11 @@ public class ProjectAdapterFactory extends AdapterFactoryImpl
 				return createTeamAdapter();
 			}
 			@Override
+			public Adapter caseLinkable(Linkable object)
+			{
+				return createLinkableAdapter();
+			}
+			@Override
 			public Adapter caseIdentity(Identity object)
 			{
 				return createIdentityAdapter();
@@ -152,6 +155,21 @@ public class ProjectAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTeamAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.Linkable <em>Linkable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.domain.data.Linkable
+	 * @generated
+	 */
+	public Adapter createLinkableAdapter()
 	{
 		return null;
 	}

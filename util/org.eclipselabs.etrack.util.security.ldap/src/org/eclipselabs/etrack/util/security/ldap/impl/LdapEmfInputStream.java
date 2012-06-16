@@ -33,11 +33,11 @@ import org.eclipselabs.etrack.util.security.ldap.ILdapService;
  */
 public class LdapEmfInputStream extends InputStream implements URIConverter.Loadable
 {
-	public LdapEmfInputStream(URI uri, IEObjectBuilder builder, ILdapService ldapSecurityService)
+	public LdapEmfInputStream(URI uri, IEObjectBuilder builder, ILdapService ldapService)
 	{
 		this.uri = uri;
 		this.builder = builder;
-		this.ldapSecurityService = ldapSecurityService;
+		this.ldapService = ldapService;
 	}
 
 	@Override
@@ -49,27 +49,17 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 
 			if (uri.hasQuery())
 			{
-				NamingEnumeration<SearchResult> results = ldapSecurityService.find(SearchControls.SUBTREE_SCOPE, uri.lastSegment(), uri.query());
+				NamingEnumeration<SearchResult> results = ldapService.find(SearchControls.SUBTREE_SCOPE, uri.lastSegment(), uri.query());
 
 				if (results.hasMore())
-					attributes = results.next().getAttributes();
+				{
+					SearchResult searchResult = results.next();
+					attributes = searchResult.getAttributes();
+				}
 			}
 			else
 			{
-				StringBuilder dn = new StringBuilder();
-				boolean firstOne = true;
-
-				for (String segment : uri.segments())
-				{
-					if (firstOne)
-						firstOne = false;
-					else
-						dn.append(',');
-
-					dn.append(segment);
-				}
-
-				attributes = ldapSecurityService.getAttributes(dn.toString());
+				attributes = ldapService.getAttributes(uri.lastSegment());
 			}
 
 			if (attributes != null)
@@ -96,5 +86,5 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 
 	private URI uri;
 	private IEObjectBuilder builder;
-	private ILdapService ldapSecurityService;
+	private ILdapService ldapService;
 }
