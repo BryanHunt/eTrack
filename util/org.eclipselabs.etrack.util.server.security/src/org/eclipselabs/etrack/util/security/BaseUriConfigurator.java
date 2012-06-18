@@ -3,6 +3,7 @@ package org.eclipselabs.etrack.util.security;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 
@@ -39,8 +40,11 @@ public class BaseUriConfigurator
 
 	private void configure(IPasswordCredentialProvider passwordCredentialProvider) throws IOException
 	{
+		Hashtable<String, Object> properties = new Hashtable<String, Object>();
+		properties.put("uri", passwordCredentialProvider.getURI());
+
 		Configuration configuration = configurationAdmin.createFactoryConfiguration(targetId);
-		configuration.getProperties().put("uri", passwordCredentialProvider.getURI());
+		configuration.update(properties);
 	}
 
 	private Set<IPasswordCredentialProvider> passwordCredentialProviders = new HashSet<IPasswordCredentialProvider>();
