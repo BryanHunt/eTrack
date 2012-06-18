@@ -13,6 +13,8 @@ import org.eclipselabs.etrack.domain.security.PasswordCredential;
  */
 public interface IPasswordCredentialProvider
 {
+	String getName();
+
 	String getURI();
 
 	PasswordCredential getCredentials();

@@ -39,6 +39,12 @@ public class MylynPasswordCredentialProvider implements IPasswordCredentialProvi
 	}
 
 	@Override
+	public String getName()
+	{
+		return taskRepository.getRepositoryLabel();
+	}
+
+	@Override
 	public String getURI()
 	{
 		return taskRepository.getRepositoryUrl();
