@@ -11,6 +11,8 @@
 
 package org.eclipselabs.etrack.client.web.mylyn;
 
+import java.util.Hashtable;
+
 import org.eclipse.mylyn.commons.net.AuthenticationCredentials;
 import org.eclipse.mylyn.commons.net.AuthenticationType;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
@@ -28,7 +30,9 @@ public class MylynPasswordCredentialProvider implements IPasswordCredentialProvi
 	public static MylynPasswordCredentialProvider buildProvider(TaskRepository taskRepository)
 	{
 		MylynPasswordCredentialProvider factory = new MylynPasswordCredentialProvider(taskRepository);
-		factory.setClientResourceFactoryRegistration(Activator.getBundleContext().registerService(IPasswordCredentialProvider.class, factory, null));
+		Hashtable<String, Object> properties = new Hashtable<String, Object>();
+		properties.put("type", taskRepository.getConnectorKind());
+		factory.setClientResourceFactoryRegistration(Activator.getBundleContext().registerService(IPasswordCredentialProvider.class, factory, properties));
 
 		return factory;
 	}
