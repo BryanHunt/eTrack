@@ -23,6 +23,8 @@ public class BaseUriConfigurator
 
 		for (IPasswordCredentialProvider passwordCredentialProvider : passwordCredentialProviders)
 			configure(passwordCredentialProvider);
+
+		passwordCredentialProviders = null;
 	}
 
 	public synchronized void bindConfigurationAdmin(ConfigurationAdmin configurationAdmin)
@@ -32,7 +34,7 @@ public class BaseUriConfigurator
 
 	public synchronized void bindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider) throws IOException
 	{
-		if (configurationAdmin != null)
+		if (passwordCredentialProviders == null)
 			configure(passwordCredentialProvider);
 		else
 			passwordCredentialProviders.add(passwordCredentialProvider);
