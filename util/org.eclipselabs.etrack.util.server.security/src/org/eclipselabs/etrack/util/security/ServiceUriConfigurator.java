@@ -17,8 +17,8 @@ public class ServiceUriConfigurator
 
 	public synchronized void activate(Map<String, Object> properties) throws IOException
 	{
-		targetId = (String) properties.remove(PROP_TARGET_ID);
 		this.properties = new Hashtable<String, Object>(properties);
+		targetId = (String) this.properties.remove(PROP_TARGET_ID);
 
 		if (targetId == null || targetId.isEmpty())
 			throw new IllegalStateException("The target id was not specified");
