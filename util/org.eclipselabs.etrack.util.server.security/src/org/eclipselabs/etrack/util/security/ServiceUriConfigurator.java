@@ -2,6 +2,7 @@
 package org.eclipselabs.etrack.util.security;
 
 import java.io.IOException;
+import java.util.Dictionary;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
@@ -10,13 +11,14 @@ import java.util.Set;
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
 
-public class BaseUriConfigurator
+public class ServiceUriConfigurator
 {
 	public static String PROP_TARGET_ID = "target_id";
 
 	public synchronized void activate(Map<String, Object> properties) throws IOException
 	{
-		targetId = (String) properties.get(PROP_TARGET_ID);
+		targetId = (String) properties.remove(PROP_TARGET_ID);
+		this.properties = new Hashtable<String, Object>(properties);
 
 		if (targetId == null || targetId.isEmpty())
 			throw new IllegalStateException("The target id was not specified");
@@ -42,7 +44,6 @@ public class BaseUriConfigurator
 
 	private void configure(IPasswordCredentialProvider passwordCredentialProvider) throws IOException
 	{
-		Hashtable<String, Object> properties = new Hashtable<String, Object>();
 		properties.put("uri", passwordCredentialProvider.getURI());
 
 		Configuration configuration = configurationAdmin.createFactoryConfiguration(targetId);
@@ -52,4 +53,5 @@ public class BaseUriConfigurator
 	private Set<IPasswordCredentialProvider> passwordCredentialProviders = new HashSet<IPasswordCredentialProvider>();
 	private ConfigurationAdmin configurationAdmin;
 	private String targetId;
+	private Dictionary<String, Object> properties;
 }
