@@ -32,9 +32,23 @@
       <import plugin="org.eclipse.mylyn.commons.net"/>
       <import plugin="org.eclipse.mylyn.tasks.core"/>
       <import plugin="org.eclipse.mylyn.tasks.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipselabs.etrack.domain.security"/>
-      <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipselabs.etrack.util.security"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipselabs.etrack.domain.data"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipselabs.mongo.emf.ext"/>
+      <import plugin="org.eclipse.core.databinding.observable"/>
+      <import plugin="org.eclipse.core.databinding.property"/>
+      <import plugin="org.eclipse.emf.databinding"/>
+      <import plugin="org.eclipselabs.etrack.domain.project"/>
+      <import plugin="org.eclipselabs.etrack.client.junit.util"/>
+      <import plugin="org.eclipselabs.emf.query.simple"/>
+      <import plugin="org.eclipselabs.etrack.domain.audit"/>
+      <import plugin="org.eclipselabs.etrack.domain.entity"/>
+      <import plugin="org.eclipselabs.etrack.domain.state"/>
+      <import plugin="org.eclipselabs.etrack.domain.task"/>
    </requires>
 
    <plugin
@@ -78,5 +92,11 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
+   <plugin
+         id="org.eclipselabs.etrack.client.entity"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>

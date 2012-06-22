@@ -22,14 +22,18 @@
          version="0.0.0"/>
 
    <requires>
+      <import plugin="org.eclipselabs.etrack.domain.security"/>
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipselabs.etrack.domain.entity"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipselabs.emfjson"/>
       <import plugin="org.restlet"/>
       <import plugin="org.restlet.ext.emf"/>
-      <import plugin="org.eclipselabs.etrack.domain.security"/>
-      <import plugin="org.eclipselabs.etrack.domain.entity"/>
+      <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="org.apache.commons.codec"/>
+      <import plugin="org.eclipselabs.mongo.emf.ext"/>
+      <import plugin="org.eclipselabs.etrack.client.web"/>
    </requires>
 
    <plugin
