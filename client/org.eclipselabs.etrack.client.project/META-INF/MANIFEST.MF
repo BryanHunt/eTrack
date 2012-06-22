@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Client Project Services
+Bundle-SymbolicName: org.eclipselabs.etrack.client.project
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: EclipseLabs
+Import-Package: org.eclilpselabs.etrack.domain.data,
+ org.eclipse.core.databinding.observable.list,
+ org.eclipse.core.databinding.observable.value,
+ org.eclipse.core.databinding.property.list,
+ org.eclipse.core.databinding.property.value,
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.databinding,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.resource,
+ org.eclipselabs.etrack.client.core,
+ org.eclipselabs.etrack.domain.project,
+ org.eclipselabs.mongo.emf.ext
+Export-Package: org.eclipselabs.etrack.client.project

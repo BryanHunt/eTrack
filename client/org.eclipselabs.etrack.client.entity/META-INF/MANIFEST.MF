@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Entity Client
+Bundle-SymbolicName: org.eclipselabs.etrack.client.entity
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclilpselabs.etrack.domain.data,
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore.resource,
+ org.eclipselabs.etrack.client.core,
+ org.eclipselabs.etrack.domain.entity,
+ org.eclipselabs.etrack.domain.security,
+ org.eclipselabs.etrack.util.security

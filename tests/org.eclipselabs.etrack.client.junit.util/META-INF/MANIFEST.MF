@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Client JUnit Utilities
+Bundle-SymbolicName: org.eclipselabs.etrack.client.junit.util
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.core.databinding.observable
+Export-Package: org.eclipselabs.etrack.client.junit.util
