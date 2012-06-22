@@ -20,9 +20,9 @@ import static org.mockito.Mockito.verify;
 import java.io.IOException;
 
 import org.eclipselabs.etrack.client.core.ILinkBuilder;
-import org.eclipselabs.etrack.client.junit.util.TestRealm;
 import org.eclipselabs.etrack.client.project.IProjectService;
 import org.eclipselabs.etrack.client.project.ProjectBuilder;
+import org.eclipselabs.etrack.client.project.junit.support.TestRealm;
 import org.eclipselabs.etrack.domain.project.Project;
 import org.junit.Before;
 import org.junit.BeforeClass;

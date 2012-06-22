@@ -9,7 +9,7 @@
  *    NVIDIA - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.client.junit.util;
+package org.eclipselabs.etrack.client.task.junit.support;
 
 import org.eclipse.core.databinding.observable.Realm;
 

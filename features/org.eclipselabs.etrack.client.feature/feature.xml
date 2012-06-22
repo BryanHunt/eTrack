@@ -43,7 +43,6 @@
       <import plugin="org.eclipse.core.databinding.property"/>
       <import plugin="org.eclipse.emf.databinding"/>
       <import plugin="org.eclipselabs.etrack.domain.project"/>
-      <import plugin="org.eclipselabs.etrack.client.junit.util"/>
       <import plugin="org.eclipselabs.emf.query.simple"/>
       <import plugin="org.eclipselabs.etrack.domain.audit"/>
       <import plugin="org.eclipselabs.etrack.domain.entity"/>

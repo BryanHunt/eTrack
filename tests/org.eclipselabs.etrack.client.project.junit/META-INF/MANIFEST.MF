@@ -10,7 +10,6 @@ Require-Bundle: org.junit;bundle-version="4.10.0"
 Import-Package: org.eclipse.core.databinding.observable,
  org.eclipse.emf.ecore.resource,
  org.eclipse.emf.ecore.resource.impl,
- org.eclipselabs.etrack.client.junit.util,
  org.eclipselabs.mongo.emf.ext,
  org.mockito;version="1.9.0",
  org.mockito.runners;version="1.9.0",
