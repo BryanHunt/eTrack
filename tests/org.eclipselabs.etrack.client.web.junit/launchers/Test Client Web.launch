@@ -5,6 +5,7 @@
 <booleanAttribute key="askclear" value="false"/>
 <booleanAttribute key="automaticAdd" value="false"/>
 <booleanAttribute key="automaticValidate" value="false"/>
+<stringAttribute key="bad_container_name" value="/org.eclipselabs.etrack.client.we.junit/launchers"/>
 <stringAttribute key="bootstrap" value=""/>
 <stringAttribute key="checked" value="[NONE]"/>
 <booleanAttribute key="clearConfig" value="true"/>
@@ -15,7 +16,7 @@
 <booleanAttribute key="includeOptional" value="false"/>
 <stringAttribute key="location" value="${workspace_loc}/../Test/junit"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/org.eclipselabs.etrack.client.project.junit/src/org/eclipselabs/etrack/client/project/junit/suite/ClientProjectSuite.java"/>
+<listEntry value="/org.eclipselabs.etrack.client.web.junit/src/org/eclipselabs/etrack/client/web/junit/suite/ClientWebSuite.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
@@ -24,15 +25,15 @@
 <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
 <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
 <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipselabs.etrack.client.project.junit.suite.ClientProjectSuite"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipselabs.etrack.client.web.junit.suite.ClientWebSuite"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.eclipselabs.etrack.client.project.junit"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.eclipselabs.etrack.client.web.junit"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <stringAttribute key="product" value="org.eclipse.epp.package.java.product"/>
 <booleanAttribute key="run_in_ui_thread" value="true"/>
-<stringAttribute key="selected_target_plugins" value="com.ibm.icu@default:default,com.mongodb@default:default,org.eclipse.ant.core@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.core.databinding.observable@default:default,org.eclipse.core.databinding.property@default:default,org.eclipse.core.databinding@default:default,org.eclipse.core.expressions@default:default,org.eclipse.core.filesystem.macosx@default:false,org.eclipse.core.filesystem@default:default,org.eclipse.core.jobs@default:default,org.eclipse.core.resources@default:default,org.eclipse.core.runtime.compatibility.registry@default:false,org.eclipse.core.runtime@default:true,org.eclipse.core.variables@default:default,org.eclipse.emf.common@default:default,org.eclipse.emf.databinding@default:default,org.eclipse.emf.ecore@default:default,org.eclipse.equinox.app@default:default,org.eclipse.equinox.common@2:true,org.eclipse.equinox.preferences@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.osgi@-1:true,org.eclipselabs.mongo.emf.ext@default:default,org.eclipselabs.mongo@default:default,org.hamcrest.core*1.3.0@default:default,org.junit*4.10.0.v4_10_0_v20120426-0900@default:default,org.mockito.mockito-all@default:default"/>
-<stringAttribute key="selected_workspace_plugins" value="org.eclipselabs.etrack.client.core.junit@default:false,org.eclipselabs.etrack.client.core@default:default,org.eclipselabs.etrack.client.junit.util@default:default,org.eclipselabs.etrack.client.project.junit@default:false,org.eclipselabs.etrack.client.project@default:default,org.eclipselabs.etrack.domain.data@default:default,org.eclipselabs.etrack.domain.entity@default:default,org.eclipselabs.etrack.domain.project@default:default,org.eclipselabs.etrack.domain.security@default:default"/>
+<stringAttribute key="selected_target_plugins" value="org.eclipse.core.contenttype@default:default,org.eclipse.core.jobs@default:default,org.eclipse.core.runtime.compatibility.registry@default:default,org.eclipse.core.runtime@default:true,org.eclipse.equinox.app@default:default,org.eclipse.equinox.common@2:true,org.eclipse.equinox.preferences@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.osgi@-1:true,org.hamcrest.core*1.3.0@default:default,org.junit*4.10.0.v4_10_0_v20120426-0900@default:default,org.mockito.mockito-all@default:default,org.restlet@default:default"/>
+<stringAttribute key="selected_workspace_plugins" value="org.eclipselabs.etrack.client.web.junit@default:false,org.eclipselabs.etrack.client.web@default:default"/>
 <booleanAttribute key="show_selected_only" value="false"/>
 <stringAttribute key="templateConfig" value="${target_home}/configuration/config.ini"/>
 <booleanAttribute key="tracing" value="false"/>

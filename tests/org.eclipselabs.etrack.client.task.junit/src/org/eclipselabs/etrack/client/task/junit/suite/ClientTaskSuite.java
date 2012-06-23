@@ -22,5 +22,5 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ TestTaskService.class })
-public class TaskClientSuite
+public class ClientTaskSuite
 {}

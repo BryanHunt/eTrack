@@ -45,12 +45,12 @@ public class ClientResourceFactory implements IClientResourceFactory
 		return client;
 	}
 
-	void bindChallengeResponseFactory(IChallengeResponseFactory challengeResponseFactory)
+	public void bindChallengeResponseFactory(IChallengeResponseFactory challengeResponseFactory)
 	{
 		this.challengeResponseFactory = challengeResponseFactory;
 	}
 
-	void unbindChallengeResponseFactory(IChallengeResponseFactory challengeResponseFactory)
+	public void unbindChallengeResponseFactory(IChallengeResponseFactory challengeResponseFactory)
 	{
 		if (this.challengeResponseFactory == challengeResponseFactory)
 			this.challengeResponseFactory = null;

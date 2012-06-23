@@ -9,9 +9,10 @@
  *    NVIDIA - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.client.entity.junit.suite;
+package org.eclipselabs.etrack.client.project.junit.suite;
 
-import org.eclipselabs.etrack.client.entity.junit.tests.TestEntityService;
+import org.eclipselabs.etrack.client.project.junit.tests.TestProjectBuilder;
+import org.eclipselabs.etrack.client.project.junit.tests.TestProjectService;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -21,6 +22,6 @@ import org.junit.runners.Suite.SuiteClasses;
  * 
  */
 @RunWith(Suite.class)
-@SuiteClasses({ TestEntityService.class })
-public class EntityClientSuite
+@SuiteClasses({ TestProjectService.class, TestProjectBuilder.class })
+public class ClientProjectSuite
 {}
