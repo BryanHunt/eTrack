@@ -6,12 +6,15 @@
 package org.eclipselabs.etrack.client.web.mylyn;
 
 import java.util.HashMap;
+import java.util.Hashtable;
 
 import org.eclipse.mylyn.tasks.core.IRepositoryListener;
 import org.eclipse.mylyn.tasks.core.IRepositoryManager;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipse.mylyn.tasks.ui.TasksUi;
 import org.eclipse.ui.PlatformUI;
+import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.osgi.framework.BundleContext;
 
 /**
  * @author bhunt
@@ -56,7 +59,14 @@ public class MylynPasswordCredentialProviderManager implements IRepositoryListen
 		synchronized (providers)
 		{
 			if (!providers.containsKey(repository.getRepositoryUrl()))
-				providers.put(repository.getRepositoryUrl(), MylynPasswordCredentialProvider.buildProvider(repository));
+			{
+				MylynPasswordCredentialProvider provider = createMylynPasswordCredentialProvider(repository);
+				Hashtable<String, Object> properties = new Hashtable<String, Object>();
+				properties.put("type", repository.getConnectorKind());
+				provider.setClientResourceFactoryRegistration(getBundleContext().registerService(IPasswordCredentialProvider.class, provider, properties));
+
+				providers.put(repository.getRepositoryUrl(), provider);
+			}
 		}
 	}
 
@@ -81,6 +91,16 @@ public class MylynPasswordCredentialProviderManager implements IRepositoryListen
 			providers.remove(oldUrl).dispose();
 			repositoryAdded(repository);
 		}
+	}
+
+	protected BundleContext getBundleContext()
+	{
+		return Activator.getBundleContext();
+	}
+
+	protected MylynPasswordCredentialProvider createMylynPasswordCredentialProvider(TaskRepository repository)
+	{
+		return new MylynPasswordCredentialProvider(repository);
 	}
 
 	private HashMap<String, MylynPasswordCredentialProvider> providers;
