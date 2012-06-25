@@ -38,7 +38,7 @@ public class BasicChallengeResponsseFactory implements IChallengeResponseFactory
 		return challengeResponse;
 	}
 
-	void bindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider)
+	public void bindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider)
 	{
 		synchronized (credentialProviders)
 		{
@@ -46,7 +46,7 @@ public class BasicChallengeResponsseFactory implements IChallengeResponseFactory
 		}
 	}
 
-	void unbindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider)
+	public void unbindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider)
 	{
 		synchronized (credentialProviders)
 		{
