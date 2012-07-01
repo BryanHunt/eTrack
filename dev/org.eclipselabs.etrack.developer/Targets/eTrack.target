@@ -8,7 +8,7 @@
 <repository location="http://quickiemart.springfieldusa.net/Targets/Hamcrest"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.sdk.feature.group" version="2.8.0.v20120601-0824"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.8.0.v20120608-0554"/>
 <repository location="http://download.eclipse.org/releases/juno/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -21,7 +21,7 @@
 <repository location="http://bryanhunt.github.com/mongo-emf/releases/0.7.0/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.epp.package.java.feature.feature.group" version="1.5.0.20120602-0806"/>
+<unit id="org.eclipse.epp.package.java.feature.feature.group" version="1.5.0.20120614-1633"/>
 <repository location="http://download.eclipse.org/releases/juno/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
