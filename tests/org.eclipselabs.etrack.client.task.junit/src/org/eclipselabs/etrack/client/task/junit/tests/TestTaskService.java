@@ -291,6 +291,61 @@ public class TestTaskService
 	}
 
 	@Test
+	public void testGetTaskDomain1() throws IOException
+	{
+		// --- Setup
+
+		String id = "domain";
+
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainURI = taskDomainCollectionURI.trimSegments(1).appendSegments(new String[] { "task_domain", id });
+		URI queryURI = taskDomainCollectionURI.appendQuery("*");
+
+		Resource queryResource = new ResourceImpl(queryURI);
+		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
+		queryResource.getContents().add(eCollection);
+
+		Resource domainResource = new ResourceImpl(taskDomainURI);
+		TaskDomain taskDomain = TaskFactory.eINSTANCE.createTaskDomain();
+		domainResource.getContents().add(taskDomain);
+
+		eCollection.getValues().add(taskDomain);
+		doReturn(queryResource).when(resourceSet).getResource(eq(queryURI), eq(true));
+
+		// --- Test & Verify
+
+		assertThat(taskService.getTaskDomain(id), is(sameInstance(taskDomain)));
+	}
+
+	@Test
+	public void testGetTaskDomain2() throws IOException
+	{
+		// --- Setup
+
+		String id = "domain";
+
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainURI = taskDomainCollectionURI.trimSegments(1).appendSegments(new String[] { "task_domain", id });
+		URI queryURI = taskDomainCollectionURI.appendQuery("*");
+
+		Resource queryResource = new ResourceImpl(queryURI);
+		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
+		queryResource.getContents().add(eCollection);
+
+		Resource domainResource = new ResourceImpl(taskDomainURI);
+		TaskDomain taskDomain = TaskFactory.eINSTANCE.createTaskDomain();
+		domainResource.getContents().add(taskDomain);
+
+		eCollection.getValues().add(taskDomain);
+		doReturn(queryResource).when(resourceSet).getResource(eq(queryURI), eq(true));
+		taskService.getTaskDomain(id);
+
+		// --- Test & Verify
+
+		assertThat(taskService.getTaskDomain("foo"), is(nullValue()));
+	}
+
+	@Test
 	public void testCreateTaskDomainsObservable1() throws IOException
 	{
 		// --- Setup

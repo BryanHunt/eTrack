@@ -63,6 +63,14 @@ public interface ITaskService extends IServerClient
 	ECollection getTasks(Expression query);
 
 	/**
+	 * Gets a single task domain by id
+	 * 
+	 * @param id the task domain id
+	 * @return the task domain for the given id
+	 */
+	TaskDomain getTaskDomain(String id);
+
+	/**
 	 * This function is used to create an observable of the task domains on the
 	 * server. It must be called from a thread that has a valid realm.
 	 * 

@@ -17,6 +17,7 @@ import java.util.Map;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.emf.query.util.ExpressionBuilder;
@@ -94,6 +95,23 @@ public class TaskService extends ServerResourceClient implements ITaskService
 		URI uri = getBaseURI().appendSegments(taskCollectionPath).appendQuery(URI.encodeQuery(rawQuery, false));
 		Resource resource = getResourceSet().getResource(uri, true);
 		return (ECollection) resource.getContents().get(0);
+	}
+
+	@Override
+	public TaskDomain getTaskDomain(String id)
+	{
+		if (taskDomains == null)
+			refresh();
+
+		// TODO implement a more efficient algorithm
+
+		for (EObject taskDomain : taskDomains.getValues())
+		{
+			if (taskDomain.eResource().getURI().lastSegment().equals(id))
+				return (TaskDomain) taskDomain;
+		}
+
+		return null;
 	}
 
 	@Override

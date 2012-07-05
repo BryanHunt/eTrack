@@ -21,3 +21,4 @@ Import-Package: org.eclilpselabs.etrack.domain.data,
  org.eclipselabs.etrack.domain.state,
  org.eclipselabs.etrack.domain.task,
  org.eclipselabs.mongo.emf.ext
+Export-Package: org.eclipselabs.etrack.client.task
