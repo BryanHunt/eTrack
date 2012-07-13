@@ -128,10 +128,19 @@ public class MylynTaskClient
 			Collection<ServiceReference<ITaskService>> taskServiceReferences = getBundleContext().getServiceReferences(ITaskService.class, "(uri=" + taskRepository.getUrl() + ")");
 			taskService = getBundleContext().getService(taskServiceReferences.iterator().next());
 
+			if (taskService == null)
+				throw new CoreException(new Status(IStatus.ERROR, "com.nvidia.nitro.client.task", "Failed to locate the task service"));
+
 			Collection<ServiceReference<IEntityService>> entityServiceReferences = getBundleContext().getServiceReferences(IEntityService.class, "(uri=" + taskRepository.getUrl() + ")");
 			entityService = getBundleContext().getService(entityServiceReferences.iterator().next());
 
+			if (entityService == null)
+				throw new CoreException(new Status(IStatus.ERROR, "com.nvidia.nitro.client.task", "Failed to locate the entity service"));
+
 			queryFactory = getBundleContext().getService(getBundleContext().getServiceReference(IQueryFactory.class));
+
+			if (queryFactory == null)
+				throw new CoreException(new Status(IStatus.ERROR, "com.nvidia.nitro.client.task", "Failed to locate the query factory service"));
 		}
 		catch (InvalidSyntaxException e)
 		{
