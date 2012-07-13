@@ -23,10 +23,10 @@ public class ServiceUriConfigurator
 		if (targetId == null || targetId.isEmpty())
 			throw new IllegalStateException("The target id was not specified");
 
-		for (IPasswordCredentialProvider passwordCredentialProvider : passwordCredentialProviders)
-			configure(passwordCredentialProvider);
+		for (IServerConnection serverConnection : serverConnections)
+			configure(serverConnection);
 
-		passwordCredentialProviders = null;
+		serverConnections = null;
 	}
 
 	public synchronized void bindConfigurationAdmin(ConfigurationAdmin configurationAdmin)
@@ -34,23 +34,40 @@ public class ServiceUriConfigurator
 		this.configurationAdmin = configurationAdmin;
 	}
 
-	public synchronized void bindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider) throws IOException
+	public synchronized void bindServerConnection(IServerConnection serverConnection) throws IOException
 	{
-		if (passwordCredentialProviders == null)
-			configure(passwordCredentialProvider);
+		if (serverConnections == null)
+			configure(serverConnection);
 		else
-			passwordCredentialProviders.add(passwordCredentialProvider);
+			serverConnections.add(serverConnection);
 	}
 
-	private void configure(IPasswordCredentialProvider passwordCredentialProvider) throws IOException
+	public synchronized void unbindServerConnection(IServerConnection serverConnection) throws IOException
 	{
-		properties.put("uri", passwordCredentialProvider.getURI());
+		if (serverConnections != null)
+			serverConnections.remove(serverConnection);
+		else
+		{
+			Configuration configuration = configurationAdmin.getConfiguration(targetId, null);
 
-		Configuration configuration = configurationAdmin.createFactoryConfiguration(targetId);
+			if (configuration != null)
+				configuration.delete();
+		}
+	}
+
+	private void configure(IServerConnection serverConnection) throws IOException
+	{
+		properties.put("uri", serverConnection.getURI());
+
+		Configuration configuration = configurationAdmin.getConfiguration(targetId, null);
+
+		if (configuration == null)
+			configuration = configurationAdmin.createFactoryConfiguration(targetId);
+
 		configuration.update(properties);
 	}
 
-	private Set<IPasswordCredentialProvider> passwordCredentialProviders = new HashSet<IPasswordCredentialProvider>();
+	private Set<IServerConnection> serverConnections = new HashSet<IServerConnection>();
 	private ConfigurationAdmin configurationAdmin;
 	private String targetId;
 	private Dictionary<String, Object> properties;

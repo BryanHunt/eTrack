@@ -11,11 +11,9 @@ import org.eclipselabs.etrack.domain.security.PasswordCredential;
  * @author bhunt
  * 
  */
-public interface IPasswordCredentialProvider
+public interface IPasswordCredentialProvider extends IServerConnection
 {
 	String getName();
-
-	String getURI();
 
 	PasswordCredential getCredentials();
 }
