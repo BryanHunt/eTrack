@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.client.entity">
+   <implementation class="org.eclipselabs.etrack.client.entity.services.EntityService"/>
+   <reference bind="bindResourceCache" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceCache" name="IResourceCache" policy="static"/>
+   <service>
+      <provide interface="org.eclipselabs.etrack.client.entity.IEntityService"/>
+   </service>
+</scr:component>

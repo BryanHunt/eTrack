@@ -11,5 +11,8 @@ Import-Package: org.eclilpselabs.etrack.domain.data,
  org.eclipselabs.etrack.client.core,
  org.eclipselabs.etrack.domain.entity,
  org.eclipselabs.etrack.domain.security,
- org.eclipselabs.etrack.util.security
+ org.eclipselabs.etrack.util.security,
+ org.eclipselabs.mongo.emf.ext
 Export-Package: org.eclipselabs.etrack.client.entity
+Service-Component: OSGI-INF/entity.xml
+Bundle-ActivationPolicy: lazy
