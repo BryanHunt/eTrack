@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
@@ -33,6 +34,7 @@ public class EmfXmlRepresentation<T extends EObject> extends EmfRepresentation<T
 	public EmfXmlRepresentation(MediaType mediaType, T object)
 	{
 		super(mediaType, object);
+		resource = object.eResource();
 		setUsingEncodedAttributeStyle(false);
 	}
 
@@ -46,10 +48,18 @@ public class EmfXmlRepresentation<T extends EObject> extends EmfRepresentation<T
 	}
 
 	@Override
+	protected Resource createEmfResource(MediaType mediaType)
+	{
+		return resource != null ? resource : super.createEmfResource(mediaType);
+	}
+
+	@Override
 	protected Map<?, ?> getSaveOptions()
 	{
 		HashMap<String, Object> saveOptions = new HashMap<String, Object>();
 		saveOptions.put(XMLResource.OPTION_PROXY_ATTRIBUTES, Boolean.TRUE);
 		return saveOptions;
 	}
+
+	private Resource resource;
 }

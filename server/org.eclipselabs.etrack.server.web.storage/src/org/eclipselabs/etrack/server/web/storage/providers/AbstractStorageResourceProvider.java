@@ -11,19 +11,18 @@
 
 package org.eclipselabs.etrack.server.web.storage.providers;
 
-import org.eclipselabs.etrack.server.web.storage.resources.StorageResource;
-import org.restlet.Context;
-import org.restlet.resource.Finder;
+import org.eclipselabs.etrack.server.web.storage.resources.AbstractStorageResource;
+import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
+import org.restlet.ext.osgi.ResourceProvider;
 
 /**
  * @author bhunt
  * 
  */
-public class StorageResourceProvider extends AbstractStorageResourceProvider
+public abstract class AbstractStorageResourceProvider extends ResourceProvider
 {
-	@Override
-	protected Finder createFinder(Context context)
+	void bindResourceSetFactory(IResourceSetFactory resourceSetFactory)
 	{
-		return new Finder(context, StorageResource.class);
+		AbstractStorageResource.setResourceSetFactory(resourceSetFactory);
 	}
 }

@@ -13,91 +13,66 @@ package org.eclipselabs.etrack.server.web.storage.resources;
 
 import java.io.IOException;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
-import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
-import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
-import org.restlet.data.Form;
-import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
-import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.representation.Representation;
-import org.restlet.representation.StringRepresentation;
+import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
+import org.restlet.resource.Put;
 
 /**
  * @author bhunt
  * 
  */
-public class StorageResource extends WadlServerResource
+public class StorageResource extends AbstractStorageResource
 {
-	public static void setResourceSetFactory(IResourceSetFactory factory)
-	{
-		resourceSetFactory = factory;
-	}
-
 	@Get("xmi+xml")
-	public EmfRepresentation<EObject> getXMI()
+	@Override
+	public EmfRepresentation<EObject> retrieveXMI()
 	{
-		EObject object = getModel();
-		return new EmfXmlRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
+		return super.retrieveXMI();
 	}
 
 	@Get("json")
-	public EmfRepresentation<EObject> getJSON()
+	@Override
+	public EmfRepresentation<EObject> retrieveJSON()
 	{
-		EObject object = getModel();
-		return new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, object);
+		return super.retrieveJSON();
+	}
+
+	@Put("xmi+xml")
+	@Override
+	public void updateXmiObject(Representation representation) throws IOException
+	{
+		super.updateXmiObject(representation);
+	}
+
+	@Put("json")
+	@Override
+	public void updateJsonObject(Representation representation) throws IOException
+	{
+		super.updateJsonObject(representation);
 	}
 
 	@Post("xmi+xml")
-	public Representation addXmiObject(Representation representation) throws IOException
+	@Override
+	public Representation createXmiObject(Representation representation) throws IOException
 	{
-		EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation);
-		URI uri = saveObject(emfRepresentation.getObject());
-		return new StringRepresentation(uri.toString());
+		return super.createXmiObject(representation);
 	}
 
 	@Post("json")
-	public Representation addJsonObject(Representation representation) throws IOException
+	@Override
+	public Representation createJsonObject(Representation representation) throws IOException
 	{
-		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
-		URI uri = saveObject(emfRepresentation.getObject());
-		return new StringRepresentation(uri.toString());
+		return super.createJsonObject(representation);
 	}
 
-	protected EObject getModel()
+	@Delete
+	@Override
+	public void deleteObject() throws IOException
 	{
-		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
-
-		Form headers = (Form) getRequestAttributes().get("");
-
-		if (headers != null)
-			resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.valueOf(headers.getFirstValue(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES)));
-
-		URI uri = URI.createURI(getReference().toString());
-
-		if ("*".equals(uri.query()))
-			uri = uri.trimQuery().appendQuery("");
-
-		Resource resource = resourceSet.getResource(uri, true);
-		return resource.getContents().get(0);
+		super.deleteObject();
 	}
-
-	private URI saveObject(EObject object) throws IOException
-	{
-		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
-
-		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
-		resource.getContents().add(object);
-		resource.save(null);
-		return resource.getURI();
-	}
-
-	private static IResourceSetFactory resourceSetFactory;
 }

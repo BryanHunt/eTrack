@@ -31,6 +31,7 @@ public class EmfJsonRepresentation<T extends EObject> extends EmfRepresentation<
 	public EmfJsonRepresentation(MediaType mediaType, T object)
 	{
 		super(mediaType, object);
+		resource = object.eResource();
 	}
 
 	/**
@@ -44,6 +45,8 @@ public class EmfJsonRepresentation<T extends EObject> extends EmfRepresentation<
 	@Override
 	protected Resource createEmfResource(MediaType mediaType)
 	{
-		return new JsResourceImpl();
+		return resource != null ? resource : new JsResourceImpl();
 	}
+
+	private Resource resource;
 }
