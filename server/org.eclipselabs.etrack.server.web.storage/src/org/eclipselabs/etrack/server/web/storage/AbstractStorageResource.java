@@ -9,7 +9,7 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.server.web.storage.resources;
+package org.eclipselabs.etrack.server.web.storage;
 
 import java.io.IOException;
 
@@ -38,19 +38,9 @@ public class AbstractStorageResource extends WadlServerResource
 {
 	public static void setResourceSetFactory(IResourceSetFactory factory)
 	{
+		// TODO this factory should ultimately be replaced by a cache and probably moved to the
+		// specialization classes
 		resourceSetFactory = factory;
-	}
-
-	public EmfRepresentation<EObject> retrieveXMI()
-	{
-		EObject object = getModel();
-		return new EmfXmlRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
-	}
-
-	public EmfRepresentation<EObject> retrieveJSON()
-	{
-		EObject object = getModel();
-		return new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, object);
 	}
 
 	public Representation createXmiObject(Representation representation) throws IOException
@@ -65,6 +55,18 @@ public class AbstractStorageResource extends WadlServerResource
 		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
 		URI uri = saveObject(emfRepresentation.getObject());
 		return new StringRepresentation(uri.toString());
+	}
+
+	public EmfRepresentation<EObject> retrieveXMI()
+	{
+		EObject object = getModel();
+		return new EmfXmlRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
+	}
+
+	public EmfRepresentation<EObject> retrieveJSON()
+	{
+		EObject object = getModel();
+		return new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, object);
 	}
 
 	public void updateXmiObject(Representation representation) throws IOException

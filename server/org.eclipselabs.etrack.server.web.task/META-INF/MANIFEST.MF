@@ -6,12 +6,15 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.emf.ecore,
  org.eclipselabs.etrack.domain.task,
+ org.eclipselabs.etrack.server.web.storage,
  org.eclipselabs.etrack.util.web.emf,
  org.restlet,
  org.restlet.data,
  org.restlet.ext.emf,
  org.restlet.ext.osgi,
+ org.restlet.ext.wadl,
+ org.restlet.representation,
  org.restlet.resource
 Bundle-ActivationPolicy: lazy
-Service-Component: OSGI-INF/resources/version.xml
+Service-Component: OSGI-INF/resources/version.xml, OSGI-INF/resources/task.xml
 Export-Package: org.eclipselabs.etrack.server.web.task.resources

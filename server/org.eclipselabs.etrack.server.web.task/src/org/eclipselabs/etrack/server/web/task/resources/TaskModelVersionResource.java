@@ -17,14 +17,14 @@ import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
+import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.resource.Get;
-import org.restlet.resource.ServerResource;
 
 /**
  * @author bhunt
  * 
  */
-public class TaskModelVersionResource extends ServerResource
+public class TaskModelVersionResource extends WadlServerResource
 {
 	@Get("xmi+xml")
 	public EmfRepresentation<TaskModelVersion> getXMI()

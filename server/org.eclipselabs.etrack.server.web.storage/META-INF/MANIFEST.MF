@@ -20,7 +20,6 @@ Import-Package: org.eclipse.emf.common.util,
  org.restlet.representation,
  org.restlet.resource,
  org.restlet.util
-Export-Package: org.eclipselabs.etrack.server.web.storage.providers,
- org.eclipselabs.etrack.server.web.storage.resources
+Export-Package: org.eclipselabs.etrack.server.web.storage
 Service-Component: OSGI-INF/resources/storage.xml
 Bundle-ActivationPolicy: lazy

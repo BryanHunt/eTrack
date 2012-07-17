@@ -9,9 +9,8 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.server.web.storage.providers;
+package org.eclipselabs.etrack.server.web.storage;
 
-import org.eclipselabs.etrack.server.web.storage.resources.AbstractStorageResource;
 import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
 import org.restlet.ext.osgi.ResourceProvider;
 
