@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Web Application
-Bundle-SymbolicName: org.eclipselabs.etrack.server.web.app
+Bundle-SymbolicName: org.eclipselabs.etrack.app.server.web
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
