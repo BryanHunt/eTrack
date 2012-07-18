@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Project Web Resources
+Bundle-SymbolicName: org.eclipselabs.etrack.server.web.project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.emf.ecore,
+ org.eclipselabs.etrack.server.web.storage,
+ org.restlet,
+ org.restlet.ext.emf,
+ org.restlet.ext.osgi,
+ org.restlet.ext.wadl,
+ org.restlet.representation,
+ org.restlet.resource
+Service-Component: OSGI-INF/resources/project.xml
