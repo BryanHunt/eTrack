@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.server.web.task.taskDomainResource">
+   <implementation class="org.eclipselabs.etrack.server.web.task.providers.TaskDomainResourceProvider"/>
+   <property name="visibility" type="String" value="secure"/>
+   <property name="paths" type="String">
+   		/taskDomains/
+   		/taskDomains/{id}
+   </property>
+   <service>
+      <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
+   </service>
+</scr:component>
