@@ -12,6 +12,9 @@
    <feature url="features/org.eclipslabs.etrack.util.feature_0.1.0.qualifier.jar" id="org.eclipslabs.etrack.util.feature" version="0.1.0.qualifier">
       <category name="etrack"/>
    </feature>
+   <feature url="features/org.eclipselabs.etrack.server.provider.feature_0.1.0.qualifier.jar" id="org.eclipselabs.etrack.server.provider.feature" version="0.1.0.qualifier">
+      <category name="etrack"/>
+   </feature>
    <category-def name="etrack" label="eTrack">
       <description>
          eTrack runtime
