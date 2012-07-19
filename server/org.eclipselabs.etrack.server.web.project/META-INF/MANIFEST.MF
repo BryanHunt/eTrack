@@ -14,3 +14,4 @@ Import-Package: org.eclipse.emf.ecore,
  org.restlet.representation,
  org.restlet.resource
 Service-Component: OSGI-INF/resources/project.xml
+Bundle-ActivationPolicy: lazy
