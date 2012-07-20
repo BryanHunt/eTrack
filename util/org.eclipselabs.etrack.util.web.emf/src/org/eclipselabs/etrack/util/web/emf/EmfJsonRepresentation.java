@@ -45,7 +45,7 @@ public class EmfJsonRepresentation<T extends EObject> extends EmfRepresentation<
 	@Override
 	protected Resource createEmfResource(MediaType mediaType)
 	{
-		return resource != null ? resource : new JsResourceImpl();
+		return resource != null && resource instanceof JsResourceImpl ? resource : new JsResourceImpl();
 	}
 
 	private Resource resource;
