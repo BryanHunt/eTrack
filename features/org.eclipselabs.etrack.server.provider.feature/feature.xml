@@ -28,20 +28,23 @@
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="true"/>
+         fragment="true"
+         unpack="false"/>
 
    <plugin
          id="org.eclipselabs.etrack.app.server.web.project.provider"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="true"/>
+         fragment="true"
+         unpack="false"/>
 
    <plugin
          id="org.eclipselabs.etrack.app.server.web.task.provider"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         fragment="true"/>
+         fragment="true"
+         unpack="false"/>
 
 </feature>
