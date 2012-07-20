@@ -20,7 +20,7 @@ import org.restlet.ext.osgi.ResourceProvider;
  */
 public abstract class AbstractStorageResourceProvider extends ResourceProvider
 {
-	void bindResourceSetFactory(IResourceSetFactory resourceSetFactory)
+	public void bindResourceSetFactory(IResourceSetFactory resourceSetFactory)
 	{
 		AbstractStorageResource.setResourceSetFactory(resourceSetFactory);
 	}
