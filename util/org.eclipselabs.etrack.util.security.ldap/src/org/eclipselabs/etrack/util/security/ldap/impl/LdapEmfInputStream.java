@@ -49,7 +49,7 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 
 			if (uri.hasQuery())
 			{
-				NamingEnumeration<SearchResult> results = ldapService.find(SearchControls.SUBTREE_SCOPE, uri.lastSegment(), uri.query());
+				NamingEnumeration<SearchResult> results = ldapService.find(SearchControls.SUBTREE_SCOPE, URI.decode(uri.lastSegment()), URI.decode(uri.query()));
 
 				if (results.hasMore())
 				{
@@ -59,7 +59,7 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 			}
 			else
 			{
-				attributes = ldapService.getAttributes(uri.lastSegment());
+				attributes = ldapService.getAttributes(URI.decode(uri.lastSegment()));
 			}
 
 			if (attributes != null)
