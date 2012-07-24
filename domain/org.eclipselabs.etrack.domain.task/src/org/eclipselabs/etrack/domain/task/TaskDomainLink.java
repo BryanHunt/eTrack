@@ -73,10 +73,12 @@ public class TaskDomainLink extends LinkedContent
 	 */
 	public TaskDomain getTaskDomain()
 	{
-		if (taskDomain != null && taskDomain.eIsProxy()) {
+		if (taskDomain != null && taskDomain.eIsProxy())
+		{
 			InternalEObject oldTaskDomain = (InternalEObject)taskDomain;
 			taskDomain = (TaskDomain)eResolveProxy(oldTaskDomain);
-			if (taskDomain != oldTaskDomain) {
+			if (taskDomain != oldTaskDomain)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_DOMAIN_LINK__TASK_DOMAIN, oldTaskDomain, taskDomain));
 			}
@@ -118,7 +120,8 @@ public class TaskDomainLink extends LinkedContent
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_DOMAIN_LINK__TASK_DOMAIN:
 				if (resolve) return getTaskDomain();
 				return basicGetTaskDomain();
@@ -134,7 +137,8 @@ public class TaskDomainLink extends LinkedContent
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_DOMAIN_LINK__TASK_DOMAIN:
 				setTaskDomain((TaskDomain)newValue);
 				return;
@@ -150,7 +154,8 @@ public class TaskDomainLink extends LinkedContent
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_DOMAIN_LINK__TASK_DOMAIN:
 				setTaskDomain((TaskDomain)null);
 				return;
@@ -166,7 +171,8 @@ public class TaskDomainLink extends LinkedContent
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_DOMAIN_LINK__TASK_DOMAIN:
 				return taskDomain != null;
 		}

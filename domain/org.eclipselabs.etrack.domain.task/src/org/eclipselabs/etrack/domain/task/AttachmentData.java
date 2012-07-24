@@ -119,7 +119,8 @@ public class AttachmentData extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT_DATA__DATA:
 				return getData();
 		}
@@ -134,7 +135,8 @@ public class AttachmentData extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT_DATA__DATA:
 				setData((byte[])newValue);
 				return;
@@ -150,7 +152,8 @@ public class AttachmentData extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT_DATA__DATA:
 				setData(DATA_EDEFAULT);
 				return;
@@ -166,7 +169,8 @@ public class AttachmentData extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT_DATA__DATA:
 				return DATA_EDEFAULT == null ? data != null : !DATA_EDEFAULT.equals(data);
 		}

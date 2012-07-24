@@ -91,13 +91,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int ARTIFACT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ARTIFACT__CREATED = 1;
+	public static final int ARTIFACT__CREATED_ON = 1;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -158,13 +158,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int ATTACHMENT__NAME = ARTIFACT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * The feature id for the '<em><b>Created On</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ATTACHMENT__CREATED = ARTIFACT__CREATED;
+	public static final int ATTACHMENT__CREATED_ON = ARTIFACT__CREATED_ON;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
@@ -185,13 +185,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int ATTACHMENT__DESCRIPTION = ARTIFACT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * The feature id for the '<em><b>Size In Bytes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ATTACHMENT__SIZE = ARTIFACT_FEATURE_COUNT + 2;
+	public static final int ATTACHMENT__SIZE_IN_BYTES = ARTIFACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Data Container</b></em>' containment reference.
@@ -1089,15 +1089,15 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Attachment#getSize <em>Size</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Attachment#getSizeInBytes <em>Size In Bytes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Size</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Attachment#getSize()
+	 * @return the meta object for the attribute '<em>Size In Bytes</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Attachment#getSizeInBytes()
 	 * @see #getAttachment()
 	 * @generated
 	 */
-	public EAttribute getAttachment_Size()
+	public EAttribute getAttachment_SizeInBytes()
 	{
 		return (EAttribute)attachmentEClass.getEStructuralFeatures().get(1);
 	}
@@ -1353,15 +1353,15 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Artifact#getCreated <em>Created</em>}'.
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Artifact#getCreatedOn <em>Created On</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Created</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Artifact#getCreated()
+	 * @return the meta object for the attribute '<em>Created On</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Artifact#getCreatedOn()
 	 * @see #getArtifact()
 	 * @generated
 	 */
-	public EAttribute getArtifact_Created()
+	public EAttribute getArtifact_CreatedOn()
 	{
 		return (EAttribute)artifactEClass.getEStructuralFeatures().get(1);
 	}
@@ -1401,7 +1401,7 @@ public class TaskPackage extends EPackageImpl
 		// Create classes and their features
 		attachmentEClass = createEClass(ATTACHMENT);
 		createEAttribute(attachmentEClass, ATTACHMENT__DESCRIPTION);
-		createEAttribute(attachmentEClass, ATTACHMENT__SIZE);
+		createEAttribute(attachmentEClass, ATTACHMENT__SIZE_IN_BYTES);
 		createEReference(attachmentEClass, ATTACHMENT__DATA_CONTAINER);
 
 		attachmentDataEClass = createEClass(ATTACHMENT_DATA);
@@ -1409,7 +1409,7 @@ public class TaskPackage extends EPackageImpl
 
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__NAME);
-		createEAttribute(artifactEClass, ARTIFACT__CREATED);
+		createEAttribute(artifactEClass, ARTIFACT__CREATED_ON);
 
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__TEXT);
@@ -1499,7 +1499,7 @@ public class TaskPackage extends EPackageImpl
 		// Initialize classes and features; add operations and parameters
 		initEClass(attachmentEClass, Attachment.class, "Attachment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttachment_Description(), ecorePackage.getEString(), "description", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAttachment_Size(), ecorePackage.getEInt(), "size", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttachment_SizeInBytes(), ecorePackage.getELong(), "sizeInBytes", null, 1, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttachment_DataContainer(), this.getAttachmentData(), null, "dataContainer", null, 0, 1, Attachment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attachmentDataEClass, AttachmentData.class, "AttachmentData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1507,7 +1507,7 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 1, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArtifact_Created(), ecorePackage.getEDate(), "created", null, 1, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArtifact_CreatedOn(), ecorePackage.getEDate(), "createdOn", null, 1, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComment_Text(), ecorePackage.getEString(), "text", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1751,12 +1751,12 @@ public class TaskPackage extends EPackageImpl
 		public static final EAttribute ATTACHMENT__DESCRIPTION = eINSTANCE.getAttachment_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Size In Bytes</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EAttribute ATTACHMENT__SIZE = eINSTANCE.getAttachment_Size();
+		public static final EAttribute ATTACHMENT__SIZE_IN_BYTES = eINSTANCE.getAttachment_SizeInBytes();
 
 		/**
 		 * The meta object literal for the '<em><b>Data Container</b></em>' containment reference feature.
@@ -1907,12 +1907,12 @@ public class TaskPackage extends EPackageImpl
 		public static final EAttribute ARTIFACT__NAME = eINSTANCE.getArtifact_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Created On</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EAttribute ARTIFACT__CREATED = eINSTANCE.getArtifact_Created();
+		public static final EAttribute ARTIFACT__CREATED_ON = eINSTANCE.getArtifact_CreatedOn();
 
 	}
 

@@ -127,10 +127,12 @@ public class Comment extends EObjectImpl implements AssignableItem
 	 */
 	public Person getOwner()
 	{
-		if (owner != null && owner.eIsProxy()) {
+		if (owner != null && owner.eIsProxy())
+		{
 			InternalEObject oldOwner = (InternalEObject)owner;
 			owner = (Person)eResolveProxy(oldOwner);
-			if (owner != oldOwner) {
+			if (owner != oldOwner)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.COMMENT__OWNER, oldOwner, owner));
 			}
@@ -242,7 +244,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.COMMENT__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
@@ -262,7 +265,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.COMMENT__OWNER:
 				setOwner((Person)newValue);
 				return;
@@ -284,7 +288,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.COMMENT__OWNER:
 				setOwner((Person)null);
 				return;
@@ -306,7 +311,8 @@ public class Comment extends EObjectImpl implements AssignableItem
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.COMMENT__OWNER:
 				return owner != null;
 			case TaskPackage.COMMENT__TEXT:

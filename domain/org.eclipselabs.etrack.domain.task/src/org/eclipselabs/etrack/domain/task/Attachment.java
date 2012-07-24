@@ -29,7 +29,7 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getDescription <em>Description</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getSize <em>Size</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getSizeInBytes <em>Size In Bytes</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Attachment#getDataContainer <em>Data Container</em>}</li>
  * </ul>
  * </p>
@@ -71,24 +71,24 @@ public class Attachment extends Artifact implements AssignableItem
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * The default value of the '{@link #getSizeInBytes() <em>Size In Bytes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSize()
+	 * @see #getSizeInBytes()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int SIZE_EDEFAULT = 0;
+	protected static final long SIZE_IN_BYTES_EDEFAULT = 0L;
 
 	/**
-	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
+	 * The cached value of the '{@link #getSizeInBytes() <em>Size In Bytes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSize()
+	 * @see #getSizeInBytes()
 	 * @generated
 	 * @ordered
 	 */
-	protected int size = SIZE_EDEFAULT;
+	protected long sizeInBytes = SIZE_IN_BYTES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDataContainer() <em>Data Container</em>}' containment reference.
@@ -137,10 +137,12 @@ public class Attachment extends Artifact implements AssignableItem
 	 */
 	public Person getOwner()
 	{
-		if (owner != null && owner.eIsProxy()) {
+		if (owner != null && owner.eIsProxy())
+		{
 			InternalEObject oldOwner = (InternalEObject)owner;
 			owner = (Person)eResolveProxy(oldOwner);
-			if (owner != oldOwner) {
+			if (owner != oldOwner)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.ATTACHMENT__OWNER, oldOwner, owner));
 			}
@@ -210,38 +212,38 @@ public class Attachment extends Artifact implements AssignableItem
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Size</b></em>' attribute.
+	 * Returns the value of the '<em><b>Size In Bytes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Size</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Size In Bytes</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Size</em>' attribute.
-	 * @see #setSize(int)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_Size()
+	 * @return the value of the '<em>Size In Bytes</em>' attribute.
+	 * @see #setSizeInBytes(long)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_SizeInBytes()
 	 * @model required="true"
 	 * @generated
 	 */
-	public int getSize()
+	public long getSizeInBytes()
 	{
-		return size;
+		return sizeInBytes;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getSize <em>Size</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Attachment#getSizeInBytes <em>Size In Bytes</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Size</em>' attribute.
-	 * @see #getSize()
+	 * @param value the new value of the '<em>Size In Bytes</em>' attribute.
+	 * @see #getSizeInBytes()
 	 * @generated
 	 */
-	public void setSize(int newSize)
+	public void setSizeInBytes(long newSizeInBytes)
 	{
-		int oldSize = size;
-		size = newSize;
+		long oldSizeInBytes = sizeInBytes;
+		sizeInBytes = newSizeInBytes;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__SIZE, oldSize, size));
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__SIZE_IN_BYTES, oldSizeInBytes, sizeInBytes));
 	}
 
 	/**
@@ -272,7 +274,8 @@ public class Attachment extends Artifact implements AssignableItem
 	{
 		AttachmentData oldDataContainer = dataContainer;
 		dataContainer = newDataContainer;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, newDataContainer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -289,7 +292,8 @@ public class Attachment extends Artifact implements AssignableItem
 	 */
 	public void setDataContainer(AttachmentData newDataContainer)
 	{
-		if (newDataContainer != dataContainer) {
+		if (newDataContainer != dataContainer)
+		{
 			NotificationChain msgs = null;
 			if (dataContainer != null)
 				msgs = ((InternalEObject)dataContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, msgs);
@@ -310,7 +314,8 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				return basicSetDataContainer(null, msgs);
 		}
@@ -325,14 +330,15 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return getDescription();
-			case TaskPackage.ATTACHMENT__SIZE:
-				return getSize();
+			case TaskPackage.ATTACHMENT__SIZE_IN_BYTES:
+				return getSizeInBytes();
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				return getDataContainer();
 		}
@@ -347,15 +353,16 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT__OWNER:
 				setOwner((Person)newValue);
 				return;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case TaskPackage.ATTACHMENT__SIZE:
-				setSize((Integer)newValue);
+			case TaskPackage.ATTACHMENT__SIZE_IN_BYTES:
+				setSizeInBytes((Long)newValue);
 				return;
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				setDataContainer((AttachmentData)newValue);
@@ -372,15 +379,16 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT__OWNER:
 				setOwner((Person)null);
 				return;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case TaskPackage.ATTACHMENT__SIZE:
-				setSize(SIZE_EDEFAULT);
+			case TaskPackage.ATTACHMENT__SIZE_IN_BYTES:
+				setSizeInBytes(SIZE_IN_BYTES_EDEFAULT);
 				return;
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				setDataContainer((AttachmentData)null);
@@ -397,13 +405,14 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.ATTACHMENT__OWNER:
 				return owner != null;
 			case TaskPackage.ATTACHMENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case TaskPackage.ATTACHMENT__SIZE:
-				return size != SIZE_EDEFAULT;
+			case TaskPackage.ATTACHMENT__SIZE_IN_BYTES:
+				return sizeInBytes != SIZE_IN_BYTES_EDEFAULT;
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
 				return dataContainer != null;
 		}
@@ -418,8 +427,10 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == AssignableItem.class) {
-			switch (derivedFeatureID) {
+		if (baseClass == AssignableItem.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case TaskPackage.ATTACHMENT__OWNER: return EntityPackage.ASSIGNABLE_ITEM__OWNER;
 				default: return -1;
 			}
@@ -435,8 +446,10 @@ public class Attachment extends Artifact implements AssignableItem
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == AssignableItem.class) {
-			switch (baseFeatureID) {
+		if (baseClass == AssignableItem.class)
+		{
+			switch (baseFeatureID)
+			{
 				case EntityPackage.ASSIGNABLE_ITEM__OWNER: return TaskPackage.ATTACHMENT__OWNER;
 				default: return -1;
 			}
@@ -457,8 +470,8 @@ public class Attachment extends Artifact implements AssignableItem
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (description: ");
 		result.append(description);
-		result.append(", size: ");
-		result.append(size);
+		result.append(", sizeInBytes: ");
+		result.append(sizeInBytes);
 		result.append(')');
 		return result.toString();
 	}

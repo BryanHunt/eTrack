@@ -58,7 +58,8 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 */
 	public TaskAdapterFactory()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = TaskPackage.eINSTANCE;
 		}
 	}
@@ -74,10 +75,12 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage) {
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -90,69 +93,86 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected TaskSwitch<Adapter> modelSwitch =
-		new TaskSwitch<Adapter>() {
+		new TaskSwitch<Adapter>()
+		{
 			@Override
-			public Adapter caseAttachment(Attachment object) {
+			public Adapter caseAttachment(Attachment object)
+			{
 				return createAttachmentAdapter();
 			}
 			@Override
-			public Adapter caseAttachmentData(AttachmentData object) {
+			public Adapter caseAttachmentData(AttachmentData object)
+			{
 				return createAttachmentDataAdapter();
 			}
 			@Override
-			public Adapter caseArtifact(Artifact object) {
+			public Adapter caseArtifact(Artifact object)
+			{
 				return createArtifactAdapter();
 			}
 			@Override
-			public Adapter caseComment(Comment object) {
+			public Adapter caseComment(Comment object)
+			{
 				return createCommentAdapter();
 			}
 			@Override
-			public Adapter caseTask(Task object) {
+			public Adapter caseTask(Task object)
+			{
 				return createTaskAdapter();
 			}
 			@Override
-			public Adapter caseTaskDomain(TaskDomain object) {
+			public Adapter caseTaskDomain(TaskDomain object)
+			{
 				return createTaskDomainAdapter();
 			}
 			@Override
-			public Adapter caseTaskType(TaskType object) {
+			public Adapter caseTaskType(TaskType object)
+			{
 				return createTaskTypeAdapter();
 			}
 			@Override
-			public Adapter caseTaskModelVersion(TaskModelVersion object) {
+			public Adapter caseTaskModelVersion(TaskModelVersion object)
+			{
 				return createTaskModelVersionAdapter();
 			}
 			@Override
-			public Adapter caseTaskAttributeChange(TaskAttributeChange object) {
+			public Adapter caseTaskAttributeChange(TaskAttributeChange object)
+			{
 				return createTaskAttributeChangeAdapter();
 			}
 			@Override
-			public Adapter caseTaskDomainLink(TaskDomainLink object) {
+			public Adapter caseTaskDomainLink(TaskDomainLink object)
+			{
 				return createTaskDomainLinkAdapter();
 			}
 			@Override
-			public Adapter caseAssignableItem(AssignableItem object) {
+			public Adapter caseAssignableItem(AssignableItem object)
+			{
 				return createAssignableItemAdapter();
 			}
 			@Override
-			public Adapter caseLinkable(Linkable object) {
+			public Adapter caseLinkable(Linkable object)
+			{
 				return createLinkableAdapter();
 			}
 			@Override
-			public Adapter caseAuditableItem(AuditableItem object) {
+			public Adapter caseAuditableItem(AuditableItem object)
+			{
 				return createAuditableItemAdapter();
 			}
 			@Override
-			public Adapter caseAction(Action object) {
+			public Adapter caseAction(Action object)
+			{
 				return createActionAdapter();
 			}
 			@Override
-			public Adapter caseLinkedContent(LinkedContent object) {
+			public Adapter caseLinkedContent(LinkedContent object)
+			{
 				return createLinkedContentAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};

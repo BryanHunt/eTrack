@@ -256,7 +256,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public EMap<String, LinkedContent> getLinksByName()
 	{
-		if (linksByName == null) {
+		if (linksByName == null)
+		{
 			linksByName = new EcoreEMap<String,LinkedContent>(DataPackage.Literals.LINK_MAPPING, LinkMapping.class, this, TaskPackage.TASK__LINKS_BY_NAME);
 		}
 		return linksByName;
@@ -278,10 +279,12 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public Person getOwner()
 	{
-		if (owner != null && owner.eIsProxy()) {
+		if (owner != null && owner.eIsProxy())
+		{
 			InternalEObject oldOwner = (InternalEObject)owner;
 			owner = (Person)eResolveProxy(oldOwner);
-			if (owner != oldOwner) {
+			if (owner != oldOwner)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__OWNER, oldOwner, owner));
 			}
@@ -331,7 +334,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public EList<Action> getHistory()
 	{
-		if (history == null) {
+		if (history == null)
+		{
 			history = new EObjectContainmentEList<Action>(Action.class, this, TaskPackage.TASK__HISTORY);
 		}
 		return history;
@@ -458,10 +462,12 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public Person getCreatedBy()
 	{
-		if (createdBy != null && createdBy.eIsProxy()) {
+		if (createdBy != null && createdBy.eIsProxy())
+		{
 			InternalEObject oldCreatedBy = (InternalEObject)createdBy;
 			createdBy = (Person)eResolveProxy(oldCreatedBy);
-			if (createdBy != oldCreatedBy) {
+			if (createdBy != oldCreatedBy)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__CREATED_BY, oldCreatedBy, createdBy));
 			}
@@ -511,7 +517,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public EList<Attachment> getAttachments()
 	{
-		if (attachments == null) {
+		if (attachments == null)
+		{
 			attachments = new EObjectContainmentEList<Attachment>(Attachment.class, this, TaskPackage.TASK__ATTACHMENTS);
 		}
 		return attachments;
@@ -533,7 +540,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public EList<Comment> getComments()
 	{
-		if (comments == null) {
+		if (comments == null)
+		{
 			comments = new EObjectContainmentEList<Comment>(Comment.class, this, TaskPackage.TASK__COMMENTS);
 		}
 		return comments;
@@ -555,10 +563,12 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public State getCurrentState()
 	{
-		if (currentState != null && currentState.eIsProxy()) {
+		if (currentState != null && currentState.eIsProxy())
+		{
 			InternalEObject oldCurrentState = (InternalEObject)currentState;
 			currentState = (State)eResolveProxy(oldCurrentState);
-			if (currentState != oldCurrentState) {
+			if (currentState != oldCurrentState)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__CURRENT_STATE, oldCurrentState, currentState));
 			}
@@ -608,7 +618,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public EList<Person> getSubscribers()
 	{
-		if (subscribers == null) {
+		if (subscribers == null)
+		{
 			subscribers = new EObjectResolvingEList<Person>(Person.class, this, TaskPackage.TASK__SUBSCRIBERS);
 		}
 		return subscribers;
@@ -630,10 +641,12 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public TaskType getType()
 	{
-		if (type != null && type.eIsProxy()) {
+		if (type != null && type.eIsProxy())
+		{
 			InternalEObject oldType = (InternalEObject)type;
 			type = (TaskType)eResolveProxy(oldType);
-			if (type != oldType) {
+			if (type != oldType)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__TYPE, oldType, type));
 			}
@@ -683,10 +696,12 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 */
 	public Project getProject()
 	{
-		if (project != null && project.eIsProxy()) {
+		if (project != null && project.eIsProxy())
+		{
 			InternalEObject oldProject = (InternalEObject)project;
 			project = (Project)eResolveProxy(oldProject);
-			if (project != oldProject) {
+			if (project != oldProject)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__PROJECT, oldProject, project));
 			}
@@ -728,7 +743,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK__LINKS_BY_NAME:
 				return ((InternalEList<?>)getLinksByName()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK__HISTORY:
@@ -749,7 +765,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK__LINKS_BY_NAME:
 				if (coreType) return getLinksByName();
 				else return getLinksByName().map();
@@ -795,7 +812,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK__LINKS_BY_NAME:
 				((EStructuralFeature.Setting)getLinksByName()).set(newValue);
 				return;
@@ -851,7 +869,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK__LINKS_BY_NAME:
 				getLinksByName().clear();
 				return;
@@ -903,7 +922,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK__LINKS_BY_NAME:
 				return linksByName != null && !linksByName.isEmpty();
 			case TaskPackage.TASK__OWNER:
@@ -942,14 +962,18 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == AssignableItem.class) {
-			switch (derivedFeatureID) {
+		if (baseClass == AssignableItem.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case TaskPackage.TASK__OWNER: return EntityPackage.ASSIGNABLE_ITEM__OWNER;
 				default: return -1;
 			}
 		}
-		if (baseClass == AuditableItem.class) {
-			switch (derivedFeatureID) {
+		if (baseClass == AuditableItem.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case TaskPackage.TASK__HISTORY: return AuditPackage.AUDITABLE_ITEM__HISTORY;
 				default: return -1;
 			}
@@ -965,14 +989,18 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == AssignableItem.class) {
-			switch (baseFeatureID) {
+		if (baseClass == AssignableItem.class)
+		{
+			switch (baseFeatureID)
+			{
 				case EntityPackage.ASSIGNABLE_ITEM__OWNER: return TaskPackage.TASK__OWNER;
 				default: return -1;
 			}
 		}
-		if (baseClass == AuditableItem.class) {
-			switch (baseFeatureID) {
+		if (baseClass == AuditableItem.class)
+		{
+			switch (baseFeatureID)
+			{
 				case AuditPackage.AUDITABLE_ITEM__HISTORY: return TaskPackage.TASK__HISTORY;
 				default: return -1;
 			}

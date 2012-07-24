@@ -120,7 +120,8 @@ public class TaskModelVersion extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_MODEL_VERSION__VERSION:
 				return getVersion();
 		}
@@ -135,7 +136,8 @@ public class TaskModelVersion extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_MODEL_VERSION__VERSION:
 				setVersion((Integer)newValue);
 				return;
@@ -151,7 +153,8 @@ public class TaskModelVersion extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_MODEL_VERSION__VERSION:
 				setVersion(VERSION_EDEFAULT);
 				return;
@@ -167,7 +170,8 @@ public class TaskModelVersion extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_MODEL_VERSION__VERSION:
 				return version != VERSION_EDEFAULT;
 		}

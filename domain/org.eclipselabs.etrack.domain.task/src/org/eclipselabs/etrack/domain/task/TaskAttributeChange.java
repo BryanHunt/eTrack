@@ -165,7 +165,8 @@ public class TaskAttributeChange extends Action
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE__OLD_VALUE:
 				return getOldValue();
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE__ATTRIBUTE_NAME:
@@ -182,7 +183,8 @@ public class TaskAttributeChange extends Action
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE__OLD_VALUE:
 				setOldValue((String)newValue);
 				return;
@@ -201,7 +203,8 @@ public class TaskAttributeChange extends Action
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE__OLD_VALUE:
 				setOldValue(OLD_VALUE_EDEFAULT);
 				return;
@@ -220,7 +223,8 @@ public class TaskAttributeChange extends Action
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE__OLD_VALUE:
 				return OLD_VALUE_EDEFAULT == null ? oldValue != null : !OLD_VALUE_EDEFAULT.equals(oldValue);
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE__ATTRIBUTE_NAME:

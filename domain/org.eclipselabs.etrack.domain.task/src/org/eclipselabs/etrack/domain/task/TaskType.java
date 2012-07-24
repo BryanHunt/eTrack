@@ -174,7 +174,8 @@ public class TaskType extends EObjectImpl implements EObject
 	 */
 	public EMap<State, EList<StateTransition>> getStates()
 	{
-		if (states == null) {
+		if (states == null)
+		{
 			states = new EcoreEMap<State,EList<StateTransition>>(StatePackage.Literals.STATE_TRANSITION_MAPPING, StateTransitionMapping.class, this, TaskPackage.TASK_TYPE__STATES);
 		}
 		return states;
@@ -208,7 +209,8 @@ public class TaskType extends EObjectImpl implements EObject
 	{
 		EPackage oldExtension = extension;
 		extension = newExtension;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_TYPE__EXTENSION, oldExtension, newExtension);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -225,7 +227,8 @@ public class TaskType extends EObjectImpl implements EObject
 	 */
 	public void setExtension(EPackage newExtension)
 	{
-		if (newExtension != extension) {
+		if (newExtension != extension)
+		{
 			NotificationChain msgs = null;
 			if (extension != null)
 				msgs = ((InternalEObject)extension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_TYPE__EXTENSION, null, msgs);
@@ -254,10 +257,12 @@ public class TaskType extends EObjectImpl implements EObject
 	 */
 	public State getStartingState()
 	{
-		if (startingState != null && startingState.eIsProxy()) {
+		if (startingState != null && startingState.eIsProxy())
+		{
 			InternalEObject oldStartingState = (InternalEObject)startingState;
 			startingState = (State)eResolveProxy(oldStartingState);
-			if (startingState != oldStartingState) {
+			if (startingState != oldStartingState)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_TYPE__STARTING_STATE, oldStartingState, startingState));
 			}
@@ -299,7 +304,8 @@ public class TaskType extends EObjectImpl implements EObject
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_TYPE__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_TYPE__EXTENSION:
@@ -316,7 +322,8 @@ public class TaskType extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_TYPE__NAME:
 				return getName();
 			case TaskPackage.TASK_TYPE__STATES:
@@ -339,7 +346,8 @@ public class TaskType extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_TYPE__NAME:
 				setName((String)newValue);
 				return;
@@ -364,7 +372,8 @@ public class TaskType extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_TYPE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -389,7 +398,8 @@ public class TaskType extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case TaskPackage.TASK_TYPE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TaskPackage.TASK_TYPE__STATES:

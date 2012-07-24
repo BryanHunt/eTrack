@@ -34,13 +34,16 @@ public class TaskFactory extends EFactoryImpl
 	 */
 	public static TaskFactory init()
 	{
-		try {
+		try
+		{
 			TaskFactory theTaskFactory = (TaskFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/task"); 
-			if (theTaskFactory != null) {
+			if (theTaskFactory != null)
+			{
 				return theTaskFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new TaskFactory();
@@ -65,7 +68,8 @@ public class TaskFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID()) {
+		switch (eClass.getClassifierID())
+		{
 			case TaskPackage.ATTACHMENT: return createAttachment();
 			case TaskPackage.ATTACHMENT_DATA: return createAttachmentData();
 			case TaskPackage.ARTIFACT: return createArtifact();
