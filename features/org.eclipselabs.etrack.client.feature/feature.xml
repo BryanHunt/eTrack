@@ -26,7 +26,6 @@
          version="0.0.0"/>
 
    <requires>
-      <import plugin="org.restlet"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.mylyn.commons.net"/>
@@ -36,6 +35,7 @@
       <import plugin="org.eclipselabs.etrack.domain.security"/>
       <import plugin="org.eclipselabs.etrack.util.security"/>
       <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.restlet"/>
       <import plugin="org.eclipselabs.etrack.domain.data"/>
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipselabs.mongo.emf.ext"/>
@@ -48,14 +48,8 @@
       <import plugin="org.eclipselabs.etrack.domain.entity"/>
       <import plugin="org.eclipselabs.etrack.domain.state"/>
       <import plugin="org.eclipselabs.etrack.domain.task"/>
+      <import plugin="org.eclipselabs.etrack.util.web.client"/>
    </requires>
-
-   <plugin
-         id="org.eclipselabs.etrack.client.web"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.eclipselabs.etrack.client.web.mylyn"
