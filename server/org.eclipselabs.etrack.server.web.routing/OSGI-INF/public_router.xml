@@ -7,4 +7,5 @@
    <service>
       <provide interface="org.restlet.ext.osgi.IRouterProvider"/>
    </service>
+   <reference bind="bindDirectoryProvider" cardinality="0..n" interface="org.restlet.ext.osgi.IDirectoryProvider" name="IDirectoryProvider" policy="dynamic" target="(visibility=public)" unbind="unbindDirectoryProvider"/>
 </scr:component>
