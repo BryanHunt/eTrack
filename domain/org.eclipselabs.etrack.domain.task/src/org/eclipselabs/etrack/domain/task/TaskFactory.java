@@ -2,6 +2,8 @@
  */
 package org.eclipselabs.etrack.domain.task;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -80,6 +82,8 @@ public class TaskFactory extends EFactoryImpl
 			case TaskPackage.TASK_MODEL_VERSION: return createTaskModelVersion();
 			case TaskPackage.TASK_ATTRIBUTE_CHANGE: return createTaskAttributeChange();
 			case TaskPackage.TASK_DOMAIN_LINK: return createTaskDomainLink();
+			case TaskPackage.RELATED_TASKS_MAPPING: return (EObject)createRelatedTasksMapping();
+			case TaskPackage.TASK_RELATIONSHIP: return createTaskRelationship();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -193,6 +197,28 @@ public class TaskFactory extends EFactoryImpl
 	{
 		TaskDomainLink taskDomainLink = new TaskDomainLink();
 		return taskDomainLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<TaskRelationship, EList<Task>> createRelatedTasksMapping()
+	{
+		RelatedTasksMapping relatedTasksMapping = new RelatedTasksMapping();
+		return relatedTasksMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskRelationship createTaskRelationship()
+	{
+		TaskRelationship taskRelationship = new TaskRelationship();
+		return taskRelationship;
 	}
 
 	/**

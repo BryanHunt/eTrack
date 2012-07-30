@@ -11,6 +11,7 @@
  */
 package org.eclipselabs.etrack.domain.task;
 
+import java.util.Map;
 import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -403,13 +404,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__PROJECT = DataPackage.LINKABLE_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Related Tasks</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__RELATED_TASKS = DataPackage.LINKABLE_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 12;
+	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -457,13 +467,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN__STATE_GROUPS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN__RELATIONSHIPS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN_FEATURE_COUNT = 5;
+	public static final int TASK_DOMAIN_FEATURE_COUNT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -502,13 +521,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_TYPE__STARTING_STATE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Relationships</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_TYPE__RELATIONSHIPS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_TYPE_FEATURE_COUNT = 4;
+	public static final int TASK_TYPE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
@@ -640,6 +668,71 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN_LINK_FEATURE_COUNT = DataPackage.LINKED_CONTENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.RelatedTasksMapping <em>Related Tasks Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.RelatedTasksMapping
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getRelatedTasksMapping()
+	 * @generated
+	 */
+	public static final int RELATED_TASKS_MAPPING = 10;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELATED_TASKS_MAPPING__KEY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELATED_TASKS_MAPPING__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Related Tasks Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELATED_TASKS_MAPPING_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskRelationship <em>Relationship</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskRelationship
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskRelationship()
+	 * @generated
+	 */
+	public static final int TASK_RELATIONSHIP = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_RELATIONSHIP__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Relationship</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_RELATIONSHIP_FEATURE_COUNT = 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -694,6 +787,20 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskDomainLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relatedTasksMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskRelationshipEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -936,6 +1043,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the map '{@link org.eclipselabs.etrack.domain.task.Task#getRelatedTasks <em>Related Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>Related Tasks</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getRelatedTasks()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_RelatedTasks()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(10);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,6 +1138,21 @@ public class TaskPackage extends EPackageImpl
 	public EReference getTaskDomain_StateGroups()
 	{
 		return (EReference)taskDomainEClass.getEStructuralFeatures().get(4);
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getRelationships <em>Relationships</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relationships</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getRelationships()
+	 * @see #getTaskDomain()
+	 * @generated
+	 */
+	public EReference getTaskDomain_Relationships()
+	{
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(5);
 	}
 
 
@@ -1193,6 +1330,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskType#getRelationships <em>Relationships</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Relationships</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskType#getRelationships()
+	 * @see #getTaskType()
+	 * @generated
+	 */
+	public EReference getTaskType_Relationships()
+	{
+		return (EReference)taskTypeEClass.getEStructuralFeatures().get(4);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1291,6 +1443,81 @@ public class TaskPackage extends EPackageImpl
 	public EReference getTaskDomainLink_TaskDomain()
 	{
 		return (EReference)taskDomainLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link java.util.Map.Entry <em>Related Tasks Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Related Tasks Mapping</em>'.
+	 * @see java.util.Map.Entry
+	 * @model keyType="org.eclipselabs.etrack.domain.task.TaskRelationship"
+	 *        valueType="org.eclipselabs.etrack.domain.task.Task" valueMany="true"
+	 * @generated
+	 */
+	public EClass getRelatedTasksMapping()
+	{
+		return relatedTasksMappingEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link java.util.Map.Entry <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Key</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getRelatedTasksMapping()
+	 * @generated
+	 */
+	public EReference getRelatedTasksMapping_Key()
+	{
+		return (EReference)relatedTasksMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference list '{@link java.util.Map.Entry <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Value</em>'.
+	 * @see java.util.Map.Entry
+	 * @see #getRelatedTasksMapping()
+	 * @generated
+	 */
+	public EReference getRelatedTasksMapping_Value()
+	{
+		return (EReference)relatedTasksMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskRelationship <em>Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relationship</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskRelationship
+	 * @generated
+	 */
+	public EClass getTaskRelationship()
+	{
+		return taskRelationshipEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskRelationship#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskRelationship#getName()
+	 * @see #getTaskRelationship()
+	 * @generated
+	 */
+	public EAttribute getTaskRelationship_Name()
+	{
+		return (EAttribute)taskRelationshipEClass.getEStructuralFeatures().get(0);
 	}
 
 
@@ -1426,6 +1653,7 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskEClass, TASK__SUBSCRIBERS);
 		createEReference(taskEClass, TASK__TYPE);
 		createEReference(taskEClass, TASK__PROJECT);
+		createEReference(taskEClass, TASK__RELATED_TASKS);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
@@ -1433,12 +1661,14 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskDomainEClass, TASK_DOMAIN__TRANSITIONS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
 		createEReference(taskDomainEClass, TASK_DOMAIN__STATE_GROUPS);
+		createEReference(taskDomainEClass, TASK_DOMAIN__RELATIONSHIPS);
 
 		taskTypeEClass = createEClass(TASK_TYPE);
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
 		createEReference(taskTypeEClass, TASK_TYPE__STATES);
 		createEReference(taskTypeEClass, TASK_TYPE__EXTENSION);
 		createEReference(taskTypeEClass, TASK_TYPE__STARTING_STATE);
+		createEReference(taskTypeEClass, TASK_TYPE__RELATIONSHIPS);
 
 		taskModelVersionEClass = createEClass(TASK_MODEL_VERSION);
 		createEAttribute(taskModelVersionEClass, TASK_MODEL_VERSION__VERSION);
@@ -1449,6 +1679,13 @@ public class TaskPackage extends EPackageImpl
 
 		taskDomainLinkEClass = createEClass(TASK_DOMAIN_LINK);
 		createEReference(taskDomainLinkEClass, TASK_DOMAIN_LINK__TASK_DOMAIN);
+
+		relatedTasksMappingEClass = createEClass(RELATED_TASKS_MAPPING);
+		createEReference(relatedTasksMappingEClass, RELATED_TASKS_MAPPING__KEY);
+		createEReference(relatedTasksMappingEClass, RELATED_TASKS_MAPPING__VALUE);
+
+		taskRelationshipEClass = createEClass(TASK_RELATIONSHIP);
+		createEAttribute(taskRelationshipEClass, TASK_RELATIONSHIP__NAME);
 	}
 
 	/**
@@ -1524,6 +1761,7 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTask_Subscribers(), theEntityPackage.getPerson(), null, "subscribers", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Type(), this.getTaskType(), null, "type", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Project(), theProjectPackage.getProject(), null, "project", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_RelatedTasks(), this.getRelatedTasksMapping(), null, "relatedTasks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1531,12 +1769,14 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskDomain_Transitions(), theStatePackage.getStateTransition(), null, "transitions", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_StateGroups(), theStatePackage.getStateGroup(), null, "stateGroups", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskDomain_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskTypeEClass, TaskType.class, "TaskType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_States(), theStatePackage.getStateTransitionMapping(), null, "states", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_Extension(), ecorePackage.getEPackage(), null, "extension", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_StartingState(), theStatePackage.getState(), null, "startingState", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskType_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskModelVersionEClass, TaskModelVersion.class, "TaskModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskModelVersion_Version(), ecorePackage.getEInt(), "version", "1", 0, 1, TaskModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1547,6 +1787,13 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(taskDomainLinkEClass, TaskDomainLink.class, "TaskDomainLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTaskDomainLink_TaskDomain(), this.getTaskDomain(), null, "taskDomain", null, 1, 1, TaskDomainLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(relatedTasksMappingEClass, Map.Entry.class, "RelatedTasksMapping", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRelatedTasksMapping_Key(), this.getTaskRelationship(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelatedTasksMapping_Value(), this.getTask(), null, "value", null, 0, -1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskRelationshipEClass, TaskRelationship.class, "TaskRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskRelationship_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1657,6 +1904,14 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK__PROJECT = eINSTANCE.getTask_Project();
 
 		/**
+		 * The meta object literal for the '<em><b>Related Tasks</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__RELATED_TASKS = eINSTANCE.getTask_RelatedTasks();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1705,6 +1960,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_DOMAIN__STATE_GROUPS = eINSTANCE.getTaskDomain_StateGroups();
+
+		/**
+		 * The meta object literal for the '<em><b>Relationships</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_DOMAIN__RELATIONSHIPS = eINSTANCE.getTaskDomain_Relationships();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}' class.
@@ -1809,6 +2072,14 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK_TYPE__STARTING_STATE = eINSTANCE.getTaskType_StartingState();
 
 		/**
+		 * The meta object literal for the '<em><b>Relationships</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_TYPE__RELATIONSHIPS = eINSTANCE.getTaskType_Relationships();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1869,6 +2140,50 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_DOMAIN_LINK__TASK_DOMAIN = eINSTANCE.getTaskDomainLink_TaskDomain();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.RelatedTasksMapping <em>Related Tasks Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.RelatedTasksMapping
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getRelatedTasksMapping()
+		 * @generated
+		 */
+		public static final EClass RELATED_TASKS_MAPPING = eINSTANCE.getRelatedTasksMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference RELATED_TASKS_MAPPING__KEY = eINSTANCE.getRelatedTasksMapping_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference RELATED_TASKS_MAPPING__VALUE = eINSTANCE.getRelatedTasksMapping_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskRelationship <em>Relationship</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.TaskRelationship
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskRelationship()
+		 * @generated
+		 */
+		public static final EClass TASK_RELATIONSHIP = eINSTANCE.getTaskRelationship();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_RELATIONSHIP__NAME = eINSTANCE.getTaskRelationship_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.

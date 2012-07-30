@@ -49,6 +49,7 @@ import org.eclipselabs.etrack.domain.state.State;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getSubscribers <em>Subscribers</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getProject <em>Project</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getRelatedTasks <em>Related Tasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -217,6 +218,16 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected Project project;
+
+	/**
+	 * The cached value of the '{@link #getRelatedTasks() <em>Related Tasks</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatedTasks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<TaskRelationship, EList<Task>> relatedTasks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -736,6 +747,30 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Related Tasks</b></em>' map.
+	 * The key is of type {@link org.eclipselabs.etrack.domain.task.TaskRelationship},
+	 * and the value is of type list of {@link org.eclipselabs.etrack.domain.task.Task},
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Related Tasks</em>' map isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Related Tasks</em>' map.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_RelatedTasks()
+	 * @model mapType="org.eclipselabs.etrack.domain.task.RelatedTasksMapping<org.eclipselabs.etrack.domain.task.TaskRelationship, org.eclipselabs.etrack.domain.task.Task>"
+	 * @generated
+	 */
+	public EMap<TaskRelationship, EList<Task>> getRelatedTasks()
+	{
+		if (relatedTasks == null)
+		{
+			relatedTasks = new EcoreEMap<TaskRelationship,EList<Task>>(TaskPackage.Literals.RELATED_TASKS_MAPPING, RelatedTasksMapping.class, this, TaskPackage.TASK__RELATED_TASKS);
+		}
+		return relatedTasks;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -753,6 +788,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return ((InternalEList<?>)getAttachments()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK__COMMENTS:
 				return ((InternalEList<?>)getComments()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK__RELATED_TASKS:
+				return ((InternalEList<?>)getRelatedTasks()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -799,6 +836,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__PROJECT:
 				if (resolve) return getProject();
 				return basicGetProject();
+			case TaskPackage.TASK__RELATED_TASKS:
+				if (coreType) return getRelatedTasks();
+				else return getRelatedTasks().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -857,6 +897,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__PROJECT:
 				setProject((Project)newValue);
 				return;
+			case TaskPackage.TASK__RELATED_TASKS:
+				((EStructuralFeature.Setting)getRelatedTasks()).set(newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -910,6 +953,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__PROJECT:
 				setProject((Project)null);
 				return;
+			case TaskPackage.TASK__RELATED_TASKS:
+				getRelatedTasks().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -950,6 +996,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return type != null;
 			case TaskPackage.TASK__PROJECT:
 				return project != null;
+			case TaskPackage.TASK__RELATED_TASKS:
+				return relatedTasks != null && !relatedTasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

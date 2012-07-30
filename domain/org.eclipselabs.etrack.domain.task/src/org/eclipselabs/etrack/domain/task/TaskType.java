@@ -12,6 +12,7 @@
 
 package org.eclipselabs.etrack.domain.task;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.etrack.domain.state.State;
@@ -42,6 +44,7 @@ import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStates <em>States</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getExtension <em>Extension</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingState <em>Starting State</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getRelationships <em>Relationships</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +103,16 @@ public class TaskType extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected State startingState;
+
+	/**
+	 * The cached value of the '{@link #getRelationships() <em>Relationships</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationships()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TaskRelationship> relationships;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,6 +310,29 @@ public class TaskType extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Relationships</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.TaskRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Relationships</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relationships</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_Relationships()
+	 * @model
+	 * @generated
+	 */
+	public EList<TaskRelationship> getRelationships()
+	{
+		if (relationships == null)
+		{
+			relationships = new EObjectResolvingEList<TaskRelationship>(TaskRelationship.class, this, TaskPackage.TASK_TYPE__RELATIONSHIPS);
+		}
+		return relationships;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -334,6 +370,8 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				if (resolve) return getStartingState();
 				return basicGetStartingState();
+			case TaskPackage.TASK_TYPE__RELATIONSHIPS:
+				return getRelationships();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,6 +381,7 @@ public class TaskType extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -359,6 +398,10 @@ public class TaskType extends EObjectImpl implements EObject
 				return;
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				setStartingState((State)newValue);
+				return;
+			case TaskPackage.TASK_TYPE__RELATIONSHIPS:
+				getRelationships().clear();
+				getRelationships().addAll((Collection<? extends TaskRelationship>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -386,6 +429,9 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				setStartingState((State)null);
 				return;
+			case TaskPackage.TASK_TYPE__RELATIONSHIPS:
+				getRelationships().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -408,6 +454,8 @@ public class TaskType extends EObjectImpl implements EObject
 				return extension != null;
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				return startingState != null;
+			case TaskPackage.TASK_TYPE__RELATIONSHIPS:
+				return relationships != null && !relationships.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

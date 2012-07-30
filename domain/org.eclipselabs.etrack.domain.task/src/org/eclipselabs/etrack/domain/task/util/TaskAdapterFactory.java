@@ -11,15 +11,18 @@
  */
 package org.eclipselabs.etrack.domain.task.util;
 
+import java.util.Map;
 import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipselabs.etrack.domain.audit.Action;
 import org.eclipselabs.etrack.domain.audit.AuditableItem;
 import org.eclipselabs.etrack.domain.entity.AssignableItem;
+import org.eclipselabs.etrack.domain.task.*;
 import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.Attachment;
 import org.eclipselabs.etrack.domain.task.AttachmentData;
@@ -144,6 +147,16 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseTaskDomainLink(TaskDomainLink object)
 			{
 				return createTaskDomainLinkAdapter();
+			}
+			@Override
+			public Adapter caseRelatedTasksMapping(Map.Entry<TaskRelationship, EList<Task>> object)
+			{
+				return createRelatedTasksMappingAdapter();
+			}
+			@Override
+			public Adapter caseTaskRelationship(TaskRelationship object)
+			{
+				return createTaskRelationshipAdapter();
 			}
 			@Override
 			public Adapter caseAssignableItem(AssignableItem object)
@@ -323,6 +336,36 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTaskDomainLinkAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link java.util.Map.Entry <em>Related Tasks Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see java.util.Map.Entry
+	 * @generated
+	 */
+	public Adapter createRelatedTasksMappingAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.TaskRelationship <em>Relationship</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.TaskRelationship
+	 * @generated
+	 */
+	public Adapter createTaskRelationshipAdapter()
 	{
 		return null;
 	}

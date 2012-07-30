@@ -40,6 +40,7 @@ import org.eclipselabs.etrack.domain.state.StateTransition;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTransitions <em>Transitions</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTaskTypes <em>Task Types</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getStateGroups <em>State Groups</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getRelationships <em>Relationships</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,6 +109,16 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EList<StateGroup> stateGroups;
+
+	/**
+	 * The cached value of the '{@link #getRelationships() <em>Relationships</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationships()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TaskRelationship> relationships;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,6 +269,29 @@ public class TaskDomain extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Relationships</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.TaskRelationship}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Relationships</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relationships</em>' containment reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_Relationships()
+	 * @model containment="true"
+	 * @generated
+	 */
+	public EList<TaskRelationship> getRelationships()
+	{
+		if (relationships == null)
+		{
+			relationships = new EObjectContainmentEList<TaskRelationship>(TaskRelationship.class, this, TaskPackage.TASK_DOMAIN__RELATIONSHIPS);
+		}
+		return relationships;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -275,6 +309,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return ((InternalEList<?>)getTaskTypes()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				return ((InternalEList<?>)getStateGroups()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
+				return ((InternalEList<?>)getRelationships()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -299,6 +335,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return getTaskTypes();
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				return getStateGroups();
+			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
+				return getRelationships();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -333,6 +371,10 @@ public class TaskDomain extends EObjectImpl implements EObject
 				getStateGroups().clear();
 				getStateGroups().addAll((Collection<? extends StateGroup>)newValue);
 				return;
+			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
+				getRelationships().clear();
+				getRelationships().addAll((Collection<? extends TaskRelationship>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -362,6 +404,9 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				getStateGroups().clear();
 				return;
+			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
+				getRelationships().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -386,6 +431,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return taskTypes != null && !taskTypes.isEmpty();
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				return stateGroups != null && !stateGroups.isEmpty();
+			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
+				return relationships != null && !relationships.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
