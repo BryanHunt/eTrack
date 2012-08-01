@@ -73,10 +73,7 @@ public class AbstractStorageResource extends WadlServerResource
 	{
 		// TODO check the etag?
 
-		EObject object = getModel();
-
-		if (object == null)
-			throw new ResourceException(Status.CLIENT_ERROR_NOT_FOUND);
+		getModel();
 
 		EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation);
 		saveObject(emfRepresentation.getObject());
@@ -86,10 +83,7 @@ public class AbstractStorageResource extends WadlServerResource
 	{
 		// TODO check the etag?
 
-		EObject object = getModel();
-
-		if (object == null)
-			throw new ResourceException(Status.CLIENT_ERROR_NOT_FOUND);
+		getModel();
 
 		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
 		saveObject(emfRepresentation.getObject());
@@ -117,6 +111,10 @@ public class AbstractStorageResource extends WadlServerResource
 			uri = uri.trimQuery().appendQuery("");
 
 		Resource resource = resourceSet.getResource(uri, true);
+
+		if (resource.getContents().isEmpty())
+			throw new ResourceException(Status.CLIENT_ERROR_NOT_FOUND);
+
 		return resource.getContents().get(0);
 	}
 
