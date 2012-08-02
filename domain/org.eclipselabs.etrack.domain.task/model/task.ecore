@@ -59,7 +59,7 @@
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//StateGroup"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
-        eType="#//TaskRelationship" containment="true"/>
+        eType="#//TaskRelationship" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

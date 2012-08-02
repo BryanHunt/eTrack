@@ -43,7 +43,8 @@ public class StateAdapterFactory extends AdapterFactoryImpl
 	 */
 	public StateAdapterFactory()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = StatePackage.eINSTANCE;
 		}
 	}
@@ -59,10 +60,12 @@ public class StateAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage) {
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -75,37 +78,46 @@ public class StateAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected StateSwitch<Adapter> modelSwitch =
-		new StateSwitch<Adapter>() {
+		new StateSwitch<Adapter>()
+		{
 			@Override
-			public Adapter caseState(State object) {
+			public Adapter caseState(State object)
+			{
 				return createStateAdapter();
 			}
 			@Override
-			public Adapter caseStateTransition(StateTransition object) {
+			public Adapter caseStateTransition(StateTransition object)
+			{
 				return createStateTransitionAdapter();
 			}
 			@Override
-			public Adapter caseStateTransitionMapping(Map.Entry<State, EList<StateTransition>> object) {
+			public Adapter caseStateTransitionMapping(Map.Entry<State, EList<StateTransition>> object)
+			{
 				return createStateTransitionMappingAdapter();
 			}
 			@Override
-			public Adapter caseStateChange(StateChange object) {
+			public Adapter caseStateChange(StateChange object)
+			{
 				return createStateChangeAdapter();
 			}
 			@Override
-			public Adapter caseStateMachine(StateMachine object) {
+			public Adapter caseStateMachine(StateMachine object)
+			{
 				return createStateMachineAdapter();
 			}
 			@Override
-			public Adapter caseStateGroup(StateGroup object) {
+			public Adapter caseStateGroup(StateGroup object)
+			{
 				return createStateGroupAdapter();
 			}
 			@Override
-			public Adapter caseAction(Action object) {
+			public Adapter caseAction(Action object)
+			{
 				return createActionAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};

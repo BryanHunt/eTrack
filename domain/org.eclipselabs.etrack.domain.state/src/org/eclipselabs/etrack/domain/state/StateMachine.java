@@ -127,7 +127,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	 */
 	public EList<State> getStates()
 	{
-		if (states == null) {
+		if (states == null)
+		{
 			states = new EObjectContainmentEList<State>(State.class, this, StatePackage.STATE_MACHINE__STATES);
 		}
 		return states;
@@ -149,7 +150,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	 */
 	public EList<StateTransition> getTransitions()
 	{
-		if (transitions == null) {
+		if (transitions == null)
+		{
 			transitions = new EObjectContainmentEList<StateTransition>(StateTransition.class, this, StatePackage.STATE_MACHINE__TRANSITIONS);
 		}
 		return transitions;
@@ -172,7 +174,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	 */
 	public EMap<State, EList<StateTransition>> getTransitionsByState()
 	{
-		if (transitionsByState == null) {
+		if (transitionsByState == null)
+		{
 			transitionsByState = new EcoreEMap<State,EList<StateTransition>>(StatePackage.Literals.STATE_TRANSITION_MAPPING, StateTransitionMapping.class, this, StatePackage.STATE_MACHINE__TRANSITIONS_BY_STATE);
 		}
 		return transitionsByState;
@@ -194,7 +197,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	 */
 	public EList<StateGroup> getStateGroups()
 	{
-		if (stateGroups == null) {
+		if (stateGroups == null)
+		{
 			stateGroups = new EObjectContainmentEList<StateGroup>(StateGroup.class, this, StatePackage.STATE_MACHINE__STATE_GROUPS);
 		}
 		return stateGroups;
@@ -216,10 +220,12 @@ public class StateMachine extends EObjectImpl implements EObject
 	 */
 	public State getStartingState()
 	{
-		if (startingState != null && startingState.eIsProxy()) {
+		if (startingState != null && startingState.eIsProxy())
+		{
 			InternalEObject oldStartingState = (InternalEObject)startingState;
 			startingState = (State)eResolveProxy(oldStartingState);
-			if (startingState != oldStartingState) {
+			if (startingState != oldStartingState)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatePackage.STATE_MACHINE__STARTING_STATE, oldStartingState, startingState));
 			}
@@ -261,7 +267,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_MACHINE__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 			case StatePackage.STATE_MACHINE__TRANSITIONS:
@@ -282,7 +289,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_MACHINE__STATES:
 				return getStates();
 			case StatePackage.STATE_MACHINE__TRANSITIONS:
@@ -308,7 +316,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_MACHINE__STATES:
 				getStates().clear();
 				getStates().addAll((Collection<? extends State>)newValue);
@@ -339,7 +348,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_MACHINE__STATES:
 				getStates().clear();
 				return;
@@ -367,7 +377,8 @@ public class StateMachine extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_MACHINE__STATES:
 				return states != null && !states.isEmpty();
 			case StatePackage.STATE_MACHINE__TRANSITIONS:

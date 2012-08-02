@@ -37,13 +37,16 @@ public class StateFactory extends EFactoryImpl
 	 */
 	public static StateFactory init()
 	{
-		try {
+		try
+		{
 			StateFactory theStateFactory = (StateFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/state"); 
-			if (theStateFactory != null) {
+			if (theStateFactory != null)
+			{
 				return theStateFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new StateFactory();
@@ -68,7 +71,8 @@ public class StateFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID()) {
+		switch (eClass.getClassifierID())
+		{
 			case StatePackage.STATE: return createState();
 			case StatePackage.STATE_TRANSITION: return createStateTransition();
 			case StatePackage.STATE_TRANSITION_MAPPING: return (EObject)createStateTransitionMapping();

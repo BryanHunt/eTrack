@@ -36,13 +36,16 @@ public class AuditFactory extends EFactoryImpl
 	 */
 	public static AuditFactory init()
 	{
-		try {
+		try
+		{
 			AuditFactory theAuditFactory = (AuditFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/audit"); 
-			if (theAuditFactory != null) {
+			if (theAuditFactory != null)
+			{
 				return theAuditFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new AuditFactory();
@@ -67,7 +70,8 @@ public class AuditFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID()) {
+		switch (eClass.getClassifierID())
+		{
 			case AuditPackage.ACTION: return createAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");

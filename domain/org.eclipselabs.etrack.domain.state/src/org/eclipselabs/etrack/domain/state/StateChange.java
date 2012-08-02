@@ -73,10 +73,12 @@ public class StateChange extends Action
 	 */
 	public StateTransition getTransition()
 	{
-		if (transition != null && transition.eIsProxy()) {
+		if (transition != null && transition.eIsProxy())
+		{
 			InternalEObject oldTransition = (InternalEObject)transition;
 			transition = (StateTransition)eResolveProxy(oldTransition);
-			if (transition != oldTransition) {
+			if (transition != oldTransition)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatePackage.STATE_CHANGE__TRANSITION, oldTransition, transition));
 			}
@@ -118,7 +120,8 @@ public class StateChange extends Action
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_CHANGE__TRANSITION:
 				if (resolve) return getTransition();
 				return basicGetTransition();
@@ -134,7 +137,8 @@ public class StateChange extends Action
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_CHANGE__TRANSITION:
 				setTransition((StateTransition)newValue);
 				return;
@@ -150,7 +154,8 @@ public class StateChange extends Action
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_CHANGE__TRANSITION:
 				setTransition((StateTransition)null);
 				return;
@@ -166,7 +171,8 @@ public class StateChange extends Action
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_CHANGE__TRANSITION:
 				return transition != null;
 		}

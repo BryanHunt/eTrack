@@ -47,7 +47,8 @@ public class StateSwitch<T> extends Switch<T>
 	 */
 	public StateSwitch()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = StatePackage.eINSTANCE;
 		}
 	}
@@ -76,39 +77,46 @@ public class StateSwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID) {
-			case StatePackage.STATE: {
+		switch (classifierID)
+		{
+			case StatePackage.STATE:
+			{
 				State state = (State)theEObject;
 				T result = caseState(state);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StatePackage.STATE_TRANSITION: {
+			case StatePackage.STATE_TRANSITION:
+			{
 				StateTransition stateTransition = (StateTransition)theEObject;
 				T result = caseStateTransition(stateTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StatePackage.STATE_TRANSITION_MAPPING: {
+			case StatePackage.STATE_TRANSITION_MAPPING:
+			{
 				@SuppressWarnings("unchecked") Map.Entry<State, EList<StateTransition>> stateTransitionMapping = (Map.Entry<State, EList<StateTransition>>)theEObject;
 				T result = caseStateTransitionMapping(stateTransitionMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StatePackage.STATE_CHANGE: {
+			case StatePackage.STATE_CHANGE:
+			{
 				StateChange stateChange = (StateChange)theEObject;
 				T result = caseStateChange(stateChange);
 				if (result == null) result = caseAction(stateChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StatePackage.STATE_MACHINE: {
+			case StatePackage.STATE_MACHINE:
+			{
 				StateMachine stateMachine = (StateMachine)theEObject;
 				T result = caseStateMachine(stateMachine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StatePackage.STATE_GROUP: {
+			case StatePackage.STATE_GROUP:
+			{
 				StateGroup stateGroup = (StateGroup)theEObject;
 				T result = caseStateGroup(stateGroup);
 				if (result == null) result = defaultCase(theEObject);

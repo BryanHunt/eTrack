@@ -93,10 +93,12 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	 */
 	public State getTypedKey()
 	{
-		if (key != null && key.eIsProxy()) {
+		if (key != null && key.eIsProxy())
+		{
 			InternalEObject oldKey = (InternalEObject)key;
 			key = (State)eResolveProxy(oldKey);
-			if (key != oldKey) {
+			if (key != oldKey)
+			{
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StatePackage.STATE_TRANSITION_MAPPING__KEY, oldKey, key));
 			}
@@ -146,7 +148,8 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	 */
 	public EList<StateTransition> getTypedValue()
 	{
-		if (value == null) {
+		if (value == null)
+		{
 			value = new EObjectResolvingEList<StateTransition>(StateTransition.class, this, StatePackage.STATE_TRANSITION_MAPPING__VALUE);
 		}
 		return value;
@@ -160,7 +163,8 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
 				if (resolve) return getTypedKey();
 				return basicGetTypedKey();
@@ -179,7 +183,8 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
 				setTypedKey((State)newValue);
 				return;
@@ -199,7 +204,8 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
 				setTypedKey((State)null);
 				return;
@@ -218,7 +224,8 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_TRANSITION_MAPPING__KEY:
 				return key != null;
 			case StatePackage.STATE_TRANSITION_MAPPING__VALUE:
@@ -241,7 +248,8 @@ public class StateTransitionMapping extends EObjectImpl implements BasicEMap.Ent
 	 */
 	public int getHash()
 	{
-		if (hash == -1) {
+		if (hash == -1)
+		{
 			Object theKey = getKey();
 			hash = (theKey == null ? 0 : theKey.hashCode());
 		}

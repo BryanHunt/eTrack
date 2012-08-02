@@ -8,6 +8,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AuditableItem" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="history" upperBound="-1"
-        eType="#//Action" containment="true"/>
+        eType="#//Action" containment="true" resolveProxies="false"/>
   </eClassifiers>
 </ecore:EPackage>

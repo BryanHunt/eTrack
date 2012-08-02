@@ -137,7 +137,8 @@ public class StateGroup extends EObjectImpl implements EObject
 	 */
 	public EList<State> getStates()
 	{
-		if (states == null) {
+		if (states == null)
+		{
 			states = new EObjectResolvingEList<State>(State.class, this, StatePackage.STATE_GROUP__STATES);
 		}
 		return states;
@@ -151,7 +152,8 @@ public class StateGroup extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_GROUP__NAME:
 				return getName();
 			case StatePackage.STATE_GROUP__STATES:
@@ -169,7 +171,8 @@ public class StateGroup extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_GROUP__NAME:
 				setName((String)newValue);
 				return;
@@ -189,7 +192,8 @@ public class StateGroup extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -208,7 +212,8 @@ public class StateGroup extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case StatePackage.STATE_GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case StatePackage.STATE_GROUP__STATES:
