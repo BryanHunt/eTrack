@@ -30,6 +30,8 @@ import org.eclipselabs.mongo.emf.ext.ECollection;
  */
 public interface ITaskService extends IServerClient
 {
+	String TASK_DOMAIN_LINK_KEY = "org.eclipselabs.etrack.task.domain.link";
+
 	/**
 	 * Adds a task to the database.
 	 * 
