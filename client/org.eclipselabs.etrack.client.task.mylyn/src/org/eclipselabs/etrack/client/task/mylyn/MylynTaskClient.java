@@ -83,7 +83,7 @@ public class MylynTaskClient
 	 */
 	public ECollection getTasks(IRepositoryQuery query)
 	{
-		Expression filter = queryFactory.createExpression(query);
+		Expression filter = queryFactory.createExpression(this, query);
 		return taskService.getTasks(filter);
 	}
 

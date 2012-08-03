@@ -20,5 +20,5 @@ import org.eclipselabs.emf.query.Expression;
  */
 public interface IQueryFactory
 {
-	Expression createExpression(IRepositoryQuery query);
+	Expression createExpression(MylynTaskClient client, IRepositoryQuery query);
 }
