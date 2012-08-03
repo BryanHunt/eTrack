@@ -28,3 +28,5 @@ Import-Package: org.eclilpselabs.etrack.domain.data,
  org.osgi.framework;version="1.7.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipselabs.etrack.client.task.mylyn.bundle.Activator
+Export-Package: org.eclipselabs.etrack.client.task.mylyn,
+ org.eclipselabs.etrack.client.task.mylyn.updaters
