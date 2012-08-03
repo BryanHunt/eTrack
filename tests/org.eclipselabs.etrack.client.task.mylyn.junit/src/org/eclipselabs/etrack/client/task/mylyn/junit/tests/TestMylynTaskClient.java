@@ -139,7 +139,7 @@ public class TestMylynTaskClient extends UnitTestHarness
 		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
-		when(queryFactory.createExpression(query)).thenReturn(expression);
+		when(queryFactory.createExpression(mylynTaskClient, query)).thenReturn(expression);
 		when(taskService.getTasks(expression)).thenReturn(eCollection);
 
 		// --- Test & Verify

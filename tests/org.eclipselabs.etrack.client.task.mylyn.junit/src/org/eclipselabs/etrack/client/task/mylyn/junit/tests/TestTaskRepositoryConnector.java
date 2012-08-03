@@ -49,6 +49,7 @@ import org.eclipse.mylyn.tasks.core.data.TaskMapper;
 import org.eclipse.mylyn.tasks.core.sync.ISynchronizationSession;
 import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.emf.query.QueryFactory;
+import org.eclipselabs.etrack.client.task.mylyn.MylynTaskClient;
 import org.eclipselabs.etrack.client.task.mylyn.TaskDataHandler;
 import org.eclipselabs.etrack.client.task.mylyn.TaskRepositoryConnector;
 import org.eclipselabs.etrack.client.task.mylyn.junit.support.TaskRepositoryConnectorTestHarness;
@@ -307,7 +308,7 @@ public class TestTaskRepositoryConnector extends UnitTestHarness
 	}
 
 	@Test
-	public void testPerformQuery()
+	public void testPerformQuery() throws CoreException
 	{
 		// --- Setup
 
@@ -317,7 +318,7 @@ public class TestTaskRepositoryConnector extends UnitTestHarness
 		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
-		when(queryFactory.createExpression(query)).thenReturn(expression);
+		when(queryFactory.createExpression(any(MylynTaskClient.class), eq(query))).thenReturn(expression);
 		when(taskService.getTasks(expression)).thenReturn(eCollection);
 
 		Task task1 = TaskFactory.eINSTANCE.createTask();
@@ -347,7 +348,7 @@ public class TestTaskRepositoryConnector extends UnitTestHarness
 		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
-		when(queryFactory.createExpression(query)).thenReturn(expression);
+		when(queryFactory.createExpression(any(MylynTaskClient.class), eq(query))).thenReturn(expression);
 		when(taskService.getTasks(expression)).thenReturn(eCollection);
 		when(taskDataHandler.getTaskData(eq(taskRepository), any(Task.class), any(IProgressMonitor.class))).thenThrow(new CoreException(new Status(IStatus.ERROR, "id", "message")));
 
