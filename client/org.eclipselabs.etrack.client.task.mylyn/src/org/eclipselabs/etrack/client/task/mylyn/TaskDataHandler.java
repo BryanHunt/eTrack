@@ -57,11 +57,11 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 	{
 		this.connector = connector;
 		taskUpdatersByAttributeId = new HashMap<String, TaskUpdater>();
-		taskUpdatersByAttributeId.put(TaskAttribute.SUMMARY, new TaskSummaryAttributeUpdater());
-		taskUpdatersByAttributeId.put(TaskAttribute.DESCRIPTION, new TaskDescriptionAttributeUpdater());
-		taskUpdatersByAttributeId.put(TaskAttribute.COMMENT_NEW, new TaskCommentUpdater());
-		taskUpdatersByAttributeId.put(TaskAttribute.USER_ASSIGNED, new TaskOwnerAttributeUpdater());
-		taskUpdatersByAttributeId.put(TaskAttribute.OPERATION, new TaskStateAttributeUpdater());
+		addUpdater(TaskAttribute.SUMMARY, new TaskSummaryAttributeUpdater());
+		addUpdater(TaskAttribute.DESCRIPTION, new TaskDescriptionAttributeUpdater());
+		addUpdater(TaskAttribute.COMMENT_NEW, new TaskCommentUpdater());
+		addUpdater(TaskAttribute.USER_ASSIGNED, new TaskOwnerAttributeUpdater());
+		addUpdater(TaskAttribute.OPERATION, new TaskStateAttributeUpdater());
 	}
 
 	@Override
@@ -194,6 +194,11 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		}
 
 		return taskData;
+	}
+
+	protected void addUpdater(String attributeId, TaskUpdater taskUpdater)
+	{
+		taskUpdatersByAttributeId.put(attributeId, taskUpdater);
 	}
 
 	private RepositoryResponse createTask(TaskData taskData, MylynTaskClient client) throws CoreException
