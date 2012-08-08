@@ -14,6 +14,7 @@ package org.eclipselabs.etrack.util.security.ldap;
 import javax.naming.directory.Attributes;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 
 /**
  * @author bhunt
@@ -21,5 +22,5 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IEObjectBuilder
 {
-	EObject buildEObject(Attributes attributes, boolean isProxy);
+	EObject buildEObject(Attributes attributes, XMLResource.URIHandler uriHandler, boolean isProxy);
 }
