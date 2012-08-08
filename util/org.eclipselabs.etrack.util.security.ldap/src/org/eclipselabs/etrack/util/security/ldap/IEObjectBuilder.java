@@ -21,5 +21,5 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IEObjectBuilder
 {
-	EObject buildEObject(Attributes attributes);
+	EObject buildEObject(Attributes attributes, boolean isProxy);
 }
