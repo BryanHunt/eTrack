@@ -3,6 +3,7 @@
    <implementation class="org.eclipselabs.etrack.server.web.entity.ldap.providers.EntityResourceProvider"/>
    <property name="visibility" type="String" value="secure"/>
    <property name="paths" type="String">
+      /entities/
    		/entities/{id}
    </property>
    <service>
