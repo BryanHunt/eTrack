@@ -96,7 +96,7 @@ public class ClientServiceFactory
 			if (configurations != null)
 				return;
 
-			Configuration configuration = configurationAdmin.createFactoryConfiguration(factoryPid);
+			Configuration configuration = configurationAdmin.createFactoryConfiguration(factoryPid, null);
 			Dictionary<String, Object> properties = configuration.getProperties();
 
 			if (properties == null)
