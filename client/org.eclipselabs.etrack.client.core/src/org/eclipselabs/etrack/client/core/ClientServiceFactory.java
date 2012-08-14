@@ -63,12 +63,17 @@ public class ClientServiceFactory
 
 	public synchronized void unbindServerConnection(IServerConnection serverConnection)
 	{
+		serverConnections.remove(serverConnection);
+
 		try
 		{
-			Configuration[] configurations = configurationAdmin.listConfigurations("(&(pid=" + factoryPid + "*)(" + ServerClient.PROP_URI + "=" + serverConnection.getURI() + "))");
+			Configuration[] configurations = configurationAdmin.listConfigurations("(&(service.pid=" + factoryPid + "*)(" + ServerClient.PROP_URI + "=" + serverConnection.getURI() + "))");
 
-			for (Configuration configuration : configurations)
-				configuration.delete();
+			if (configurations != null)
+			{
+				for (Configuration configuration : configurations)
+					configuration.delete();
+			}
 		}
 		catch (IOException e)
 		{
@@ -80,27 +85,25 @@ public class ClientServiceFactory
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		serverConnections.remove(serverConnection);
 	}
 
 	private void configureService(String uri)
 	{
 		try
 		{
-			Configuration[] configurations = configurationAdmin.listConfigurations("(&(pid=" + factoryPid + "*)(" + ServerClient.PROP_URI + "=" + uri + "))");
+			Configuration[] configurations = configurationAdmin.listConfigurations("(&(service.pid=" + factoryPid + "*)(" + ServerClient.PROP_URI + "=" + uri + "))");
 
-			if (configurations.length == 0)
-			{
-				Configuration configuration = configurationAdmin.createFactoryConfiguration(factoryPid);
-				Dictionary<String, Object> properties = configuration.getProperties();
+			if (configurations != null)
+				return;
 
-				if (properties == null)
-					properties = new Hashtable<String, Object>();
+			Configuration configuration = configurationAdmin.createFactoryConfiguration(factoryPid);
+			Dictionary<String, Object> properties = configuration.getProperties();
 
-				properties.put(ServerClient.PROP_URI, uri);
-				configuration.update(properties);
-			}
+			if (properties == null)
+				properties = new Hashtable<String, Object>();
+
+			properties.put(ServerClient.PROP_URI, uri);
+			configuration.update(properties);
 		}
 		catch (IOException e)
 		{
