@@ -13,6 +13,7 @@ package org.eclipselabs.etrack.client.core;
 
 import java.io.IOException;
 import java.util.Dictionary;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
@@ -29,7 +30,7 @@ import org.osgi.service.cm.ConfigurationAdmin;
 public class ClientServiceFactory
 {
 	private ConfigurationAdmin configurationAdmin;
-	private Set<IServerConnection> serverConnections;
+	private Set<IServerConnection> serverConnections = new HashSet<IServerConnection>();
 	private String factoryPid; // FIXME set this value from the config
 
 	public void activate(Map<String, ?> properties)
