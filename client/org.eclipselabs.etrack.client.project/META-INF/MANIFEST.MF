@@ -16,7 +16,9 @@ Import-Package: org.eclilpselabs.etrack.domain.data,
  org.eclipse.emf.ecore.resource,
  org.eclipselabs.etrack.client.core,
  org.eclipselabs.etrack.domain.project,
- org.eclipselabs.mongo.emf.ext
+ org.eclipselabs.etrack.util.security,
+ org.eclipselabs.mongo.emf.ext,
+ org.osgi.service.cm;version="1.4.0"
 Export-Package: org.eclipselabs.etrack.client.project
-Service-Component: OSGI-INF/project.xml
+Service-Component: OSGI-INF/project.xml, OSGI-INF/factory.xml
 Bundle-ActivationPolicy: lazy
