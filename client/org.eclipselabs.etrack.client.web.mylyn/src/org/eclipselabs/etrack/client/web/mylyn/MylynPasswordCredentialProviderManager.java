@@ -14,7 +14,9 @@ import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipse.mylyn.tasks.ui.TasksUi;
 import org.eclipse.ui.PlatformUI;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IServerConnection;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
 
 /**
  * @author bhunt
@@ -63,7 +65,10 @@ public class MylynPasswordCredentialProviderManager implements IRepositoryListen
 				MylynPasswordCredentialProvider provider = createMylynPasswordCredentialProvider(repository);
 				Hashtable<String, Object> properties = new Hashtable<String, Object>();
 				properties.put("type", repository.getConnectorKind());
-				provider.setClientResourceFactoryRegistration(getBundleContext().registerService(IPasswordCredentialProvider.class, provider, properties));
+
+				ServiceRegistration<IPasswordCredentialProvider> providerRegistration = getBundleContext().registerService(IPasswordCredentialProvider.class, provider, properties);
+				ServiceRegistration<IServerConnection> connectionRegistration = getBundleContext().registerService(IServerConnection.class, provider, properties);
+				provider.setRegistrations(providerRegistration, connectionRegistration);
 
 				providers.put(repository.getRepositoryUrl(), provider);
 			}

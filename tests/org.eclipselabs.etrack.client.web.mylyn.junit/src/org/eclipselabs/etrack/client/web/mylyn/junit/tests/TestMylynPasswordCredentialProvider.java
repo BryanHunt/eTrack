@@ -22,6 +22,7 @@ import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipselabs.etrack.client.web.mylyn.junit.support.MylynPasswordCredentialProviderTestHarness;
 import org.eclipselabs.etrack.domain.security.PasswordCredential;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IServerConnection;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -83,20 +84,22 @@ public class TestMylynPasswordCredentialProvider
 		assertThat(actualCredentials.getPassword(), is(credentials.getPassword()));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testDispose()
 	{
 		// --- Setup
 
-		@SuppressWarnings("unchecked")
-		ServiceRegistration<IPasswordCredentialProvider> serviceRegistration = mock(ServiceRegistration.class);
-		mylynPasswordCredentialProvider.setClientResourceFactoryRegistration(serviceRegistration);
+		ServiceRegistration<IPasswordCredentialProvider> providerRegistration = mock(ServiceRegistration.class);
+		ServiceRegistration<IServerConnection> connectionRegistration = mock(ServiceRegistration.class);
+		mylynPasswordCredentialProvider.setRegistrations(providerRegistration, connectionRegistration);
 		// --- Test
 
 		mylynPasswordCredentialProvider.dispose();
 
 		// --- Verify
 
-		verify(serviceRegistration).unregister();
+		verify(providerRegistration).unregister();
+		verify(connectionRegistration).unregister();
 	}
 }

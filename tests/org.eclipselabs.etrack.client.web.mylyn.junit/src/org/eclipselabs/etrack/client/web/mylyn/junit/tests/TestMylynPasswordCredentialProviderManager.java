@@ -25,6 +25,7 @@ import org.eclipselabs.etrack.client.web.mylyn.junit.support.BundleContextTestHa
 import org.eclipselabs.etrack.client.web.mylyn.junit.support.MylynPasswordCredentialProviderManagerTestHarness;
 import org.eclipselabs.etrack.client.web.mylyn.junit.support.MylynPasswordCredentialProviderTestHarness;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IServerConnection;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -47,7 +48,9 @@ public class TestMylynPasswordCredentialProviderManager
 	private MylynPasswordCredentialProviderTestHarness mylynPasswordCredentialProvider;
 
 	@Mock
-	private ServiceRegistration<IPasswordCredentialProvider> serviceRegistration;
+	private ServiceRegistration<IPasswordCredentialProvider> providerRegistration;
+	@Mock
+	private ServiceRegistration<IServerConnection> connectionRegistration;
 
 	@BeforeClass
 	public static void globalSetup()
@@ -60,7 +63,7 @@ public class TestMylynPasswordCredentialProviderManager
 	{
 
 		taskRepository = new TaskRepository("junit", "http://localhost/junit");
-		bundleContext = new BundleContextTestHarness(serviceRegistration);
+		bundleContext = new BundleContextTestHarness(providerRegistration, connectionRegistration);
 
 		mylynPasswordCredentialProvider = spy(new MylynPasswordCredentialProviderTestHarness(taskRepository));
 		mylynPasswordCredentialProviderManager = spy(new MylynPasswordCredentialProviderManagerTestHarness(bundleContext));
@@ -80,7 +83,7 @@ public class TestMylynPasswordCredentialProviderManager
 
 		// --- Verify
 
-		verify(mylynPasswordCredentialProvider).setClientResourceFactoryRegistration(serviceRegistration);
+		verify(mylynPasswordCredentialProvider).setRegistrations(providerRegistration, connectionRegistration);
 	}
 
 	@Test
@@ -96,7 +99,7 @@ public class TestMylynPasswordCredentialProviderManager
 
 		// --- Verify
 
-		verify(mylynPasswordCredentialProvider).setClientResourceFactoryRegistration(serviceRegistration);
+		verify(mylynPasswordCredentialProvider).setRegistrations(providerRegistration, connectionRegistration);
 	}
 
 	@Test
@@ -131,6 +134,6 @@ public class TestMylynPasswordCredentialProviderManager
 		// --- Verify
 
 		verify(mylynPasswordCredentialProvider).dispose();
-		verify(mylynPasswordCredentialProvider, times(2)).setClientResourceFactoryRegistration(serviceRegistration);
+		verify(mylynPasswordCredentialProvider, times(2)).setRegistrations(providerRegistration, connectionRegistration);
 	}
 }

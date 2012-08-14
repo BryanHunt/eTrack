@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.Dictionary;
 
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IServerConnection;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -34,11 +35,13 @@ import org.osgi.framework.ServiceRegistration;
  */
 public class BundleContextTestHarness implements BundleContext
 {
-	private ServiceRegistration<IPasswordCredentialProvider> serviceRegistration;
+	private ServiceRegistration<IPasswordCredentialProvider> providerRegistration;
+	private ServiceRegistration<IServerConnection> connectionRegistration;
 
-	public BundleContextTestHarness(ServiceRegistration<IPasswordCredentialProvider> serviceRegistration)
+	public BundleContextTestHarness(ServiceRegistration<IPasswordCredentialProvider> providerRegistration, ServiceRegistration<IServerConnection> connectionRegistration)
 	{
-		this.serviceRegistration = serviceRegistration;
+		this.providerRegistration = providerRegistration;
+		this.connectionRegistration = connectionRegistration;
 	}
 
 	@Override
@@ -121,7 +124,10 @@ public class BundleContextTestHarness implements BundleContext
 	@Override
 	public <S> ServiceRegistration<S> registerService(Class<S> clazz, S service, Dictionary<String, ?> properties)
 	{
-		return (ServiceRegistration<S>) serviceRegistration;
+		if (clazz.equals(IPasswordCredentialProvider.class))
+			return (ServiceRegistration<S>) providerRegistration;
+		else
+			return (ServiceRegistration<S>) connectionRegistration;
 	}
 
 	@Override

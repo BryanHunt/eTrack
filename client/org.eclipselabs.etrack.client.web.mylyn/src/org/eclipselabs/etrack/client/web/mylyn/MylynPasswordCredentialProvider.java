@@ -17,6 +17,7 @@ import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipselabs.etrack.domain.security.PasswordCredential;
 import org.eclipselabs.etrack.domain.security.SecurityFactory;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IServerConnection;
 import org.osgi.framework.ServiceRegistration;
 
 /**
@@ -32,7 +33,8 @@ public class MylynPasswordCredentialProvider implements IPasswordCredentialProvi
 
 	public void dispose()
 	{
-		clientResourceFactoryRegistration.unregister();
+		providerRegistration.unregister();
+		connectionRegistration.unregister();
 	}
 
 	@Override
@@ -57,11 +59,13 @@ public class MylynPasswordCredentialProvider implements IPasswordCredentialProvi
 		return credentials;
 	}
 
-	protected void setClientResourceFactoryRegistration(ServiceRegistration<IPasswordCredentialProvider> serviceRegistration)
+	protected void setRegistrations(ServiceRegistration<IPasswordCredentialProvider> providerRegistration, ServiceRegistration<IServerConnection> connectionRegistration)
 	{
-		clientResourceFactoryRegistration = serviceRegistration;
+		this.providerRegistration = providerRegistration;
+		this.connectionRegistration = connectionRegistration;
 	}
 
 	private TaskRepository taskRepository;
-	private ServiceRegistration<IPasswordCredentialProvider> clientResourceFactoryRegistration;
+	private ServiceRegistration<IPasswordCredentialProvider> providerRegistration;
+	private ServiceRegistration<IServerConnection> connectionRegistration;
 }

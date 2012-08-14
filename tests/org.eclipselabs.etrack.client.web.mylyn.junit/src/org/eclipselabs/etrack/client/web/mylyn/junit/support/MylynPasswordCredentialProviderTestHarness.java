@@ -14,6 +14,7 @@ package org.eclipselabs.etrack.client.web.mylyn.junit.support;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipselabs.etrack.client.web.mylyn.MylynPasswordCredentialProvider;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.eclipselabs.etrack.util.security.IServerConnection;
 import org.osgi.framework.ServiceRegistration;
 
 /**
@@ -28,8 +29,8 @@ public class MylynPasswordCredentialProviderTestHarness extends MylynPasswordCre
 	}
 
 	@Override
-	public void setClientResourceFactoryRegistration(ServiceRegistration<IPasswordCredentialProvider> serviceRegistration)
+	public void setRegistrations(ServiceRegistration<IPasswordCredentialProvider> providerRegistration, ServiceRegistration<IServerConnection> connectionRegistration)
 	{
-		super.setClientResourceFactoryRegistration(serviceRegistration);
+		super.setRegistrations(providerRegistration, connectionRegistration);
 	}
 }
