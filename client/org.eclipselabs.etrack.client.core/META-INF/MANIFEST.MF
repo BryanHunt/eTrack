@@ -8,5 +8,9 @@ Import-Package: org.eclilpselabs.etrack.domain.data,
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.resource,
- org.eclipselabs.mongo.emf.ext
+ org.eclipselabs.etrack.util.security,
+ org.eclipselabs.mongo.emf.ext,
+ org.osgi.framework;version="1.7.0",
+ org.osgi.service.cm;version="1.4.0"
 Export-Package: org.eclipselabs.etrack.client.core
+Bundle-ActivationPolicy: lazy
