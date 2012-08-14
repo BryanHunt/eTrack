@@ -20,12 +20,17 @@ import javax.naming.directory.Attributes;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipselabs.etrack.util.security.ldap.IEObjectBuilder;
 import org.eclipselabs.etrack.util.security.ldap.ILdapService;
+import org.eclipselabs.mongo.emf.ext.ECollection;
+import org.eclipselabs.mongo.emf.ext.ExtFactory;
 
 /**
  * @author bhunt
@@ -46,26 +51,33 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 		try
 		{
 			Attributes attributes = null;
+			EList<EObject> contents = resource.getContents();
+
+			XMLResource.URIHandler uriHandler = new org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl();
+
+			if (resource.getURI().hasQuery())
+				uriHandler.setBaseURI(resource.getURI().trimSegments(1).appendSegment("-1"));
+			else
+				uriHandler.setBaseURI(resource.getURI());
 
 			if (uri.hasQuery())
 			{
 				NamingEnumeration<SearchResult> results = ldapService.find(SearchControls.SUBTREE_SCOPE, URI.decode(uri.lastSegment()), URI.decode(uri.query()));
+				ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
+				contents.add(eCollection);
+				InternalEList<EObject> values = (InternalEList<EObject>) eCollection.getValues();
 
-				if (results.hasMore())
+				while (results.hasMore())
 				{
 					SearchResult searchResult = results.next();
 					attributes = searchResult.getAttributes();
+					values.addUnique(builder.buildEObject(attributes, uriHandler, true));
 				}
 			}
 			else
 			{
 				attributes = ldapService.getAttributes(URI.decode(uri.lastSegment()));
-			}
-
-			if (attributes != null)
-			{
-				EObject eObject = builder.buildEObject(attributes);
-				resource.getContents().add(eObject);
+				contents.add(builder.buildEObject(attributes, uriHandler, false));
 			}
 		}
 		catch (NamingException e)
