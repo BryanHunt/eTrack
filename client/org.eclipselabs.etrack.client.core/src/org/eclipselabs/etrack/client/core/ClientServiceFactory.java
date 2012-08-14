@@ -37,7 +37,7 @@ public class ClientServiceFactory
 		factoryPid = (String) properties.get("factoryPid");
 	}
 
-	public synchronized void bindConfiguationAdmin(ConfigurationAdmin configurationAdmin)
+	public synchronized void bindConfigurationAdmin(ConfigurationAdmin configurationAdmin)
 	{
 		this.configurationAdmin = configurationAdmin;
 
@@ -55,7 +55,7 @@ public class ClientServiceFactory
 			serverConnections.add(serverConnection);
 	}
 
-	public synchronized void unbindConfiguationAdmin(ConfigurationAdmin configurationAdmin)
+	public synchronized void unbindConfigurationAdmin(ConfigurationAdmin configurationAdmin)
 	{
 		this.configurationAdmin = null;
 	}
