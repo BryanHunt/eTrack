@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" name="org.eclipselabs.etrack.client.entity.factory">
    <implementation class="org.eclipselabs.etrack.client.core.ClientServiceFactory"/>
-   <reference bind="bindConfigurationAdmin" cardinality="1..1" interface="org.osgi.service.cm.ConfigurationAdmin" name="ConfigurationAdmin" policy="static"/>
-   <reference bind="bindServerConnection" cardinality="1..1" interface="org.eclipselabs.etrack.util.security.IServerConnection" name="IServerConnection" policy="static"/>
+   <reference bind="bindConfigurationAdmin" cardinality="1..1" interface="org.osgi.service.cm.ConfigurationAdmin" name="ConfigurationAdmin" policy="static" unbind="unbindConfigurationAdmin"/>
+   <reference bind="bindServerConnection" cardinality="0..n" interface="org.eclipselabs.etrack.util.security.IServerConnection" name="IServerConnection" policy="dynamic" unbind="unbindServerConnection"/>
    <property name="factoryPid" type="String" value="org.eclipselabs.etrack.client.entity"/>
 </scr:component>

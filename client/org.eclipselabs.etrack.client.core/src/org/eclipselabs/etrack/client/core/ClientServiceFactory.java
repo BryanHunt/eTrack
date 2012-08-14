@@ -36,16 +36,16 @@ public class ClientServiceFactory
 	public void activate(Map<String, ?> properties)
 	{
 		factoryPid = (String) properties.get("factoryPid");
-	}
-
-	public synchronized void bindConfigurationAdmin(ConfigurationAdmin configurationAdmin)
-	{
-		this.configurationAdmin = configurationAdmin;
 
 		for (IServerConnection serverConnection : serverConnections)
 			configureService(serverConnection.getURI());
 
 		serverConnections.clear();
+	}
+
+	public synchronized void bindConfigurationAdmin(ConfigurationAdmin configurationAdmin)
+	{
+		this.configurationAdmin = configurationAdmin;
 	}
 
 	public synchronized void bindServerConnection(IServerConnection serverConnection)
