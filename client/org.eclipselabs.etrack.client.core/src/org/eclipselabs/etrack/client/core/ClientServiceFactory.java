@@ -33,7 +33,7 @@ public class ClientServiceFactory
 	private Set<IServerConnection> serverConnections = new HashSet<IServerConnection>();
 	private String factoryPid;
 
-	public void activate(Map<String, ?> properties)
+	public synchronized void activate(Map<String, ?> properties)
 	{
 		factoryPid = (String) properties.get("factoryPid");
 
@@ -50,7 +50,7 @@ public class ClientServiceFactory
 
 	public synchronized void bindServerConnection(IServerConnection serverConnection)
 	{
-		if (configurationAdmin != null)
+		if (configurationAdmin != null && factoryPid != null)
 			configureService(serverConnection.getURI());
 		else
 			serverConnections.add(serverConnection);
