@@ -19,17 +19,8 @@
 
    <requires>
       <import plugin="org.eclipselabs.etrack.client.project" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.etrack.domain.data"/>
-      <import plugin="org.eclipse.core.databinding.observable"/>
-      <import plugin="org.eclipse.core.databinding.property"/>
-      <import plugin="org.eclipse.emf.common"/>
-      <import plugin="org.eclipse.emf.databinding"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipselabs.etrack.client.core"/>
-      <import plugin="org.eclipselabs.etrack.domain.project"/>
-      <import plugin="org.eclipselabs.etrack.util.security"/>
-      <import plugin="org.eclipselabs.mongo.emf.ext"/>
-      <import plugin="org.eclipse.osgi.services"/>
+      <import plugin="org.eclipselabs.etrack.client.entity" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.etrack.client.task" version="0.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -41,14 +32,15 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipselabs.etrack.client.project"
+         id="org.eclipselabs.etrack.app.client.entity.provider"
          download-size="0"
          install-size="0"
          version="0.0.0"
+         fragment="true"
          unpack="false"/>
 
    <plugin
-         id="org.eclipselabs.etrack.client.project.junit"
+         id="org.eclipselabs.etrack.app.client.task.provider"
          download-size="0"
          install-size="0"
          version="0.0.0"
