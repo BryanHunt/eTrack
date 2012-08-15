@@ -50,7 +50,7 @@ public class ClientServiceFactory
 
 	public synchronized void bindServerConnection(IServerConnection serverConnection)
 	{
-		if (configurationAdmin != null && factoryPid != null)
+		if (factoryPid != null)
 			configureService(serverConnection.getURI());
 		else
 			serverConnections.add(serverConnection);
@@ -67,7 +67,7 @@ public class ClientServiceFactory
 
 		try
 		{
-			Configuration[] configurations = configurationAdmin.listConfigurations("(&(service.pid=" + factoryPid + "*)(" + ServerClient.PROP_URI + "=" + serverConnection.getURI() + "))");
+			Configuration[] configurations = configurationAdmin.listConfigurations("(&(service.factoryPid=" + factoryPid + ")(" + ServerClient.PROP_URI + "=" + serverConnection.getURI() + "))");
 
 			if (configurations != null)
 			{
@@ -91,7 +91,7 @@ public class ClientServiceFactory
 	{
 		try
 		{
-			Configuration[] configurations = configurationAdmin.listConfigurations("(&(service.pid=" + factoryPid + "*)(" + ServerClient.PROP_URI + "=" + uri + "))");
+			Configuration[] configurations = configurationAdmin.listConfigurations("(&(service.factoryPid=" + factoryPid + ")(" + ServerClient.PROP_URI + "=" + uri + "))");
 
 			if (configurations != null)
 				return;
