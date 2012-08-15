@@ -5,4 +5,7 @@
       <provide interface="org.eclipselabs.etrack.client.project.IProjectService"/>
    </service>
    <reference bind="bindResourceCache" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceCache" name="IResourceCache" policy="static"/>
+   <property name="project_path" type="String">
+     projects
+   </property>
 </scr:component>

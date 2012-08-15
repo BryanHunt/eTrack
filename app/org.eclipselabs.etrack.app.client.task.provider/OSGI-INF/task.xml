@@ -5,4 +5,10 @@
    <service>
       <provide interface="org.eclipselabs.etrack.client.task.ITaskService"/>
    </service>
+   <property name="task_path" type="String">
+		 tasks
+   </property>
+   <property name="task_domain_path" type="String">
+		 task_domains
+   </property>
 </scr:component>

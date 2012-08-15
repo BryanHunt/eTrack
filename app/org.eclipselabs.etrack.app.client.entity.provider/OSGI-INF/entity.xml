@@ -5,4 +5,7 @@
    <service>
       <provide interface="org.eclipselabs.etrack.client.entity.IEntityService"/>
    </service>
+   <property name="entity_path" type="String">
+		 entities
+   </property>
 </scr:component>
