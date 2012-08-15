@@ -31,7 +31,7 @@ public class ClientServiceFactory
 {
 	private ConfigurationAdmin configurationAdmin;
 	private Set<IServerConnection> serverConnections = new HashSet<IServerConnection>();
-	private String factoryPid; // FIXME set this value from the config
+	private String factoryPid;
 
 	public void activate(Map<String, ?> properties)
 	{
