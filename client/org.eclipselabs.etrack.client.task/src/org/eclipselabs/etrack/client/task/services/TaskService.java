@@ -47,11 +47,16 @@ public class TaskService extends ServerResourceClient implements ITaskService
 	@Override
 	public void configure(Map<String, Object> properties)
 	{
-		taskCollectionPath = (String[]) properties.get(PROP_TASK_PATH);
-		taskDomainCollectionPath = (String[]) properties.get(PROP_TASK_DOMAIN_PATH);
-		taskBasePath = new String[taskCollectionPath.length - 1];
+		String[] path = (String[]) properties.get(PROP_TASK_DOMAIN_PATH);
+		taskDomainCollectionPath = new String[path.length + 1];
+		System.arraycopy(path, 0, taskDomainCollectionPath, 0, path.length);
+		taskDomainCollectionPath[path.length] = "";
 
-		System.arraycopy(taskCollectionPath, 0, taskBasePath, 0, taskBasePath.length);
+		taskBasePath = (String[]) properties.get(PROP_TASK_PATH);
+		taskCollectionPath = new String[taskBasePath.length + 1];
+		System.arraycopy(taskBasePath, 0, taskCollectionPath, 0, taskBasePath.length);
+		taskCollectionPath[taskBasePath.length] = "";
+
 		super.configure(properties);
 	}
 

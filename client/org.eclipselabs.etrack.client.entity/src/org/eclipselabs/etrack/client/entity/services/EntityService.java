@@ -34,10 +34,11 @@ public class EntityService extends ServerResourceClient implements IEntityServic
 	@Override
 	public void configure(Map<String, Object> properties)
 	{
-		entityCollectionPath = (String[]) properties.get(PROP_ENTITY_PATH);
+		entityBasePath = (String[]) properties.get(PROP_ENTITY_PATH);
 
-		entityBasePath = new String[entityCollectionPath.length - 1];
-		System.arraycopy(entityCollectionPath, 0, entityBasePath, 0, entityBasePath.length);
+		entityCollectionPath = new String[entityBasePath.length + 1];
+		System.arraycopy(entityBasePath, 0, entityCollectionPath, 0, entityBasePath.length);
+		entityCollectionPath[entityBasePath.length] = "";
 		super.configure(properties);
 	}
 

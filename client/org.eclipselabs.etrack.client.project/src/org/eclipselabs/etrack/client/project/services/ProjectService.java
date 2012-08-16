@@ -40,7 +40,11 @@ public class ProjectService extends ServerResourceClient implements IProjectServ
 	@Override
 	public void configure(Map<String, Object> properties)
 	{
-		projectCollectionPath = (String[]) properties.get(PROP_PROJECT_PATH);
+		String[] path = (String[]) properties.get(PROP_PROJECT_PATH);
+		projectCollectionPath = new String[path.length + 1];
+		System.arraycopy(path, 0, projectCollectionPath, 0, path.length);
+		projectCollectionPath[path.length] = "";
+
 		super.configure(properties);
 	}
 
