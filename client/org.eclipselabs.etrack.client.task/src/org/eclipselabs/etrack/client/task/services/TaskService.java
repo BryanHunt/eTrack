@@ -97,7 +97,11 @@ public class TaskService extends ServerResourceClient implements ITaskService
 		else
 			rawQuery = "*";
 
-		URI uri = getBaseURI().appendSegments(taskCollectionPath).appendQuery(URI.encodeQuery(rawQuery, false));
+		// FIXME hack until the problem with the EMF uri converter removing the last segment is fixed
+
+// URI uri = getBaseURI().appendSegments(taskCollectionPath).appendQuery(URI.encodeQuery(rawQuery,
+// false));
+		URI uri = getBaseURI().appendSegments(taskCollectionPath).trimSegments(1).appendSegment("0").appendQuery(URI.encodeQuery(rawQuery, false));
 		Resource resource = getResourceSet().getResource(uri, true);
 		return (ECollection) resource.getContents().get(0);
 	}
@@ -130,7 +134,11 @@ public class TaskService extends ServerResourceClient implements ITaskService
 
 	public void refresh()
 	{
-		URI uri = getBaseURI().appendSegments(taskDomainCollectionPath).appendQuery(URI.encodeQuery("*", false));
+		// FIXME hack until the problem with the EMF uri converter removing the last segment is fixed
+
+// URI uri = getBaseURI().appendSegments(taskDomainCollectionPath).appendQuery(URI.encodeQuery("*",
+// false));
+		URI uri = getBaseURI().appendSegments(taskDomainCollectionPath).trimSegments(1).appendSegment("0").appendQuery(URI.encodeQuery("*", false));
 		Resource resource = getResourceSet().getResource(uri, true);
 		taskDomains = (ECollection) resource.getContents().get(0);
 	}
