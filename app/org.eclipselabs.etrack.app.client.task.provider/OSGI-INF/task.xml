@@ -9,6 +9,6 @@
 		 tasks
    </property>
    <property name="task_domain_path" type="String">
-		 task_domains
+		 taskDomains
    </property>
 </scr:component>
