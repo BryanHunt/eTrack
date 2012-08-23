@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" configuration-policy="require" immediate="true" name="org.eclipselabs.etrack.client.entity">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="configure" configuration-policy="require" immediate="true" name="org.eclipselabs.etrack.client.entity">
    <implementation class="org.eclipselabs.etrack.client.entity.services.EntityService"/>
    <reference bind="bindResourceCache" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceCache" name="IResourceCache" policy="static"/>
    <service>
@@ -8,4 +8,5 @@
    <property name="entity_path" type="String">
 		 entities
    </property>
+   <reference bind="bindPasswordCredentialProvider" cardinality="0..n" interface="org.eclipselabs.etrack.util.security.IPasswordCredentialProvider" name="IPasswordCredentialProvider" policy="dynamic"/>
 </scr:component>

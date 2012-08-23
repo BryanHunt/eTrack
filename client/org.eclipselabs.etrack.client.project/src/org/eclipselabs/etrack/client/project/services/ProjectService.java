@@ -102,9 +102,10 @@ public class ProjectService extends ServerResourceClient implements IProjectServ
 	{
 		// FIXME hack until the problem with the EMF uri converter removing the last segment is fixed
 
-// URI uri = getBaseURI().appendSegments(projectCollectionPath).appendQuery(URI.encodeQuery("*",
+		URI uri = getBaseURI().appendSegments(projectCollectionPath).appendQuery(URI.encodeQuery("*", false));
+// URI uri =
+// getBaseURI().appendSegments(projectCollectionPath).trimSegments(1).appendSegment("0").appendQuery(URI.encodeQuery("*",
 // false));
-		URI uri = getBaseURI().appendSegments(projectCollectionPath).trimSegments(1).appendSegment("0").appendQuery(URI.encodeQuery("*", false));
 		Resource resource = getResourceSet().getResource(uri, true);
 		projects = (ECollection) resource.getContents().get(0);
 	}

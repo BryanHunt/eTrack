@@ -128,20 +128,23 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		TaskAttribute attribute = taskData.getRoot().createAttribute(TaskAttribute.TASK_URL);
 		attribute.setValue(task.eResource().getURI().toString());
 
-		attribute = taskData.getRoot().getAttribute(TaskAttribute.SUMMARY);
-		attribute.setValue(task.getSummary());
-
 		attribute = taskData.getRoot().getAttribute(TaskAttribute.USER_REPORTER);
 		attribute.setValue(task.getCreatedBy().getDisplayName() + " <" + task.getCreatedBy().getEmails().get(0).getAddress() + ">");
+
+		attribute = taskData.getRoot().getAttribute(TaskAttribute.DATE_CREATION);
+		attribute.setValue(Long.toString(task.getCreatedOn().getTime()));
+
+		if (task.getSummary() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(TaskAttribute.SUMMARY);
+			attribute.setValue(task.getSummary());
+		}
 
 		if (task.getOwner() != null)
 		{
 			attribute = taskData.getRoot().getAttribute(TaskAttribute.USER_ASSIGNED);
 			attribute.setValue(task.getOwner().getDisplayName() + " <" + task.getOwner().getEmails().get(0).getAddress() + ">");
 		}
-
-		attribute = taskData.getRoot().getAttribute(TaskAttribute.DATE_CREATION);
-		attribute.setValue(Long.toString(task.getCreatedOn().getTime()));
 
 		attribute = taskData.getRoot().getAttribute(TaskAttribute.DATE_MODIFICATION);
 
@@ -153,8 +156,11 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		else
 			attribute.setValue(Long.toString(task.getCreatedOn().getTime()));
 
-		attribute = taskData.getRoot().getAttribute(TaskAttribute.DESCRIPTION);
-		attribute.setValue(task.getDescription());
+		if (task.getDescription() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(TaskAttribute.DESCRIPTION);
+			attribute.setValue(task.getDescription());
+		}
 
 		int index = 0;
 

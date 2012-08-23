@@ -31,6 +31,8 @@ public interface ILdapService
 
 	NamingEnumeration<SearchResult> find(int scope, String path, String filter) throws NamingException;
 
+	NamingEnumeration<SearchResult> findUser(String filter) throws NamingException;
+
 	/**
 	 * @param dn the distinguished name of the object attributes to retrieve
 	 * @return the attributes of the LDAP object identified by the DN

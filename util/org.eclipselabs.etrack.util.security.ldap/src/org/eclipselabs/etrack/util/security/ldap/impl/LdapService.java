@@ -80,6 +80,9 @@ public class LdapService implements ILdapService, ISecurityService
 	{
 		this.url = (String) configuration.get(CONFIG_URL);
 		this.baseDN = (String) configuration.get(CONFIG_BASE_DN);
+		this.userSearchBase = (String) configuration.get(CONFIG_USER_SEARCH_BASE);
+		this.userFilter = (String) configuration.get(CONFIG_USER_FILTER);
+
 		String managerDN = (String) configuration.get(CONFIG_MANAGER_DN);
 		String managerPassword = (String) configuration.get(CONFIG_MANAGER_PASSWORD);
 
@@ -95,6 +98,12 @@ public class LdapService implements ILdapService, ISecurityService
 		}
 		else
 			searchEnvironment.put(Context.SECURITY_AUTHENTICATION, "none");
+	}
+
+	@Override
+	public NamingEnumeration<SearchResult> findUser(String filter) throws NamingException
+	{
+		return find(SearchControls.SUBTREE_SCOPE, userSearchBase, userFilter + "=" + filter);
 	}
 
 	@Override
@@ -128,6 +137,8 @@ public class LdapService implements ILdapService, ISecurityService
 	private Map<String, String> credentialCache = new HashMap<String, String>();
 	private String url;
 	private String baseDN;
+	private String userSearchBase;
+	private String userFilter;
 	private BCodec codec = new BCodec();
 	private Hashtable<String, String> searchEnvironment;
 }

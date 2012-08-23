@@ -11,7 +11,9 @@
 
 package org.eclipselabs.etrack.client.entity.services;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
@@ -19,6 +21,7 @@ import org.eclipselabs.etrack.client.entity.IEntityService;
 import org.eclipselabs.etrack.domain.entity.Entity;
 import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
+import org.eclipselabs.mongo.emf.ext.ECollection;
 
 /**
  * @author bhunt
@@ -30,9 +33,10 @@ public class EntityService extends ServerResourceClient implements IEntityServic
 	private String[] entityBasePath;
 	private String[] entityCollectionPath;
 	private volatile IPasswordCredentialProvider passwordCredentialProvider;
+	private Set<IPasswordCredentialProvider> passwordCredentialProviders = new HashSet<IPasswordCredentialProvider>();
 
 	@Override
-	public void configure(Map<String, Object> properties)
+	public synchronized void configure(Map<String, Object> properties)
 	{
 		entityBasePath = (String[]) properties.get(PROP_ENTITY_PATH);
 
@@ -40,6 +44,14 @@ public class EntityService extends ServerResourceClient implements IEntityServic
 		System.arraycopy(entityBasePath, 0, entityCollectionPath, 0, entityBasePath.length);
 		entityCollectionPath[entityBasePath.length] = "";
 		super.configure(properties);
+
+		for (IPasswordCredentialProvider passwordCredentialProvider : passwordCredentialProviders)
+		{
+			if (passwordCredentialProvider.getURI().equals(getBaseURI().toString()))
+				this.passwordCredentialProvider = passwordCredentialProvider;
+		}
+
+		passwordCredentialProviders = null;
 	}
 
 	@Override
@@ -50,8 +62,19 @@ public class EntityService extends ServerResourceClient implements IEntityServic
 		if (credentialProvider == null)
 			return null;
 
-		Entity entity = getEntity(credentialProvider.getCredentials().getId());
-		return entity instanceof Person ? (Person) entity : null;
+		String id = credentialProvider.getCredentials().getId();
+		id = id.substring(0, id.indexOf('@'));
+		Resource resource = getResourceSet().getResource(getBaseURI().appendSegments(entityBasePath).appendSegment("").appendQuery(id), true);
+
+		if (resource.getContents().isEmpty())
+			return null;
+
+		ECollection eCollection = (ECollection) resource.getContents().get(0);
+
+		if (eCollection.getValues().isEmpty())
+			return null;
+
+		return (Person) eCollection.getValues().get(0);
 	}
 
 	@Override
@@ -61,9 +84,11 @@ public class EntityService extends ServerResourceClient implements IEntityServic
 		return resource.getContents().isEmpty() ? null : (Entity) resource.getContents().get(0);
 	}
 
-	public void bindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider)
+	public synchronized void bindPasswordCredentialProvider(IPasswordCredentialProvider passwordCredentialProvider)
 	{
-		if (passwordCredentialProvider.getURI().equals(getBaseURI().toString()))
+		if (passwordCredentialProviders != null)
+			passwordCredentialProviders.add(passwordCredentialProvider);
+		else if (passwordCredentialProvider.getURI().equals(getBaseURI().toString()))
 			this.passwordCredentialProvider = passwordCredentialProvider;
 	}
 }

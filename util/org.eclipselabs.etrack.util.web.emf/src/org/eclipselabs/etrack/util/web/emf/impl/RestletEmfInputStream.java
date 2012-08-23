@@ -18,7 +18,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
-import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
+import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.restlet.data.MediaType;
 import org.restlet.representation.Representation;
 import org.restlet.resource.ClientResource;
@@ -43,9 +43,9 @@ public class RestletEmfInputStream extends InputStream implements URIConverter.L
 		{
 			// FIXME use EMF binary for optimal performance
 
-			Representation representation = client.get(MediaType.APPLICATION_XMI);
+			Representation representation = client.get(MediaType.APPLICATION_JSON);
 
-			EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation)
+			EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation)
 			{
 				@Override
 				protected Map<?, ?> getLoadOptions()
