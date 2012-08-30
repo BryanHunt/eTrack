@@ -11,27 +11,11 @@
 
 package org.eclipselabs.etrack.client.core;
 
-import org.eclilpselabs.etrack.domain.data.Linkable;
-import org.eclipse.core.databinding.observable.value.IObservableValue;
-
 /**
- * This interface is used when building objects that can have linked content.
- * Implementations are expected to build the linked content and attach it to
- * the object being built.
- * 
  * @author bhunt
  * 
  */
-public interface ILinkBuilder
+public interface ILinkBuilderFactory
 {
-	/**
-	 * @param linkable the object to add the link(s) to
-	 */
-	void buildLink(Linkable linkable);
-
-	/**
-	 * 
-	 * @return the databinding observable for the linked data value
-	 */
-	IObservableValue getLinkedObservable();
+	ILinkBuilder createLinkBuilder();
 }

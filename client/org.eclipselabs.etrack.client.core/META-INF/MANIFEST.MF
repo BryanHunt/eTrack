@@ -5,6 +5,7 @@ Bundle-SymbolicName: org.eclipselabs.etrack.client.core
 Bundle-Version: 0.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclilpselabs.etrack.domain.data,
+ org.eclipse.core.databinding.observable.value,
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.resource,

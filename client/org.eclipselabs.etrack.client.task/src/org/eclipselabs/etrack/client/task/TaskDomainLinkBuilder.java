@@ -37,7 +37,8 @@ public class TaskDomainLinkBuilder implements ILinkBuilder
 		linkable.getLinksByName().put(ITaskService.TASK_DOMAIN_LINK_KEY, taskDomainLink);
 	}
 
-	public IObservableValue getLinkedTaskDomainObservable()
+	@Override
+	public IObservableValue getLinkedObservable()
 	{
 		return linkedTaskDomainObservable;
 	}
