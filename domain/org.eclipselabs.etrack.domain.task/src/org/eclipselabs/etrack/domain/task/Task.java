@@ -50,6 +50,7 @@ import org.eclipselabs.etrack.domain.state.State;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getProject <em>Project</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getRelatedTasks <em>Related Tasks</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getResolution <em>Resolution</em>}</li>
  * </ul>
  * </p>
  *
@@ -228,6 +229,16 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected EMap<TaskRelationship, EList<Task>> relatedTasks;
+
+	/**
+	 * The cached value of the '{@link #getResolution() <em>Resolution</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskResolution resolution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -771,6 +782,61 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Resolution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resolution</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resolution</em>' reference.
+	 * @see #setResolution(TaskResolution)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Resolution()
+	 * @model
+	 * @generated
+	 */
+	public TaskResolution getResolution()
+	{
+		if (resolution != null && resolution.eIsProxy())
+		{
+			InternalEObject oldResolution = (InternalEObject)resolution;
+			resolution = (TaskResolution)eResolveProxy(oldResolution);
+			if (resolution != oldResolution)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__RESOLUTION, oldResolution, resolution));
+			}
+		}
+		return resolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskResolution basicGetResolution()
+	{
+		return resolution;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getResolution <em>Resolution</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resolution</em>' reference.
+	 * @see #getResolution()
+	 * @generated
+	 */
+	public void setResolution(TaskResolution newResolution)
+	{
+		TaskResolution oldResolution = resolution;
+		resolution = newResolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__RESOLUTION, oldResolution, resolution));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -839,6 +905,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__RELATED_TASKS:
 				if (coreType) return getRelatedTasks();
 				else return getRelatedTasks().map();
+			case TaskPackage.TASK__RESOLUTION:
+				if (resolve) return getResolution();
+				return basicGetResolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -900,6 +969,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__RELATED_TASKS:
 				((EStructuralFeature.Setting)getRelatedTasks()).set(newValue);
 				return;
+			case TaskPackage.TASK__RESOLUTION:
+				setResolution((TaskResolution)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -956,6 +1028,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__RELATED_TASKS:
 				getRelatedTasks().clear();
 				return;
+			case TaskPackage.TASK__RESOLUTION:
+				setResolution((TaskResolution)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -998,6 +1073,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return project != null;
 			case TaskPackage.TASK__RELATED_TASKS:
 				return relatedTasks != null && !relatedTasks.isEmpty();
+			case TaskPackage.TASK__RESOLUTION:
+				return resolution != null;
 		}
 		return super.eIsSet(featureID);
 	}

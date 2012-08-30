@@ -84,6 +84,7 @@ public class TaskFactory extends EFactoryImpl
 			case TaskPackage.TASK_DOMAIN_LINK: return createTaskDomainLink();
 			case TaskPackage.RELATED_TASKS_MAPPING: return (EObject)createRelatedTasksMapping();
 			case TaskPackage.TASK_RELATIONSHIP: return createTaskRelationship();
+			case TaskPackage.TASK_RESOLUTION: return createTaskResolution();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -219,6 +220,17 @@ public class TaskFactory extends EFactoryImpl
 	{
 		TaskRelationship taskRelationship = new TaskRelationship();
 		return taskRelationship;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskResolution createTaskResolution()
+	{
+		TaskResolution taskResolution = new TaskResolution();
+		return taskResolution;
 	}
 
 	/**

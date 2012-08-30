@@ -413,13 +413,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__RELATED_TASKS = DataPackage.LINKABLE_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Resolution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__RESOLUTION = DataPackage.LINKABLE_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 13;
+	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -476,13 +485,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN__RELATIONSHIPS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Resolutions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN__RESOLUTIONS = 6;
+
+	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN_FEATURE_COUNT = 6;
+	public static final int TASK_DOMAIN_FEATURE_COUNT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -530,13 +548,31 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_TYPE__RELATIONSHIPS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Resolved States</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_TYPE__RESOLVED_STATES = 5;
+
+	/**
+	 * The feature id for the '<em><b>Resolutions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_TYPE__RESOLUTIONS = 6;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_TYPE_FEATURE_COUNT = 5;
+	public static final int TASK_TYPE_FEATURE_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
@@ -733,6 +769,43 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_RELATIONSHIP_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskResolution <em>Resolution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskResolution
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskResolution()
+	 * @generated
+	 */
+	public static final int TASK_RESOLUTION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_RESOLUTION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_RESOLUTION__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Resolution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_RESOLUTION_FEATURE_COUNT = 2;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -801,6 +874,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskRelationshipEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskResolutionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1058,6 +1138,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Task#getResolution <em>Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resolution</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getResolution()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_Resolution()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(11);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1153,6 +1248,21 @@ public class TaskPackage extends EPackageImpl
 	public EReference getTaskDomain_Relationships()
 	{
 		return (EReference)taskDomainEClass.getEStructuralFeatures().get(5);
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getResolutions <em>Resolutions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resolutions</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getResolutions()
+	 * @see #getTaskDomain()
+	 * @generated
+	 */
+	public EReference getTaskDomain_Resolutions()
+	{
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(6);
 	}
 
 
@@ -1345,6 +1455,36 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskType#getResolvedStates <em>Resolved States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Resolved States</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskType#getResolvedStates()
+	 * @see #getTaskType()
+	 * @generated
+	 */
+	public EReference getTaskType_ResolvedStates()
+	{
+		return (EReference)taskTypeEClass.getEStructuralFeatures().get(5);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskType#getResolutions <em>Resolutions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Resolutions</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskType#getResolutions()
+	 * @see #getTaskType()
+	 * @generated
+	 */
+	public EReference getTaskType_Resolutions()
+	{
+		return (EReference)taskTypeEClass.getEStructuralFeatures().get(6);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1522,6 +1662,50 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskResolution <em>Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resolution</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskResolution
+	 * @generated
+	 */
+	public EClass getTaskResolution()
+	{
+		return taskResolutionEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskResolution#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskResolution#getName()
+	 * @see #getTaskResolution()
+	 * @generated
+	 */
+	public EAttribute getTaskResolution_Name()
+	{
+		return (EAttribute)taskResolutionEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskResolution#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskResolution#getDescription()
+	 * @see #getTaskResolution()
+	 * @generated
+	 */
+	public EAttribute getTaskResolution_Description()
+	{
+		return (EAttribute)taskResolutionEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1654,6 +1838,7 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskEClass, TASK__TYPE);
 		createEReference(taskEClass, TASK__PROJECT);
 		createEReference(taskEClass, TASK__RELATED_TASKS);
+		createEReference(taskEClass, TASK__RESOLUTION);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
@@ -1662,6 +1847,7 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
 		createEReference(taskDomainEClass, TASK_DOMAIN__STATE_GROUPS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__RELATIONSHIPS);
+		createEReference(taskDomainEClass, TASK_DOMAIN__RESOLUTIONS);
 
 		taskTypeEClass = createEClass(TASK_TYPE);
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
@@ -1669,6 +1855,8 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskTypeEClass, TASK_TYPE__EXTENSION);
 		createEReference(taskTypeEClass, TASK_TYPE__STARTING_STATE);
 		createEReference(taskTypeEClass, TASK_TYPE__RELATIONSHIPS);
+		createEReference(taskTypeEClass, TASK_TYPE__RESOLVED_STATES);
+		createEReference(taskTypeEClass, TASK_TYPE__RESOLUTIONS);
 
 		taskModelVersionEClass = createEClass(TASK_MODEL_VERSION);
 		createEAttribute(taskModelVersionEClass, TASK_MODEL_VERSION__VERSION);
@@ -1686,6 +1874,10 @@ public class TaskPackage extends EPackageImpl
 
 		taskRelationshipEClass = createEClass(TASK_RELATIONSHIP);
 		createEAttribute(taskRelationshipEClass, TASK_RELATIONSHIP__NAME);
+
+		taskResolutionEClass = createEClass(TASK_RESOLUTION);
+		createEAttribute(taskResolutionEClass, TASK_RESOLUTION__NAME);
+		createEAttribute(taskResolutionEClass, TASK_RESOLUTION__DESCRIPTION);
 	}
 
 	/**
@@ -1762,6 +1954,7 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTask_Type(), this.getTaskType(), null, "type", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Project(), theProjectPackage.getProject(), null, "project", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_RelatedTasks(), this.getRelatedTasksMapping(), null, "relatedTasks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Resolution(), this.getTaskResolution(), null, "resolution", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1770,6 +1963,7 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_StateGroups(), theStatePackage.getStateGroup(), null, "stateGroups", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskDomain_Resolutions(), this.getTaskResolution(), null, "resolutions", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskTypeEClass, TaskType.class, "TaskType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1777,6 +1971,8 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskType_Extension(), ecorePackage.getEPackage(), null, "extension", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_StartingState(), theStatePackage.getState(), null, "startingState", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskType_ResolvedStates(), theStatePackage.getState(), null, "resolvedStates", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskType_Resolutions(), this.getTaskResolution(), null, "resolutions", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskModelVersionEClass, TaskModelVersion.class, "TaskModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskModelVersion_Version(), ecorePackage.getEInt(), "version", "1", 0, 1, TaskModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1794,6 +1990,10 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(taskRelationshipEClass, TaskRelationship.class, "TaskRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskRelationship_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskResolutionEClass, TaskResolution.class, "TaskResolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskResolution_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskResolution_Description(), ecorePackage.getEString(), "description", null, 0, 1, TaskResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1912,6 +2112,14 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK__RELATED_TASKS = eINSTANCE.getTask_RelatedTasks();
 
 		/**
+		 * The meta object literal for the '<em><b>Resolution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__RESOLUTION = eINSTANCE.getTask_Resolution();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1968,6 +2176,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_DOMAIN__RELATIONSHIPS = eINSTANCE.getTaskDomain_Relationships();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolutions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_DOMAIN__RESOLUTIONS = eINSTANCE.getTaskDomain_Resolutions();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}' class.
@@ -2080,6 +2296,22 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK_TYPE__RELATIONSHIPS = eINSTANCE.getTaskType_Relationships();
 
 		/**
+		 * The meta object literal for the '<em><b>Resolved States</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_TYPE__RESOLVED_STATES = eINSTANCE.getTaskType_ResolvedStates();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolutions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_TYPE__RESOLUTIONS = eINSTANCE.getTaskType_Resolutions();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2184,6 +2416,32 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK_RELATIONSHIP__NAME = eINSTANCE.getTaskRelationship_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskResolution <em>Resolution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.TaskResolution
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskResolution()
+		 * @generated
+		 */
+		public static final EClass TASK_RESOLUTION = eINSTANCE.getTaskResolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_RESOLUTION__NAME = eINSTANCE.getTaskResolution_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_RESOLUTION__DESCRIPTION = eINSTANCE.getTaskResolution_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.

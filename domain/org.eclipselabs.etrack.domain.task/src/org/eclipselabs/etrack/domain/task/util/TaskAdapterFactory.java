@@ -159,6 +159,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createTaskRelationshipAdapter();
 			}
 			@Override
+			public Adapter caseTaskResolution(TaskResolution object)
+			{
+				return createTaskResolutionAdapter();
+			}
+			@Override
 			public Adapter caseAssignableItem(AssignableItem object)
 			{
 				return createAssignableItemAdapter();
@@ -366,6 +371,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTaskRelationshipAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.TaskResolution <em>Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.TaskResolution
+	 * @generated
+	 */
+	public Adapter createTaskResolutionAdapter()
 	{
 		return null;
 	}

@@ -45,6 +45,8 @@ import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getExtension <em>Extension</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingState <em>Starting State</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getRelationships <em>Relationships</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getResolvedStates <em>Resolved States</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getResolutions <em>Resolutions</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +115,26 @@ public class TaskType extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EList<TaskRelationship> relationships;
+
+	/**
+	 * The cached value of the '{@link #getResolvedStates() <em>Resolved States</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolvedStates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<State> resolvedStates;
+
+	/**
+	 * The cached value of the '{@link #getResolutions() <em>Resolutions</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolutions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TaskResolution> resolutions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -333,6 +355,52 @@ public class TaskType extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Resolved States</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.State}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resolved States</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resolved States</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_ResolvedStates()
+	 * @model
+	 * @generated
+	 */
+	public EList<State> getResolvedStates()
+	{
+		if (resolvedStates == null)
+		{
+			resolvedStates = new EObjectResolvingEList<State>(State.class, this, TaskPackage.TASK_TYPE__RESOLVED_STATES);
+		}
+		return resolvedStates;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Resolutions</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.TaskResolution}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resolutions</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resolutions</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_Resolutions()
+	 * @model
+	 * @generated
+	 */
+	public EList<TaskResolution> getResolutions()
+	{
+		if (resolutions == null)
+		{
+			resolutions = new EObjectResolvingEList<TaskResolution>(TaskResolution.class, this, TaskPackage.TASK_TYPE__RESOLUTIONS);
+		}
+		return resolutions;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -372,6 +440,10 @@ public class TaskType extends EObjectImpl implements EObject
 				return basicGetStartingState();
 			case TaskPackage.TASK_TYPE__RELATIONSHIPS:
 				return getRelationships();
+			case TaskPackage.TASK_TYPE__RESOLVED_STATES:
+				return getResolvedStates();
+			case TaskPackage.TASK_TYPE__RESOLUTIONS:
+				return getResolutions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -403,6 +475,14 @@ public class TaskType extends EObjectImpl implements EObject
 				getRelationships().clear();
 				getRelationships().addAll((Collection<? extends TaskRelationship>)newValue);
 				return;
+			case TaskPackage.TASK_TYPE__RESOLVED_STATES:
+				getResolvedStates().clear();
+				getResolvedStates().addAll((Collection<? extends State>)newValue);
+				return;
+			case TaskPackage.TASK_TYPE__RESOLUTIONS:
+				getResolutions().clear();
+				getResolutions().addAll((Collection<? extends TaskResolution>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -432,6 +512,12 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__RELATIONSHIPS:
 				getRelationships().clear();
 				return;
+			case TaskPackage.TASK_TYPE__RESOLVED_STATES:
+				getResolvedStates().clear();
+				return;
+			case TaskPackage.TASK_TYPE__RESOLUTIONS:
+				getResolutions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -456,6 +542,10 @@ public class TaskType extends EObjectImpl implements EObject
 				return startingState != null;
 			case TaskPackage.TASK_TYPE__RELATIONSHIPS:
 				return relationships != null && !relationships.isEmpty();
+			case TaskPackage.TASK_TYPE__RESOLVED_STATES:
+				return resolvedStates != null && !resolvedStates.isEmpty();
+			case TaskPackage.TASK_TYPE__RESOLUTIONS:
+				return resolutions != null && !resolutions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
