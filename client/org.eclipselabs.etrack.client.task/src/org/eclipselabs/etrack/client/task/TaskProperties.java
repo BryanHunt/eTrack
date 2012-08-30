@@ -25,4 +25,5 @@ public interface TaskProperties
 	IValueProperty TASK_DOMAIN_NAME = EMFProperties.value(TaskPackage.Literals.TASK_DOMAIN__NAME);
 	IValueProperty TASK_TYPE_NAME = EMFProperties.value(TaskPackage.Literals.TASK_TYPE__NAME);
 	IValueProperty TASK_RESOLUTION_NAME = EMFProperties.value(TaskPackage.Literals.TASK_RESOLUTION__NAME);
+	IValueProperty TASK_RELATIONSHIP_NAME = EMFProperties.value(TaskPackage.Literals.TASK_RELATIONSHIP__NAME);
 }

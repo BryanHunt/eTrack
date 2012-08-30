@@ -76,6 +76,11 @@ public class TaskDomainBuilder
 		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__RESOLUTIONS).observe(taskDomain);
 	}
 
+	public IObservableList createTaskRelationshipsObservable()
+	{
+		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__RELATIONSHIPS).observe(taskDomain);
+	}
+
 	public void setTaskService(ITaskService taskService)
 	{
 		this.taskService = taskService;
