@@ -760,13 +760,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_RELATIONSHIP__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Opposite</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_RELATIONSHIP__OPPOSITE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Relationship</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_RELATIONSHIP_FEATURE_COUNT = 1;
+	public static final int TASK_RELATIONSHIP_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskResolution <em>Resolution</em>}' class.
@@ -1662,6 +1671,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.TaskRelationship#getOpposite <em>Opposite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Opposite</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskRelationship#getOpposite()
+	 * @see #getTaskRelationship()
+	 * @generated
+	 */
+	public EReference getTaskRelationship_Opposite()
+	{
+		return (EReference)taskRelationshipEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskResolution <em>Resolution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1874,6 +1898,7 @@ public class TaskPackage extends EPackageImpl
 
 		taskRelationshipEClass = createEClass(TASK_RELATIONSHIP);
 		createEAttribute(taskRelationshipEClass, TASK_RELATIONSHIP__NAME);
+		createEReference(taskRelationshipEClass, TASK_RELATIONSHIP__OPPOSITE);
 
 		taskResolutionEClass = createEClass(TASK_RESOLUTION);
 		createEAttribute(taskResolutionEClass, TASK_RESOLUTION__NAME);
@@ -1990,6 +2015,7 @@ public class TaskPackage extends EPackageImpl
 
 		initEClass(taskRelationshipEClass, TaskRelationship.class, "TaskRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskRelationship_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskRelationship_Opposite(), this.getTaskRelationship(), null, "opposite", null, 0, 1, TaskRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskResolutionEClass, TaskResolution.class, "TaskResolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskResolution_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2416,6 +2442,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK_RELATIONSHIP__NAME = eINSTANCE.getTaskRelationship_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Opposite</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_RELATIONSHIP__OPPOSITE = eINSTANCE.getTaskRelationship_Opposite();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskResolution <em>Resolution</em>}' class.

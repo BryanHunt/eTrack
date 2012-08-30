@@ -7,6 +7,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskRelationship#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskRelationship#getOpposite <em>Opposite</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +49,16 @@ public class TaskRelationship extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOpposite() <em>Opposite</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOpposite()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskRelationship opposite;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +117,61 @@ public class TaskRelationship extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Opposite</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Opposite</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Opposite</em>' reference.
+	 * @see #setOpposite(TaskRelationship)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskRelationship_Opposite()
+	 * @model
+	 * @generated
+	 */
+	public TaskRelationship getOpposite()
+	{
+		if (opposite != null && opposite.eIsProxy())
+		{
+			InternalEObject oldOpposite = (InternalEObject)opposite;
+			opposite = (TaskRelationship)eResolveProxy(oldOpposite);
+			if (opposite != oldOpposite)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_RELATIONSHIP__OPPOSITE, oldOpposite, opposite));
+			}
+		}
+		return opposite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskRelationship basicGetOpposite()
+	{
+		return opposite;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.TaskRelationship#getOpposite <em>Opposite</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Opposite</em>' reference.
+	 * @see #getOpposite()
+	 * @generated
+	 */
+	public void setOpposite(TaskRelationship newOpposite)
+	{
+		TaskRelationship oldOpposite = opposite;
+		opposite = newOpposite;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_RELATIONSHIP__OPPOSITE, oldOpposite, opposite));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -116,6 +183,9 @@ public class TaskRelationship extends EObjectImpl implements EObject
 		{
 			case TaskPackage.TASK_RELATIONSHIP__NAME:
 				return getName();
+			case TaskPackage.TASK_RELATIONSHIP__OPPOSITE:
+				if (resolve) return getOpposite();
+				return basicGetOpposite();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,6 +202,9 @@ public class TaskRelationship extends EObjectImpl implements EObject
 		{
 			case TaskPackage.TASK_RELATIONSHIP__NAME:
 				setName((String)newValue);
+				return;
+			case TaskPackage.TASK_RELATIONSHIP__OPPOSITE:
+				setOpposite((TaskRelationship)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -150,6 +223,9 @@ public class TaskRelationship extends EObjectImpl implements EObject
 			case TaskPackage.TASK_RELATIONSHIP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case TaskPackage.TASK_RELATIONSHIP__OPPOSITE:
+				setOpposite((TaskRelationship)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -166,6 +242,8 @@ public class TaskRelationship extends EObjectImpl implements EObject
 		{
 			case TaskPackage.TASK_RELATIONSHIP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case TaskPackage.TASK_RELATIONSHIP__OPPOSITE:
+				return opposite != null;
 		}
 		return super.eIsSet(featureID);
 	}
