@@ -47,6 +47,7 @@ import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getRelationships <em>Relationships</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getResolvedStates <em>Resolved States</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getResolutions <em>Resolutions</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingResolution <em>Starting Resolution</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,6 +136,16 @@ public class TaskType extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EList<TaskResolution> resolutions;
+
+	/**
+	 * The cached value of the '{@link #getStartingResolution() <em>Starting Resolution</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartingResolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskResolution startingResolution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -401,6 +412,61 @@ public class TaskType extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Starting Resolution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Starting Resolution</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Starting Resolution</em>' reference.
+	 * @see #setStartingResolution(TaskResolution)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_StartingResolution()
+	 * @model required="true"
+	 * @generated
+	 */
+	public TaskResolution getStartingResolution()
+	{
+		if (startingResolution != null && startingResolution.eIsProxy())
+		{
+			InternalEObject oldStartingResolution = (InternalEObject)startingResolution;
+			startingResolution = (TaskResolution)eResolveProxy(oldStartingResolution);
+			if (startingResolution != oldStartingResolution)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_TYPE__STARTING_RESOLUTION, oldStartingResolution, startingResolution));
+			}
+		}
+		return startingResolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskResolution basicGetStartingResolution()
+	{
+		return startingResolution;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingResolution <em>Starting Resolution</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Starting Resolution</em>' reference.
+	 * @see #getStartingResolution()
+	 * @generated
+	 */
+	public void setStartingResolution(TaskResolution newStartingResolution)
+	{
+		TaskResolution oldStartingResolution = startingResolution;
+		startingResolution = newStartingResolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_TYPE__STARTING_RESOLUTION, oldStartingResolution, startingResolution));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -444,6 +510,9 @@ public class TaskType extends EObjectImpl implements EObject
 				return getResolvedStates();
 			case TaskPackage.TASK_TYPE__RESOLUTIONS:
 				return getResolutions();
+			case TaskPackage.TASK_TYPE__STARTING_RESOLUTION:
+				if (resolve) return getStartingResolution();
+				return basicGetStartingResolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -483,6 +552,9 @@ public class TaskType extends EObjectImpl implements EObject
 				getResolutions().clear();
 				getResolutions().addAll((Collection<? extends TaskResolution>)newValue);
 				return;
+			case TaskPackage.TASK_TYPE__STARTING_RESOLUTION:
+				setStartingResolution((TaskResolution)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -518,6 +590,9 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__RESOLUTIONS:
 				getResolutions().clear();
 				return;
+			case TaskPackage.TASK_TYPE__STARTING_RESOLUTION:
+				setStartingResolution((TaskResolution)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -546,6 +621,8 @@ public class TaskType extends EObjectImpl implements EObject
 				return resolvedStates != null && !resolvedStates.isEmpty();
 			case TaskPackage.TASK_TYPE__RESOLUTIONS:
 				return resolutions != null && !resolutions.isEmpty();
+			case TaskPackage.TASK_TYPE__STARTING_RESOLUTION:
+				return startingResolution != null;
 		}
 		return super.eIsSet(featureID);
 	}

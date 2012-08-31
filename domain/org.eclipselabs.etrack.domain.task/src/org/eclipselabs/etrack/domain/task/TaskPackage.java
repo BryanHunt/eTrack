@@ -566,13 +566,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_TYPE__RESOLUTIONS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Starting Resolution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_TYPE__STARTING_RESOLUTION = 7;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_TYPE_FEATURE_COUNT = 7;
+	public static final int TASK_TYPE_FEATURE_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
@@ -1494,6 +1503,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingResolution <em>Starting Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Starting Resolution</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskType#getStartingResolution()
+	 * @see #getTaskType()
+	 * @generated
+	 */
+	public EReference getTaskType_StartingResolution()
+	{
+		return (EReference)taskTypeEClass.getEStructuralFeatures().get(7);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1881,6 +1905,7 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskTypeEClass, TASK_TYPE__RELATIONSHIPS);
 		createEReference(taskTypeEClass, TASK_TYPE__RESOLVED_STATES);
 		createEReference(taskTypeEClass, TASK_TYPE__RESOLUTIONS);
+		createEReference(taskTypeEClass, TASK_TYPE__STARTING_RESOLUTION);
 
 		taskModelVersionEClass = createEClass(TASK_MODEL_VERSION);
 		createEAttribute(taskModelVersionEClass, TASK_MODEL_VERSION__VERSION);
@@ -1998,6 +2023,7 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskType_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_ResolvedStates(), theStatePackage.getState(), null, "resolvedStates", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_Resolutions(), this.getTaskResolution(), null, "resolutions", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskType_StartingResolution(), this.getTaskResolution(), null, "startingResolution", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskModelVersionEClass, TaskModelVersion.class, "TaskModelVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskModelVersion_Version(), ecorePackage.getEInt(), "version", "1", 0, 1, TaskModelVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2336,6 +2362,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_TYPE__RESOLUTIONS = eINSTANCE.getTaskType_Resolutions();
+
+		/**
+		 * The meta object literal for the '<em><b>Starting Resolution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_TYPE__STARTING_RESOLUTION = eINSTANCE.getTaskType_StartingResolution();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskModelVersion <em>Model Version</em>}' class.
