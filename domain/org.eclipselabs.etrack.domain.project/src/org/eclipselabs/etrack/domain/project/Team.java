@@ -72,13 +72,14 @@ public class Team extends PermissionGroup
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Teams</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getTeam_SubTeams()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Team> getSubTeams()
 	{
-		if (subTeams == null) {
-			subTeams = new EObjectContainmentEList<Team>(Team.class, this, ProjectPackage.TEAM__SUB_TEAMS);
+		if (subTeams == null)
+		{
+			subTeams = new EObjectContainmentEList.Resolving<Team>(Team.class, this, ProjectPackage.TEAM__SUB_TEAMS);
 		}
 		return subTeams;
 	}
@@ -91,7 +92,8 @@ public class Team extends PermissionGroup
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.TEAM__SUB_TEAMS:
 				return ((InternalEList<?>)getSubTeams()).basicRemove(otherEnd, msgs);
 		}
@@ -106,7 +108,8 @@ public class Team extends PermissionGroup
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.TEAM__SUB_TEAMS:
 				return getSubTeams();
 		}
@@ -122,7 +125,8 @@ public class Team extends PermissionGroup
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.TEAM__SUB_TEAMS:
 				getSubTeams().clear();
 				getSubTeams().addAll((Collection<? extends Team>)newValue);
@@ -139,7 +143,8 @@ public class Team extends PermissionGroup
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.TEAM__SUB_TEAMS:
 				getSubTeams().clear();
 				return;
@@ -155,7 +160,8 @@ public class Team extends PermissionGroup
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.TEAM__SUB_TEAMS:
 				return subTeams != null && !subTeams.isEmpty();
 		}

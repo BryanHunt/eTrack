@@ -35,7 +35,7 @@ public interface AuditableItem extends EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>History</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.audit.AuditPackage#getAuditableItem_History()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Action> getHistory();

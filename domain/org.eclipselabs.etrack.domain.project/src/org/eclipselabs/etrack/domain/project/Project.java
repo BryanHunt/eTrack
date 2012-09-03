@@ -131,7 +131,8 @@ public class Project extends EObjectImpl implements Linkable
 	 */
 	public EMap<String, LinkedContent> getLinksByName()
 	{
-		if (linksByName == null) {
+		if (linksByName == null)
+		{
 			linksByName = new EcoreEMap<String,LinkedContent>(DataPackage.Literals.LINK_MAPPING, LinkMapping.class, this, ProjectPackage.PROJECT__LINKS_BY_NAME);
 		}
 		return linksByName;
@@ -148,13 +149,14 @@ public class Project extends EObjectImpl implements Linkable
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Teams</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.project.ProjectPackage#getProject_Teams()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Team> getTeams()
 	{
-		if (teams == null) {
-			teams = new EObjectContainmentEList<Team>(Team.class, this, ProjectPackage.PROJECT__TEAMS);
+		if (teams == null)
+		{
+			teams = new EObjectContainmentEList.Resolving<Team>(Team.class, this, ProjectPackage.PROJECT__TEAMS);
 		}
 		return teams;
 	}
@@ -210,7 +212,8 @@ public class Project extends EObjectImpl implements Linkable
 	 */
 	public EList<Identity> getAdmins()
 	{
-		if (admins == null) {
+		if (admins == null)
+		{
 			admins = new EObjectResolvingEList<Identity>(Identity.class, this, ProjectPackage.PROJECT__ADMINS);
 		}
 		return admins;
@@ -224,7 +227,8 @@ public class Project extends EObjectImpl implements Linkable
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.PROJECT__LINKS_BY_NAME:
 				return ((InternalEList<?>)getLinksByName()).basicRemove(otherEnd, msgs);
 			case ProjectPackage.PROJECT__TEAMS:
@@ -241,7 +245,8 @@ public class Project extends EObjectImpl implements Linkable
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.PROJECT__LINKS_BY_NAME:
 				if (coreType) return getLinksByName();
 				else return getLinksByName().map();
@@ -264,7 +269,8 @@ public class Project extends EObjectImpl implements Linkable
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.PROJECT__LINKS_BY_NAME:
 				((EStructuralFeature.Setting)getLinksByName()).set(newValue);
 				return;
@@ -291,7 +297,8 @@ public class Project extends EObjectImpl implements Linkable
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.PROJECT__LINKS_BY_NAME:
 				getLinksByName().clear();
 				return;
@@ -316,7 +323,8 @@ public class Project extends EObjectImpl implements Linkable
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case ProjectPackage.PROJECT__LINKS_BY_NAME:
 				return linksByName != null && !linksByName.isEmpty();
 			case ProjectPackage.PROJECT__TEAMS:

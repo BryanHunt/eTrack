@@ -257,10 +257,37 @@ public class Attachment extends Artifact implements AssignableItem
 	 * @return the value of the '<em>Data Container</em>' containment reference.
 	 * @see #setDataContainer(AttachmentData)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAttachment_DataContainer()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public AttachmentData getDataContainer()
+	{
+		if (dataContainer != null && dataContainer.eIsProxy())
+		{
+			InternalEObject oldDataContainer = (InternalEObject)dataContainer;
+			dataContainer = (AttachmentData)eResolveProxy(oldDataContainer);
+			if (dataContainer != oldDataContainer)
+			{
+				InternalEObject newDataContainer = (InternalEObject)dataContainer;
+				NotificationChain msgs = oldDataContainer.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, null);
+				if (newDataContainer.eInternalContainer() == null)
+				{
+					msgs = newDataContainer.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.ATTACHMENT__DATA_CONTAINER, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.ATTACHMENT__DATA_CONTAINER, oldDataContainer, dataContainer));
+			}
+		}
+		return dataContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AttachmentData basicGetDataContainer()
 	{
 		return dataContainer;
 	}
@@ -340,7 +367,8 @@ public class Attachment extends Artifact implements AssignableItem
 			case TaskPackage.ATTACHMENT__SIZE_IN_BYTES:
 				return getSizeInBytes();
 			case TaskPackage.ATTACHMENT__DATA_CONTAINER:
-				return getDataContainer();
+				if (resolve) return getDataContainer();
+				return basicGetDataContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

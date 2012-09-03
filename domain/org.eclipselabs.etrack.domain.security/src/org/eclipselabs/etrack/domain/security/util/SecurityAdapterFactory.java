@@ -40,7 +40,8 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
 	 */
 	public SecurityAdapterFactory()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = SecurityPackage.eINSTANCE;
 		}
 	}
@@ -56,10 +57,12 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage) {
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -72,25 +75,31 @@ public class SecurityAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected SecuritySwitch<Adapter> modelSwitch =
-		new SecuritySwitch<Adapter>() {
+		new SecuritySwitch<Adapter>()
+		{
 			@Override
-			public Adapter casePermissionGroup(PermissionGroup object) {
+			public Adapter casePermissionGroup(PermissionGroup object)
+			{
 				return createPermissionGroupAdapter();
 			}
 			@Override
-			public Adapter casePasswordCredential(PasswordCredential object) {
+			public Adapter casePasswordCredential(PasswordCredential object)
+			{
 				return createPasswordCredentialAdapter();
 			}
 			@Override
-			public Adapter caseIdentity(Identity object) {
+			public Adapter caseIdentity(Identity object)
+			{
 				return createIdentityAdapter();
 			}
 			@Override
-			public Adapter caseGroup(Group object) {
+			public Adapter caseGroup(Group object)
+			{
 				return createGroupAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};

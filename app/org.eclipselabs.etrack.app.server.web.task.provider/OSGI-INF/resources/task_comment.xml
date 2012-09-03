@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.server.web.task.taskCommentResource">
+   <implementation class="org.eclipselabs.etrack.server.web.task.providers.TaskCommentResourceProvider"/>
+   <property name="visibility" type="String" value="secure"/>
+   <property name="paths" type="String">
+   		/taskComments/
+   		/taskComments/{id}
+   </property>
+   <service>
+      <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
+   </service>
+   <reference bind="bindResourceSetFactory" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceSetFactory" name="IResourceSetFactory" policy="static"/>
+</scr:component>

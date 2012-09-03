@@ -198,14 +198,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_States()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	public EList<State> getStates()
 	{
 		if (states == null)
 		{
-			states = new EObjectContainmentEList<State>(State.class, this, TaskPackage.TASK_DOMAIN__STATES);
+			states = new EObjectContainmentEList.Resolving<State>(State.class, this, TaskPackage.TASK_DOMAIN__STATES);
 		}
 		return states;
 	}
@@ -221,14 +221,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transitions</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_Transitions()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	public EList<StateTransition> getTransitions()
 	{
 		if (transitions == null)
 		{
-			transitions = new EObjectContainmentEList<StateTransition>(StateTransition.class, this, TaskPackage.TASK_DOMAIN__TRANSITIONS);
+			transitions = new EObjectContainmentEList.Resolving<StateTransition>(StateTransition.class, this, TaskPackage.TASK_DOMAIN__TRANSITIONS);
 		}
 		return transitions;
 	}
@@ -244,14 +244,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Task Types</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_TaskTypes()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<TaskType> getTaskTypes()
 	{
 		if (taskTypes == null)
 		{
-			taskTypes = new EObjectContainmentEList<TaskType>(TaskType.class, this, TaskPackage.TASK_DOMAIN__TASK_TYPES);
+			taskTypes = new EObjectContainmentEList.Resolving<TaskType>(TaskType.class, this, TaskPackage.TASK_DOMAIN__TASK_TYPES);
 		}
 		return taskTypes;
 	}
@@ -267,14 +267,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>State Groups</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_StateGroups()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<StateGroup> getStateGroups()
 	{
 		if (stateGroups == null)
 		{
-			stateGroups = new EObjectContainmentEList<StateGroup>(StateGroup.class, this, TaskPackage.TASK_DOMAIN__STATE_GROUPS);
+			stateGroups = new EObjectContainmentEList.Resolving<StateGroup>(StateGroup.class, this, TaskPackage.TASK_DOMAIN__STATE_GROUPS);
 		}
 		return stateGroups;
 	}
@@ -290,14 +290,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relationships</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_Relationships()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<TaskRelationship> getRelationships()
 	{
 		if (relationships == null)
 		{
-			relationships = new EObjectContainmentEList<TaskRelationship>(TaskRelationship.class, this, TaskPackage.TASK_DOMAIN__RELATIONSHIPS);
+			relationships = new EObjectContainmentEList.Resolving<TaskRelationship>(TaskRelationship.class, this, TaskPackage.TASK_DOMAIN__RELATIONSHIPS);
 		}
 		return relationships;
 	}
@@ -313,14 +313,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resolutions</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_Resolutions()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<TaskResolution> getResolutions()
 	{
 		if (resolutions == null)
 		{
-			resolutions = new EObjectContainmentEList<TaskResolution>(TaskResolution.class, this, TaskPackage.TASK_DOMAIN__RESOLUTIONS);
+			resolutions = new EObjectContainmentEList.Resolving<TaskResolution>(TaskResolution.class, this, TaskPackage.TASK_DOMAIN__RESOLUTIONS);
 		}
 		return resolutions;
 	}

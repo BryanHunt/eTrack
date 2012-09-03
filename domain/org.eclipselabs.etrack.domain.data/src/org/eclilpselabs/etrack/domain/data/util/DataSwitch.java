@@ -51,7 +51,8 @@ public class DataSwitch<T> extends Switch<T>
 	 */
 	public DataSwitch()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = DataPackage.eINSTANCE;
 		}
 	}
@@ -80,38 +81,45 @@ public class DataSwitch<T> extends Switch<T>
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject)
 	{
-		switch (classifierID) {
-			case DataPackage.LINKED_CONTENT: {
+		switch (classifierID)
+		{
+			case DataPackage.LINKED_CONTENT:
+			{
 				LinkedContent linkedContent = (LinkedContent)theEObject;
 				T result = caseLinkedContent(linkedContent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DataPackage.LINK_MAPPING: {
+			case DataPackage.LINK_MAPPING:
+			{
 				@SuppressWarnings("unchecked") Map.Entry<String, LinkedContent> linkMapping = (Map.Entry<String, LinkedContent>)theEObject;
 				T result = caseLinkMapping(linkMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DataPackage.LINKABLE: {
+			case DataPackage.LINKABLE:
+			{
 				Linkable linkable = (Linkable)theEObject;
 				T result = caseLinkable(linkable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DataPackage.CATEGORIZED_ITEM: {
+			case DataPackage.CATEGORIZED_ITEM:
+			{
 				CategorizedItem categorizedItem = (CategorizedItem)theEObject;
 				T result = caseCategorizedItem(categorizedItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DataPackage.ARTIFACT: {
+			case DataPackage.ARTIFACT:
+			{
 				Artifact artifact = (Artifact)theEObject;
 				T result = caseArtifact(artifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DataPackage.RESOURCE: {
+			case DataPackage.RESOURCE:
+			{
 				Resource resource = (Resource)theEObject;
 				T result = caseResource(resource);
 				if (result == null) result = caseArtifact(resource);

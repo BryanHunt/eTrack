@@ -19,13 +19,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
-        eType="#//State" containment="true" resolveProxies="false"/>
+        eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
-        eType="#//StateTransition" containment="true" resolveProxies="false"/>
+        eType="#//StateTransition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitionsByState" upperBound="-1"
-        eType="#//StateTransitionMapping" containment="true" resolveProxies="false"/>
+        eType="#//StateTransitionMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateGroups" upperBound="-1"
-        eType="#//StateGroup" containment="true" resolveProxies="false"/>
+        eType="#//StateGroup" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startingState" lowerBound="1"
         eType="#//State"/>
   </eClassifiers>

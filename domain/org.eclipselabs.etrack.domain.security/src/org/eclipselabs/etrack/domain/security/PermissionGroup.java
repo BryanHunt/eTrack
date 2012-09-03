@@ -148,7 +148,8 @@ public class PermissionGroup extends EObjectImpl implements Group
 	 */
 	public EList<Identity> getMembers()
 	{
-		if (members == null) {
+		if (members == null)
+		{
 			members = new EObjectResolvingEList<Identity>(Identity.class, this, SecurityPackage.PERMISSION_GROUP__MEMBERS);
 		}
 		return members;
@@ -170,7 +171,8 @@ public class PermissionGroup extends EObjectImpl implements Group
 	 */
 	public EList<Identity> getAdmins()
 	{
-		if (admins == null) {
+		if (admins == null)
+		{
 			admins = new EObjectResolvingEList<Identity>(Identity.class, this, SecurityPackage.PERMISSION_GROUP__ADMINS);
 		}
 		return admins;
@@ -197,7 +199,8 @@ public class PermissionGroup extends EObjectImpl implements Group
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PERMISSION_GROUP__NAME:
 				return getName();
 			case SecurityPackage.PERMISSION_GROUP__MEMBERS:
@@ -217,7 +220,8 @@ public class PermissionGroup extends EObjectImpl implements Group
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PERMISSION_GROUP__NAME:
 				setName((String)newValue);
 				return;
@@ -241,7 +245,8 @@ public class PermissionGroup extends EObjectImpl implements Group
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PERMISSION_GROUP__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -263,7 +268,8 @@ public class PermissionGroup extends EObjectImpl implements Group
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PERMISSION_GROUP__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SecurityPackage.PERMISSION_GROUP__MEMBERS:

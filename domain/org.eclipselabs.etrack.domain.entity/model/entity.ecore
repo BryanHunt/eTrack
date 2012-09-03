@@ -15,11 +15,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="#//Identity ../../org.eclipselabs.etrack.domain.data/model/data.ecore#//Linkable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="emails" upperBound="-1"
-        eType="#//Email" containment="true" resolveProxies="false"/>
+        eType="#//Email" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="phoneNumbers" upperBound="-1"
-        eType="#//Phone" containment="true" resolveProxies="false"/>
+        eType="#//Phone" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="addresses" upperBound="-1"
-        eType="#//Address" containment="true" resolveProxies="false"/>
+        eType="#//Address" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group" abstract="true" interface="true"
       eSuperTypes="#//Identity">

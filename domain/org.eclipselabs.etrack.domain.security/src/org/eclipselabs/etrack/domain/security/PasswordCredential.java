@@ -168,7 +168,8 @@ public class PasswordCredential extends EObjectImpl implements EObject
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				return getId();
 			case SecurityPackage.PASSWORD_CREDENTIAL__PASSWORD:
@@ -185,7 +186,8 @@ public class PasswordCredential extends EObjectImpl implements EObject
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				setId((String)newValue);
 				return;
@@ -204,7 +206,8 @@ public class PasswordCredential extends EObjectImpl implements EObject
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				setId(ID_EDEFAULT);
 				return;
@@ -223,7 +226,8 @@ public class PasswordCredential extends EObjectImpl implements EObject
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case SecurityPackage.PASSWORD_CREDENTIAL__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case SecurityPackage.PASSWORD_CREDENTIAL__PASSWORD:

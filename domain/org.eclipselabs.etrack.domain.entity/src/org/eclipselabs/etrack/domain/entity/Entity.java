@@ -126,7 +126,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	 */
 	public EMap<String, LinkedContent> getLinksByName()
 	{
-		if (linksByName == null) {
+		if (linksByName == null)
+		{
 			linksByName = new EcoreEMap<String,LinkedContent>(DataPackage.Literals.LINK_MAPPING, LinkMapping.class, this, EntityPackage.ENTITY__LINKS_BY_NAME);
 		}
 		return linksByName;
@@ -143,13 +144,14 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Emails</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getEntity_Emails()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Email> getEmails()
 	{
-		if (emails == null) {
-			emails = new EObjectContainmentEList<Email>(Email.class, this, EntityPackage.ENTITY__EMAILS);
+		if (emails == null)
+		{
+			emails = new EObjectContainmentEList.Resolving<Email>(Email.class, this, EntityPackage.ENTITY__EMAILS);
 		}
 		return emails;
 	}
@@ -165,13 +167,14 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Phone Numbers</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getEntity_PhoneNumbers()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Phone> getPhoneNumbers()
 	{
-		if (phoneNumbers == null) {
-			phoneNumbers = new EObjectContainmentEList<Phone>(Phone.class, this, EntityPackage.ENTITY__PHONE_NUMBERS);
+		if (phoneNumbers == null)
+		{
+			phoneNumbers = new EObjectContainmentEList.Resolving<Phone>(Phone.class, this, EntityPackage.ENTITY__PHONE_NUMBERS);
 		}
 		return phoneNumbers;
 	}
@@ -187,13 +190,14 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Addresses</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getEntity_Addresses()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Address> getAddresses()
 	{
-		if (addresses == null) {
-			addresses = new EObjectContainmentEList<Address>(Address.class, this, EntityPackage.ENTITY__ADDRESSES);
+		if (addresses == null)
+		{
+			addresses = new EObjectContainmentEList.Resolving<Address>(Address.class, this, EntityPackage.ENTITY__ADDRESSES);
 		}
 		return addresses;
 	}
@@ -219,7 +223,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ENTITY__LINKS_BY_NAME:
 				return ((InternalEList<?>)getLinksByName()).basicRemove(otherEnd, msgs);
 			case EntityPackage.ENTITY__EMAILS:
@@ -240,7 +245,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ENTITY__LINKS_BY_NAME:
 				if (coreType) return getLinksByName();
 				else return getLinksByName().map();
@@ -263,7 +269,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ENTITY__LINKS_BY_NAME:
 				((EStructuralFeature.Setting)getLinksByName()).set(newValue);
 				return;
@@ -291,7 +298,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ENTITY__LINKS_BY_NAME:
 				getLinksByName().clear();
 				return;
@@ -316,7 +324,8 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ENTITY__LINKS_BY_NAME:
 				return linksByName != null && !linksByName.isEmpty();
 			case EntityPackage.ENTITY__EMAILS:
@@ -337,8 +346,10 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == Linkable.class) {
-			switch (derivedFeatureID) {
+		if (baseClass == Linkable.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case EntityPackage.ENTITY__LINKS_BY_NAME: return DataPackage.LINKABLE__LINKS_BY_NAME;
 				default: return -1;
 			}
@@ -354,8 +365,10 @@ public abstract class Entity extends EObjectImpl implements Identity, Linkable
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == Linkable.class) {
-			switch (baseFeatureID) {
+		if (baseClass == Linkable.class)
+		{
+			switch (baseFeatureID)
+			{
 				case DataPackage.LINKABLE__LINKS_BY_NAME: return EntityPackage.ENTITY__LINKS_BY_NAME;
 				default: return -1;
 			}
