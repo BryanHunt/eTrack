@@ -43,7 +43,7 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 	{
 		super.close();
 
-		EmfRepresentation<EObject> representation = new EmfRepresentation<EObject>(MediaType.APPLICATION_XMI, resource.getContents().get(0))
+		EmfRepresentation<EObject> representation = new EmfRepresentation<EObject>(MediaType.APPLICATION_JSON, resource.getContents().get(0))
 		{
 			@Override
 			protected Map<?, ?> getSaveOptions()
