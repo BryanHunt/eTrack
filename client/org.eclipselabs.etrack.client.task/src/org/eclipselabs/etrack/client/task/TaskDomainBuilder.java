@@ -12,23 +12,13 @@
 package org.eclipselabs.etrack.client.task;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map.Entry;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.databinding.EMFProperties;
-import org.eclipselabs.etrack.domain.state.State;
-import org.eclipselabs.etrack.domain.state.StateGroup;
-import org.eclipselabs.etrack.domain.state.StateTransition;
-import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
-import org.eclipselabs.etrack.domain.task.TaskRelationship;
-import org.eclipselabs.etrack.domain.task.TaskResolution;
-import org.eclipselabs.etrack.domain.task.TaskType;
 
 /**
  * @author bhunt
@@ -43,36 +33,36 @@ public class TaskDomainBuilder
 
 	public TaskDomain buildTaskDomain() throws IOException
 	{
-		for (TaskRelationship relationship : taskDomain.getRelationships())
-			taskService.addTaskRelationship(relationship);
-
-		for (TaskRelationship relationship : taskDomain.getRelationships())
-			relationship.eResource().save(null);
-
-		for (TaskResolution resolution : taskDomain.getResolutions())
-			taskService.addTaskResolution(resolution);
-
-		for (State state : taskDomain.getStates())
-			taskService.addTaskState(state);
-
-		for (StateGroup stateGroup : taskDomain.getStateGroups())
-			taskService.addTaskStateGroup(stateGroup);
-
-		for (StateTransition stateTransition : taskDomain.getTransitions())
-			taskService.addTaskStateTransition(stateTransition);
-
-		for (TaskType taskType : taskDomain.getTaskTypes())
-		{
-			Iterator<Entry<State, EList<StateTransition>>> iterator = taskType.getStates().iterator();
-
-			while (iterator.hasNext())
-			{
-				StateTransitionMapping stateTransitionMapping = (StateTransitionMapping) iterator.next();
-				taskService.addTaskStateTransitionMapping(stateTransitionMapping);
-			}
-
-			taskService.addTaskType(taskType);
-		}
+// for (TaskRelationship relationship : taskDomain.getRelationships())
+// taskService.addTaskRelationship(relationship);
+//
+// for (TaskRelationship relationship : taskDomain.getRelationships())
+// relationship.eResource().save(null);
+//
+// for (TaskResolution resolution : taskDomain.getResolutions())
+// taskService.addTaskResolution(resolution);
+//
+// for (State state : taskDomain.getStates())
+// taskService.addTaskState(state);
+//
+// for (StateGroup stateGroup : taskDomain.getStateGroups())
+// taskService.addTaskStateGroup(stateGroup);
+//
+// for (StateTransition stateTransition : taskDomain.getTransitions())
+// taskService.addTaskStateTransition(stateTransition);
+//
+// for (TaskType taskType : taskDomain.getTaskTypes())
+// {
+// Iterator<Entry<State, EList<StateTransition>>> iterator = taskType.getStates().iterator();
+//
+// while (iterator.hasNext())
+// {
+// StateTransitionMapping stateTransitionMapping = (StateTransitionMapping) iterator.next();
+// taskService.addTaskStateTransitionMapping(stateTransitionMapping);
+// }
+//
+// taskService.addTaskType(taskType);
+// }
 
 		taskService.addTaskDomain(taskDomain);
 		return taskDomain;
