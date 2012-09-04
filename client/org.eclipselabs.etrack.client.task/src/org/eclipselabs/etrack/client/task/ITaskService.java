@@ -17,8 +17,19 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.etrack.client.core.IServerClient;
+import org.eclipselabs.etrack.domain.audit.Action;
+import org.eclipselabs.etrack.domain.state.State;
+import org.eclipselabs.etrack.domain.state.StateGroup;
+import org.eclipselabs.etrack.domain.state.StateTransition;
+import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
+import org.eclipselabs.etrack.domain.task.Attachment;
+import org.eclipselabs.etrack.domain.task.Comment;
+import org.eclipselabs.etrack.domain.task.RelatedTasksMapping;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
+import org.eclipselabs.etrack.domain.task.TaskRelationship;
+import org.eclipselabs.etrack.domain.task.TaskResolution;
+import org.eclipselabs.etrack.domain.task.TaskType;
 import org.eclipselabs.mongo.emf.ext.ECollection;
 
 /**
@@ -32,6 +43,8 @@ public interface ITaskService extends IServerClient
 {
 	String TASK_DOMAIN_LINK_KEY = "org.eclipselabs.etrack.task.domain.link";
 
+	URI addRelatedTasksMapping(RelatedTasksMapping relatedTasksMapping) throws IOException;
+
 	/**
 	 * Adds a task to the database.
 	 * 
@@ -40,6 +53,10 @@ public interface ITaskService extends IServerClient
 	 */
 	URI addTask(Task task) throws IOException;
 
+	URI addTaskAttachment(Attachment attachment) throws IOException;
+
+	URI addTaskComment(Comment comment) throws IOException;
+
 	/**
 	 * Adds a task domain to the database.
 	 * 
@@ -47,6 +64,22 @@ public interface ITaskService extends IServerClient
 	 * @return the URI of the task domain added to the database
 	 */
 	URI addTaskDomain(TaskDomain taskDomain) throws IOException;
+
+	URI addTaskHistory(Action history) throws IOException;
+
+	URI addTaskRelationship(TaskRelationship taskRelationship) throws IOException;
+
+	URI addTaskResolution(TaskResolution taskResolution) throws IOException;
+
+	URI addTaskState(State state) throws IOException;
+
+	URI addTaskStateGroup(StateGroup stateGroup) throws IOException;
+
+	URI addTaskStateTransition(StateTransition stateTransition) throws IOException;
+
+	URI addTaskStateTransitionMapping(StateTransitionMapping stateTransitionMapping) throws IOException;
+
+	URI addTaskType(TaskType taskType) throws IOException;
 
 	/**
 	 * Gets a single task by id
