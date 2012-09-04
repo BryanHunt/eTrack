@@ -11,4 +11,37 @@
    <property name="task_domain_path" type="String">
 		 taskDomains
    </property>
+	<property name="related_tasks_mapping_path" type="String">
+		relatedTasksMappings
+	</property>
+	<property name="task_attachment_path" type="String">
+		taskAttachments
+	</property>
+	<property name="task_comment_path" type="String">
+		taskComments
+	</property>
+	<property name="task_history_path" type="String">
+		taskHistory
+	</property>
+	<property name="task_relationship_path" type="String">
+		taskRelationships
+	</property>
+	<property name="task_resolution_path" type="String">
+		taskResolutions
+	</property>
+	<property name="task_state_path" type="String">
+		taskStates
+	</property>
+	<property name="task_state_group_path" type="String">
+		taskStateGroups
+	</property>
+	<property name="task_state_transition_path" type="String">
+		taskStateTransitions
+	</property>
+	<property name="task_state_transition_mapping_path" type="String">
+		taskStateTransitionMappings
+	</property>
+	<property name="task_type_path" type="String">
+		taskTypes
+	</property>
 </scr:component>
