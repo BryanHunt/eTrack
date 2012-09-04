@@ -3,7 +3,7 @@
    <implementation class="org.eclipselabs.etrack.server.web.task.providers.TaskStateGroupResourceProvider"/>
    <property name="visibility" type="String" value="secure"/>
    <property name="paths" type="String">
-   		/taskStageGroups/
+   		/taskStateGroups/
    		/taskStateGroups/{id}
    </property>
    <service>
