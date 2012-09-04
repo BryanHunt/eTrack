@@ -23,6 +23,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdOn" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Duration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" eType="#//DurationUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DurationUnit">
+    <eLiterals name="MINUTES"/>
+    <eLiterals name="HOURS" value="1"/>
+    <eLiterals name="DAYS" value="2"/>
+    <eLiterals name="WEEKS" value="3"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//Linkable ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//AssignableItem ../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//AuditableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -45,6 +55,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="relatedTasks" upperBound="-1"
         eType="#//RelatedTasksMapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resolution" eType="#//TaskResolution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolvedOn" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resolvedBy" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueOn" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startedOn" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="estimate" eType="#//Duration"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correctedEstimate" eType="#//Duration"
+        containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskDomain">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
