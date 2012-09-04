@@ -238,10 +238,37 @@ public class TaskType extends EObjectImpl implements EObject
 	 * @return the value of the '<em>Extension</em>' containment reference.
 	 * @see #setExtension(EPackage)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_Extension()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EPackage getExtension()
+	{
+		if (extension != null && extension.eIsProxy())
+		{
+			InternalEObject oldExtension = (InternalEObject)extension;
+			extension = (EPackage)eResolveProxy(oldExtension);
+			if (extension != oldExtension)
+			{
+				InternalEObject newExtension = (InternalEObject)extension;
+				NotificationChain msgs = oldExtension.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_TYPE__EXTENSION, null, null);
+				if (newExtension.eInternalContainer() == null)
+				{
+					msgs = newExtension.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_TYPE__EXTENSION, null, msgs);
+				}
+				if (msgs != null) msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_TYPE__EXTENSION, oldExtension, extension));
+			}
+		}
+		return extension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EPackage basicGetExtension()
 	{
 		return extension;
 	}
@@ -500,7 +527,8 @@ public class TaskType extends EObjectImpl implements EObject
 				if (coreType) return getStates();
 				else return getStates().map();
 			case TaskPackage.TASK_TYPE__EXTENSION:
-				return getExtension();
+				if (resolve) return getExtension();
+				return basicGetExtension();
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				if (resolve) return getStartingState();
 				return basicGetStartingState();

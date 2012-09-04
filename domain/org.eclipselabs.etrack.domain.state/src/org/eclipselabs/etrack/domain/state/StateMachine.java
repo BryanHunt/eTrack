@@ -122,14 +122,14 @@ public class StateMachine extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>States</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateMachine_States()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<State> getStates()
 	{
 		if (states == null)
 		{
-			states = new EObjectContainmentEList<State>(State.class, this, StatePackage.STATE_MACHINE__STATES);
+			states = new EObjectContainmentEList.Resolving<State>(State.class, this, StatePackage.STATE_MACHINE__STATES);
 		}
 		return states;
 	}
@@ -145,14 +145,14 @@ public class StateMachine extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Transitions</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateMachine_Transitions()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<StateTransition> getTransitions()
 	{
 		if (transitions == null)
 		{
-			transitions = new EObjectContainmentEList<StateTransition>(StateTransition.class, this, StatePackage.STATE_MACHINE__TRANSITIONS);
+			transitions = new EObjectContainmentEList.Resolving<StateTransition>(StateTransition.class, this, StatePackage.STATE_MACHINE__TRANSITIONS);
 		}
 		return transitions;
 	}
@@ -192,14 +192,14 @@ public class StateMachine extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>State Groups</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.state.StatePackage#getStateMachine_StateGroups()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<StateGroup> getStateGroups()
 	{
 		if (stateGroups == null)
 		{
-			stateGroups = new EObjectContainmentEList<StateGroup>(StateGroup.class, this, StatePackage.STATE_MACHINE__STATE_GROUPS);
+			stateGroups = new EObjectContainmentEList.Resolving<StateGroup>(StateGroup.class, this, StatePackage.STATE_MACHINE__STATE_GROUPS);
 		}
 		return stateGroups;
 	}

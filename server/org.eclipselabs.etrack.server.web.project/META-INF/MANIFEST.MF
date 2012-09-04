@@ -13,5 +13,5 @@ Import-Package: org.eclipse.emf.ecore,
  org.restlet.ext.wadl,
  org.restlet.representation,
  org.restlet.resource
-Service-Component: OSGI-INF/resources/project.xml
+Service-Component: OSGI-INF/resources/project_links.xml, OSGI-INF/resources/project.xml
 Bundle-ActivationPolicy: lazy

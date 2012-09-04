@@ -50,13 +50,16 @@ public class DataFactory extends EFactoryImpl
 	 */
 	public static DataFactory init()
 	{
-		try {
+		try
+		{
 			DataFactory theDataFactory = (DataFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.eclipselabs.org/etrack/domain/data"); 
-			if (theDataFactory != null) {
+			if (theDataFactory != null)
+			{
 				return theDataFactory;
 			}
 		}
-		catch (Exception exception) {
+		catch (Exception exception)
+		{
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new DataFactory();
@@ -81,7 +84,8 @@ public class DataFactory extends EFactoryImpl
 	@Override
 	public EObject create(EClass eClass)
 	{
-		switch (eClass.getClassifierID()) {
+		switch (eClass.getClassifierID())
+		{
 			case DataPackage.LINK_MAPPING: return (EObject)createLinkMapping();
 			case DataPackage.ARTIFACT: return createArtifact();
 			case DataPackage.RESOURCE: return createResource();
@@ -98,7 +102,8 @@ public class DataFactory extends EFactoryImpl
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue)
 	{
-		switch (eDataType.getClassifierID()) {
+		switch (eDataType.getClassifierID())
+		{
 			case DataPackage.URI:
 				return createURIFromString(eDataType, initialValue);
 			default:
@@ -114,7 +119,8 @@ public class DataFactory extends EFactoryImpl
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue)
 	{
-		switch (eDataType.getClassifierID()) {
+		switch (eDataType.getClassifierID())
+		{
 			case DataPackage.URI:
 				return convertURIToString(eDataType, instanceValue);
 			default:

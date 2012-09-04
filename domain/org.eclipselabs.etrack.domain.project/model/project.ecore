@@ -4,13 +4,13 @@
     nsPrefix="org.eclipselabs.etrack.domain.project">
   <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//Linkable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="teams" upperBound="-1"
-        eType="#//Team" containment="true" resolveProxies="false"/>
+        eType="#//Team" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="admins" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Identity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Team" eSuperTypes="../../org.eclipselabs.etrack.domain.security/model/security.ecore#//PermissionGroup">
     <eStructuralFeatures xsi:type="ecore:EReference" name="subTeams" upperBound="-1"
-        eType="#//Team" containment="true" resolveProxies="false"/>
+        eType="#//Team" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

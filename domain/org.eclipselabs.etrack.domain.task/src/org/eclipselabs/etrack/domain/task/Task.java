@@ -351,14 +351,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>History</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getAuditableItem_History()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Action> getHistory()
 	{
 		if (history == null)
 		{
-			history = new EObjectContainmentEList<Action>(Action.class, this, TaskPackage.TASK__HISTORY);
+			history = new EObjectContainmentEList.Resolving<Action>(Action.class, this, TaskPackage.TASK__HISTORY);
 		}
 		return history;
 	}
@@ -534,14 +534,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attachments</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Attachments()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Attachment> getAttachments()
 	{
 		if (attachments == null)
 		{
-			attachments = new EObjectContainmentEList<Attachment>(Attachment.class, this, TaskPackage.TASK__ATTACHMENTS);
+			attachments = new EObjectContainmentEList.Resolving<Attachment>(Attachment.class, this, TaskPackage.TASK__ATTACHMENTS);
 		}
 		return attachments;
 	}
@@ -557,14 +557,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comments</em>' containment reference list.
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Comments()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	public EList<Comment> getComments()
 	{
 		if (comments == null)
 		{
-			comments = new EObjectContainmentEList<Comment>(Comment.class, this, TaskPackage.TASK__COMMENTS);
+			comments = new EObjectContainmentEList.Resolving<Comment>(Comment.class, this, TaskPackage.TASK__COMMENTS);
 		}
 		return comments;
 	}

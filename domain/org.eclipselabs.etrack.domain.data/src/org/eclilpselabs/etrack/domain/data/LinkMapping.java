@@ -146,13 +146,16 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	 */
 	public LinkedContent getTypedValue()
 	{
-		if (value != null && value.eIsProxy()) {
+		if (value != null && value.eIsProxy())
+		{
 			InternalEObject oldValue = (InternalEObject)value;
 			value = (LinkedContent)eResolveProxy(oldValue);
-			if (value != oldValue) {
+			if (value != oldValue)
+			{
 				InternalEObject newValue = (InternalEObject)value;
 				NotificationChain msgs = oldValue.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DataPackage.LINK_MAPPING__VALUE, null, null);
-				if (newValue.eInternalContainer() == null) {
+				if (newValue.eInternalContainer() == null)
+				{
 					msgs = newValue.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DataPackage.LINK_MAPPING__VALUE, null, msgs);
 				}
 				if (msgs != null) msgs.dispatch();
@@ -182,7 +185,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	{
 		LinkedContent oldValue = value;
 		value = newValue;
-		if (eNotificationRequired()) {
+		if (eNotificationRequired())
+		{
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DataPackage.LINK_MAPPING__VALUE, oldValue, newValue);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
@@ -199,7 +203,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	 */
 	public void setTypedValue(LinkedContent newValue)
 	{
-		if (newValue != value) {
+		if (newValue != value)
+		{
 			NotificationChain msgs = null;
 			if (value != null)
 				msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DataPackage.LINK_MAPPING__VALUE, null, msgs);
@@ -220,7 +225,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.LINK_MAPPING__VALUE:
 				return basicSetTypedValue(null, msgs);
 		}
@@ -235,7 +241,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.LINK_MAPPING__KEY:
 				return getTypedKey();
 			case DataPackage.LINK_MAPPING__VALUE:
@@ -253,7 +260,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.LINK_MAPPING__KEY:
 				setTypedKey((String)newValue);
 				return;
@@ -272,7 +280,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.LINK_MAPPING__KEY:
 				setTypedKey(KEY_EDEFAULT);
 				return;
@@ -291,7 +300,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.LINK_MAPPING__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
 			case DataPackage.LINK_MAPPING__VALUE:
@@ -331,7 +341,8 @@ public class LinkMapping extends EObjectImpl implements BasicEMap.Entry<String,L
 	 */
 	public int getHash()
 	{
-		if (hash == -1) {
+		if (hash == -1)
+		{
 			Object theKey = getKey();
 			hash = (theKey == null ? 0 : theKey.hashCode());
 		}

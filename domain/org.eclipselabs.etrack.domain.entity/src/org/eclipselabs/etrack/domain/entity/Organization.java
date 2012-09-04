@@ -134,7 +134,8 @@ public class Organization extends Entity implements Group
 	 */
 	public EList<Identity> getMembers()
 	{
-		if (members == null) {
+		if (members == null)
+		{
 			members = new EObjectResolvingEList<Identity>(Identity.class, this, EntityPackage.ORGANIZATION__MEMBERS);
 		}
 		return members;
@@ -148,7 +149,8 @@ public class Organization extends Entity implements Group
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ORGANIZATION__NAME:
 				return getName();
 			case EntityPackage.ORGANIZATION__MEMBERS:
@@ -166,7 +168,8 @@ public class Organization extends Entity implements Group
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ORGANIZATION__NAME:
 				setName((String)newValue);
 				return;
@@ -186,7 +189,8 @@ public class Organization extends Entity implements Group
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ORGANIZATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -205,7 +209,8 @@ public class Organization extends Entity implements Group
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ORGANIZATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EntityPackage.ORGANIZATION__MEMBERS:
@@ -222,8 +227,10 @@ public class Organization extends Entity implements Group
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == Group.class) {
-			switch (derivedFeatureID) {
+		if (baseClass == Group.class)
+		{
+			switch (derivedFeatureID)
+			{
 				case EntityPackage.ORGANIZATION__NAME: return EntityPackage.GROUP__NAME;
 				case EntityPackage.ORGANIZATION__MEMBERS: return EntityPackage.GROUP__MEMBERS;
 				default: return -1;
@@ -240,8 +247,10 @@ public class Organization extends Entity implements Group
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
 	{
-		if (baseClass == Group.class) {
-			switch (baseFeatureID) {
+		if (baseClass == Group.class)
+		{
+			switch (baseFeatureID)
+			{
 				case EntityPackage.GROUP__NAME: return EntityPackage.ORGANIZATION__NAME;
 				case EntityPackage.GROUP__MEMBERS: return EntityPackage.ORGANIZATION__MEMBERS;
 				default: return -1;

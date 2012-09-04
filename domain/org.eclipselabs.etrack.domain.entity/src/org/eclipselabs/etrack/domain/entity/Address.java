@@ -454,7 +454,8 @@ public class Address extends EObjectImpl implements CategorizedItem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ADDRESS__CATEGORY:
 				return getCategory();
 			case EntityPackage.ADDRESS__STREET:
@@ -481,7 +482,8 @@ public class Address extends EObjectImpl implements CategorizedItem
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ADDRESS__CATEGORY:
 				setCategory((String)newValue);
 				return;
@@ -515,7 +517,8 @@ public class Address extends EObjectImpl implements CategorizedItem
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ADDRESS__CATEGORY:
 				setCategory(CATEGORY_EDEFAULT);
 				return;
@@ -549,7 +552,8 @@ public class Address extends EObjectImpl implements CategorizedItem
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.ADDRESS__CATEGORY:
 				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 			case EntityPackage.ADDRESS__STREET:

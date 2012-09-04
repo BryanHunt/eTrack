@@ -174,7 +174,8 @@ public class Person extends Entity
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.PERSON__FIRST_NAME:
 				return getFirstName();
 			case EntityPackage.PERSON__LAST_NAME:
@@ -191,7 +192,8 @@ public class Person extends Entity
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.PERSON__FIRST_NAME:
 				setFirstName((String)newValue);
 				return;
@@ -210,7 +212,8 @@ public class Person extends Entity
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.PERSON__FIRST_NAME:
 				setFirstName(FIRST_NAME_EDEFAULT);
 				return;
@@ -229,7 +232,8 @@ public class Person extends Entity
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case EntityPackage.PERSON__FIRST_NAME:
 				return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
 			case EntityPackage.PERSON__LAST_NAME:

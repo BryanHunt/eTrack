@@ -121,7 +121,8 @@ public class Resource extends Artifact
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.RESOURCE__URI:
 				return getUri();
 		}
@@ -136,7 +137,8 @@ public class Resource extends Artifact
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.RESOURCE__URI:
 				setUri((URI)newValue);
 				return;
@@ -152,7 +154,8 @@ public class Resource extends Artifact
 	@Override
 	public void eUnset(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.RESOURCE__URI:
 				setUri(URI_EDEFAULT);
 				return;
@@ -168,7 +171,8 @@ public class Resource extends Artifact
 	@Override
 	public boolean eIsSet(int featureID)
 	{
-		switch (featureID) {
+		switch (featureID)
+		{
 			case DataPackage.RESOURCE__URI:
 				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
 		}

@@ -43,9 +43,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="createdBy" lowerBound="1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//Person"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attachments" upperBound="-1"
-        eType="#//Attachment" containment="true" resolveProxies="false"/>
+        eType="#//Attachment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
-        eType="#//Comment" containment="true" resolveProxies="false"/>
+        eType="#//Comment" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="currentState" lowerBound="1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subscribers" upperBound="-1"
@@ -71,27 +71,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
         upperBound="-1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"
-        containment="true" resolveProxies="false"/>
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="1"
         upperBound="-1" eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//StateTransition"
-        containment="true" resolveProxies="false"/>
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskTypes" upperBound="-1"
-        eType="#//TaskType" containment="true" resolveProxies="false"/>
+        eType="#//TaskType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stateGroups" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//StateGroup"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
-        eType="#//TaskRelationship" containment="true" resolveProxies="false"/>
+        eType="#//TaskRelationship" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resolutions" upperBound="-1"
-        eType="#//TaskResolution" containment="true" resolveProxies="false"/>
+        eType="#//TaskResolution" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//StateTransitionMapping"
-        containment="true" resolveProxies="false"/>
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="extension" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EPackage"
-        containment="true" resolveProxies="false"/>
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startingState" lowerBound="1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.state/model/state.ecore#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"

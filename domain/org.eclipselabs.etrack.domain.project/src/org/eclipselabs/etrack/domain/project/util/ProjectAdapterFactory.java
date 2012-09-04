@@ -40,7 +40,8 @@ public class ProjectAdapterFactory extends AdapterFactoryImpl
 	 */
 	public ProjectAdapterFactory()
 	{
-		if (modelPackage == null) {
+		if (modelPackage == null)
+		{
 			modelPackage = ProjectPackage.eINSTANCE;
 		}
 	}
@@ -56,10 +57,12 @@ public class ProjectAdapterFactory extends AdapterFactoryImpl
 	@Override
 	public boolean isFactoryForType(Object object)
 	{
-		if (object == modelPackage) {
+		if (object == modelPackage)
+		{
 			return true;
 		}
-		if (object instanceof EObject) {
+		if (object instanceof EObject)
+		{
 			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
@@ -72,33 +75,41 @@ public class ProjectAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	protected ProjectSwitch<Adapter> modelSwitch =
-		new ProjectSwitch<Adapter>() {
+		new ProjectSwitch<Adapter>()
+		{
 			@Override
-			public Adapter caseProject(Project object) {
+			public Adapter caseProject(Project object)
+			{
 				return createProjectAdapter();
 			}
 			@Override
-			public Adapter caseTeam(Team object) {
+			public Adapter caseTeam(Team object)
+			{
 				return createTeamAdapter();
 			}
 			@Override
-			public Adapter caseLinkable(Linkable object) {
+			public Adapter caseLinkable(Linkable object)
+			{
 				return createLinkableAdapter();
 			}
 			@Override
-			public Adapter caseIdentity(Identity object) {
+			public Adapter caseIdentity(Identity object)
+			{
 				return createIdentityAdapter();
 			}
 			@Override
-			public Adapter caseGroup(Group object) {
+			public Adapter caseGroup(Group object)
+			{
 				return createGroupAdapter();
 			}
 			@Override
-			public Adapter casePermissionGroup(PermissionGroup object) {
+			public Adapter casePermissionGroup(PermissionGroup object)
+			{
 				return createPermissionGroupAdapter();
 			}
 			@Override
-			public Adapter defaultCase(EObject object) {
+			public Adapter defaultCase(EObject object)
+			{
 				return createEObjectAdapter();
 			}
 		};
