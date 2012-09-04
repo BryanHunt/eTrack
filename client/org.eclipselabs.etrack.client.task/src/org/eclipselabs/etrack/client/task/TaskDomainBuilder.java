@@ -52,11 +52,11 @@ public class TaskDomainBuilder
 		for (TaskResolution resolution : taskDomain.getResolutions())
 			taskService.addTaskResolution(resolution);
 
-		for (StateGroup stateGroup : taskDomain.getStateGroups())
-			taskService.addTaskStateGroup(stateGroup);
-
 		for (State state : taskDomain.getStates())
 			taskService.addTaskState(state);
+
+		for (StateGroup stateGroup : taskDomain.getStateGroups())
+			taskService.addTaskStateGroup(stateGroup);
 
 		for (StateTransition stateTransition : taskDomain.getTransitions())
 			taskService.addTaskStateTransition(stateTransition);
