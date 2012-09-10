@@ -56,7 +56,9 @@ public class EmfJsonRepresentation<T extends EObject> extends EmfRepresentation<
 		{
 			resource = new JsResourceImpl();
 			resource.setURI(uri);
-			resourceSet.getResources().add(resource);
+
+			if (resourceSet != null)
+				resourceSet.getResources().add(resource);
 		}
 
 		return resource;

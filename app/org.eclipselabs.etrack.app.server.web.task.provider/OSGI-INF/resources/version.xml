@@ -3,7 +3,7 @@
    <implementation class="org.eclipselabs.etrack.server.web.task.providers.TaskModelVersionResourceProvider"/>
    <property name="visibility" type="String" value="secure"/>
    <property name="paths" type="String">
-   		/tasks/modelVersion
+   		/tasksModelVersion
    </property>
    <service>
       <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
