@@ -13,7 +13,6 @@ package org.eclipselabs.etrack.util.web.emf.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
@@ -50,12 +49,6 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 			protected Map<?, ?> getSaveOptions()
 			{
 				return options;
-			}
-
-			@Override
-			public void write(EObject object, OutputStream outputStream) throws IOException
-			{
-				object.eResource().save(outputStream, options);
 			}
 		};
 

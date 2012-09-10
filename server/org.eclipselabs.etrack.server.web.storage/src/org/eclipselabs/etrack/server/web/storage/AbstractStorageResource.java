@@ -52,7 +52,7 @@ public class AbstractStorageResource extends WadlServerResource
 
 	public Representation createJsonObject(Representation representation) throws IOException
 	{
-		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
+		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), resourceSetFactory.createResourceSet());
 		URI uri = saveObject(emfRepresentation.getObject());
 		return new StringRepresentation(uri.toString());
 	}
@@ -85,7 +85,7 @@ public class AbstractStorageResource extends WadlServerResource
 
 		getModel();
 
-		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation);
+		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), resourceSetFactory.createResourceSet());
 		saveObject(emfRepresentation.getObject());
 	}
 

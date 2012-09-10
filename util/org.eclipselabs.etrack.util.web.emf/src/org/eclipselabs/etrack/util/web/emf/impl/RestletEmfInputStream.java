@@ -45,7 +45,7 @@ public class RestletEmfInputStream extends InputStream implements URIConverter.L
 
 			Representation representation = client.get(MediaType.APPLICATION_JSON);
 
-			EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation)
+			EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, resource.getURI(), resource.getResourceSet())
 			{
 				@Override
 				protected Map<?, ?> getLoadOptions()

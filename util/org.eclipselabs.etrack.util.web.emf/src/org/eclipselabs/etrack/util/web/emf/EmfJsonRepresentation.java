@@ -11,8 +11,13 @@
 
 package org.eclipselabs.etrack.util.web.emf;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipselabs.emfjson.resource.JsResourceImpl;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
@@ -37,16 +42,50 @@ public class EmfJsonRepresentation<T extends EObject> extends EmfRepresentation<
 	/**
 	 * @param representation
 	 */
-	public EmfJsonRepresentation(Representation representation)
+	public EmfJsonRepresentation(Representation representation, URI uri, ResourceSet resourceSet)
 	{
 		super(representation);
+		this.uri = uri;
+		this.resourceSet = resourceSet;
 	}
 
 	@Override
 	protected Resource createEmfResource(MediaType mediaType)
 	{
-		return resource != null && resource instanceof JsResourceImpl ? resource : new JsResourceImpl();
+		if (resource == null || !(resource instanceof JsResourceImpl))
+		{
+			resource = new JsResourceImpl();
+			resource.setURI(uri);
+			resourceSet.getResources().add(resource);
+		}
+
+		return resource;
 	}
 
+	@Override
+	public void write(EObject object, OutputStream outputStream) throws IOException
+	{
+		Resource originalResource = object.eResource();
+		Resource targetResource = originalResource;
+
+		if (!(originalResource instanceof JsResourceImpl))
+		{
+			targetResource = new JsResourceImpl();
+			targetResource.getContents().add(originalResource.getContents().get(0));
+			targetResource.setURI(originalResource.getURI());
+		}
+
+		targetResource.save(outputStream, getSaveOptions());
+
+		if (!(originalResource instanceof JsResourceImpl))
+		{
+			originalResource.getContents().add(targetResource.getContents().get(0));
+			originalResource.setURI(targetResource.getURI());
+			originalResource.setTimeStamp(targetResource.getTimeStamp());
+		}
+	}
+
+	private URI uri;
 	private Resource resource;
+	private ResourceSet resourceSet;
 }
