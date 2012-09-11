@@ -119,6 +119,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createCommentAdapter();
 			}
 			@Override
+			public Adapter caseDuration(Duration object)
+			{
+				return createDurationAdapter();
+			}
+			@Override
 			public Adapter caseTask(Task object)
 			{
 				return createTaskAdapter();
@@ -162,6 +167,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseTaskResolution(TaskResolution object)
 			{
 				return createTaskResolutionAdapter();
+			}
+			@Override
+			public Adapter caseTaskGroup(TaskGroup object)
+			{
+				return createTaskGroupAdapter();
 			}
 			@Override
 			public Adapter caseAssignableItem(AssignableItem object)
@@ -266,6 +276,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createCommentAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.Duration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.Duration
+	 * @generated
+	 */
+	public Adapter createDurationAdapter()
 	{
 		return null;
 	}
@@ -386,6 +411,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTaskResolutionAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.TaskGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.TaskGroup
+	 * @generated
+	 */
+	public Adapter createTaskGroupAdapter()
 	{
 		return null;
 	}

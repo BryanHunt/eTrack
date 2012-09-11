@@ -51,6 +51,13 @@ import org.eclipselabs.etrack.domain.state.State;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getProject <em>Project</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getRelatedTasks <em>Related Tasks</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getResolution <em>Resolution</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getResolvedOn <em>Resolved On</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getResolvedBy <em>Resolved By</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getDueOn <em>Due On</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getStartedOn <em>Started On</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getEstimate <em>Estimate</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCorrectedEstimate <em>Corrected Estimate</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getGroup <em>Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -239,6 +246,106 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected TaskResolution resolution;
+
+	/**
+	 * The default value of the '{@link #getResolvedOn() <em>Resolved On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolvedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date RESOLVED_ON_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getResolvedOn() <em>Resolved On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolvedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date resolvedOn = RESOLVED_ON_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getResolvedBy() <em>Resolved By</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResolvedBy()
+	 * @generated
+	 * @ordered
+	 */
+	protected Person resolvedBy;
+
+	/**
+	 * The default value of the '{@link #getDueOn() <em>Due On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDueOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date DUE_ON_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDueOn() <em>Due On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDueOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date dueOn = DUE_ON_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStartedOn() <em>Started On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date STARTED_ON_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStartedOn() <em>Started On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartedOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date startedOn = STARTED_ON_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEstimate() <em>Estimate</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEstimate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Duration estimate;
+
+	/**
+	 * The cached value of the '{@link #getCorrectedEstimate() <em>Corrected Estimate</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorrectedEstimate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Duration correctedEstimate;
+
+	/**
+	 * The cached value of the '{@link #getGroup() <em>Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskGroup group;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -837,6 +944,341 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Resolved On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resolved On</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resolved On</em>' attribute.
+	 * @see #setResolvedOn(Date)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_ResolvedOn()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Date getResolvedOn()
+	{
+		return resolvedOn;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getResolvedOn <em>Resolved On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resolved On</em>' attribute.
+	 * @see #getResolvedOn()
+	 * @generated
+	 */
+	public void setResolvedOn(Date newResolvedOn)
+	{
+		Date oldResolvedOn = resolvedOn;
+		resolvedOn = newResolvedOn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__RESOLVED_ON, oldResolvedOn, resolvedOn));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Resolved By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resolved By</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resolved By</em>' reference.
+	 * @see #setResolvedBy(Person)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_ResolvedBy()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Person getResolvedBy()
+	{
+		if (resolvedBy != null && resolvedBy.eIsProxy())
+		{
+			InternalEObject oldResolvedBy = (InternalEObject)resolvedBy;
+			resolvedBy = (Person)eResolveProxy(oldResolvedBy);
+			if (resolvedBy != oldResolvedBy)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__RESOLVED_BY, oldResolvedBy, resolvedBy));
+			}
+		}
+		return resolvedBy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Person basicGetResolvedBy()
+	{
+		return resolvedBy;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getResolvedBy <em>Resolved By</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resolved By</em>' reference.
+	 * @see #getResolvedBy()
+	 * @generated
+	 */
+	public void setResolvedBy(Person newResolvedBy)
+	{
+		Person oldResolvedBy = resolvedBy;
+		resolvedBy = newResolvedBy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__RESOLVED_BY, oldResolvedBy, resolvedBy));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Due On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Due On</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Due On</em>' attribute.
+	 * @see #setDueOn(Date)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_DueOn()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Date getDueOn()
+	{
+		return dueOn;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getDueOn <em>Due On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Due On</em>' attribute.
+	 * @see #getDueOn()
+	 * @generated
+	 */
+	public void setDueOn(Date newDueOn)
+	{
+		Date oldDueOn = dueOn;
+		dueOn = newDueOn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__DUE_ON, oldDueOn, dueOn));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Started On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Started On</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Started On</em>' attribute.
+	 * @see #setStartedOn(Date)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_StartedOn()
+	 * @model required="true"
+	 * @generated
+	 */
+	public Date getStartedOn()
+	{
+		return startedOn;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getStartedOn <em>Started On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Started On</em>' attribute.
+	 * @see #getStartedOn()
+	 * @generated
+	 */
+	public void setStartedOn(Date newStartedOn)
+	{
+		Date oldStartedOn = startedOn;
+		startedOn = newStartedOn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__STARTED_ON, oldStartedOn, startedOn));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Estimate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Estimate</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Estimate</em>' containment reference.
+	 * @see #setEstimate(Duration)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Estimate()
+	 * @model containment="true"
+	 * @generated
+	 */
+	public Duration getEstimate()
+	{
+		return estimate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEstimate(Duration newEstimate, NotificationChain msgs)
+	{
+		Duration oldEstimate = estimate;
+		estimate = newEstimate;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__ESTIMATE, oldEstimate, newEstimate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getEstimate <em>Estimate</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Estimate</em>' containment reference.
+	 * @see #getEstimate()
+	 * @generated
+	 */
+	public void setEstimate(Duration newEstimate)
+	{
+		if (newEstimate != estimate)
+		{
+			NotificationChain msgs = null;
+			if (estimate != null)
+				msgs = ((InternalEObject)estimate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK__ESTIMATE, null, msgs);
+			if (newEstimate != null)
+				msgs = ((InternalEObject)newEstimate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK__ESTIMATE, null, msgs);
+			msgs = basicSetEstimate(newEstimate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__ESTIMATE, newEstimate, newEstimate));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Corrected Estimate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Corrected Estimate</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Corrected Estimate</em>' containment reference.
+	 * @see #setCorrectedEstimate(Duration)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_CorrectedEstimate()
+	 * @model containment="true"
+	 * @generated
+	 */
+	public Duration getCorrectedEstimate()
+	{
+		return correctedEstimate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCorrectedEstimate(Duration newCorrectedEstimate, NotificationChain msgs)
+	{
+		Duration oldCorrectedEstimate = correctedEstimate;
+		correctedEstimate = newCorrectedEstimate;
+		if (eNotificationRequired())
+		{
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CORRECTED_ESTIMATE, oldCorrectedEstimate, newCorrectedEstimate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCorrectedEstimate <em>Corrected Estimate</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Corrected Estimate</em>' containment reference.
+	 * @see #getCorrectedEstimate()
+	 * @generated
+	 */
+	public void setCorrectedEstimate(Duration newCorrectedEstimate)
+	{
+		if (newCorrectedEstimate != correctedEstimate)
+		{
+			NotificationChain msgs = null;
+			if (correctedEstimate != null)
+				msgs = ((InternalEObject)correctedEstimate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK__CORRECTED_ESTIMATE, null, msgs);
+			if (newCorrectedEstimate != null)
+				msgs = ((InternalEObject)newCorrectedEstimate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK__CORRECTED_ESTIMATE, null, msgs);
+			msgs = basicSetCorrectedEstimate(newCorrectedEstimate, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CORRECTED_ESTIMATE, newCorrectedEstimate, newCorrectedEstimate));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Group</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Group</em>' reference.
+	 * @see #setGroup(TaskGroup)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Group()
+	 * @model
+	 * @generated
+	 */
+	public TaskGroup getGroup()
+	{
+		if (group != null && group.eIsProxy())
+		{
+			InternalEObject oldGroup = (InternalEObject)group;
+			group = (TaskGroup)eResolveProxy(oldGroup);
+			if (group != oldGroup)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__GROUP, oldGroup, group));
+			}
+		}
+		return group;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskGroup basicGetGroup()
+	{
+		return group;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getGroup <em>Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group</em>' reference.
+	 * @see #getGroup()
+	 * @generated
+	 */
+	public void setGroup(TaskGroup newGroup)
+	{
+		TaskGroup oldGroup = group;
+		group = newGroup;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__GROUP, oldGroup, group));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -856,6 +1298,10 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return ((InternalEList<?>)getComments()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK__RELATED_TASKS:
 				return ((InternalEList<?>)getRelatedTasks()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK__ESTIMATE:
+				return basicSetEstimate(null, msgs);
+			case TaskPackage.TASK__CORRECTED_ESTIMATE:
+				return basicSetCorrectedEstimate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -908,6 +1354,22 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__RESOLUTION:
 				if (resolve) return getResolution();
 				return basicGetResolution();
+			case TaskPackage.TASK__RESOLVED_ON:
+				return getResolvedOn();
+			case TaskPackage.TASK__RESOLVED_BY:
+				if (resolve) return getResolvedBy();
+				return basicGetResolvedBy();
+			case TaskPackage.TASK__DUE_ON:
+				return getDueOn();
+			case TaskPackage.TASK__STARTED_ON:
+				return getStartedOn();
+			case TaskPackage.TASK__ESTIMATE:
+				return getEstimate();
+			case TaskPackage.TASK__CORRECTED_ESTIMATE:
+				return getCorrectedEstimate();
+			case TaskPackage.TASK__GROUP:
+				if (resolve) return getGroup();
+				return basicGetGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -972,6 +1434,27 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__RESOLUTION:
 				setResolution((TaskResolution)newValue);
 				return;
+			case TaskPackage.TASK__RESOLVED_ON:
+				setResolvedOn((Date)newValue);
+				return;
+			case TaskPackage.TASK__RESOLVED_BY:
+				setResolvedBy((Person)newValue);
+				return;
+			case TaskPackage.TASK__DUE_ON:
+				setDueOn((Date)newValue);
+				return;
+			case TaskPackage.TASK__STARTED_ON:
+				setStartedOn((Date)newValue);
+				return;
+			case TaskPackage.TASK__ESTIMATE:
+				setEstimate((Duration)newValue);
+				return;
+			case TaskPackage.TASK__CORRECTED_ESTIMATE:
+				setCorrectedEstimate((Duration)newValue);
+				return;
+			case TaskPackage.TASK__GROUP:
+				setGroup((TaskGroup)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1031,6 +1514,27 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__RESOLUTION:
 				setResolution((TaskResolution)null);
 				return;
+			case TaskPackage.TASK__RESOLVED_ON:
+				setResolvedOn(RESOLVED_ON_EDEFAULT);
+				return;
+			case TaskPackage.TASK__RESOLVED_BY:
+				setResolvedBy((Person)null);
+				return;
+			case TaskPackage.TASK__DUE_ON:
+				setDueOn(DUE_ON_EDEFAULT);
+				return;
+			case TaskPackage.TASK__STARTED_ON:
+				setStartedOn(STARTED_ON_EDEFAULT);
+				return;
+			case TaskPackage.TASK__ESTIMATE:
+				setEstimate((Duration)null);
+				return;
+			case TaskPackage.TASK__CORRECTED_ESTIMATE:
+				setCorrectedEstimate((Duration)null);
+				return;
+			case TaskPackage.TASK__GROUP:
+				setGroup((TaskGroup)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1075,6 +1579,20 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return relatedTasks != null && !relatedTasks.isEmpty();
 			case TaskPackage.TASK__RESOLUTION:
 				return resolution != null;
+			case TaskPackage.TASK__RESOLVED_ON:
+				return RESOLVED_ON_EDEFAULT == null ? resolvedOn != null : !RESOLVED_ON_EDEFAULT.equals(resolvedOn);
+			case TaskPackage.TASK__RESOLVED_BY:
+				return resolvedBy != null;
+			case TaskPackage.TASK__DUE_ON:
+				return DUE_ON_EDEFAULT == null ? dueOn != null : !DUE_ON_EDEFAULT.equals(dueOn);
+			case TaskPackage.TASK__STARTED_ON:
+				return STARTED_ON_EDEFAULT == null ? startedOn != null : !STARTED_ON_EDEFAULT.equals(startedOn);
+			case TaskPackage.TASK__ESTIMATE:
+				return estimate != null;
+			case TaskPackage.TASK__CORRECTED_ESTIMATE:
+				return correctedEstimate != null;
+			case TaskPackage.TASK__GROUP:
+				return group != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1150,6 +1668,12 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 		result.append(description);
 		result.append(", createdOn: ");
 		result.append(createdOn);
+		result.append(", resolvedOn: ");
+		result.append(resolvedOn);
+		result.append(", dueOn: ");
+		result.append(dueOn);
+		result.append(", startedOn: ");
+		result.append(startedOn);
 		result.append(')');
 		return result.toString();
 	}

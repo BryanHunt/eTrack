@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="scrum" nsURI="http://www.eclipselabs.org/etrack/domain/scrum"
+    nsPrefix="org.eclipselabs.etrack.domain.scrum">
+  <eClassifiers xsi:type="ecore:EClass" name="Backlog" eSuperTypes="../../org.eclipselabs.etrack.domain.task/model/task.ecore#//TaskGroup"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Release" eSuperTypes="#//TaskTimeBox">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="milestones" upperBound="-1"
+        eType="#//Milestone" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Milestone" eSuperTypes="#//TaskTimeBox"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskTimeBox" eSuperTypes="../../org.eclipselabs.etrack.domain.task/model/task.ecore#//TaskGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beginsOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endsOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+</ecore:EPackage>

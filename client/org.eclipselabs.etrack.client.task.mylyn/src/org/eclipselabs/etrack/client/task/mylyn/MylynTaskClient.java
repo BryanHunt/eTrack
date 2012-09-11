@@ -12,8 +12,11 @@
 package org.eclipselabs.etrack.client.task.mylyn;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -24,10 +27,12 @@ import org.eclipse.mylyn.tasks.core.IRepositoryQuery;
 import org.eclipse.mylyn.tasks.core.TaskRepository;
 import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.etrack.client.entity.IEntityService;
+import org.eclipselabs.etrack.client.project.IProjectService;
 import org.eclipselabs.etrack.client.task.ITaskService;
 import org.eclipselabs.etrack.client.task.mylyn.bundle.Activator;
 import org.eclipselabs.etrack.domain.entity.Entity;
 import org.eclipselabs.etrack.domain.entity.Person;
+import org.eclipselabs.etrack.domain.project.Project;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 import org.eclipselabs.etrack.domain.task.TaskType;
@@ -43,6 +48,13 @@ import org.osgi.framework.ServiceReference;
 public class MylynTaskClient
 {
 	public static final String TASK_DOMAIN = "org.eclipselabs.etrack.task.mylyn.domain";
+	public static final String PROJECT = "org.eclipselabs.etrack.task.mylyn.project";
+
+	private ITaskService taskService;
+	private IProjectService projectService;
+	private IEntityService entityService;
+	private IQueryFactory queryFactory;
+	private Collection<String> projectNames;
 
 	protected MylynTaskClient()
 	{}
@@ -50,6 +62,11 @@ public class MylynTaskClient
 	public MylynTaskClient(TaskRepository taskRepository) throws CoreException
 	{
 		init(taskRepository);
+	}
+
+	public IObservableList createAvailableProjectsObservable()
+	{
+		return projectService.createProjectsObservable();
 	}
 
 	public Person getCurrentUser()
@@ -66,6 +83,16 @@ public class MylynTaskClient
 	public URI addTask(Task task) throws IOException
 	{
 		return taskService.addTask(task);
+	}
+
+	public Project getProject(String projectName)
+	{
+		return projectService.getProject(projectName);
+	}
+
+	public Collection<String> getProjectNames()
+	{
+		return Collections.unmodifiableCollection(projectNames);
 	}
 
 	/**
@@ -114,7 +141,13 @@ public class MylynTaskClient
 	 * @param monitor
 	 */
 	public void updateConfiguration(IProgressMonitor monitor)
-	{}
+	{
+		Project[] projects = projectService.getProjects();
+		projectNames = new ArrayList<String>(projects.length);
+
+		for (int i = 0; i < projects.length; i++)
+			projectNames.add(projects[i].getName());
+	}
 
 	protected BundleContext getBundleContext()
 	{
@@ -137,6 +170,9 @@ public class MylynTaskClient
 			if (entityService == null)
 				throw new CoreException(new Status(IStatus.ERROR, "com.nvidia.nitro.client.task", "Failed to locate the entity service"));
 
+			Collection<ServiceReference<IProjectService>> projectServiceReferences = getBundleContext().getServiceReferences(IProjectService.class, "(uri=" + taskRepository.getUrl() + ")");
+			projectService = getBundleContext().getService(projectServiceReferences.iterator().next());
+
 			queryFactory = getBundleContext().getService(getBundleContext().getServiceReference(IQueryFactory.class));
 
 			if (queryFactory == null)
@@ -150,8 +186,4 @@ public class MylynTaskClient
 		// TODO this is probably not the best way to initialize the state
 		updateConfiguration(new NullProgressMonitor());
 	}
-
-	private ITaskService taskService;
-	private IEntityService entityService;
-	private IQueryFactory queryFactory;
 }

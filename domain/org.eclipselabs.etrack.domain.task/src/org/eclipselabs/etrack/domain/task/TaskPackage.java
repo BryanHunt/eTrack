@@ -15,6 +15,7 @@ import java.util.Map;
 import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -117,7 +118,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask()
 	 * @generated
 	 */
-	public static final int TASK = 4;
+	public static final int TASK = 5;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
@@ -127,7 +128,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain()
 	 * @generated
 	 */
-	public static final int TASK_DOMAIN = 5;
+	public static final int TASK_DOMAIN = 6;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Comment <em>Comment</em>}' class.
@@ -220,7 +221,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType()
 	 * @generated
 	 */
-	public static final int TASK_TYPE = 6;
+	public static final int TASK_TYPE = 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.
@@ -285,6 +286,43 @@ public class TaskPackage extends EPackageImpl
 	 * @ordered
 	 */
 	public static final int COMMENT_FEATURE_COUNT = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.Duration <em>Duration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.Duration
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDuration()
+	 * @generated
+	 */
+	public static final int DURATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DURATION__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Units</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DURATION__UNITS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Duration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DURATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Links By Name</b></em>' map.
@@ -422,13 +460,76 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__RESOLUTION = DataPackage.LINKABLE_FEATURE_COUNT + 13;
 
 	/**
+	 * The feature id for the '<em><b>Resolved On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__RESOLVED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Resolved By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__RESOLVED_BY = DataPackage.LINKABLE_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Due On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__DUE_ON = DataPackage.LINKABLE_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Started On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__STARTED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Estimate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__ESTIMATE = DataPackage.LINKABLE_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Corrected Estimate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__CORRECTED_ESTIMATE = DataPackage.LINKABLE_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__GROUP = DataPackage.LINKABLE_FEATURE_COUNT + 20;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 14;
+	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -591,7 +692,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskModelVersion()
 	 * @generated
 	 */
-	public static final int TASK_MODEL_VERSION = 7;
+	public static final int TASK_MODEL_VERSION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -619,7 +720,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskAttributeChange()
 	 * @generated
 	 */
-	public static final int TASK_ATTRIBUTE_CHANGE = 8;
+	public static final int TASK_ATTRIBUTE_CHANGE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Initiated On</b></em>' attribute.
@@ -674,7 +775,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomainLink()
 	 * @generated
 	 */
-	public static final int TASK_DOMAIN_LINK = 9;
+	public static final int TASK_DOMAIN_LINK = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -720,7 +821,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getRelatedTasksMapping()
 	 * @generated
 	 */
-	public static final int RELATED_TASKS_MAPPING = 10;
+	public static final int RELATED_TASKS_MAPPING = 11;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' reference.
@@ -757,7 +858,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskRelationship()
 	 * @generated
 	 */
-	public static final int TASK_RELATIONSHIP = 11;
+	public static final int TASK_RELATIONSHIP = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -794,7 +895,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskResolution()
 	 * @generated
 	 */
-	public static final int TASK_RESOLUTION = 12;
+	public static final int TASK_RESOLUTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -824,6 +925,53 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_RESOLUTION_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskGroup <em>Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskGroup
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskGroup()
+	 * @generated
+	 */
+	public static final int TASK_GROUP = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_GROUP__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Project</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_GROUP__PROJECT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_GROUP_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.DurationUnit <em>Duration Unit</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.DurationUnit
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDurationUnit()
+	 * @generated
+	 */
+	public static final int DURATION_UNIT = 15;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -843,6 +991,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass commentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass durationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -899,6 +1054,20 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskResolutionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum durationUnitEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1171,6 +1340,111 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Task#getResolvedOn <em>Resolved On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolved On</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getResolvedOn()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EAttribute getTask_ResolvedOn()
+	{
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(12);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Task#getResolvedBy <em>Resolved By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resolved By</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getResolvedBy()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_ResolvedBy()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(13);
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Task#getDueOn <em>Due On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Due On</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getDueOn()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EAttribute getTask_DueOn()
+	{
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(14);
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Task#getStartedOn <em>Started On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Started On</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getStartedOn()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EAttribute getTask_StartedOn()
+	{
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(15);
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipselabs.etrack.domain.task.Task#getEstimate <em>Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Estimate</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getEstimate()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_Estimate()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(16);
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipselabs.etrack.domain.task.Task#getCorrectedEstimate <em>Corrected Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Corrected Estimate</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getCorrectedEstimate()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_CorrectedEstimate()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(17);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Task#getGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Group</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getGroup()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EReference getTask_Group()
+	{
+		return (EReference)taskEClass.getEStructuralFeatures().get(18);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1323,6 +1597,50 @@ public class TaskPackage extends EPackageImpl
 	public EAttribute getComment_CreatedOn()
 	{
 		return (EAttribute)commentEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.Duration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Duration</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Duration
+	 * @generated
+	 */
+	public EClass getDuration()
+	{
+		return durationEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Duration#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Duration#getValue()
+	 * @see #getDuration()
+	 * @generated
+	 */
+	public EAttribute getDuration_Value()
+	{
+		return (EAttribute)durationEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Duration#getUnits <em>Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Units</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Duration#getUnits()
+	 * @see #getDuration()
+	 * @generated
+	 */
+	public EAttribute getDuration_Units()
+	{
+		return (EAttribute)durationEClass.getEStructuralFeatures().get(1);
 	}
 
 
@@ -1754,6 +2072,64 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Group</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskGroup
+	 * @generated
+	 */
+	public EClass getTaskGroup()
+	{
+		return taskGroupEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskGroup#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskGroup#getName()
+	 * @see #getTaskGroup()
+	 * @generated
+	 */
+	public EAttribute getTaskGroup_Name()
+	{
+		return (EAttribute)taskGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.TaskGroup#getProject <em>Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Project</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskGroup#getProject()
+	 * @see #getTaskGroup()
+	 * @generated
+	 */
+	public EReference getTaskGroup_Project()
+	{
+		return (EReference)taskGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipselabs.etrack.domain.task.DurationUnit <em>Duration Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Duration Unit</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.DurationUnit
+	 * @generated
+	 */
+	public EEnum getDurationUnit()
+	{
+		return durationUnitEEnum;
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1874,6 +2250,10 @@ public class TaskPackage extends EPackageImpl
 		createEAttribute(commentEClass, COMMENT__TEXT);
 		createEAttribute(commentEClass, COMMENT__CREATED_ON);
 
+		durationEClass = createEClass(DURATION);
+		createEAttribute(durationEClass, DURATION__VALUE);
+		createEAttribute(durationEClass, DURATION__UNITS);
+
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__SUMMARY);
 		createEAttribute(taskEClass, TASK__DESCRIPTION);
@@ -1887,6 +2267,13 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskEClass, TASK__PROJECT);
 		createEReference(taskEClass, TASK__RELATED_TASKS);
 		createEReference(taskEClass, TASK__RESOLUTION);
+		createEAttribute(taskEClass, TASK__RESOLVED_ON);
+		createEReference(taskEClass, TASK__RESOLVED_BY);
+		createEAttribute(taskEClass, TASK__DUE_ON);
+		createEAttribute(taskEClass, TASK__STARTED_ON);
+		createEReference(taskEClass, TASK__ESTIMATE);
+		createEReference(taskEClass, TASK__CORRECTED_ESTIMATE);
+		createEReference(taskEClass, TASK__GROUP);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
@@ -1928,6 +2315,13 @@ public class TaskPackage extends EPackageImpl
 		taskResolutionEClass = createEClass(TASK_RESOLUTION);
 		createEAttribute(taskResolutionEClass, TASK_RESOLUTION__NAME);
 		createEAttribute(taskResolutionEClass, TASK_RESOLUTION__DESCRIPTION);
+
+		taskGroupEClass = createEClass(TASK_GROUP);
+		createEAttribute(taskGroupEClass, TASK_GROUP__NAME);
+		createEReference(taskGroupEClass, TASK_GROUP__PROJECT);
+
+		// Create enums
+		durationUnitEEnum = createEEnum(DURATION_UNIT);
 	}
 
 	/**
@@ -1992,6 +2386,10 @@ public class TaskPackage extends EPackageImpl
 		initEAttribute(getComment_Text(), ecorePackage.getEString(), "text", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComment_CreatedOn(), ecorePackage.getEDate(), "createdOn", null, 1, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(durationEClass, Duration.class, "Duration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDuration_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Duration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDuration_Units(), this.getDurationUnit(), "units", null, 0, 1, Duration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_Summary(), ecorePackage.getEString(), "summary", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Description(), ecorePackage.getEString(), "description", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2005,6 +2403,13 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTask_Project(), theProjectPackage.getProject(), null, "project", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_RelatedTasks(), this.getRelatedTasksMapping(), null, "relatedTasks", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Resolution(), this.getTaskResolution(), null, "resolution", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_ResolvedOn(), ecorePackage.getEDate(), "resolvedOn", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_ResolvedBy(), theEntityPackage.getPerson(), null, "resolvedBy", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_DueOn(), ecorePackage.getEDate(), "dueOn", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_StartedOn(), ecorePackage.getEDate(), "startedOn", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Estimate(), this.getDuration(), null, "estimate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_CorrectedEstimate(), this.getDuration(), null, "correctedEstimate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_Group(), this.getTaskGroup(), null, "group", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2046,6 +2451,17 @@ public class TaskPackage extends EPackageImpl
 		initEClass(taskResolutionEClass, TaskResolution.class, "TaskResolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskResolution_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskResolution_Description(), ecorePackage.getEString(), "description", null, 0, 1, TaskResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskGroupEClass, TaskGroup.class, "TaskGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskGroup_Project(), theProjectPackage.getProject(), null, "project", null, 1, 1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(durationUnitEEnum, DurationUnit.class, "DurationUnit");
+		addEEnumLiteral(durationUnitEEnum, DurationUnit.MINUTES);
+		addEEnumLiteral(durationUnitEEnum, DurationUnit.HOURS);
+		addEEnumLiteral(durationUnitEEnum, DurationUnit.DAYS);
+		addEEnumLiteral(durationUnitEEnum, DurationUnit.WEEKS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -2172,6 +2588,62 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK__RESOLUTION = eINSTANCE.getTask_Resolution();
 
 		/**
+		 * The meta object literal for the '<em><b>Resolved On</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK__RESOLVED_ON = eINSTANCE.getTask_ResolvedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolved By</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__RESOLVED_BY = eINSTANCE.getTask_ResolvedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Due On</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK__DUE_ON = eINSTANCE.getTask_DueOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Started On</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK__STARTED_ON = eINSTANCE.getTask_StartedOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Estimate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__ESTIMATE = eINSTANCE.getTask_Estimate();
+
+		/**
+		 * The meta object literal for the '<em><b>Corrected Estimate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__CORRECTED_ESTIMATE = eINSTANCE.getTask_CorrectedEstimate();
+
+		/**
+		 * The meta object literal for the '<em><b>Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK__GROUP = eINSTANCE.getTask_Group();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2262,6 +2734,32 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute COMMENT__CREATED_ON = eINSTANCE.getComment_CreatedOn();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Duration <em>Duration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.Duration
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDuration()
+		 * @generated
+		 */
+		public static final EClass DURATION = eINSTANCE.getDuration();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute DURATION__VALUE = eINSTANCE.getDuration_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Units</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute DURATION__UNITS = eINSTANCE.getDuration_Units();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.Attachment <em>Attachment</em>}' class.
@@ -2510,6 +3008,42 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK_RESOLUTION__DESCRIPTION = eINSTANCE.getTaskResolution_Description();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskGroup <em>Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.TaskGroup
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskGroup()
+		 * @generated
+		 */
+		public static final EClass TASK_GROUP = eINSTANCE.getTaskGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_GROUP__NAME = eINSTANCE.getTaskGroup_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Project</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_GROUP__PROJECT = eINSTANCE.getTaskGroup_Project();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.DurationUnit <em>Duration Unit</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.DurationUnit
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDurationUnit()
+		 * @generated
+		 */
+		public static final EEnum DURATION_UNIT = eINSTANCE.getDurationUnit();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.AttachmentData <em>Attachment Data</em>}' class.

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scrum Resource Provider
+Bundle-SymbolicName: org.eclipselabs.etrack.app.server.web.scrum.provider
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Fragment-Host: org.eclipselabs.etrack.server.web.scrum;bundle-version="0.1.0"
+Service-Component: OSGI-INF/resources/backlog.xml
+Import-Package: org.eclipselabs.mongo.emf.ext

@@ -34,9 +34,11 @@ import org.eclipse.mylyn.tasks.core.data.TaskData;
 import org.eclipselabs.etrack.client.task.mylyn.updaters.TaskCommentUpdater;
 import org.eclipselabs.etrack.client.task.mylyn.updaters.TaskDescriptionAttributeUpdater;
 import org.eclipselabs.etrack.client.task.mylyn.updaters.TaskOwnerAttributeUpdater;
+import org.eclipselabs.etrack.client.task.mylyn.updaters.TaskProjectAttributeUpdater;
 import org.eclipselabs.etrack.client.task.mylyn.updaters.TaskStateAttributeUpdater;
 import org.eclipselabs.etrack.client.task.mylyn.updaters.TaskSummaryAttributeUpdater;
 import org.eclipselabs.etrack.domain.audit.Action;
+import org.eclipselabs.etrack.domain.project.Project;
 import org.eclipselabs.etrack.domain.state.StateTransition;
 import org.eclipselabs.etrack.domain.task.Comment;
 import org.eclipselabs.etrack.domain.task.Task;
@@ -62,6 +64,7 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		addUpdater(TaskAttribute.COMMENT_NEW, new TaskCommentUpdater());
 		addUpdater(TaskAttribute.USER_ASSIGNED, new TaskOwnerAttributeUpdater());
 		addUpdater(TaskAttribute.OPERATION, new TaskStateAttributeUpdater());
+		addUpdater(MylynTaskClient.PROJECT, new TaskProjectAttributeUpdater());
 	}
 
 	@Override
@@ -110,6 +113,9 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 
 		attribute = data.getRoot().createAttribute(TaskAttribute.STATUS);
 		attribute.getMetaData().setReadOnly(true).setType(TaskAttribute.TYPE_SHORT_TEXT).setLabel("Status:");
+
+		attribute = data.getRoot().createAttribute(MylynTaskClient.PROJECT);
+		attribute.getMetaData().setReadOnly(true).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_SHORT_TEXT).setLabel("Project:");
 
 		return true;
 	}
@@ -162,6 +168,12 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 			attribute.setValue(task.getDescription());
 		}
 
+		if (task.getProject() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(MylynTaskClient.PROJECT);
+			attribute.setValue(task.getProject().getName());
+		}
+
 		int index = 0;
 
 		for (Comment comment : task.getComments())
@@ -212,6 +224,7 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		String domainId = taskData.getRoot().getAttribute(MylynTaskClient.TASK_DOMAIN).getValue();
 		String typeId = taskData.getRoot().getAttribute(TaskAttribute.TASK_KIND).getValue();
 		TaskType taskType = client.getTaskType(domainId, typeId);
+		Project project = client.getProject(taskData.getRoot().getAttribute(MylynTaskClient.PROJECT).getValue());
 
 		Task task = TaskFactory.eINSTANCE.createTask();
 		task.setSummary(taskData.getRoot().getAttribute(TaskAttribute.SUMMARY).getValue());
@@ -220,6 +233,7 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		task.setCreatedOn(created);
 		task.setCreatedBy(client.getCurrentUser());
 		task.setType(taskType);
+		task.setProject(project);
 		task.setCurrentState(taskType.getStartingState());
 
 		try
