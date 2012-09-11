@@ -70,16 +70,18 @@ public class EmfJsonRepresentation<T extends EObject> extends EmfRepresentation<
 		Resource originalResource = object.eResource();
 		Resource targetResource = originalResource;
 
-		if (!(originalResource instanceof JsResourceImpl))
+		if (originalResource == null || !(originalResource instanceof JsResourceImpl))
 		{
 			targetResource = new JsResourceImpl();
-			targetResource.getContents().add(originalResource.getContents().get(0));
-			targetResource.setURI(originalResource.getURI());
+			targetResource.getContents().add(object);
+
+			if (originalResource != null)
+				targetResource.setURI(originalResource.getURI());
 		}
 
 		targetResource.save(outputStream, getSaveOptions());
 
-		if (!(originalResource instanceof JsResourceImpl))
+		if (originalResource != null && !(originalResource instanceof JsResourceImpl))
 		{
 			originalResource.getContents().add(targetResource.getContents().get(0));
 			originalResource.setURI(targetResource.getURI());
