@@ -27,7 +27,7 @@ public enum DurationUnit implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	MINUTES(0, "MINUTES", "MINUTES"),
+	MINUTES(0, "MINUTES", "m"),
 
 	/**
 	 * The '<em><b>HOURS</b></em>' literal object.
@@ -37,7 +37,7 @@ public enum DurationUnit implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	HOURS(1, "HOURS", "HOURS"),
+	HOURS(1, "HOURS", "h"),
 
 	/**
 	 * The '<em><b>DAYS</b></em>' literal object.
@@ -47,7 +47,7 @@ public enum DurationUnit implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	DAYS(2, "DAYS", "DAYS"),
+	DAYS(2, "DAYS", "d"),
 
 	/**
 	 * The '<em><b>WEEKS</b></em>' literal object.
@@ -57,7 +57,7 @@ public enum DurationUnit implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	WEEKS(3, "WEEKS", "WEEKS");
+	WEEKS(3, "WEEKS", "w");
 
 	/**
 	 * The '<em><b>MINUTES</b></em>' literal value.
@@ -68,7 +68,7 @@ public enum DurationUnit implements Enumerator
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MINUTES
-	 * @model
+	 * @model literal="m"
 	 * @generated
 	 * @ordered
 	 */
@@ -83,7 +83,7 @@ public enum DurationUnit implements Enumerator
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #HOURS
-	 * @model
+	 * @model literal="h"
 	 * @generated
 	 * @ordered
 	 */
@@ -98,7 +98,7 @@ public enum DurationUnit implements Enumerator
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DAYS
-	 * @model
+	 * @model literal="d"
 	 * @generated
 	 * @ordered
 	 */
@@ -113,7 +113,7 @@ public enum DurationUnit implements Enumerator
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WEEKS
-	 * @model
+	 * @model literal="w"
 	 * @generated
 	 * @ordered
 	 */

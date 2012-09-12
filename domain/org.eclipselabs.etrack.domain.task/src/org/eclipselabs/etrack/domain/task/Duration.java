@@ -1,12 +1,11 @@
 /**
  */
+
 package org.eclipselabs.etrack.domain.task;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -14,15 +13,15 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Duration</b></em>'.
  * <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Duration#getValue <em>Value</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Duration#getUnits <em>Units</em>}</li>
+ * <li>{@link org.eclipselabs.etrack.domain.task.Duration#getValue <em>Value</em>}</li>
+ * <li>{@link org.eclipselabs.etrack.domain.task.Duration#getUnits <em>Units</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDuration()
  * @model kind="class"
  * @generated
@@ -33,6 +32,7 @@ public class Duration extends EObjectImpl implements EObject
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -43,6 +43,7 @@ public class Duration extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -53,6 +54,7 @@ public class Duration extends EObjectImpl implements EObject
 	 * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUnits()
 	 * @generated
 	 * @ordered
@@ -63,6 +65,7 @@ public class Duration extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getUnits()
 	 * @generated
 	 * @ordered
@@ -72,6 +75,7 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Duration()
@@ -82,6 +86,7 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -94,10 +99,11 @@ public class Duration extends EObjectImpl implements EObject
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(int)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDuration_Value()
@@ -110,9 +116,11 @@ public class Duration extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getValue
+	 * <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Value</em>' attribute.
 	 * @see #getValue()
 	 * @generated
@@ -130,10 +138,11 @@ public class Duration extends EObjectImpl implements EObject
 	 * The literals are from the enumeration {@link org.eclipselabs.etrack.domain.task.DurationUnit}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Units</em>' attribute isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of the '<em>Units</em>' attribute isn't clear, there really should be more of a
+	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Units</em>' attribute.
 	 * @see org.eclipselabs.etrack.domain.task.DurationUnit
 	 * @see #setUnits(DurationUnit)
@@ -147,9 +156,11 @@ public class Duration extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getUnits <em>Units</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getUnits
+	 * <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Units</em>' attribute.
 	 * @see org.eclipselabs.etrack.domain.task.DurationUnit
 	 * @see #getUnits()
@@ -166,6 +177,7 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -184,6 +196,7 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,10 +205,10 @@ public class Duration extends EObjectImpl implements EObject
 		switch (featureID)
 		{
 			case TaskPackage.DURATION__VALUE:
-				setValue((Integer)newValue);
+				setValue((Integer) newValue);
 				return;
 			case TaskPackage.DURATION__UNITS:
-				setUnits((DurationUnit)newValue);
+				setUnits((DurationUnit) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,6 +217,7 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -224,6 +238,7 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -242,19 +257,19 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public String toString()
 	{
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (value: ");
+		StringBuffer result = new StringBuffer();
 		result.append(value);
-		result.append(", units: ");
+		result.append(' ');
 		result.append(units);
-		result.append(')');
 		return result.toString();
 	}
 

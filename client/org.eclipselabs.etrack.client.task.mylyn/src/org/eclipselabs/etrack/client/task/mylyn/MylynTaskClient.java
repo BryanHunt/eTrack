@@ -49,6 +49,11 @@ public class MylynTaskClient
 {
 	public static final String TASK_DOMAIN = "org.eclipselabs.etrack.task.mylyn.domain";
 	public static final String PROJECT = "org.eclipselabs.etrack.task.mylyn.project";
+	public static final String DATE_STARTED = "org.eclipselabs.etrack.task.mylyn.dateStarted";
+	public static final String RESOLUTION = "org.eclipselabs.etrack.task.mylyn.resolution";
+	public static final String RESOLVED_BY = "org.eclipselabs.etrack.task.mylyn.resolvedBy";
+	public static final String ESTIMATE = "org.eclipselabs.etrack.task.mylyn.estimate";
+	public static final String CORRECTED_ESTIMATE = "org.eclipselabs.etrack.task.mylyn.correctedEstimate";
 
 	private ITaskService taskService;
 	private IProjectService projectService;

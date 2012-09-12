@@ -28,10 +28,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" eType="#//DurationUnit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DurationUnit">
-    <eLiterals name="MINUTES"/>
-    <eLiterals name="HOURS" value="1"/>
-    <eLiterals name="DAYS" value="2"/>
-    <eLiterals name="WEEKS" value="3"/>
+    <eLiterals name="MINUTES" literal="m"/>
+    <eLiterals name="HOURS" value="1" literal="h"/>
+    <eLiterals name="DAYS" value="2" literal="d"/>
+    <eLiterals name="WEEKS" value="3" literal="w"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//Linkable ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//AssignableItem ../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//AuditableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" lowerBound="1"

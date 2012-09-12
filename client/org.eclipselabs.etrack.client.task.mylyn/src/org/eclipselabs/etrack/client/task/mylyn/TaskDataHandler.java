@@ -43,6 +43,7 @@ import org.eclipselabs.etrack.domain.state.StateTransition;
 import org.eclipselabs.etrack.domain.task.Comment;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
+import org.eclipselabs.etrack.domain.task.TaskResolution;
 import org.eclipselabs.etrack.domain.task.TaskType;
 
 /**
@@ -108,6 +109,24 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		if (data.isNew())
 			attribute.setValue(Long.toString(new Date().getTime()));
 
+		attribute = data.getRoot().createAttribute(TaskAttribute.DATE_DUE);
+		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_DATETIME).setLabel("Due On:");
+
+		attribute = data.getRoot().createAttribute(MylynTaskClient.DATE_STARTED);
+		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_DATETIME);
+
+		attribute = data.getRoot().createAttribute(MylynTaskClient.RESOLUTION);
+		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_SINGLE_SELECT).setLabel("Resolution:");
+
+		attribute = data.getRoot().createAttribute(MylynTaskClient.RESOLVED_BY);
+		attribute.getMetaData().setReadOnly(true).setKind(TaskAttribute.KIND_PEOPLE).setType(TaskAttribute.TYPE_PERSON).setLabel("Resolved By:");
+
+		attribute = data.getRoot().createAttribute(MylynTaskClient.ESTIMATE);
+		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_SHORT_TEXT).setLabel("Estimate:");
+
+		attribute = data.getRoot().createAttribute(MylynTaskClient.CORRECTED_ESTIMATE);
+		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_SHORT_TEXT).setLabel("Corrected:");
+
 		attribute = data.getRoot().createAttribute(TaskAttribute.DATE_MODIFICATION);
 		attribute.getMetaData().setReadOnly(false).setType(TaskAttribute.TYPE_DATETIME).setLabel("Modified:");
 
@@ -139,6 +158,39 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 
 		attribute = taskData.getRoot().getAttribute(TaskAttribute.DATE_CREATION);
 		attribute.setValue(Long.toString(task.getCreatedOn().getTime()));
+
+		attribute = taskData.getRoot().getAttribute(MylynTaskClient.RESOLUTION);
+		attribute.setValue(task.getResolution().getName());
+
+		if (task.getDueOn() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(TaskAttribute.DATE_DUE);
+			attribute.setValue(Long.toString(task.getDueOn().getTime()));
+		}
+
+		if (task.getStartedOn() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(MylynTaskClient.DATE_STARTED);
+			attribute.setValue(Long.toString(task.getStartedOn().getTime()));
+		}
+
+		if (task.getResolvedBy() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(MylynTaskClient.RESOLVED_BY);
+			attribute.setValue(task.getResolvedBy().getDisplayName() + " <" + task.getResolvedBy().getEmails().get(0).getAddress() + ">");
+		}
+
+		if (task.getEstimate() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(MylynTaskClient.ESTIMATE);
+			attribute.setValue(task.getEstimate().toString());
+		}
+
+		if (task.getCorrectedEstimate() != null)
+		{
+			attribute = taskData.getRoot().getAttribute(MylynTaskClient.CORRECTED_ESTIMATE);
+			attribute.setValue(task.getCorrectedEstimate().toString());
+		}
 
 		if (task.getSummary() != null)
 		{
@@ -211,6 +263,11 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 			attribute.setValue(transition.getName());
 		}
 
+		attribute = taskData.getRoot().getAttribute(MylynTaskClient.RESOLUTION);
+
+		for (TaskResolution resolution : taskType.getResolutions())
+			attribute.putOption(resolution.getName(), resolution.getName());
+
 		return taskData;
 	}
 
@@ -235,6 +292,7 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		task.setType(taskType);
 		task.setProject(project);
 		task.setCurrentState(taskType.getStartingState());
+		task.setResolution(taskType.getStartingResolution());
 
 		try
 		{
