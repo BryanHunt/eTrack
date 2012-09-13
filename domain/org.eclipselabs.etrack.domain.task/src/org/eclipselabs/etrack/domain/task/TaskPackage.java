@@ -559,22 +559,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN__TRANSITIONS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Task Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK_DOMAIN__TASK_TYPES = 3;
-
-	/**
 	 * The feature id for the '<em><b>State Groups</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN__STATE_GROUPS = 4;
+	public static final int TASK_DOMAIN__STATE_GROUPS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
@@ -583,7 +574,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN__RELATIONSHIPS = 5;
+	public static final int TASK_DOMAIN__RELATIONSHIPS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Resolutions</b></em>' containment reference list.
@@ -592,7 +583,16 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN__RESOLUTIONS = 6;
+	public static final int TASK_DOMAIN__RESOLUTIONS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Task Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN__TASK_TYPES = 6;
 
 	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
@@ -1510,7 +1510,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTaskDomain_TaskTypes()
 	{
-		return (EReference)taskDomainEClass.getEStructuralFeatures().get(3);
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1524,7 +1524,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTaskDomain_StateGroups()
 	{
-		return (EReference)taskDomainEClass.getEStructuralFeatures().get(4);
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(3);
 	}
 
 
@@ -1539,7 +1539,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTaskDomain_Relationships()
 	{
-		return (EReference)taskDomainEClass.getEStructuralFeatures().get(5);
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(4);
 	}
 
 
@@ -1554,7 +1554,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EReference getTaskDomain_Resolutions()
 	{
-		return (EReference)taskDomainEClass.getEStructuralFeatures().get(6);
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(5);
 	}
 
 
@@ -2279,10 +2279,10 @@ public class TaskPackage extends EPackageImpl
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
 		createEReference(taskDomainEClass, TASK_DOMAIN__STATES);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TRANSITIONS);
-		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
 		createEReference(taskDomainEClass, TASK_DOMAIN__STATE_GROUPS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__RELATIONSHIPS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__RESOLUTIONS);
+		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
 
 		taskTypeEClass = createEClass(TASK_TYPE);
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
@@ -2415,10 +2415,10 @@ public class TaskPackage extends EPackageImpl
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_States(), theStatePackage.getState(), null, "states", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_Transitions(), theStatePackage.getStateTransition(), null, "transitions", null, 1, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_StateGroups(), theStatePackage.getStateGroup(), null, "stateGroups", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_Resolutions(), this.getTaskResolution(), null, "resolutions", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskTypeEClass, TaskType.class, "TaskType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

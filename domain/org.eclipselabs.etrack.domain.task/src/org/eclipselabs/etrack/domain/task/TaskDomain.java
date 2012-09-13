@@ -38,10 +38,10 @@ import org.eclipselabs.etrack.domain.state.StateTransition;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getStates <em>States</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTransitions <em>Transitions</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTaskTypes <em>Task Types</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getStateGroups <em>State Groups</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getRelationships <em>Relationships</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getResolutions <em>Resolutions</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTaskTypes <em>Task Types</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,16 +92,6 @@ public class TaskDomain extends EObjectImpl implements EObject
 	protected EList<StateTransition> transitions;
 
 	/**
-	 * The cached value of the '{@link #getTaskTypes() <em>Task Types</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTaskTypes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TaskType> taskTypes;
-
-	/**
 	 * The cached value of the '{@link #getStateGroups() <em>State Groups</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +120,16 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EList<TaskResolution> resolutions;
+
+	/**
+	 * The cached value of the '{@link #getTaskTypes() <em>Task Types</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskTypes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TaskType> taskTypes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,14 +339,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
 				return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
-			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				return ((InternalEList<?>)getTaskTypes()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				return ((InternalEList<?>)getStateGroups()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
 				return ((InternalEList<?>)getRelationships()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__RESOLUTIONS:
 				return ((InternalEList<?>)getResolutions()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
+				return ((InternalEList<?>)getTaskTypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -367,14 +367,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return getStates();
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
 				return getTransitions();
-			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				return getTaskTypes();
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				return getStateGroups();
 			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
 				return getRelationships();
 			case TaskPackage.TASK_DOMAIN__RESOLUTIONS:
 				return getResolutions();
+			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
+				return getTaskTypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -401,10 +401,6 @@ public class TaskDomain extends EObjectImpl implements EObject
 				getTransitions().clear();
 				getTransitions().addAll((Collection<? extends StateTransition>)newValue);
 				return;
-			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				getTaskTypes().clear();
-				getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
-				return;
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				getStateGroups().clear();
 				getStateGroups().addAll((Collection<? extends StateGroup>)newValue);
@@ -416,6 +412,10 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__RESOLUTIONS:
 				getResolutions().clear();
 				getResolutions().addAll((Collection<? extends TaskResolution>)newValue);
+				return;
+			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
+				getTaskTypes().clear();
+				getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -440,9 +440,6 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
 				getTransitions().clear();
 				return;
-			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				getTaskTypes().clear();
-				return;
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				getStateGroups().clear();
 				return;
@@ -451,6 +448,9 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return;
 			case TaskPackage.TASK_DOMAIN__RESOLUTIONS:
 				getResolutions().clear();
+				return;
+			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
+				getTaskTypes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -472,14 +472,14 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return states != null && !states.isEmpty();
 			case TaskPackage.TASK_DOMAIN__TRANSITIONS:
 				return transitions != null && !transitions.isEmpty();
-			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
-				return taskTypes != null && !taskTypes.isEmpty();
 			case TaskPackage.TASK_DOMAIN__STATE_GROUPS:
 				return stateGroups != null && !stateGroups.isEmpty();
 			case TaskPackage.TASK_DOMAIN__RELATIONSHIPS:
 				return relationships != null && !relationships.isEmpty();
 			case TaskPackage.TASK_DOMAIN__RESOLUTIONS:
 				return resolutions != null && !resolutions.isEmpty();
+			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
+				return taskTypes != null && !taskTypes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

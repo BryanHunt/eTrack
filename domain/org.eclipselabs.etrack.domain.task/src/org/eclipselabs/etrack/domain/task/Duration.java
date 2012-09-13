@@ -13,15 +13,15 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Duration</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipselabs.etrack.domain.task.Duration#getValue <em>Value</em>}</li>
- * <li>{@link org.eclipselabs.etrack.domain.task.Duration#getUnits <em>Units</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Duration#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Duration#getUnits <em>Units</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDuration()
  * @model kind="class"
  * @generated
@@ -32,7 +32,6 @@ public class Duration extends EObjectImpl implements EObject
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -43,7 +42,6 @@ public class Duration extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -54,7 +52,6 @@ public class Duration extends EObjectImpl implements EObject
 	 * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUnits()
 	 * @generated
 	 * @ordered
@@ -65,7 +62,6 @@ public class Duration extends EObjectImpl implements EObject
 	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getUnits()
 	 * @generated
 	 * @ordered
@@ -75,7 +71,6 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected Duration()
@@ -86,7 +81,6 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -103,7 +97,6 @@ public class Duration extends EObjectImpl implements EObject
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(int)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDuration_Value()
@@ -116,11 +109,9 @@ public class Duration extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getValue
-	 * <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @param value the new value of the '<em>Value</em>' attribute.
 	 * @see #getValue()
 	 * @generated
@@ -142,7 +133,6 @@ public class Duration extends EObjectImpl implements EObject
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Units</em>' attribute.
 	 * @see org.eclipselabs.etrack.domain.task.DurationUnit
 	 * @see #setUnits(DurationUnit)
@@ -156,11 +146,9 @@ public class Duration extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getUnits
-	 * <em>Units</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Duration#getUnits <em>Units</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @param value the new value of the '<em>Units</em>' attribute.
 	 * @see org.eclipselabs.etrack.domain.task.DurationUnit
 	 * @see #getUnits()
@@ -177,7 +165,6 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -196,7 +183,6 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -205,10 +191,10 @@ public class Duration extends EObjectImpl implements EObject
 		switch (featureID)
 		{
 			case TaskPackage.DURATION__VALUE:
-				setValue((Integer) newValue);
+				setValue((Integer)newValue);
 				return;
 			case TaskPackage.DURATION__UNITS:
-				setUnits((DurationUnit) newValue);
+				setUnits((DurationUnit)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,7 +203,6 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -238,7 +223,6 @@ public class Duration extends EObjectImpl implements EObject
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
