@@ -113,7 +113,7 @@ public class TaskDataHandler extends AbstractTaskDataHandler
 		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_DATETIME).setLabel("Due On:");
 
 		attribute = data.getRoot().createAttribute(MylynTaskClient.DATE_STARTED);
-		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_DATETIME);
+		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_DATETIME).setLabel("Started on:");
 
 		attribute = data.getRoot().createAttribute(MylynTaskClient.RESOLUTION);
 		attribute.getMetaData().setReadOnly(false).setKind(TaskAttribute.KIND_DEFAULT).setType(TaskAttribute.TYPE_SINGLE_SELECT).setLabel("Resolution:");
