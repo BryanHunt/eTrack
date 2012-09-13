@@ -12,6 +12,7 @@
 package org.eclipselabs.etrack.domain.task.util;
 
 import java.util.Map;
+import org.eclilpselabs.etrack.domain.data.CategorizedItem;
 import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.common.util.EList;
@@ -142,6 +143,7 @@ public class TaskSwitch<T> extends Switch<T>
 				if (result == null) result = caseLinkable(task);
 				if (result == null) result = caseAssignableItem(task);
 				if (result == null) result = caseAuditableItem(task);
+				if (result == null) result = caseCategorizedItem(task);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -466,6 +468,22 @@ public class TaskSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseAuditableItem(AuditableItem object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Categorized Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Categorized Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategorizedItem(CategorizedItem object)
 	{
 		return null;
 	}

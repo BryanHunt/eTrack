@@ -5,6 +5,7 @@ package org.eclipselabs.etrack.domain.task;
 import java.util.Collection;
 import java.util.Date;
 
+import org.eclilpselabs.etrack.domain.data.CategorizedItem;
 import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclilpselabs.etrack.domain.data.LinkMapping;
 import org.eclilpselabs.etrack.domain.data.Linkable;
@@ -65,7 +66,7 @@ import org.eclipselabs.etrack.domain.state.State;
  * @model kind="class"
  * @generated
  */
-public class Task extends EObjectImpl implements Linkable, AssignableItem, AuditableItem
+public class Task extends EObjectImpl implements Linkable, AssignableItem, AuditableItem, CategorizedItem
 {
 	/**
 	 * The cached value of the '{@link #getLinksByName() <em>Links By Name</em>}' map.
@@ -96,6 +97,26 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected EList<Action> history;
+
+	/**
+	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CATEGORY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCategory()
+	 * @generated
+	 * @ordered
+	 */
+	protected String category = CATEGORY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -468,6 +489,41 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			history = new EObjectContainmentEList.Resolving<Action>(Action.class, this, TaskPackage.TASK__HISTORY);
 		}
 		return history;
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Category</em>' attribute.
+	 * @see #setCategory(String)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getCategorizedItem_Category()
+	 * @model
+	 * @generated
+	 */
+	public String getCategory()
+	{
+		return category;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCategory <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @see #getCategory()
+	 * @generated
+	 */
+	public void setCategory(String newCategory)
+	{
+		String oldCategory = category;
+		category = newCategory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CATEGORY, oldCategory, category));
 	}
 
 	/**
@@ -1324,6 +1380,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return basicGetOwner();
 			case TaskPackage.TASK__HISTORY:
 				return getHistory();
+			case TaskPackage.TASK__CATEGORY:
+				return getCategory();
 			case TaskPackage.TASK__SUMMARY:
 				return getSummary();
 			case TaskPackage.TASK__DESCRIPTION:
@@ -1394,6 +1452,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__HISTORY:
 				getHistory().clear();
 				getHistory().addAll((Collection<? extends Action>)newValue);
+				return;
+			case TaskPackage.TASK__CATEGORY:
+				setCategory((String)newValue);
 				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary((String)newValue);
@@ -1478,6 +1539,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__HISTORY:
 				getHistory().clear();
 				return;
+			case TaskPackage.TASK__CATEGORY:
+				setCategory(CATEGORY_EDEFAULT);
+				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
@@ -1555,6 +1619,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return owner != null;
 			case TaskPackage.TASK__HISTORY:
 				return history != null && !history.isEmpty();
+			case TaskPackage.TASK__CATEGORY:
+				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
 			case TaskPackage.TASK__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
 			case TaskPackage.TASK__DESCRIPTION:
@@ -1621,6 +1687,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				default: return -1;
 			}
 		}
+		if (baseClass == CategorizedItem.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case TaskPackage.TASK__CATEGORY: return DataPackage.CATEGORIZED_ITEM__CATEGORY;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -1648,6 +1722,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				default: return -1;
 			}
 		}
+		if (baseClass == CategorizedItem.class)
+		{
+			switch (baseFeatureID)
+			{
+				case DataPackage.CATEGORIZED_ITEM__CATEGORY: return TaskPackage.TASK__CATEGORY;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -1662,7 +1744,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (summary: ");
+		result.append(" (category: ");
+		result.append(category);
+		result.append(", summary: ");
 		result.append(summary);
 		result.append(", description: ");
 		result.append(description);
