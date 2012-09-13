@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
@@ -52,7 +53,7 @@ public class AbstractStorageResource extends WadlServerResource
 
 	public Representation createJsonObject(Representation representation) throws IOException
 	{
-		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), resourceSetFactory.createResourceSet());
+		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), new ResourceSetImpl());
 		URI uri = saveObject(emfRepresentation.getObject());
 		return new StringRepresentation(uri.toString());
 	}
@@ -85,7 +86,7 @@ public class AbstractStorageResource extends WadlServerResource
 
 		getModel();
 
-		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), resourceSetFactory.createResourceSet());
+		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), new ResourceSetImpl());
 		saveObject(emfRepresentation.getObject());
 	}
 
