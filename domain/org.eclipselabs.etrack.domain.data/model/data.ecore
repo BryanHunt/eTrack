@@ -29,7 +29,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="#//URI"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="URI" instanceClassName="org.eclipse.emf.common.util.URI"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LinkedCategories" eSuperTypes="#//Category">
+  <eClassifiers xsi:type="ecore:EClass" name="LinkedCategories" eSuperTypes="#//LinkedContent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="category" upperBound="-1"
         eType="#//Category" containment="true"/>
   </eClassifiers>

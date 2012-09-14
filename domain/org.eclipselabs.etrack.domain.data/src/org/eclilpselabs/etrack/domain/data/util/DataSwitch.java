@@ -137,7 +137,7 @@ public class DataSwitch<T> extends Switch<T>
 			{
 				LinkedCategories linkedCategories = (LinkedCategories)theEObject;
 				T result = caseLinkedCategories(linkedCategories);
-				if (result == null) result = caseCategory(linkedCategories);
+				if (result == null) result = caseLinkedContent(linkedCategories);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

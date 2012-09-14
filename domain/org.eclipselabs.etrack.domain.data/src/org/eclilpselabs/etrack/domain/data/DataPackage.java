@@ -328,7 +328,16 @@ public class DataPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LINKED_CATEGORIES__NAME = CATEGORY__NAME;
+	public static final int LINKED_CATEGORIES__NAME = LINKED_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LINKED_CATEGORIES__DESCRIPTION = LINKED_CONTENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' containment reference list.
@@ -337,7 +346,7 @@ public class DataPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LINKED_CATEGORIES__CATEGORY = CATEGORY_FEATURE_COUNT + 0;
+	public static final int LINKED_CATEGORIES__CATEGORY = LINKED_CONTENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Linked Categories</em>' class.
@@ -346,7 +355,7 @@ public class DataPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LINKED_CATEGORIES_FEATURE_COUNT = CATEGORY_FEATURE_COUNT + 1;
+	public static final int LINKED_CATEGORIES_FEATURE_COUNT = LINKED_CONTENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '<em>URI</em>' data type.
@@ -856,7 +865,7 @@ public class DataPackage extends EPackageImpl
 
 		// Add supertypes to classes
 		resourceEClass.getESuperTypes().add(this.getArtifact());
-		linkedCategoriesEClass.getESuperTypes().add(this.getCategory());
+		linkedCategoriesEClass.getESuperTypes().add(this.getLinkedContent());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(linkedContentEClass, LinkedContent.class, "LinkedContent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

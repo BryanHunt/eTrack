@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @model kind="class"
  * @generated
  */
-public class LinkedCategories extends Category
+public class LinkedCategories extends LinkedContent
 {
 	/**
 	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
