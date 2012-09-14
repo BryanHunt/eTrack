@@ -88,6 +88,7 @@ public class TaskFactory extends EFactoryImpl
 			case TaskPackage.TASK_RELATIONSHIP: return createTaskRelationship();
 			case TaskPackage.TASK_RESOLUTION: return createTaskResolution();
 			case TaskPackage.TASK_GROUP: return createTaskGroup();
+			case TaskPackage.TASK_QUERY: return createTaskQuery();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -290,6 +291,17 @@ public class TaskFactory extends EFactoryImpl
 	{
 		TaskGroup taskGroup = new TaskGroup();
 		return taskGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskQuery createTaskQuery()
+	{
+		TaskQuery taskQuery = new TaskQuery();
+		return taskQuery;
 	}
 
 	/**

@@ -175,6 +175,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 				return createTaskGroupAdapter();
 			}
 			@Override
+			public Adapter caseTaskQuery(TaskQuery object)
+			{
+				return createTaskQueryAdapter();
+			}
+			@Override
 			public Adapter caseAssignableItem(AssignableItem object)
 			{
 				return createAssignableItemAdapter();
@@ -432,6 +437,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTaskGroupAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.TaskQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.task.TaskQuery
+	 * @generated
+	 */
+	public Adapter createTaskQueryAdapter()
 	{
 		return null;
 	}

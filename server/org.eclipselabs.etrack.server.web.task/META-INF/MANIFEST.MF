@@ -32,5 +32,6 @@ Service-Component:  OSGI-INF/resources/related_tasks_mapping.xml,
  OSGI-INF/resources/task_state.xml,
  OSGI-INF/resources/task_type.xml,
  OSGI-INF/resources/task.xml,
+ OSGI-INF/resources/task_query.xml, 
  OSGI-INF/resources/version.xml
 Export-Package: org.eclipselabs.etrack.server.web.task.resources

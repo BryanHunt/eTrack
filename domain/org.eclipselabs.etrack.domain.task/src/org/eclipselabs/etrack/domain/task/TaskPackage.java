@@ -971,6 +971,43 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_GROUP_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskQuery <em>Query</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.task.TaskQuery
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskQuery()
+	 * @generated
+	 */
+	public static final int TASK_QUERY = 15;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_QUERY__OWNER = EntityPackage.ASSIGNABLE_ITEM__OWNER;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_QUERY__QUERY = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Query</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_QUERY_FEATURE_COUNT = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.DurationUnit <em>Duration Unit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -978,7 +1015,7 @@ public class TaskPackage extends EPackageImpl
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getDurationUnit()
 	 * @generated
 	 */
-	public static final int DURATION_UNIT = 15;
+	public static final int DURATION_UNIT = 16;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1070,6 +1107,13 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskQueryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2125,6 +2169,35 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Query</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskQuery
+	 * @generated
+	 */
+	public EClass getTaskQuery()
+	{
+		return taskQueryEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskQuery#getQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Query</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskQuery#getQuery()
+	 * @see #getTaskQuery()
+	 * @generated
+	 */
+	public EAttribute getTaskQuery_Query()
+	{
+		return (EAttribute)taskQueryEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipselabs.etrack.domain.task.DurationUnit <em>Duration Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2329,6 +2402,9 @@ public class TaskPackage extends EPackageImpl
 		createEAttribute(taskGroupEClass, TASK_GROUP__NAME);
 		createEReference(taskGroupEClass, TASK_GROUP__PROJECT);
 
+		taskQueryEClass = createEClass(TASK_QUERY);
+		createEAttribute(taskQueryEClass, TASK_QUERY__QUERY);
+
 		// Create enums
 		durationUnitEEnum = createEEnum(DURATION_UNIT);
 	}
@@ -2378,6 +2454,7 @@ public class TaskPackage extends EPackageImpl
 		taskEClass.getESuperTypes().add(theDataPackage.getCategorizedItem());
 		taskAttributeChangeEClass.getESuperTypes().add(theAuditPackage.getAction());
 		taskDomainLinkEClass.getESuperTypes().add(theDataPackage.getLinkedContent());
+		taskQueryEClass.getESuperTypes().add(theEntityPackage.getAssignableItem());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(attachmentEClass, Attachment.class, "Attachment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2465,6 +2542,9 @@ public class TaskPackage extends EPackageImpl
 		initEClass(taskGroupEClass, TaskGroup.class, "TaskGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskGroup_Project(), theProjectPackage.getProject(), null, "project", null, 1, 1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskQueryEClass, TaskQuery.class, "TaskQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskQuery_Query(), ecorePackage.getEString(), "query", null, 0, 1, TaskQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(durationUnitEEnum, DurationUnit.class, "DurationUnit");
@@ -3044,6 +3124,24 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_GROUP__PROJECT = eINSTANCE.getTaskGroup_Project();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskQuery <em>Query</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.task.TaskQuery
+		 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskQuery()
+		 * @generated
+		 */
+		public static final EClass TASK_QUERY = eINSTANCE.getTaskQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_QUERY__QUERY = eINSTANCE.getTaskQuery_Query();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.DurationUnit <em>Duration Unit</em>}' enum.
