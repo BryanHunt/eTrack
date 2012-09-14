@@ -12,8 +12,10 @@
 package org.eclipselabs.etrack.domain.entity;
 
 import org.eclilpselabs.etrack.domain.data.CategorizedItem;
+import org.eclilpselabs.etrack.domain.data.Category;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -41,24 +43,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 public class Address extends EObjectImpl implements CategorizedItem
 {
 	/**
-	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CATEGORY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected String category = CATEGORY_EDEFAULT;
+	protected Category category;
 
 	/**
 	 * The default value of the '{@link #getStreet() <em>Street</em>}' attribute.
@@ -202,35 +194,55 @@ public class Address extends EObjectImpl implements CategorizedItem
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' attribute.
+	 * Returns the value of the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' attribute.
-	 * @see #setCategory(String)
+	 * @return the value of the '<em>Category</em>' reference.
+	 * @see #setCategory(Category)
 	 * @see org.eclipselabs.etrack.domain.entity.EntityPackage#getCategorizedItem_Category()
 	 * @model
 	 * @generated
 	 */
-	public String getCategory()
+	public Category getCategory()
+	{
+		if (category != null && category.eIsProxy())
+		{
+			InternalEObject oldCategory = (InternalEObject)category;
+			category = (Category)eResolveProxy(oldCategory);
+			if (category != oldCategory)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EntityPackage.ADDRESS__CATEGORY, oldCategory, category));
+			}
+		}
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Category basicGetCategory()
 	{
 		return category;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Address#getCategory <em>Category</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.entity.Address#getCategory <em>Category</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @param value the new value of the '<em>Category</em>' reference.
 	 * @see #getCategory()
 	 * @generated
 	 */
-	public void setCategory(String newCategory)
+	public void setCategory(Category newCategory)
 	{
-		String oldCategory = category;
+		Category oldCategory = category;
 		category = newCategory;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.ADDRESS__CATEGORY, oldCategory, category));
@@ -457,7 +469,8 @@ public class Address extends EObjectImpl implements CategorizedItem
 		switch (featureID)
 		{
 			case EntityPackage.ADDRESS__CATEGORY:
-				return getCategory();
+				if (resolve) return getCategory();
+				return basicGetCategory();
 			case EntityPackage.ADDRESS__STREET:
 				return getStreet();
 			case EntityPackage.ADDRESS__ADDITIONAL:
@@ -485,7 +498,7 @@ public class Address extends EObjectImpl implements CategorizedItem
 		switch (featureID)
 		{
 			case EntityPackage.ADDRESS__CATEGORY:
-				setCategory((String)newValue);
+				setCategory((Category)newValue);
 				return;
 			case EntityPackage.ADDRESS__STREET:
 				setStreet((String)newValue);
@@ -520,7 +533,7 @@ public class Address extends EObjectImpl implements CategorizedItem
 		switch (featureID)
 		{
 			case EntityPackage.ADDRESS__CATEGORY:
-				setCategory(CATEGORY_EDEFAULT);
+				setCategory((Category)null);
 				return;
 			case EntityPackage.ADDRESS__STREET:
 				setStreet(STREET_EDEFAULT);
@@ -555,7 +568,7 @@ public class Address extends EObjectImpl implements CategorizedItem
 		switch (featureID)
 		{
 			case EntityPackage.ADDRESS__CATEGORY:
-				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
+				return category != null;
 			case EntityPackage.ADDRESS__STREET:
 				return STREET_EDEFAULT == null ? street != null : !STREET_EDEFAULT.equals(street);
 			case EntityPackage.ADDRESS__ADDITIONAL:
@@ -583,9 +596,7 @@ public class Address extends EObjectImpl implements CategorizedItem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (category: ");
-		result.append(category);
-		result.append(", street: ");
+		result.append(" (street: ");
 		result.append(street);
 		result.append(", additional: ");
 		result.append(additional);

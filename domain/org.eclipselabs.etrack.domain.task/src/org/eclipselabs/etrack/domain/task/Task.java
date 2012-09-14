@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.eclilpselabs.etrack.domain.data.CategorizedItem;
+import org.eclilpselabs.etrack.domain.data.Category;
 import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclilpselabs.etrack.domain.data.LinkMapping;
 import org.eclilpselabs.etrack.domain.data.Linkable;
@@ -59,6 +60,7 @@ import org.eclipselabs.etrack.domain.state.State;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getEstimate <em>Estimate</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCorrectedEstimate <em>Corrected Estimate</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getPriority <em>Priority</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,24 +101,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	protected EList<Action> history;
 
 	/**
-	 * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
+	 * The cached value of the '{@link #getCategory() <em>Category</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCategory()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CATEGORY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected String category = CATEGORY_EDEFAULT;
+	protected Category category;
 
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -369,6 +361,26 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	protected TaskGroup group;
 
 	/**
+	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PRIORITY_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPriority()
+	 * @generated
+	 * @ordered
+	 */
+	protected int priority = PRIORITY_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -492,35 +504,55 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' attribute.
+	 * Returns the value of the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' attribute.
-	 * @see #setCategory(String)
+	 * @return the value of the '<em>Category</em>' reference.
+	 * @see #setCategory(Category)
 	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getCategorizedItem_Category()
 	 * @model
 	 * @generated
 	 */
-	public String getCategory()
+	public Category getCategory()
+	{
+		if (category != null && category.eIsProxy())
+		{
+			InternalEObject oldCategory = (InternalEObject)category;
+			category = (Category)eResolveProxy(oldCategory);
+			if (category != oldCategory)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__CATEGORY, oldCategory, category));
+			}
+		}
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Category basicGetCategory()
 	{
 		return category;
 	}
 
 	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCategory <em>Category</em>}' attribute.
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getCategory <em>Category</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @param value the new value of the '<em>Category</em>' reference.
 	 * @see #getCategory()
 	 * @generated
 	 */
-	public void setCategory(String newCategory)
+	public void setCategory(Category newCategory)
 	{
-		String oldCategory = category;
+		Category oldCategory = category;
 		category = newCategory;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CATEGORY, oldCategory, category));
@@ -1335,6 +1367,41 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Priority</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Priority</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Priority</em>' attribute.
+	 * @see #setPriority(int)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Priority()
+	 * @model
+	 * @generated
+	 */
+	public int getPriority()
+	{
+		return priority;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getPriority <em>Priority</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Priority</em>' attribute.
+	 * @see #getPriority()
+	 * @generated
+	 */
+	public void setPriority(int newPriority)
+	{
+		int oldPriority = priority;
+		priority = newPriority;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__PRIORITY, oldPriority, priority));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1381,7 +1448,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__HISTORY:
 				return getHistory();
 			case TaskPackage.TASK__CATEGORY:
-				return getCategory();
+				if (resolve) return getCategory();
+				return basicGetCategory();
 			case TaskPackage.TASK__SUMMARY:
 				return getSummary();
 			case TaskPackage.TASK__DESCRIPTION:
@@ -1428,6 +1496,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__GROUP:
 				if (resolve) return getGroup();
 				return basicGetGroup();
+			case TaskPackage.TASK__PRIORITY:
+				return getPriority();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1454,7 +1524,7 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				getHistory().addAll((Collection<? extends Action>)newValue);
 				return;
 			case TaskPackage.TASK__CATEGORY:
-				setCategory((String)newValue);
+				setCategory((Category)newValue);
 				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary((String)newValue);
@@ -1516,6 +1586,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__GROUP:
 				setGroup((TaskGroup)newValue);
 				return;
+			case TaskPackage.TASK__PRIORITY:
+				setPriority((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1540,7 +1613,7 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				getHistory().clear();
 				return;
 			case TaskPackage.TASK__CATEGORY:
-				setCategory(CATEGORY_EDEFAULT);
+				setCategory((Category)null);
 				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
@@ -1599,6 +1672,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__GROUP:
 				setGroup((TaskGroup)null);
 				return;
+			case TaskPackage.TASK__PRIORITY:
+				setPriority(PRIORITY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1620,7 +1696,7 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__HISTORY:
 				return history != null && !history.isEmpty();
 			case TaskPackage.TASK__CATEGORY:
-				return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
+				return category != null;
 			case TaskPackage.TASK__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
 			case TaskPackage.TASK__DESCRIPTION:
@@ -1659,6 +1735,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return correctedEstimate != null;
 			case TaskPackage.TASK__GROUP:
 				return group != null;
+			case TaskPackage.TASK__PRIORITY:
+				return priority != PRIORITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1744,9 +1822,7 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (category: ");
-		result.append(category);
-		result.append(", summary: ");
+		result.append(" (summary: ");
 		result.append(summary);
 		result.append(", description: ");
 		result.append(description);
@@ -1758,6 +1834,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 		result.append(dueOn);
 		result.append(", startedOn: ");
 		result.append(startedOn);
+		result.append(", priority: ");
+		result.append(priority);
 		result.append(')');
 		return result.toString();
 	}

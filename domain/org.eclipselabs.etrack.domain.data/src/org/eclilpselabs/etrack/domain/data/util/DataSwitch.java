@@ -104,6 +104,13 @@ public class DataSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DataPackage.CATEGORY:
+			{
+				Category category = (Category)theEObject;
+				T result = caseCategory(category);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DataPackage.CATEGORIZED_ITEM:
 			{
 				CategorizedItem categorizedItem = (CategorizedItem)theEObject;
@@ -123,6 +130,14 @@ public class DataSwitch<T> extends Switch<T>
 				Resource resource = (Resource)theEObject;
 				T result = caseResource(resource);
 				if (result == null) result = caseArtifact(resource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DataPackage.LINKED_CATEGORIES:
+			{
+				LinkedCategories linkedCategories = (LinkedCategories)theEObject;
+				T result = caseLinkedCategories(linkedCategories);
+				if (result == null) result = caseCategory(linkedCategories);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,6 +194,22 @@ public class DataSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Category</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCategory(Category object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Categorized Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -222,6 +253,22 @@ public class DataSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseResource(Resource object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Linked Categories</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Linked Categories</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkedCategories(LinkedCategories object)
 	{
 		return null;
 	}

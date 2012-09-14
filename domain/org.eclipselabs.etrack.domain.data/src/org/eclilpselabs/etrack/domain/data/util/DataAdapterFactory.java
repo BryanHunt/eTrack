@@ -101,6 +101,11 @@ public class DataAdapterFactory extends AdapterFactoryImpl
 				return createLinkableAdapter();
 			}
 			@Override
+			public Adapter caseCategory(Category object)
+			{
+				return createCategoryAdapter();
+			}
+			@Override
 			public Adapter caseCategorizedItem(CategorizedItem object)
 			{
 				return createCategorizedItemAdapter();
@@ -114,6 +119,11 @@ public class DataAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseResource(Resource object)
 			{
 				return createResourceAdapter();
+			}
+			@Override
+			public Adapter caseLinkedCategories(LinkedCategories object)
+			{
+				return createLinkedCategoriesAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -183,6 +193,21 @@ public class DataAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.Category <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.domain.data.Category
+	 * @generated
+	 */
+	public Adapter createCategoryAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem <em>Categorized Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -223,6 +248,21 @@ public class DataAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createResourceAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.LinkedCategories <em>Linked Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.domain.data.LinkedCategories
+	 * @generated
+	 */
+	public Adapter createLinkedCategoriesAdapter()
 	{
 		return null;
 	}

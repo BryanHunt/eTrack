@@ -32,29 +32,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface CategorizedItem extends EObject
 {
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' attribute.
+	 * Returns the value of the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' attribute.
-	 * @see #setCategory(String)
+	 * @return the value of the '<em>Category</em>' reference.
+	 * @see #setCategory(Category)
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getCategorizedItem_Category()
 	 * @model
 	 * @generated
 	 */
-	String getCategory();
+	Category getCategory();
 
 	/**
-	 * Sets the value of the '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem#getCategory <em>Category</em>}' attribute.
+	 * Sets the value of the '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem#getCategory <em>Category</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @param value the new value of the '<em>Category</em>' reference.
 	 * @see #getCategory()
 	 * @generated
 	 */
-	void setCategory(String value);
+	void setCategory(Category value);
 
 } // CategorizedItem

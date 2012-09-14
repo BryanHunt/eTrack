@@ -87,8 +87,10 @@ public class DataFactory extends EFactoryImpl
 		switch (eClass.getClassifierID())
 		{
 			case DataPackage.LINK_MAPPING: return (EObject)createLinkMapping();
+			case DataPackage.CATEGORY: return createCategory();
 			case DataPackage.ARTIFACT: return createArtifact();
 			case DataPackage.RESOURCE: return createResource();
+			case DataPackage.LINKED_CATEGORIES: return createLinkedCategories();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -144,6 +146,17 @@ public class DataFactory extends EFactoryImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Category createCategory()
+	{
+		Category category = new Category();
+		return category;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Artifact createArtifact()
 	{
 		Artifact artifact = new Artifact();
@@ -159,6 +172,17 @@ public class DataFactory extends EFactoryImpl
 	{
 		Resource resource = new Resource();
 		return resource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LinkedCategories createLinkedCategories()
+	{
+		LinkedCategories linkedCategories = new LinkedCategories();
+		return linkedCategories;
 	}
 
 	/**

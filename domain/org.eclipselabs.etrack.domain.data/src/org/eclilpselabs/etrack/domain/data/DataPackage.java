@@ -173,6 +173,34 @@ public class DataPackage extends EPackageImpl
 	public static final int LINKABLE_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclilpselabs.etrack.domain.data.Category <em>Category</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclilpselabs.etrack.domain.data.Category
+	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getCategory()
+	 * @generated
+	 */
+	public static final int CATEGORY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CATEGORY__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Category</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CATEGORY_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem <em>Categorized Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,10 +208,10 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getCategorizedItem()
 	 * @generated
 	 */
-	public static final int CATEGORIZED_ITEM = 3;
+	public static final int CATEGORIZED_ITEM = 4;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * The feature id for the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -208,7 +236,7 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getArtifact()
 	 * @generated
 	 */
-	public static final int ARTIFACT = 4;
+	public static final int ARTIFACT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -245,7 +273,7 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getResource()
 	 * @generated
 	 */
-	public static final int RESOURCE = 5;
+	public static final int RESOURCE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -284,6 +312,43 @@ public class DataPackage extends EPackageImpl
 	public static final int RESOURCE_FEATURE_COUNT = ARTIFACT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclilpselabs.etrack.domain.data.LinkedCategories <em>Linked Categories</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclilpselabs.etrack.domain.data.LinkedCategories
+	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getLinkedCategories()
+	 * @generated
+	 */
+	public static final int LINKED_CATEGORIES = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LINKED_CATEGORIES__NAME = CATEGORY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LINKED_CATEGORIES__CATEGORY = CATEGORY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Linked Categories</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LINKED_CATEGORIES_FEATURE_COUNT = CATEGORY_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '<em>URI</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -291,7 +356,7 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getURI()
 	 * @generated
 	 */
-	public static final int URI = 6;
+	public static final int URI = 8;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,6 +384,13 @@ public class DataPackage extends EPackageImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass categoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass categorizedItemEClass = null;
 
 	/**
@@ -334,6 +406,13 @@ public class DataPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass resourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass linkedCategoriesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -518,6 +597,35 @@ public class DataPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.domain.data.Category <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Category</em>'.
+	 * @see org.eclilpselabs.etrack.domain.data.Category
+	 * @generated
+	 */
+	public EClass getCategory()
+	{
+		return categoryEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclilpselabs.etrack.domain.data.Category#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclilpselabs.etrack.domain.data.Category#getName()
+	 * @see #getCategory()
+	 * @generated
+	 */
+	public EAttribute getCategory_Name()
+	{
+		return (EAttribute)categoryEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem <em>Categorized Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -531,17 +639,17 @@ public class DataPackage extends EPackageImpl
 	}
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem#getCategory <em>Category</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem#getCategory <em>Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Category</em>'.
+	 * @return the meta object for the reference '<em>Category</em>'.
 	 * @see org.eclilpselabs.etrack.domain.data.CategorizedItem#getCategory()
 	 * @see #getCategorizedItem()
 	 * @generated
 	 */
-	public EAttribute getCategorizedItem_Category()
+	public EReference getCategorizedItem_Category()
 	{
-		return (EAttribute)categorizedItemEClass.getEStructuralFeatures().get(0);
+		return (EReference)categorizedItemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -613,6 +721,35 @@ public class DataPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.domain.data.LinkedCategories <em>Linked Categories</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Linked Categories</em>'.
+	 * @see org.eclilpselabs.etrack.domain.data.LinkedCategories
+	 * @generated
+	 */
+	public EClass getLinkedCategories()
+	{
+		return linkedCategoriesEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategory <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Category</em>'.
+	 * @see org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategory()
+	 * @see #getLinkedCategories()
+	 * @generated
+	 */
+	public EReference getLinkedCategories_Category()
+	{
+		return (EReference)linkedCategoriesEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.URI <em>URI</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -669,8 +806,11 @@ public class DataPackage extends EPackageImpl
 		linkableEClass = createEClass(LINKABLE);
 		createEReference(linkableEClass, LINKABLE__LINKS_BY_NAME);
 
+		categoryEClass = createEClass(CATEGORY);
+		createEAttribute(categoryEClass, CATEGORY__NAME);
+
 		categorizedItemEClass = createEClass(CATEGORIZED_ITEM);
-		createEAttribute(categorizedItemEClass, CATEGORIZED_ITEM__CATEGORY);
+		createEReference(categorizedItemEClass, CATEGORIZED_ITEM__CATEGORY);
 
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__NAME);
@@ -678,6 +818,9 @@ public class DataPackage extends EPackageImpl
 
 		resourceEClass = createEClass(RESOURCE);
 		createEAttribute(resourceEClass, RESOURCE__URI);
+
+		linkedCategoriesEClass = createEClass(LINKED_CATEGORIES);
+		createEReference(linkedCategoriesEClass, LINKED_CATEGORIES__CATEGORY);
 
 		// Create data types
 		uriEDataType = createEDataType(URI);
@@ -713,6 +856,7 @@ public class DataPackage extends EPackageImpl
 
 		// Add supertypes to classes
 		resourceEClass.getESuperTypes().add(this.getArtifact());
+		linkedCategoriesEClass.getESuperTypes().add(this.getCategory());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(linkedContentEClass, LinkedContent.class, "LinkedContent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -726,8 +870,11 @@ public class DataPackage extends EPackageImpl
 		initEClass(linkableEClass, Linkable.class, "Linkable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLinkable_LinksByName(), this.getLinkMapping(), null, "linksByName", null, 0, -1, Linkable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCategory_Name(), ecorePackage.getEString(), "name", null, 1, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(categorizedItemEClass, CategorizedItem.class, "CategorizedItem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCategorizedItem_Category(), ecorePackage.getEString(), "category", null, 0, 1, CategorizedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategorizedItem_Category(), this.getCategory(), null, "category", null, 0, 1, CategorizedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -735,6 +882,9 @@ public class DataPackage extends EPackageImpl
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Uri(), this.getURI(), "uri", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(linkedCategoriesEClass, LinkedCategories.class, "LinkedCategories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLinkedCategories_Category(), this.getCategory(), null, "category", null, 0, -1, LinkedCategories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -828,6 +978,24 @@ public class DataPackage extends EPackageImpl
 		public static final EReference LINKABLE__LINKS_BY_NAME = eINSTANCE.getLinkable_LinksByName();
 
 		/**
+		 * The meta object literal for the '{@link org.eclilpselabs.etrack.domain.data.Category <em>Category</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclilpselabs.etrack.domain.data.Category
+		 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getCategory()
+		 * @generated
+		 */
+		public static final EClass CATEGORY = eINSTANCE.getCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute CATEGORY__NAME = eINSTANCE.getCategory_Name();
+
+		/**
 		 * The meta object literal for the '{@link org.eclilpselabs.etrack.domain.data.CategorizedItem <em>Categorized Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -838,12 +1006,12 @@ public class DataPackage extends EPackageImpl
 		public static final EClass CATEGORIZED_ITEM = eINSTANCE.getCategorizedItem();
 
 		/**
-		 * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Category</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EAttribute CATEGORIZED_ITEM__CATEGORY = eINSTANCE.getCategorizedItem_Category();
+		public static final EReference CATEGORIZED_ITEM__CATEGORY = eINSTANCE.getCategorizedItem_Category();
 
 		/**
 		 * The meta object literal for the '{@link org.eclilpselabs.etrack.domain.data.Artifact <em>Artifact</em>}' class.
@@ -888,6 +1056,24 @@ public class DataPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute RESOURCE__URI = eINSTANCE.getResource_Uri();
+
+		/**
+		 * The meta object literal for the '{@link org.eclilpselabs.etrack.domain.data.LinkedCategories <em>Linked Categories</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclilpselabs.etrack.domain.data.LinkedCategories
+		 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getLinkedCategories()
+		 * @generated
+		 */
+		public static final EClass LINKED_CATEGORIES = eINSTANCE.getLinkedCategories();
+
+		/**
+		 * The meta object literal for the '<em><b>Category</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference LINKED_CATEGORIES__CATEGORY = eINSTANCE.getLinkedCategories_Category();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.

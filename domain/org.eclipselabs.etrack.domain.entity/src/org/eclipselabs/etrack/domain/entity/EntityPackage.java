@@ -78,7 +78,7 @@ public class EntityPackage extends EPackageImpl
 	public static final int ADDRESS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * The feature id for the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -160,7 +160,7 @@ public class EntityPackage extends EPackageImpl
 	public static final int EMAIL = 1;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * The feature id for the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -381,7 +381,7 @@ public class EntityPackage extends EPackageImpl
 	public static final int PHONE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * The feature id for the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

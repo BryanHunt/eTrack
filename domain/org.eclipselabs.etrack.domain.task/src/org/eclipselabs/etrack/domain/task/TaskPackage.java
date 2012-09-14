@@ -352,7 +352,7 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__HISTORY = DataPackage.LINKABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * The feature id for the '<em><b>Category</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -532,13 +532,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__GROUP = DataPackage.LINKABLE_FEATURE_COUNT + 21;
 
 	/**
+	 * The feature id for the '<em><b>Priority</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__PRIORITY = DataPackage.LINKABLE_FEATURE_COUNT + 22;
+
+	/**
 	 * The number of structural features of the '<em>Task</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 22;
+	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1498,6 +1507,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Task#getPriority <em>Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Priority</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.Task#getPriority()
+	 * @see #getTask()
+	 * @generated
+	 */
+	public EAttribute getTask_Priority()
+	{
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(19);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2356,6 +2380,7 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskEClass, TASK__ESTIMATE);
 		createEReference(taskEClass, TASK__CORRECTED_ESTIMATE);
 		createEReference(taskEClass, TASK__GROUP);
+		createEAttribute(taskEClass, TASK__PRIORITY);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
 		createEAttribute(taskDomainEClass, TASK_DOMAIN__NAME);
@@ -2497,6 +2522,7 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTask_Estimate(), this.getDuration(), null, "estimate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_CorrectedEstimate(), this.getDuration(), null, "correctedEstimate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Group(), this.getTaskGroup(), null, "group", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Priority(), ecorePackage.getEInt(), "priority", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskDomain_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2732,6 +2758,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK__GROUP = eINSTANCE.getTask_Group();
+
+		/**
+		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK__PRIORITY = eINSTANCE.getTask_Priority();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskDomain <em>Domain</em>}' class.
