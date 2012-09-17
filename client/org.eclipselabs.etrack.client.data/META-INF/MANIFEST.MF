@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Data Client
+Bundle-SymbolicName: org.eclipselabs.etrack.client.data
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclilpselabs.etrack.domain.data,
+ org.eclipse.core.databinding.observable.list,
+ org.eclipse.core.databinding.property.list,
+ org.eclipse.emf.common,
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.databinding,
+ org.eclipse.emf.ecore,
+ org.eclipselabs.etrack.client.core
+Service-Component: OSGI-INF/services/category_link_builder_factory.xml
+Export-Package: org.eclipselabs.etrack.client.data
