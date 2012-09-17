@@ -14,6 +14,7 @@ package org.eclipselabs.etrack.client.project;
 import java.io.IOException;
 import java.util.HashSet;
 
+import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipselabs.etrack.client.core.ILinkBuilder;
@@ -33,7 +34,7 @@ public class ProjectBuilder
 	private Project project;
 	private IProjectService projectService;
 	private IObservableValue projectNameObservable;
-	private HashSet<ILinkBuilder> linkBuilders = new HashSet<ILinkBuilder>();
+	private HashSet<ILinkBuilder<? extends IObservable>> linkBuilders = new HashSet<ILinkBuilder<? extends IObservable>>();
 
 	public ProjectBuilder()
 	{
@@ -47,7 +48,7 @@ public class ProjectBuilder
 	 * 
 	 * @param linkBuilder the link builder to add
 	 */
-	public void addLinkBuilder(ILinkBuilder linkBuilder)
+	public void addLinkBuilder(ILinkBuilder<? extends IObservable> linkBuilder)
 	{
 		linkBuilders.add(linkBuilder);
 	}
@@ -58,7 +59,7 @@ public class ProjectBuilder
 	 * 
 	 * @param linkBuilder the link builder to remove
 	 */
-	public void removeLinkBuilder(ILinkBuilder linkBuilder)
+	public void removeLinkBuilder(ILinkBuilder<? extends IObservable> linkBuilder)
 	{
 		linkBuilders.remove(linkBuilder);
 	}
@@ -96,7 +97,7 @@ public class ProjectBuilder
 		if (projectService == null)
 			throw new IllegalStateException("The project service was not set");
 
-		for (ILinkBuilder linkBuilder : linkBuilders)
+		for (ILinkBuilder<? extends IObservable> linkBuilder : linkBuilders)
 			linkBuilder.buildLink(project);
 
 		projectService.addProject(project);

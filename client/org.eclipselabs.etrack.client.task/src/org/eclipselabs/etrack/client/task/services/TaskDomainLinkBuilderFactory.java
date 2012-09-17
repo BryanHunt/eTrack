@@ -11,6 +11,7 @@
 
 package org.eclipselabs.etrack.client.task.services;
 
+import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipselabs.etrack.client.core.ILinkBuilder;
 import org.eclipselabs.etrack.client.core.ILinkBuilderFactory;
 import org.eclipselabs.etrack.client.task.TaskDomainLinkBuilder;
@@ -19,10 +20,10 @@ import org.eclipselabs.etrack.client.task.TaskDomainLinkBuilder;
  * @author bhunt
  * 
  */
-public class TaskDomainLinkBuilderFactory implements ILinkBuilderFactory
+public class TaskDomainLinkBuilderFactory implements ILinkBuilderFactory<IObservableValue>
 {
 	@Override
-	public ILinkBuilder createLinkBuilder()
+	public ILinkBuilder<IObservableValue> createLinkBuilder()
 	{
 		return new TaskDomainLinkBuilder();
 	}

@@ -11,11 +11,13 @@
 
 package org.eclipselabs.etrack.client.core;
 
+import org.eclipse.core.databinding.observable.IObservable;
+
 /**
  * @author bhunt
  * 
  */
-public interface ILinkBuilderFactory
+public interface ILinkBuilderFactory<T extends IObservable>
 {
-	ILinkBuilder createLinkBuilder();
+	ILinkBuilder<T> createLinkBuilder();
 }

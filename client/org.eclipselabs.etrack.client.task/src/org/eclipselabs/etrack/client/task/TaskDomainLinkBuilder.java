@@ -23,7 +23,7 @@ import org.eclipselabs.etrack.domain.task.TaskPackage;
  * @author bhunt
  * 
  */
-public class TaskDomainLinkBuilder implements ILinkBuilder
+public class TaskDomainLinkBuilder implements ILinkBuilder<IObservableValue>
 {
 	public TaskDomainLinkBuilder()
 	{

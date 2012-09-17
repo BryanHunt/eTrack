@@ -12,7 +12,7 @@
 package org.eclipselabs.etrack.client.core;
 
 import org.eclilpselabs.etrack.domain.data.Linkable;
-import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.core.databinding.observable.IObservable;
 
 /**
  * This interface is used when building objects that can have linked content.
@@ -22,7 +22,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
  * @author bhunt
  * 
  */
-public interface ILinkBuilder
+public interface ILinkBuilder<T extends IObservable>
 {
 	/**
 	 * @param linkable the object to add the link(s) to
@@ -33,5 +33,5 @@ public interface ILinkBuilder
 	 * 
 	 * @return the databinding observable for the linked data value
 	 */
-	IObservableValue getLinkedObservable();
+	T getLinkedObservable();
 }

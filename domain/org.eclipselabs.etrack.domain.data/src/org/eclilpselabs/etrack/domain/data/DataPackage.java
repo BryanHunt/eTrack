@@ -340,13 +340,13 @@ public class DataPackage extends EPackageImpl
 	public static final int LINKED_CATEGORIES__DESCRIPTION = LINKED_CONTENT__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Category</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int LINKED_CATEGORIES__CATEGORY = LINKED_CONTENT_FEATURE_COUNT + 0;
+	public static final int LINKED_CATEGORIES__CATEGORIES = LINKED_CONTENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Linked Categories</em>' class.
@@ -744,15 +744,15 @@ public class DataPackage extends EPackageImpl
 
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategory <em>Category</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Category</em>'.
-	 * @see org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategory()
+	 * @return the meta object for the containment reference list '<em>Categories</em>'.
+	 * @see org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategories()
 	 * @see #getLinkedCategories()
 	 * @generated
 	 */
-	public EReference getLinkedCategories_Category()
+	public EReference getLinkedCategories_Categories()
 	{
 		return (EReference)linkedCategoriesEClass.getEStructuralFeatures().get(0);
 	}
@@ -829,7 +829,7 @@ public class DataPackage extends EPackageImpl
 		createEAttribute(resourceEClass, RESOURCE__URI);
 
 		linkedCategoriesEClass = createEClass(LINKED_CATEGORIES);
-		createEReference(linkedCategoriesEClass, LINKED_CATEGORIES__CATEGORY);
+		createEReference(linkedCategoriesEClass, LINKED_CATEGORIES__CATEGORIES);
 
 		// Create data types
 		uriEDataType = createEDataType(URI);
@@ -893,7 +893,7 @@ public class DataPackage extends EPackageImpl
 		initEAttribute(getResource_Uri(), this.getURI(), "uri", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkedCategoriesEClass, LinkedCategories.class, "LinkedCategories", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLinkedCategories_Category(), this.getCategory(), null, "category", null, 0, -1, LinkedCategories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLinkedCategories_Categories(), this.getCategory(), null, "categories", null, 0, -1, LinkedCategories.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(uriEDataType, org.eclipse.emf.common.util.URI.class, "URI", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1077,12 +1077,12 @@ public class DataPackage extends EPackageImpl
 		public static final EClass LINKED_CATEGORIES = eINSTANCE.getLinkedCategories();
 
 		/**
-		 * The meta object literal for the '<em><b>Category</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EReference LINKED_CATEGORIES__CATEGORY = eINSTANCE.getLinkedCategories_Category();
+		public static final EReference LINKED_CATEGORIES__CATEGORIES = eINSTANCE.getLinkedCategories_Categories();
 
 		/**
 		 * The meta object literal for the '<em>URI</em>' data type.

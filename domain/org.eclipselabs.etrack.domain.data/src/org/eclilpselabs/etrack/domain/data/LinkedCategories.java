@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.eclilpselabs.etrack.domain.data.LinkedCategories#getCategories <em>Categories</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,15 +42,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class LinkedCategories extends LinkedContent
 {
 	/**
-	 * The cached value of the '{@link #getCategory() <em>Category</em>}' containment reference list.
+	 * The cached value of the '{@link #getCategories() <em>Categories</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCategory()
+	 * @see #getCategories()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Category> category;
-
+	protected EList<Category> categories;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,26 +72,26 @@ public class LinkedCategories extends LinkedContent
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Category</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Categories</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclilpselabs.etrack.domain.data.Category}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Category</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Categories</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Category</em>' containment reference list.
-	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getLinkedCategories_Category()
+	 * @return the value of the '<em>Categories</em>' containment reference list.
+	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getLinkedCategories_Categories()
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	public EList<Category> getCategory()
+	public EList<Category> getCategories()
 	{
-		if (category == null)
+		if (categories == null)
 		{
-			category = new EObjectContainmentEList.Resolving<Category>(Category.class, this, DataPackage.LINKED_CATEGORIES__CATEGORY);
+			categories = new EObjectContainmentEList.Resolving<Category>(Category.class, this, DataPackage.LINKED_CATEGORIES__CATEGORIES);
 		}
-		return category;
+		return categories;
 	}
 
 	/**
@@ -105,8 +104,8 @@ public class LinkedCategories extends LinkedContent
 	{
 		switch (featureID)
 		{
-			case DataPackage.LINKED_CATEGORIES__CATEGORY:
-				return ((InternalEList<?>)getCategory()).basicRemove(otherEnd, msgs);
+			case DataPackage.LINKED_CATEGORIES__CATEGORIES:
+				return ((InternalEList<?>)getCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -121,8 +120,8 @@ public class LinkedCategories extends LinkedContent
 	{
 		switch (featureID)
 		{
-			case DataPackage.LINKED_CATEGORIES__CATEGORY:
-				return getCategory();
+			case DataPackage.LINKED_CATEGORIES__CATEGORIES:
+				return getCategories();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,9 +137,9 @@ public class LinkedCategories extends LinkedContent
 	{
 		switch (featureID)
 		{
-			case DataPackage.LINKED_CATEGORIES__CATEGORY:
-				getCategory().clear();
-				getCategory().addAll((Collection<? extends Category>)newValue);
+			case DataPackage.LINKED_CATEGORIES__CATEGORIES:
+				getCategories().clear();
+				getCategories().addAll((Collection<? extends Category>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -156,8 +155,8 @@ public class LinkedCategories extends LinkedContent
 	{
 		switch (featureID)
 		{
-			case DataPackage.LINKED_CATEGORIES__CATEGORY:
-				getCategory().clear();
+			case DataPackage.LINKED_CATEGORIES__CATEGORIES:
+				getCategories().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -173,8 +172,8 @@ public class LinkedCategories extends LinkedContent
 	{
 		switch (featureID)
 		{
-			case DataPackage.LINKED_CATEGORIES__CATEGORY:
-				return category != null && !category.isEmpty();
+			case DataPackage.LINKED_CATEGORIES__CATEGORIES:
+				return categories != null && !categories.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
