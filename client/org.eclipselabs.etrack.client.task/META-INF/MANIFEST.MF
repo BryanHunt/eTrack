@@ -6,6 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclilpselabs.etrack.domain.data,
+ org.eclipse.core.databinding.observable,
  org.eclipse.core.databinding.observable.list,
  org.eclipse.core.databinding.observable.value,
  org.eclipse.core.databinding.property.list,
