@@ -2,6 +2,7 @@
  */
 package org.eclipselabs.etrack.domain.scrum;
 
+import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -272,6 +273,98 @@ public class ScrumPackage extends EPackageImpl
 	public static final int MILESTONE_FEATURE_COUNT = TASK_TIME_BOX_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.scrum.BacklogLink <em>Backlog Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.scrum.BacklogLink
+	 * @see org.eclipselabs.etrack.domain.scrum.ScrumPackage#getBacklogLink()
+	 * @generated
+	 */
+	public static final int BACKLOG_LINK = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BACKLOG_LINK__NAME = DataPackage.LINKED_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BACKLOG_LINK__DESCRIPTION = DataPackage.LINKED_CONTENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Backlog</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BACKLOG_LINK__BACKLOG = DataPackage.LINKED_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Backlog Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BACKLOG_LINK_FEATURE_COUNT = DataPackage.LINKED_CONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.scrum.ReleaseLink <em>Release Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipselabs.etrack.domain.scrum.ReleaseLink
+	 * @see org.eclipselabs.etrack.domain.scrum.ScrumPackage#getReleaseLink()
+	 * @generated
+	 */
+	public static final int RELEASE_LINK = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELEASE_LINK__NAME = DataPackage.LINKED_CONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELEASE_LINK__DESCRIPTION = DataPackage.LINKED_CONTENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELEASE_LINK__RELEASES = DataPackage.LINKED_CONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Release Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELEASE_LINK_FEATURE_COUNT = DataPackage.LINKED_CONTENT_FEATURE_COUNT + 1;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -298,6 +391,20 @@ public class ScrumPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass taskTimeBoxEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass backlogLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass releaseLinkEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -461,6 +568,64 @@ public class ScrumPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.scrum.BacklogLink <em>Backlog Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Backlog Link</em>'.
+	 * @see org.eclipselabs.etrack.domain.scrum.BacklogLink
+	 * @generated
+	 */
+	public EClass getBacklogLink()
+	{
+		return backlogLinkEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipselabs.etrack.domain.scrum.BacklogLink#getBacklog <em>Backlog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Backlog</em>'.
+	 * @see org.eclipselabs.etrack.domain.scrum.BacklogLink#getBacklog()
+	 * @see #getBacklogLink()
+	 * @generated
+	 */
+	public EReference getBacklogLink_Backlog()
+	{
+		return (EReference)backlogLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.scrum.ReleaseLink <em>Release Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Release Link</em>'.
+	 * @see org.eclipselabs.etrack.domain.scrum.ReleaseLink
+	 * @generated
+	 */
+	public EClass getReleaseLink()
+	{
+		return releaseLinkEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.scrum.ReleaseLink#getReleases <em>Releases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Releases</em>'.
+	 * @see org.eclipselabs.etrack.domain.scrum.ReleaseLink#getReleases()
+	 * @see #getReleaseLink()
+	 * @generated
+	 */
+	public EReference getReleaseLink_Releases()
+	{
+		return (EReference)releaseLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -502,6 +667,12 @@ public class ScrumPackage extends EPackageImpl
 		taskTimeBoxEClass = createEClass(TASK_TIME_BOX);
 		createEAttribute(taskTimeBoxEClass, TASK_TIME_BOX__BEGINS_ON);
 		createEAttribute(taskTimeBoxEClass, TASK_TIME_BOX__ENDS_ON);
+
+		backlogLinkEClass = createEClass(BACKLOG_LINK);
+		createEReference(backlogLinkEClass, BACKLOG_LINK__BACKLOG);
+
+		releaseLinkEClass = createEClass(RELEASE_LINK);
+		createEReference(releaseLinkEClass, RELEASE_LINK__RELEASES);
 	}
 
 	/**
@@ -530,6 +701,7 @@ public class ScrumPackage extends EPackageImpl
 
 		// Obtain other dependent packages
 		TaskPackage theTaskPackage = (TaskPackage)EPackage.Registry.INSTANCE.getEPackage(TaskPackage.eNS_URI);
+		DataPackage theDataPackage = (DataPackage)EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -540,6 +712,8 @@ public class ScrumPackage extends EPackageImpl
 		releaseEClass.getESuperTypes().add(this.getTaskTimeBox());
 		milestoneEClass.getESuperTypes().add(this.getTaskTimeBox());
 		taskTimeBoxEClass.getESuperTypes().add(theTaskPackage.getTaskGroup());
+		backlogLinkEClass.getESuperTypes().add(theDataPackage.getLinkedContent());
+		releaseLinkEClass.getESuperTypes().add(theDataPackage.getLinkedContent());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(backlogEClass, Backlog.class, "Backlog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -552,6 +726,12 @@ public class ScrumPackage extends EPackageImpl
 		initEClass(taskTimeBoxEClass, TaskTimeBox.class, "TaskTimeBox", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskTimeBox_BeginsOn(), ecorePackage.getEDate(), "beginsOn", null, 0, 1, TaskTimeBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskTimeBox_EndsOn(), ecorePackage.getEDate(), "endsOn", null, 0, 1, TaskTimeBox.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(backlogLinkEClass, BacklogLink.class, "BacklogLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBacklogLink_Backlog(), this.getBacklog(), null, "backlog", null, 0, 1, BacklogLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(releaseLinkEClass, ReleaseLink.class, "ReleaseLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReleaseLink_Releases(), this.getRelease(), null, "releases", null, 0, -1, ReleaseLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -634,6 +814,42 @@ public class ScrumPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EAttribute TASK_TIME_BOX__ENDS_ON = eINSTANCE.getTaskTimeBox_EndsOn();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.scrum.BacklogLink <em>Backlog Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.scrum.BacklogLink
+		 * @see org.eclipselabs.etrack.domain.scrum.ScrumPackage#getBacklogLink()
+		 * @generated
+		 */
+		public static final EClass BACKLOG_LINK = eINSTANCE.getBacklogLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Backlog</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference BACKLOG_LINK__BACKLOG = eINSTANCE.getBacklogLink_Backlog();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.scrum.ReleaseLink <em>Release Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipselabs.etrack.domain.scrum.ReleaseLink
+		 * @see org.eclipselabs.etrack.domain.scrum.ScrumPackage#getReleaseLink()
+		 * @generated
+		 */
+		public static final EClass RELEASE_LINK = eINSTANCE.getReleaseLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Releases</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference RELEASE_LINK__RELEASES = eINSTANCE.getReleaseLink_Releases();
 
 	}
 

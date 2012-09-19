@@ -2,6 +2,7 @@
  */
 package org.eclipselabs.etrack.domain.scrum.util;
 
+import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -108,6 +109,22 @@ public class ScrumSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ScrumPackage.BACKLOG_LINK:
+			{
+				BacklogLink backlogLink = (BacklogLink)theEObject;
+				T result = caseBacklogLink(backlogLink);
+				if (result == null) result = caseLinkedContent(backlogLink);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ScrumPackage.RELEASE_LINK:
+			{
+				ReleaseLink releaseLink = (ReleaseLink)theEObject;
+				T result = caseReleaseLink(releaseLink);
+				if (result == null) result = caseLinkedContent(releaseLink);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -177,6 +194,38 @@ public class ScrumSwitch<T> extends Switch<T>
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Backlog Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Backlog Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBacklogLink(BacklogLink object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Release Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Release Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReleaseLink(ReleaseLink object)
+	{
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -188,6 +237,22 @@ public class ScrumSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseTaskGroup(TaskGroup object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Linked Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Linked Content</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLinkedContent(LinkedContent object)
 	{
 		return null;
 	}

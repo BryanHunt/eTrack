@@ -2,6 +2,7 @@
  */
 package org.eclipselabs.etrack.domain.scrum.util;
 
+import org.eclilpselabs.etrack.domain.data.LinkedContent;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -97,9 +98,24 @@ public class ScrumAdapterFactory extends AdapterFactoryImpl
 				return createTaskTimeBoxAdapter();
 			}
 			@Override
+			public Adapter caseBacklogLink(BacklogLink object)
+			{
+				return createBacklogLinkAdapter();
+			}
+			@Override
+			public Adapter caseReleaseLink(ReleaseLink object)
+			{
+				return createReleaseLinkAdapter();
+			}
+			@Override
 			public Adapter caseTaskGroup(TaskGroup object)
 			{
 				return createTaskGroupAdapter();
+			}
+			@Override
+			public Adapter caseLinkedContent(LinkedContent object)
+			{
+				return createLinkedContentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object)
@@ -184,6 +200,36 @@ public class ScrumAdapterFactory extends AdapterFactoryImpl
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.scrum.BacklogLink <em>Backlog Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.scrum.BacklogLink
+	 * @generated
+	 */
+	public Adapter createBacklogLinkAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.scrum.ReleaseLink <em>Release Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipselabs.etrack.domain.scrum.ReleaseLink
+	 * @generated
+	 */
+	public Adapter createReleaseLinkAdapter()
+	{
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.eclipselabs.etrack.domain.task.TaskGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -194,6 +240,21 @@ public class ScrumAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createTaskGroupAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.LinkedContent <em>Linked Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.domain.data.LinkedContent
+	 * @generated
+	 */
+	public Adapter createLinkedContentAdapter()
 	{
 		return null;
 	}

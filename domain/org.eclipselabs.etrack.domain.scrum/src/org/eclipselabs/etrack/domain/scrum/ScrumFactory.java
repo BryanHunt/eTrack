@@ -76,6 +76,8 @@ public class ScrumFactory extends EFactoryImpl
 			case ScrumPackage.RELEASE: return createRelease();
 			case ScrumPackage.MILESTONE: return createMilestone();
 			case ScrumPackage.TASK_TIME_BOX: return createTaskTimeBox();
+			case ScrumPackage.BACKLOG_LINK: return createBacklogLink();
+			case ScrumPackage.RELEASE_LINK: return createReleaseLink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -123,6 +125,28 @@ public class ScrumFactory extends EFactoryImpl
 	{
 		TaskTimeBox taskTimeBox = new TaskTimeBox();
 		return taskTimeBox;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BacklogLink createBacklogLink()
+	{
+		BacklogLink backlogLink = new BacklogLink();
+		return backlogLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReleaseLink createReleaseLink()
+	{
+		ReleaseLink releaseLink = new ReleaseLink();
+		return releaseLink;
 	}
 
 	/**

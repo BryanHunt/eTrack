@@ -12,4 +12,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="beginsOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endsOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BacklogLink" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//LinkedContent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backlog" eType="#//Backlog"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReleaseLink" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//LinkedContent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="releases" upperBound="-1"
+        eType="#//Release" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
