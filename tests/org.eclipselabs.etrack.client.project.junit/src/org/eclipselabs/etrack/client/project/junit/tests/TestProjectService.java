@@ -75,18 +75,18 @@ public class TestProjectService
 	public void setUp() throws IOException
 	{
 		baseURI = URI.createURI("http://localhost:9999/junit");
-		String[] projectPath = new String[] { "storage", "projects", "" };
+		String[] projectPath = new String[] { "storage", "projects" };
 		projectService = new ProjectService();
 
 		when(resourceSetFactory.createResourceSet()).thenReturn(resourceSet);
 
-		URI uri = baseURI.appendSegment("project1");
-		projectResource.setURI(uri);
+// URI uri = baseURI.appendSegment("project1");
+		projectResource.setURI(baseURI);
 
-		doReturn(projectResource).when(resourceSet).createResource(eq(baseURI.appendSegments(projectPath)));
+		doReturn(projectResource).when(resourceSet).createResource(eq(baseURI.appendSegments(projectPath).appendSegment("")));
 		doNothing().when(projectResource).save(anyMap());
 
-		URI projectsURI = baseURI.appendSegments(projectPath).appendQuery("*");
+		URI projectsURI = baseURI.appendSegments(projectPath).appendSegment("").appendQuery("*");
 		ResourceImpl projectsResource = new ResourceImpl(projectsURI);
 		projectsResource.getContents().add(ExtFactory.eINSTANCE.createECollection());
 		doReturn(projectsResource).when(resourceSet).getResource(projectsURI, true);

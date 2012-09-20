@@ -13,6 +13,7 @@ package org.eclipselabs.etrack.client.scrum;
 
 import java.io.IOException;
 
+import org.eclipselabs.etrack.client.core.EntityBuilder;
 import org.eclipselabs.etrack.domain.scrum.Backlog;
 import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
 
@@ -20,24 +21,27 @@ import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
  * @author bhunt
  * 
  */
-public class BacklogBuilder
+public class BacklogBuilder extends EntityBuilder<Backlog>
 {
-	private Backlog backlog;
 	private IScrumService scrumService;
-
-	public BacklogBuilder()
-	{
-		backlog = ScrumFactory.eINSTANCE.createBacklog();
-	}
-
-	public Backlog buildBacklog() throws IOException
-	{
-		scrumService.addBacklog(backlog);
-		return backlog;
-	}
 
 	public void setScrumService(IScrumService scrumService)
 	{
 		this.scrumService = scrumService;
+	}
+
+	@Override
+	protected Backlog createObject()
+	{
+		return ScrumFactory.eINSTANCE.createBacklog();
+	}
+
+	@Override
+	protected void doBuild() throws IOException
+	{
+		if (scrumService != null)
+			throw new IOException("Could not find a scrum service for adding the new backlog");
+
+		scrumService.addBacklog(getObject());
 	}
 }

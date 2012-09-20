@@ -23,19 +23,9 @@ import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.emf.query.util.ExpressionBuilder;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.task.ITaskService;
-import org.eclipselabs.etrack.domain.audit.Action;
-import org.eclipselabs.etrack.domain.state.State;
-import org.eclipselabs.etrack.domain.state.StateGroup;
-import org.eclipselabs.etrack.domain.state.StateTransition;
-import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
-import org.eclipselabs.etrack.domain.task.Attachment;
-import org.eclipselabs.etrack.domain.task.Comment;
 import org.eclipselabs.etrack.domain.task.RelatedTasksMapping;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
-import org.eclipselabs.etrack.domain.task.TaskRelationship;
-import org.eclipselabs.etrack.domain.task.TaskResolution;
-import org.eclipselabs.etrack.domain.task.TaskType;
 import org.eclipselabs.mongo.emf.ext.ECollection;
 import org.eclipselabs.mongo.emf.ext.ExtPackage;
 
@@ -47,49 +37,19 @@ public class TaskService extends ServerResourceClient implements ITaskService
 {
 	public static final String PROP_RELATED_TASKS_MAPPING_PATH = "related_tasks_mapping_path";
 	public static final String PROP_TASK_PATH = "task_path";
-	public static final String PROP_TASK_ATTACHMENT_PATH = "task_attachment_path";
-	public static final String PROP_TASK_COMMENT_PATH = "task_comment_path";
 	public static final String PROP_TASK_DOMAIN_PATH = "task_domain_path";
-	public static final String PROP_TASK_HISTORY_PATH = "task_history_path";
-	public static final String PROP_TASK_RELATIONSHIP_PATH = "task_relationship_path";
-	public static final String PROP_TASK_RESOLUTION_PATH = "task_resolution_path";
-	public static final String PROP_TASK_STATE_PATH = "task_state_path";
-	public static final String PROP_TASK_STATE_GROUP_PATH = "task_state_group_path";
-	public static final String PROP_TASK_STATE_TRANSITION_PATH = "task_state_transition_path";
-	public static final String PROP_TASK_STATE_TRANSITION_MAPPING_PATH = "task_state_transition_mapping_path";
-	public static final String PROP_TASK_TYPE_PATH = "task_type_path";
 
 	private ECollection taskDomains;
 	private String[] relatedTasksMappingPath;
 	private String[] taskPath;
-	private String[] taskAttachmentPath;
-	private String[] taskCommentPath;
 	private String[] taskDomainPath;
-	private String[] taskHistoryPath;
-	private String[] taskRelationshipPath;
-	private String[] taskResolutionPath;
-	private String[] taskStatePath;
-	private String[] taskStateGroupPath;
-	private String[] taskStateTransitionPath;
-	private String[] taskStateTransitionMappingPath;
-	private String[] taskTypePath;
 
 	@Override
 	public void configure(Map<String, Object> properties)
 	{
 		relatedTasksMappingPath = buildCollectionPath((String[]) properties.get(PROP_RELATED_TASKS_MAPPING_PATH));
 		taskPath = buildCollectionPath((String[]) properties.get(PROP_TASK_PATH));
-		taskAttachmentPath = buildCollectionPath((String[]) properties.get(PROP_TASK_ATTACHMENT_PATH));
-		taskCommentPath = buildCollectionPath((String[]) properties.get(PROP_TASK_COMMENT_PATH));
 		taskDomainPath = buildCollectionPath((String[]) properties.get(PROP_TASK_DOMAIN_PATH));
-		taskHistoryPath = buildCollectionPath((String[]) properties.get(PROP_TASK_HISTORY_PATH));
-		taskRelationshipPath = buildCollectionPath((String[]) properties.get(PROP_TASK_RELATIONSHIP_PATH));
-		taskResolutionPath = buildCollectionPath((String[]) properties.get(PROP_TASK_RESOLUTION_PATH));
-		taskStatePath = buildCollectionPath((String[]) properties.get(PROP_TASK_STATE_PATH));
-		taskStateGroupPath = buildCollectionPath((String[]) properties.get(PROP_TASK_STATE_GROUP_PATH));
-		taskStateTransitionPath = buildCollectionPath((String[]) properties.get(PROP_TASK_STATE_TRANSITION_PATH));
-		taskStateTransitionMappingPath = buildCollectionPath((String[]) properties.get(PROP_TASK_STATE_TRANSITION_MAPPING_PATH));
-		taskTypePath = buildCollectionPath((String[]) properties.get(PROP_TASK_TYPE_PATH));
 
 		super.configure(properties);
 	}
@@ -107,18 +67,6 @@ public class TaskService extends ServerResourceClient implements ITaskService
 	}
 
 	@Override
-	public URI addTaskAttachment(Attachment attachment) throws IOException
-	{
-		return addObject(attachment, taskAttachmentPath);
-	}
-
-	@Override
-	public URI addTaskComment(Comment comment) throws IOException
-	{
-		return addObject(comment, taskCommentPath);
-	}
-
-	@Override
 	public URI addTaskDomain(TaskDomain taskDomain) throws IOException
 	{
 		URI uri = addObject(taskDomain, taskDomainPath);
@@ -128,54 +76,6 @@ public class TaskService extends ServerResourceClient implements ITaskService
 
 		taskDomains.getValues().add(taskDomain);
 		return uri;
-	}
-
-	@Override
-	public URI addTaskHistory(Action history) throws IOException
-	{
-		return addObject(history, taskHistoryPath);
-	}
-
-	@Override
-	public URI addTaskRelationship(TaskRelationship taskRelationship) throws IOException
-	{
-		return addObject(taskRelationship, taskRelationshipPath);
-	}
-
-	@Override
-	public URI addTaskResolution(TaskResolution taskResolution) throws IOException
-	{
-		return addObject(taskResolution, taskResolutionPath);
-	}
-
-	@Override
-	public URI addTaskState(State state) throws IOException
-	{
-		return addObject(state, taskStatePath);
-	}
-
-	@Override
-	public URI addTaskStateGroup(StateGroup stateGroup) throws IOException
-	{
-		return addObject(stateGroup, taskStateGroupPath);
-	}
-
-	@Override
-	public URI addTaskStateTransition(StateTransition stateTransition) throws IOException
-	{
-		return addObject(stateTransition, taskStateTransitionPath);
-	}
-
-	@Override
-	public URI addTaskStateTransitionMapping(StateTransitionMapping stateTransitionMapping) throws IOException
-	{
-		return addObject(stateTransitionMapping, taskStateTransitionMappingPath);
-	}
-
-	@Override
-	public URI addTaskType(TaskType taskType) throws IOException
-	{
-		return addObject(taskType, taskTypePath);
 	}
 
 	@Override

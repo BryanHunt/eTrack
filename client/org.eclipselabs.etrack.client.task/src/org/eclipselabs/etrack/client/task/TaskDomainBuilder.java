@@ -16,6 +16,7 @@ import java.io.IOException;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipselabs.etrack.client.core.EntityBuilder;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
@@ -24,58 +25,16 @@ import org.eclipselabs.etrack.domain.task.TaskPackage;
  * @author bhunt
  * 
  */
-public class TaskDomainBuilder
+public class TaskDomainBuilder extends EntityBuilder<TaskDomain>
 {
-	public TaskDomainBuilder()
-	{
-		taskDomain = TaskFactory.eINSTANCE.createTaskDomain();
-	}
-
-	public TaskDomain buildTaskDomain() throws IOException
-	{
-// for (TaskRelationship relationship : taskDomain.getRelationships())
-// taskService.addTaskRelationship(relationship);
-//
-// for (TaskRelationship relationship : taskDomain.getRelationships())
-// relationship.eResource().save(null);
-//
-// for (TaskResolution resolution : taskDomain.getResolutions())
-// taskService.addTaskResolution(resolution);
-//
-// for (State state : taskDomain.getStates())
-// taskService.addTaskState(state);
-//
-// for (StateGroup stateGroup : taskDomain.getStateGroups())
-// taskService.addTaskStateGroup(stateGroup);
-//
-// for (StateTransition stateTransition : taskDomain.getTransitions())
-// taskService.addTaskStateTransition(stateTransition);
-//
-// for (TaskType taskType : taskDomain.getTaskTypes())
-// {
-// Iterator<Entry<State, EList<StateTransition>>> iterator = taskType.getStates().iterator();
-//
-// while (iterator.hasNext())
-// {
-// StateTransitionMapping stateTransitionMapping = (StateTransitionMapping) iterator.next();
-// taskService.addTaskStateTransitionMapping(stateTransitionMapping);
-// }
-//
-// taskService.addTaskType(taskType);
-// }
-
-		taskService.addTaskDomain(taskDomain);
-		return taskDomain;
-	}
-
 	public IObservableList createStateGroupsObservable()
 	{
-		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__STATE_GROUPS).observe(taskDomain);
+		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__STATE_GROUPS).observe(getObject());
 	}
 
 	public IObservableValue createNameObservable()
 	{
-		return EMFProperties.value(TaskPackage.Literals.TASK_DOMAIN__NAME).observe(taskDomain);
+		return EMFProperties.value(TaskPackage.Literals.TASK_DOMAIN__NAME).observe(getObject());
 	}
 
 	/**
@@ -83,7 +42,7 @@ public class TaskDomainBuilder
 	 */
 	public IObservableList createStatesObservable()
 	{
-		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__STATES).observe(taskDomain);
+		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__STATES).observe(getObject());
 	}
 
 	/**
@@ -91,7 +50,7 @@ public class TaskDomainBuilder
 	 */
 	public IObservableList createStateTransitionsObservable()
 	{
-		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__TRANSITIONS).observe(taskDomain);
+		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__TRANSITIONS).observe(getObject());
 	}
 
 	/**
@@ -99,17 +58,17 @@ public class TaskDomainBuilder
 	 */
 	public IObservableList createTaskTypesObservable()
 	{
-		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__TASK_TYPES).observe(taskDomain);
+		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__TASK_TYPES).observe(getObject());
 	}
 
 	public IObservableList createTaskResolutionsObservable()
 	{
-		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__RESOLUTIONS).observe(taskDomain);
+		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__RESOLUTIONS).observe(getObject());
 	}
 
 	public IObservableList createTaskRelationshipsObservable()
 	{
-		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__RELATIONSHIPS).observe(taskDomain);
+		return EMFProperties.list(TaskPackage.Literals.TASK_DOMAIN__RELATIONSHIPS).observe(getObject());
 	}
 
 	public void setTaskService(ITaskService taskService)
@@ -119,5 +78,18 @@ public class TaskDomainBuilder
 
 	private ITaskService taskService;
 
-	private TaskDomain taskDomain;
+	@Override
+	protected TaskDomain createObject()
+	{
+		return TaskFactory.eINSTANCE.createTaskDomain();
+	}
+
+	@Override
+	protected void doBuild() throws IOException
+	{
+		if (taskService == null)
+			throw new IOException("Could not find a task service for adding the new task domain");
+
+		taskService.addTaskDomain(getObject());
+	}
 }

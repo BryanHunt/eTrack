@@ -56,7 +56,7 @@ public class TestProjectBuilder
 		projectBuilder.setProjectService(projectService);
 	}
 
-	@Test(expected = IllegalStateException.class)
+	@Test(expected = IOException.class)
 	public void testBuildProjectWithNoProjectService() throws IOException
 	{
 		// --- Setup
@@ -65,7 +65,7 @@ public class TestProjectBuilder
 
 		// --- Test
 
-		projectBuilder.buildProject();
+		projectBuilder.build();
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class TestProjectBuilder
 	{
 		// --- Test
 
-		Project project = projectBuilder.buildProject();
+		Project project = projectBuilder.build();
 
 		// --- Verify
 
@@ -90,13 +90,14 @@ public class TestProjectBuilder
 		// --- Test
 
 		projectBuilder.getProjectNameObservable().setValue(projectName);
-		Project project = projectBuilder.buildProject();
+		Project project = projectBuilder.build();
 
 		// --- Verify
 
 		assertThat(project.getName(), is(projectName));
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
 	public void testAddLinkBuilder() throws IOException
 	{
@@ -107,13 +108,14 @@ public class TestProjectBuilder
 		// --- Test
 
 		projectBuilder.addLinkBuilder(linkBuilder);
-		Project project = projectBuilder.buildProject();
+		Project project = projectBuilder.build();
 
 		// --- Verify
 
 		verify(linkBuilder).buildLink(project);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
 	public void testRemoveLinkBuilder() throws IOException
 	{
@@ -128,7 +130,7 @@ public class TestProjectBuilder
 		// --- Test
 
 		projectBuilder.removeLinkBuilder(linkBuilder1);
-		Project project = projectBuilder.buildProject();
+		Project project = projectBuilder.build();
 
 		// --- Verify
 

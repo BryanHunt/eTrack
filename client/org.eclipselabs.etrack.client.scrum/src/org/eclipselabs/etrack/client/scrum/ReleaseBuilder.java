@@ -13,6 +13,7 @@ package org.eclipselabs.etrack.client.scrum;
 
 import java.io.IOException;
 
+import org.eclipselabs.etrack.client.core.EntityBuilder;
 import org.eclipselabs.etrack.domain.scrum.Release;
 import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
 
@@ -20,24 +21,27 @@ import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
  * @author bhunt
  * 
  */
-public class ReleaseBuilder
+public class ReleaseBuilder extends EntityBuilder<Release>
 {
-	private Release release;
 	private IScrumService scrumService;
-
-	public ReleaseBuilder()
-	{
-		release = ScrumFactory.eINSTANCE.createRelease();
-	}
-
-	public Release buildRelease() throws IOException
-	{
-		scrumService.addRelease(release);
-		return release;
-	}
 
 	public void setScrumService(IScrumService scrumService)
 	{
 		this.scrumService = scrumService;
+	}
+
+	@Override
+	protected Release createObject()
+	{
+		return ScrumFactory.eINSTANCE.createRelease();
+	}
+
+	@Override
+	protected void doBuild() throws IOException
+	{
+		if (scrumService != null)
+			throw new IOException("Could not find a scrum service for adding the new release");
+
+		scrumService.addRelease(getObject());
 	}
 }

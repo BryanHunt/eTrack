@@ -12,12 +12,10 @@
 package org.eclipselabs.etrack.client.project;
 
 import java.io.IOException;
-import java.util.HashSet;
 
-import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFProperties;
-import org.eclipselabs.etrack.client.core.ILinkBuilder;
+import org.eclipselabs.etrack.client.core.EntityBuilder;
 import org.eclipselabs.etrack.domain.project.Project;
 import org.eclipselabs.etrack.domain.project.ProjectFactory;
 import org.eclipselabs.etrack.domain.project.ProjectPackage;
@@ -29,39 +27,14 @@ import org.eclipselabs.etrack.domain.project.ProjectPackage;
  * 
  * @author bhunt
  */
-public class ProjectBuilder
+public class ProjectBuilder extends EntityBuilder<Project>
 {
-	private Project project;
 	private IProjectService projectService;
 	private IObservableValue projectNameObservable;
-	private HashSet<ILinkBuilder<? extends IObservable>> linkBuilders = new HashSet<ILinkBuilder<? extends IObservable>>();
 
 	public ProjectBuilder()
 	{
-		project = ProjectFactory.eINSTANCE.createProject();
-		projectNameObservable = EMFProperties.value(ProjectPackage.Literals.PROJECT__NAME).observe(project);
-	}
-
-	/**
-	 * Add link builders to the project builder. The link builders will
-	 * be called during buildProject().
-	 * 
-	 * @param linkBuilder the link builder to add
-	 */
-	public void addLinkBuilder(ILinkBuilder<? extends IObservable> linkBuilder)
-	{
-		linkBuilders.add(linkBuilder);
-	}
-
-	/**
-	 * Remove link builders from the project builder. The removed
-	 * link builder will not be called during buildProject().
-	 * 
-	 * @param linkBuilder the link builder to remove
-	 */
-	public void removeLinkBuilder(ILinkBuilder<? extends IObservable> linkBuilder)
-	{
-		linkBuilders.remove(linkBuilder);
+		projectNameObservable = EMFProperties.value(ProjectPackage.Literals.PROJECT__NAME).observe(getObject());
 	}
 
 	/**
@@ -86,21 +59,18 @@ public class ProjectBuilder
 		this.projectService = projectService;
 	}
 
-	/**
-	 * Builds and saves a new project object.
-	 * 
-	 * @return the new project object
-	 * @throws IOException if there was a problem saving the new project object
-	 */
-	public Project buildProject() throws IOException
+	@Override
+	protected Project createObject()
+	{
+		return ProjectFactory.eINSTANCE.createProject();
+	}
+
+	@Override
+	protected void doBuild() throws IOException
 	{
 		if (projectService == null)
-			throw new IllegalStateException("The project service was not set");
+			throw new IOException("Could not find the project service for adding the new project");
 
-		for (ILinkBuilder<? extends IObservable> linkBuilder : linkBuilders)
-			linkBuilder.buildLink(project);
-
-		projectService.addProject(project);
-		return project;
+		projectService.addProject(getObject());
 	}
 }

@@ -91,13 +91,13 @@ public class TestTaskService
 	public void setUp() throws IOException
 	{
 		baseURI = URI.createURI("http://localhost:9999/junit");
-		taskPath = new String[] { "storage", "tasks", "" };
-		taskDomainPath = new String[] { "storage", "task_domains", "" };
+		taskPath = new String[] { "storage", "tasks" };
+		taskDomainPath = new String[] { "storage", "task_domains", };
 		taskService = new TaskService();
 
 		when(resourceSetFactory.createResourceSet()).thenReturn(resourceSet);
 
-		URI taskDomainsURI = baseURI.appendSegments(taskDomainPath).appendQuery("*");
+		URI taskDomainsURI = baseURI.appendSegments(taskDomainPath).appendSegment("").appendQuery("*");
 		ResourceImpl projectsResource = new ResourceImpl(taskDomainsURI);
 		projectsResource.getContents().add(ExtFactory.eINSTANCE.createECollection());
 		doReturn(projectsResource).when(resourceSet).getResource(taskDomainsURI, true);
@@ -108,6 +108,7 @@ public class TestTaskService
 
 		HashMap<String, Object> properties = new HashMap<String, Object>();
 		properties.put(ServerResourceClient.PROP_URI, baseURI.toString());
+		properties.put(TaskService.PROP_RELATED_TASKS_MAPPING_PATH, new String[] {});
 		properties.put(TaskService.PROP_TASK_PATH, taskPath);
 		properties.put(TaskService.PROP_TASK_DOMAIN_PATH, taskDomainPath);
 
@@ -119,7 +120,7 @@ public class TestTaskService
 	{
 		// --- Setup
 
-		URI taskCollectionURI = baseURI.appendSegments(taskPath);
+		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.trimSegments(1).appendSegment("task");
 
 		Resource resource = spy(new ResourceImpl(taskURI));
@@ -144,7 +145,7 @@ public class TestTaskService
 	{
 		// --- Setup
 
-		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath).appendSegment("");
 		URI taskDomainURI = taskDomainCollectionURI.trimSegments(1).appendSegment("task_domain");
 
 		Resource resource = spy(new ResourceImpl(taskDomainURI));
@@ -169,7 +170,7 @@ public class TestTaskService
 	{
 		// --- Setup
 
-		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath).appendSegment("");
 		URI taskDomain1URI = taskDomainCollectionURI.trimSegments(1).appendSegment("task_domain1");
 		URI taskDomain2URI = taskDomainCollectionURI.trimSegments(1).appendSegment("task_domain2");
 
@@ -204,7 +205,7 @@ public class TestTaskService
 
 		String taskId = "task";
 
-		URI taskCollectionURI = baseURI.appendSegments(taskPath);
+		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.trimSegments(1).appendSegment(taskId);
 
 		Resource resource = spy(new ResourceImpl(taskURI));
@@ -223,7 +224,7 @@ public class TestTaskService
 
 		String taskId = "task";
 
-		URI taskCollectionURI = baseURI.appendSegments(taskPath);
+		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.trimSegments(1).appendSegment(taskId);
 
 		Task task = TaskFactory.eINSTANCE.createTask();
@@ -243,7 +244,7 @@ public class TestTaskService
 	{
 		// --- Setup
 
-		URI taskCollectionURI = baseURI.appendSegments(taskPath);
+		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.appendQuery(URI.encodeQuery("*", false));
 
 		ECollection tasks = ExtFactory.eINSTANCE.createECollection();
@@ -275,7 +276,7 @@ public class TestTaskService
 		query.setOperator("=");
 		query.setRightOperand(right);
 
-		URI taskCollectionURI = baseURI.appendSegments(taskPath);
+		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.appendQuery(URI.encodeQuery(ExpressionBuilder.toString(query), false));
 
 		ECollection tasks = ExtFactory.eINSTANCE.createECollection();
@@ -297,7 +298,7 @@ public class TestTaskService
 
 		String id = "domain";
 
-		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath).appendSegment("");
 		URI taskDomainURI = taskDomainCollectionURI.trimSegments(1).appendSegments(new String[] { "task_domain", id });
 		URI queryURI = taskDomainCollectionURI.appendQuery("*");
 
@@ -324,7 +325,7 @@ public class TestTaskService
 
 		String id = "domain";
 
-		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath).appendSegment("");
 		URI taskDomainURI = taskDomainCollectionURI.trimSegments(1).appendSegments(new String[] { "task_domain", id });
 		URI queryURI = taskDomainCollectionURI.appendQuery("*");
 
@@ -350,7 +351,7 @@ public class TestTaskService
 	{
 		// --- Setup
 
-		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath).appendSegment("");
 		URI taskDomainURI = taskDomainCollectionURI.trimSegments(1).appendSegment("task_domain");
 
 		Resource resource = spy(new ResourceImpl(taskDomainURI));
@@ -374,7 +375,7 @@ public class TestTaskService
 	{
 		// --- Setup
 
-		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath);
+		URI taskDomainCollectionURI = baseURI.appendSegments(taskDomainPath).appendSegment("");
 		URI taskDomainURI = taskDomainCollectionURI.trimSegments(1).appendSegment("task_domain");
 
 		Resource resource = spy(new ResourceImpl(taskDomainURI));
