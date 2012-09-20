@@ -11,6 +11,12 @@
 
 package org.eclipselabs.etrack.client.scrum;
 
+import java.io.IOException;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipselabs.etrack.domain.scrum.Backlog;
+import org.eclipselabs.etrack.domain.scrum.Release;
+
 /**
  * @author bhunt
  * 
@@ -19,4 +25,8 @@ public interface IScrumService
 {
 	String BACKLOG_LINK_KEY = "org.eclipselabs.etrack.scrum.backlog.link";
 	String RELEASE_LINK_KEY = "org.eclipselabs.etrack.scrum.release.link";
+
+	URI addBacklog(Backlog backlog) throws IOException;
+
+	URI addRelease(Release release) throws IOException;
 }

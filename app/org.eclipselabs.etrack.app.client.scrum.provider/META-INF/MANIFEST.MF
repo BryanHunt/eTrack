@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scrum Client Provider
+Bundle-SymbolicName: org.eclipselabs.etrack.app.client.scrum.provider
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: EclipseLabs
+Fragment-Host: org.eclipselabs.etrack.client.scrum;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipselabs.mongo.emf.ext

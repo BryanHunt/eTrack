@@ -47,4 +47,12 @@ public class ServerResourceClient extends ServerClient
 	{
 		return resourceCache.getResourceSet();
 	}
+
+	protected String[] buildCollectionPath(String[] basePath)
+	{
+		String[] collectionPath = new String[basePath.length + 1];
+		System.arraycopy(basePath, 0, collectionPath, 0, basePath.length);
+		collectionPath[basePath.length] = "";
+		return collectionPath;
+	}
 }

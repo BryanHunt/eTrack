@@ -234,12 +234,4 @@ public class TaskService extends ServerResourceClient implements ITaskService
 		Resource resource = getResourceSet().getResource(uri, true);
 		taskDomains = (ECollection) resource.getContents().get(0);
 	}
-
-	private String[] buildCollectionPath(String[] basePath)
-	{
-		String[] collectionPath = new String[basePath.length + 1];
-		System.arraycopy(basePath, 0, collectionPath, 0, basePath.length);
-		collectionPath[basePath.length] = "";
-		return collectionPath;
-	}
 }
