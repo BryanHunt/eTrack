@@ -16,3 +16,4 @@ Import-Package: org.eclipse.emf.ecore,
 Service-Component:  OSGI-INF/resources/backlog.xml,
  OSGI-INF/resources/milestone.xml,
  OSGI-INF/resources/release.xml
+Bundle-ActivationPolicy: lazy
