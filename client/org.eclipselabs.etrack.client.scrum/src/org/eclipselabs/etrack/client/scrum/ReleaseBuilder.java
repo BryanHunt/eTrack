@@ -13,7 +13,7 @@ package org.eclipselabs.etrack.client.scrum;
 
 import java.io.IOException;
 
-import org.eclipselabs.etrack.client.core.EntityBuilder;
+import org.eclipselabs.etrack.client.task.TaskGroupBuilder;
 import org.eclipselabs.etrack.domain.scrum.Release;
 import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
 
@@ -21,7 +21,7 @@ import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
  * @author bhunt
  * 
  */
-public class ReleaseBuilder extends EntityBuilder<Release>
+public class ReleaseBuilder extends TaskGroupBuilder<Release>
 {
 	private IScrumService scrumService;
 

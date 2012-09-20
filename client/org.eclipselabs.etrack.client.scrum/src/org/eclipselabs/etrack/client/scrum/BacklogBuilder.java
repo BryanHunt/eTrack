@@ -13,7 +13,7 @@ package org.eclipselabs.etrack.client.scrum;
 
 import java.io.IOException;
 
-import org.eclipselabs.etrack.client.core.EntityBuilder;
+import org.eclipselabs.etrack.client.task.TaskGroupBuilder;
 import org.eclipselabs.etrack.domain.scrum.Backlog;
 import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
 
@@ -21,7 +21,7 @@ import org.eclipselabs.etrack.domain.scrum.ScrumFactory;
  * @author bhunt
  * 
  */
-public class BacklogBuilder extends EntityBuilder<Backlog>
+public class BacklogBuilder extends TaskGroupBuilder<Backlog>
 {
 	private IScrumService scrumService;
 

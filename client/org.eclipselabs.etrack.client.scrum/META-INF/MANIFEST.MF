@@ -13,6 +13,8 @@ Import-Package: org.eclilpselabs.etrack.domain.data,
  org.eclipse.emf.databinding,
  org.eclipse.emf.ecore,
  org.eclipselabs.etrack.client.core,
+ org.eclipselabs.etrack.client.task,
  org.eclipselabs.etrack.domain.scrum,
  org.eclipselabs.etrack.domain.task
 Export-Package: org.eclipselabs.etrack.client.scrum
+Service-Component: OSGI-INF/scrum.xml, OSGI-INF/factory.xml,

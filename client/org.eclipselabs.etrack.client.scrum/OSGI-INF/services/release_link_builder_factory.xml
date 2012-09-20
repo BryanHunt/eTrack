@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.client.scrum.releaseLinkBuilderFactory">
-   <implementation class="org.eclipselabs.etrack.client.scrum.services.ReleaseLinkBuilderFactory"/>
-   <service>
-      <provide interface="org.eclipselabs.etrack.client.core.ILinkBuilderFactory"/>
-   </service>
-   <property name="type" type="String" value="ReleaseLinkBuilder"/>
-</scr:component>

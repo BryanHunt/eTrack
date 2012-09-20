@@ -34,7 +34,7 @@ public class TaskDomainBuilder extends EntityBuilder<TaskDomain>
 
 	public IObservableValue createNameObservable()
 	{
-		return EMFProperties.value(TaskPackage.Literals.TASK_DOMAIN__NAME).observe(getObject());
+		return TaskProperties.TASK_DOMAIN_NAME.observe(getObject());
 	}
 
 	/**

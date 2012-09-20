@@ -14,11 +14,9 @@ package org.eclipselabs.etrack.client.project;
 import java.io.IOException;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipselabs.etrack.client.core.EntityBuilder;
 import org.eclipselabs.etrack.domain.project.Project;
 import org.eclipselabs.etrack.domain.project.ProjectFactory;
-import org.eclipselabs.etrack.domain.project.ProjectPackage;
 
 /**
  * This class is used to build a new Project instance and store it on the server. This
@@ -34,7 +32,7 @@ public class ProjectBuilder extends EntityBuilder<Project>
 
 	public ProjectBuilder()
 	{
-		projectNameObservable = EMFProperties.value(ProjectPackage.Literals.PROJECT__NAME).observe(getObject());
+		projectNameObservable = ProjectProperties.PROJECT_NAME.observe(getObject());
 	}
 
 	/**

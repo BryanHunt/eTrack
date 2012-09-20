@@ -9,22 +9,27 @@
  *    NVIDIA - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.client.scrum.services;
+package org.eclipselabs.etrack.client.task;
 
 import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipselabs.etrack.client.core.ILinkBuilder;
-import org.eclipselabs.etrack.client.core.ILinkBuilderFactory;
-import org.eclipselabs.etrack.client.scrum.BacklogLinkBuilder;
+import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipselabs.etrack.client.core.EntityBuilder;
+import org.eclipselabs.etrack.domain.task.TaskGroup;
+import org.eclipselabs.etrack.domain.task.TaskPackage;
 
 /**
  * @author bhunt
  * 
  */
-public class BacklogLinkBuilderFactory implements ILinkBuilderFactory<IObservableValue>
+public abstract class TaskGroupBuilder<T extends TaskGroup> extends EntityBuilder<T>
 {
-	@Override
-	public ILinkBuilder<IObservableValue> createLinkBuilder()
+	public IObservableValue createTaskGroupNameObservable()
 	{
-		return new BacklogLinkBuilder();
+		return TaskProperties.TASK_GROUP_NAME.observe(getObject());
+	}
+
+	public IObservableValue createProjectObservable()
+	{
+		return EMFProperties.value(TaskPackage.Literals.TASK_GROUP__PROJECT).observe(getObject());
 	}
 }

@@ -9,22 +9,17 @@
  *    NVIDIA - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.client.scrum.services;
+package org.eclipselabs.etrack.client.scrum;
 
-import org.eclipse.core.databinding.observable.list.IObservableList;
-import org.eclipselabs.etrack.client.core.ILinkBuilder;
-import org.eclipselabs.etrack.client.core.ILinkBuilderFactory;
-import org.eclipselabs.etrack.client.scrum.ReleaseLinkBuilder;
+import org.eclipse.core.databinding.property.value.IValueProperty;
+import org.eclipselabs.etrack.client.task.TaskProperties;
 
 /**
  * @author bhunt
  * 
  */
-public class ReleaseLinkBuilderFactory implements ILinkBuilderFactory<IObservableList>
+public interface ScrumProperties
 {
-	@Override
-	public ILinkBuilder<IObservableList> createLinkBuilder()
-	{
-		return new ReleaseLinkBuilder();
-	}
+	IValueProperty SCRUM_BACKLOG_NAME = TaskProperties.TASK_GROUP_NAME;
+	IValueProperty SCRUM_RELEASE_NAME = TaskProperties.TASK_GROUP_NAME;
 }
