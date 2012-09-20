@@ -39,7 +39,7 @@ public class ReleaseBuilder extends TaskGroupBuilder<Release>
 	@Override
 	protected void doBuild() throws IOException
 	{
-		if (scrumService != null)
+		if (scrumService == null)
 			throw new IOException("Could not find a scrum service for adding the new release");
 
 		scrumService.addRelease(getObject());

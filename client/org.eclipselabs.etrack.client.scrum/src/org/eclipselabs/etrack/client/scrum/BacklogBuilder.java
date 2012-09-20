@@ -39,7 +39,7 @@ public class BacklogBuilder extends TaskGroupBuilder<Backlog>
 	@Override
 	protected void doBuild() throws IOException
 	{
-		if (scrumService != null)
+		if (scrumService == null)
 			throw new IOException("Could not find a scrum service for adding the new backlog");
 
 		scrumService.addBacklog(getObject());
