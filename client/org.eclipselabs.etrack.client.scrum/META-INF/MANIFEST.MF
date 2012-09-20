@@ -18,3 +18,4 @@ Import-Package: org.eclilpselabs.etrack.domain.data,
  org.eclipselabs.etrack.domain.task
 Export-Package: org.eclipselabs.etrack.client.scrum
 Service-Component: OSGI-INF/scrum.xml, OSGI-INF/factory.xml,
+Bundle-ActivationPolicy: lazy
