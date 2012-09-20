@@ -3,10 +3,10 @@
    <implementation class="org.eclipselabs.etrack.client.scrum.services.ScrumService"/>
    <reference bind="bindResourceCache" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceCache" name="IResourceCache" policy="static"/>
    <property name="backlog_path" type="String">
-		 tasks
+		 backlogs
    </property>
    <property name="release_path" type="String">
-		 taskDomains
+		 releases
    </property>
    <service>
       <provide interface="org.eclipselabs.etrack.client.scrum.IScrumService"/>
