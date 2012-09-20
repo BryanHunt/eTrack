@@ -14,6 +14,7 @@ package org.eclipselabs.etrack.client.scrum;
 import java.io.IOException;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipselabs.etrack.client.core.IServerClient;
 import org.eclipselabs.etrack.domain.scrum.Backlog;
 import org.eclipselabs.etrack.domain.scrum.Release;
 
@@ -21,7 +22,7 @@ import org.eclipselabs.etrack.domain.scrum.Release;
  * @author bhunt
  * 
  */
-public interface IScrumService
+public interface IScrumService extends IServerClient
 {
 	String BACKLOG_LINK_KEY = "org.eclipselabs.etrack.scrum.backlog.link";
 	String RELEASE_LINK_KEY = "org.eclipselabs.etrack.scrum.release.link";
