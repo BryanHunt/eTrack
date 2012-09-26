@@ -7,7 +7,7 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGrafflePro</string>
-		<string>139.7.0.167456</string>
+		<string>139.16.0.171715</string>
 	</array>
 	<key>AutoAdjust</key>
 	<true/>
@@ -109,7 +109,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{159.38227854101564, 218.22941186720323}, {66, 24}}</string>
+			<string>{{159.38227854101564, 216.40735292821842}, {66, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -243,7 +243,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{488.86646741984737, 398.29454533682923}, {43, 24}}</string>
+			<string>{{488.86646858571527, 398.29454275209036}, {43, 24}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -310,7 +310,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{462.53313130764593, 440.43545119169983}, {15, 14}}</string>
+			<string>{{462.53313557027337, 440.43545196990073}, {15, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -369,7 +369,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{461.69980051916855, 402.28853980244219}, {16, 14}}</string>
+			<string>{{461.69980160115716, 402.28854060843605}, {16, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -436,7 +436,7 @@
 			<integer>174</integer>
 			<key>Points</key>
 			<array>
-				<string>{479.36646379144224, 453.81172943115234}</string>
+				<string>{479.36646858571527, 453.81172943115234}</string>
 				<string>{479.36646858571527, 396.31173706054688}</string>
 			</array>
 			<key>Style</key>
@@ -676,7 +676,7 @@
 			<integer>164</integer>
 			<key>Points</key>
 			<array>
-				<string>{238.43401270947268, 375.31173955446263}</string>
+				<string>{238.43401270947268, 375.31174219602514}</string>
 				<string>{175.94105618066405, 375.31174219602514}</string>
 			</array>
 			<key>Style</key>
@@ -848,7 +848,7 @@
 			<integer>158</integer>
 			<key>Points</key>
 			<array>
-				<string>{116.94105164327273, 361.31174468994141}</string>
+				<string>{116.94104839115109, 361.31174468994141}</string>
 				<string>{116.94104839115109, 298.31177520751953}</string>
 			</array>
 			<key>Style</key>
@@ -999,7 +999,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{419.96160255645754, 192.93071305889885}, {16, 14}}</string>
+			<string>{{419.96160255645754, 189.9699862658033}, {16, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1072,7 +1072,7 @@
 			<real>7</real>
 			<key>Points</key>
 			<array>
-				<string>{297.43400508007812, 270.31175231933594}</string>
+				<string>{335, 270.31175231933594}</string>
 				<string>{344.25076754101565, 248.45259094238281}</string>
 				<string>{436.62826954101564, 182}</string>
 			</array>
@@ -1247,7 +1247,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{140.71561155645753, 223.59606630834514}, {16, 14}}</string>
+			<string>{{140.71561155645753, 221.72349716990743}, {16, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -1313,15 +1313,15 @@
 			<key>ID</key>
 			<integer>147</integer>
 			<key>OrthogonalBarAutomatic</key>
-			<false/>
+			<true/>
 			<key>OrthogonalBarPoint</key>
 			<string>{0, 0}</string>
 			<key>OrthogonalBarPosition</key>
-			<real>7</real>
+			<real>19.901088714599609</real>
 			<key>Points</key>
 			<array>
-				<string>{297.43400508007812, 270.31175231933594}</string>
-				<string>{212.25077754101559, 248.45259094238281}</string>
+				<string>{270.80217713778143, 270.31175231933594}</string>
+				<string>{231, 252.32435501438857}</string>
 				<string>{157.38227854101564, 217}</string>
 			</array>
 			<key>Style</key>
@@ -2547,7 +2547,7 @@ lastName : String}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2012-07-31 19:24:42 +0000</string>
+	<string>2012-09-25 19:22:39 +0000</string>
 	<key>Modifier</key>
 	<string>Bryan Hunt</string>
 	<key>NotesVisible</key>
@@ -2628,7 +2628,7 @@ lastName : String}</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{-795, 396}, {736, 906}}</string>
+		<string>{{901, 476}, {736, 906}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>

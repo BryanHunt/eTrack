@@ -20,17 +20,7 @@ Import-Package: org.eclipse.emf.common.util,
  org.restlet.resource
 Bundle-ActivationPolicy: lazy
 Service-Component:  OSGI-INF/resources/related_tasks_mapping.xml,
- OSGI-INF/resources/task_attachment.xml,
- OSGI-INF/resources/task_comment.xml,
  OSGI-INF/resources/task_domain.xml,
- OSGI-INF/resources/task_history.xml,
- OSGI-INF/resources/task_relationship.xml,
- OSGI-INF/resources/task_resolution.xml,
- OSGI-INF/resources/task_state_group.xml,
- OSGI-INF/resources/task_state_transition_mapping.xml,
- OSGI-INF/resources/task_state_transition.xml,
- OSGI-INF/resources/task_state.xml,
- OSGI-INF/resources/task_type.xml,
  OSGI-INF/resources/task.xml,
  OSGI-INF/resources/task_query.xml, 
  OSGI-INF/resources/version.xml
