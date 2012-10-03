@@ -5,13 +5,19 @@ Bundle-SymbolicName: org.eclipselabs.etrack.server.web.entity.ldap
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.emf.ecore,
+Import-Package: org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.resource,
  org.eclipselabs.etrack.server.web.storage,
+ org.eclipselabs.etrack.util.web.emf,
+ org.eclipselabs.mongo.emf.ext,
  org.restlet,
+ org.restlet.data,
  org.restlet.ext.emf,
  org.restlet.ext.osgi,
  org.restlet.ext.wadl,
  org.restlet.representation,
- org.restlet.resource
-Service-Component: OSGI-INF/resources/entity.xml
+ org.restlet.resource,
+ org.restlet.security
+Service-Component: OSGI-INF/resources/entity.xml, OSGI-INF/resources/current_user.xml
 Bundle-ActivationPolicy: lazy
