@@ -59,7 +59,6 @@ import org.eclipselabs.etrack.domain.state.State;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getStartedOn <em>Started On</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getEstimate <em>Estimate</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCorrectedEstimate <em>Corrected Estimate</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getGroup <em>Group</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getPriority <em>Priority</em>}</li>
  * </ul>
  * </p>
@@ -349,16 +348,6 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected Duration correctedEstimate;
-
-	/**
-	 * The cached value of the '{@link #getGroup() <em>Group</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroup()
-	 * @generated
-	 * @ordered
-	 */
-	protected TaskGroup group;
 
 	/**
 	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
@@ -1312,61 +1301,6 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Group</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group</em>' reference.
-	 * @see #setGroup(TaskGroup)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_Group()
-	 * @model
-	 * @generated
-	 */
-	public TaskGroup getGroup()
-	{
-		if (group != null && group.eIsProxy())
-		{
-			InternalEObject oldGroup = (InternalEObject)group;
-			group = (TaskGroup)eResolveProxy(oldGroup);
-			if (group != oldGroup)
-			{
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__GROUP, oldGroup, group));
-			}
-		}
-		return group;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TaskGroup basicGetGroup()
-	{
-		return group;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getGroup <em>Group</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group</em>' reference.
-	 * @see #getGroup()
-	 * @generated
-	 */
-	public void setGroup(TaskGroup newGroup)
-	{
-		TaskGroup oldGroup = group;
-		group = newGroup;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__GROUP, oldGroup, group));
-	}
-
-	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -1493,9 +1427,6 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return getEstimate();
 			case TaskPackage.TASK__CORRECTED_ESTIMATE:
 				return getCorrectedEstimate();
-			case TaskPackage.TASK__GROUP:
-				if (resolve) return getGroup();
-				return basicGetGroup();
 			case TaskPackage.TASK__PRIORITY:
 				return getPriority();
 		}
@@ -1583,9 +1514,6 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__CORRECTED_ESTIMATE:
 				setCorrectedEstimate((Duration)newValue);
 				return;
-			case TaskPackage.TASK__GROUP:
-				setGroup((TaskGroup)newValue);
-				return;
 			case TaskPackage.TASK__PRIORITY:
 				setPriority((Integer)newValue);
 				return;
@@ -1669,9 +1597,6 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__CORRECTED_ESTIMATE:
 				setCorrectedEstimate((Duration)null);
 				return;
-			case TaskPackage.TASK__GROUP:
-				setGroup((TaskGroup)null);
-				return;
 			case TaskPackage.TASK__PRIORITY:
 				setPriority(PRIORITY_EDEFAULT);
 				return;
@@ -1733,8 +1658,6 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return estimate != null;
 			case TaskPackage.TASK__CORRECTED_ESTIMATE:
 				return correctedEstimate != null;
-			case TaskPackage.TASK__GROUP:
-				return group != null;
 			case TaskPackage.TASK__PRIORITY:
 				return priority != PRIORITY_EDEFAULT;
 		}

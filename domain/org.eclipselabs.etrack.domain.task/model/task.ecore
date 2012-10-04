@@ -66,7 +66,6 @@
         containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="correctedEstimate" eType="#//Duration"
         containment="true" resolveProxies="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//TaskGroup"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskDomain">
@@ -134,6 +133,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="project" lowerBound="1"
         eType="ecore:EClass ../../org.eclipselabs.etrack.domain.project/model/project.ecore#//Project"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
+        eType="#//Task"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskQuery" eSuperTypes="../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//AssignableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

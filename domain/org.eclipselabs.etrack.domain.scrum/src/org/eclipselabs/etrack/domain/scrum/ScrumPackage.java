@@ -90,6 +90,15 @@ public class ScrumPackage extends EPackageImpl
 	public static final int BACKLOG__PROJECT = TaskPackage.TASK_GROUP__PROJECT;
 
 	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BACKLOG__TASKS = TaskPackage.TASK_GROUP__TASKS;
+
+	/**
 	 * The number of structural features of the '<em>Backlog</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,6 +134,15 @@ public class ScrumPackage extends EPackageImpl
 	 * @ordered
 	 */
 	public static final int TASK_TIME_BOX__PROJECT = TaskPackage.TASK_GROUP__PROJECT;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_TIME_BOX__TASKS = TaskPackage.TASK_GROUP__TASKS;
 
 	/**
 	 * The feature id for the '<em><b>Begins On</b></em>' attribute.
@@ -180,6 +198,15 @@ public class ScrumPackage extends EPackageImpl
 	 * @ordered
 	 */
 	public static final int RELEASE__PROJECT = TASK_TIME_BOX__PROJECT;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int RELEASE__TASKS = TASK_TIME_BOX__TASKS;
 
 	/**
 	 * The feature id for the '<em><b>Begins On</b></em>' attribute.
@@ -244,6 +271,15 @@ public class ScrumPackage extends EPackageImpl
 	 * @ordered
 	 */
 	public static final int MILESTONE__PROJECT = TASK_TIME_BOX__PROJECT;
+
+	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MILESTONE__TASKS = TASK_TIME_BOX__TASKS;
 
 	/**
 	 * The feature id for the '<em><b>Begins On</b></em>' attribute.

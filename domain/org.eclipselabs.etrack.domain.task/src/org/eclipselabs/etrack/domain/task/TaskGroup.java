@@ -2,8 +2,10 @@
  */
 package org.eclipselabs.etrack.domain.task;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,6 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipselabs.etrack.domain.project.Project;
 
 /**
@@ -23,6 +26,7 @@ import org.eclipselabs.etrack.domain.project.Project;
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskGroup#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskGroup#getProject <em>Project</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskGroup#getTasks <em>Tasks</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +65,16 @@ public class TaskGroup extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected Project project;
+
+	/**
+	 * The cached value of the '{@link #getTasks() <em>Tasks</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTasks()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Task> tasks;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,6 +188,29 @@ public class TaskGroup extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Tasks</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipselabs.etrack.domain.task.Task}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tasks</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tasks</em>' reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskGroup_Tasks()
+	 * @model
+	 * @generated
+	 */
+	public EList<Task> getTasks()
+	{
+		if (tasks == null)
+		{
+			tasks = new EObjectResolvingEList<Task>(Task.class, this, TaskPackage.TASK_GROUP__TASKS);
+		}
+		return tasks;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -188,6 +225,8 @@ public class TaskGroup extends EObjectImpl implements EObject
 			case TaskPackage.TASK_GROUP__PROJECT:
 				if (resolve) return getProject();
 				return basicGetProject();
+			case TaskPackage.TASK_GROUP__TASKS:
+				return getTasks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +236,7 @@ public class TaskGroup extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue)
 	{
@@ -207,6 +247,10 @@ public class TaskGroup extends EObjectImpl implements EObject
 				return;
 			case TaskPackage.TASK_GROUP__PROJECT:
 				setProject((Project)newValue);
+				return;
+			case TaskPackage.TASK_GROUP__TASKS:
+				getTasks().clear();
+				getTasks().addAll((Collection<? extends Task>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -228,6 +272,9 @@ public class TaskGroup extends EObjectImpl implements EObject
 			case TaskPackage.TASK_GROUP__PROJECT:
 				setProject((Project)null);
 				return;
+			case TaskPackage.TASK_GROUP__TASKS:
+				getTasks().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -246,6 +293,8 @@ public class TaskGroup extends EObjectImpl implements EObject
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TaskPackage.TASK_GROUP__PROJECT:
 				return project != null;
+			case TaskPackage.TASK_GROUP__TASKS:
+				return tasks != null && !tasks.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

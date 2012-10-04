@@ -523,22 +523,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__CORRECTED_ESTIMATE = DataPackage.LINKABLE_FEATURE_COUNT + 20;
 
 	/**
-	 * The feature id for the '<em><b>Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TASK__GROUP = DataPackage.LINKABLE_FEATURE_COUNT + 21;
-
-	/**
 	 * The feature id for the '<em><b>Priority</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__PRIORITY = DataPackage.LINKABLE_FEATURE_COUNT + 22;
+	public static final int TASK__PRIORITY = DataPackage.LINKABLE_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -547,7 +538,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 23;
+	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -971,13 +962,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_GROUP__PROJECT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Tasks</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_GROUP__TASKS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_GROUP_FEATURE_COUNT = 2;
+	public static final int TASK_GROUP_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.TaskQuery <em>Query</em>}' class.
@@ -1492,21 +1492,6 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
-	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.Task#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Group</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.Task#getGroup()
-	 * @see #getTask()
-	 * @generated
-	 */
-	public EReference getTask_Group()
-	{
-		return (EReference)taskEClass.getEStructuralFeatures().get(18);
-	}
-
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.Task#getPriority <em>Priority</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1517,7 +1502,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EAttribute getTask_Priority()
 	{
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(18);
 	}
 
 
@@ -2193,6 +2178,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.eclipselabs.etrack.domain.task.TaskGroup#getTasks <em>Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tasks</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskGroup#getTasks()
+	 * @see #getTaskGroup()
+	 * @generated
+	 */
+	public EReference getTaskGroup_Tasks()
+	{
+		return (EReference)taskGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.etrack.domain.task.TaskQuery <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2379,7 +2379,6 @@ public class TaskPackage extends EPackageImpl
 		createEAttribute(taskEClass, TASK__STARTED_ON);
 		createEReference(taskEClass, TASK__ESTIMATE);
 		createEReference(taskEClass, TASK__CORRECTED_ESTIMATE);
-		createEReference(taskEClass, TASK__GROUP);
 		createEAttribute(taskEClass, TASK__PRIORITY);
 
 		taskDomainEClass = createEClass(TASK_DOMAIN);
@@ -2426,6 +2425,7 @@ public class TaskPackage extends EPackageImpl
 		taskGroupEClass = createEClass(TASK_GROUP);
 		createEAttribute(taskGroupEClass, TASK_GROUP__NAME);
 		createEReference(taskGroupEClass, TASK_GROUP__PROJECT);
+		createEReference(taskGroupEClass, TASK_GROUP__TASKS);
 
 		taskQueryEClass = createEClass(TASK_QUERY);
 		createEAttribute(taskQueryEClass, TASK_QUERY__QUERY);
@@ -2521,7 +2521,6 @@ public class TaskPackage extends EPackageImpl
 		initEAttribute(getTask_StartedOn(), ecorePackage.getEDate(), "startedOn", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_Estimate(), this.getDuration(), null, "estimate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTask_CorrectedEstimate(), this.getDuration(), null, "correctedEstimate", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Group(), this.getTaskGroup(), null, "group", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Priority(), ecorePackage.getEInt(), "priority", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskDomainEClass, TaskDomain.class, "TaskDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2568,6 +2567,7 @@ public class TaskPackage extends EPackageImpl
 		initEClass(taskGroupEClass, TaskGroup.class, "TaskGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskGroup_Project(), theProjectPackage.getProject(), null, "project", null, 1, 1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskGroup_Tasks(), this.getTask(), null, "tasks", null, 0, -1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskQueryEClass, TaskQuery.class, "TaskQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskQuery_Query(), ecorePackage.getEString(), "query", null, 0, 1, TaskQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2750,14 +2750,6 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK__CORRECTED_ESTIMATE = eINSTANCE.getTask_CorrectedEstimate();
-
-		/**
-		 * The meta object literal for the '<em><b>Group</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public static final EReference TASK__GROUP = eINSTANCE.getTask_Group();
 
 		/**
 		 * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
@@ -3158,6 +3150,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference TASK_GROUP__PROJECT = eINSTANCE.getTaskGroup_Project();
+
+		/**
+		 * The meta object literal for the '<em><b>Tasks</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_GROUP__TASKS = eINSTANCE.getTaskGroup_Tasks();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.etrack.domain.task.TaskQuery <em>Query</em>}' class.
