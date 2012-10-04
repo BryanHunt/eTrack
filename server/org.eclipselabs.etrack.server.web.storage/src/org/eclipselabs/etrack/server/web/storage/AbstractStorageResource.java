@@ -11,8 +11,10 @@
 
 package org.eclipselabs.etrack.server.web.storage;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -25,6 +27,7 @@ import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.data.Status;
+import org.restlet.data.Tag;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.representation.Representation;
@@ -61,13 +64,17 @@ public class AbstractStorageResource extends WadlServerResource
 	public EmfRepresentation<EObject> retrieveXMI()
 	{
 		EObject object = getModel();
-		return new EmfXmlRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
+		EmfXmlRepresentation<EObject> representation = new EmfXmlRepresentation<EObject>(MediaType.APPLICATION_XMI, object);
+		representation.setTag(computeTag(object));
+		return representation;
 	}
 
 	public EmfRepresentation<EObject> retrieveJSON()
 	{
 		EObject object = getModel();
-		return new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, object);
+		EmfJsonRepresentation<EObject> representation = new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, object);
+		representation.setTag(computeTag(object));
+		return representation;
 	}
 
 	public void updateXmiObject(Representation representation) throws IOException
@@ -117,6 +124,21 @@ public class AbstractStorageResource extends WadlServerResource
 			throw new ResourceException(Status.CLIENT_ERROR_NOT_FOUND);
 
 		return resource.getContents().get(0);
+	}
+
+	private Tag computeTag(EObject object)
+	{
+		ByteArrayOutputStream data = new ByteArrayOutputStream();
+
+		try
+		{
+			object.eResource().save(data, null);
+			return new Tag(DigestUtils.md5Hex(data.toByteArray()));
+		}
+		catch (IOException e)
+		{
+			return null;
+		}
 	}
 
 	private URI saveObject(EObject object) throws IOException
