@@ -60,6 +60,7 @@ import org.eclipselabs.etrack.domain.state.State;
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getEstimate <em>Estimate</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getCorrectedEstimate <em>Corrected Estimate</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getPriority <em>Priority</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.Task#getPlannedFor <em>Planned For</em>}</li>
  * </ul>
  * </p>
  *
@@ -368,6 +369,16 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected int priority = PRIORITY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getPlannedFor() <em>Planned For</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlannedFor()
+	 * @generated
+	 * @ordered
+	 */
+	protected TaskGroup plannedFor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1336,6 +1347,61 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Planned For</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Planned For</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Planned For</em>' reference.
+	 * @see #setPlannedFor(TaskGroup)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTask_PlannedFor()
+	 * @model
+	 * @generated
+	 */
+	public TaskGroup getPlannedFor()
+	{
+		if (plannedFor != null && plannedFor.eIsProxy())
+		{
+			InternalEObject oldPlannedFor = (InternalEObject)plannedFor;
+			plannedFor = (TaskGroup)eResolveProxy(oldPlannedFor);
+			if (plannedFor != oldPlannedFor)
+			{
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK__PLANNED_FOR, oldPlannedFor, plannedFor));
+			}
+		}
+		return plannedFor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskGroup basicGetPlannedFor()
+	{
+		return plannedFor;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.Task#getPlannedFor <em>Planned For</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Planned For</em>' reference.
+	 * @see #getPlannedFor()
+	 * @generated
+	 */
+	public void setPlannedFor(TaskGroup newPlannedFor)
+	{
+		TaskGroup oldPlannedFor = plannedFor;
+		plannedFor = newPlannedFor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__PLANNED_FOR, oldPlannedFor, plannedFor));
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1429,6 +1495,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return getCorrectedEstimate();
 			case TaskPackage.TASK__PRIORITY:
 				return getPriority();
+			case TaskPackage.TASK__PLANNED_FOR:
+				if (resolve) return getPlannedFor();
+				return basicGetPlannedFor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1517,6 +1586,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__PRIORITY:
 				setPriority((Integer)newValue);
 				return;
+			case TaskPackage.TASK__PLANNED_FOR:
+				setPlannedFor((TaskGroup)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1600,6 +1672,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__PRIORITY:
 				setPriority(PRIORITY_EDEFAULT);
 				return;
+			case TaskPackage.TASK__PLANNED_FOR:
+				setPlannedFor((TaskGroup)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1660,6 +1735,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return correctedEstimate != null;
 			case TaskPackage.TASK__PRIORITY:
 				return priority != PRIORITY_EDEFAULT;
+			case TaskPackage.TASK__PLANNED_FOR:
+				return plannedFor != null;
 		}
 		return super.eIsSet(featureID);
 	}
