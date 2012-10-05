@@ -13,6 +13,9 @@ package org.eclipselabs.etrack.server.web.storage;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.emf.common.util.URI;
@@ -40,6 +43,9 @@ import org.restlet.resource.ResourceException;
  */
 public class AbstractStorageResource extends WadlServerResource
 {
+	private static IResourceSetFactory resourceSetFactory;
+	private static Map<String, ReentrantLock> locks = new HashMap<String, ReentrantLock>();
+
 	public static void setResourceSetFactory(IResourceSetFactory factory)
 	{
 		// TODO this factory should ultimately be replaced by a cache and probably moved to the
@@ -103,6 +109,35 @@ public class AbstractStorageResource extends WadlServerResource
 		object.eResource().delete(null);
 	}
 
+	@Override
+	protected Representation doConditionalHandle() throws ResourceException
+	{
+		ReentrantLock lock = null;
+
+		synchronized (locks)
+		{
+			lock = locks.get(getReference().toString());
+
+			if (lock == null)
+			{
+				lock = new ReentrantLock();
+				locks.put(getReference().toString(), lock);
+			}
+		}
+
+		lock.lock();
+
+		try
+		{
+			Representation result = super.doConditionalHandle();
+			return result;
+		}
+		finally
+		{
+			lock.unlock();
+		}
+	}
+
 	protected EObject getModel()
 	{
 		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
@@ -150,6 +185,4 @@ public class AbstractStorageResource extends WadlServerResource
 		resource.save(null);
 		return resource.getURI();
 	}
-
-	private static IResourceSetFactory resourceSetFactory;
 }
