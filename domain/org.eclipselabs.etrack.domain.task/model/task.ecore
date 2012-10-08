@@ -33,7 +33,7 @@
     <eLiterals name="DAYS" value="2" literal="d"/>
     <eLiterals name="WEEKS" value="3" literal="w"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//Linkable ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//AssignableItem ../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//AuditableItem ../../org.eclipselabs.etrack.domain.data/model/data.ecore#//CategorizedItem">
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="../../org.eclipselabs.etrack.domain.data/model/data.ecore#//Linkable ../../org.eclipselabs.etrack.domain.entity/model/entity.ecore#//AssignableItem ../../org.eclipselabs.etrack.domain.audit/model/audit.ecore#//AuditableItem ../../org.eclipselabs.etrack.domain.data/model/data.ecore#//CategorizedItem ../../org.eclipselabs.etrack.domain.data/model/data.ecore#//TaggableItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"

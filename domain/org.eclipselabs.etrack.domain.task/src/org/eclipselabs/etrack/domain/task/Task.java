@@ -11,6 +11,7 @@ import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclilpselabs.etrack.domain.data.LinkMapping;
 import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclilpselabs.etrack.domain.data.LinkedContent;
+import org.eclilpselabs.etrack.domain.data.TaggableItem;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
@@ -68,7 +70,7 @@ import org.eclipselabs.etrack.domain.state.State;
  * @model kind="class"
  * @generated
  */
-public class Task extends EObjectImpl implements Linkable, AssignableItem, AuditableItem, CategorizedItem
+public class Task extends EObjectImpl implements Linkable, AssignableItem, AuditableItem, CategorizedItem, TaggableItem
 {
 	/**
 	 * The cached value of the '{@link #getLinksByName() <em>Links By Name</em>}' map.
@@ -109,6 +111,16 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 	 * @ordered
 	 */
 	protected Category category;
+
+	/**
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> tags;
 
 	/**
 	 * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -556,6 +568,29 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 		category = newCategory;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK__CATEGORY, oldCategory, category));
+	}
+
+	/**
+	 * Returns the value of the '<em><b>Tags</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tags</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tags</em>' attribute list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaggableItem_Tags()
+	 * @model
+	 * @generated
+	 */
+	public EList<String> getTags()
+	{
+		if (tags == null)
+		{
+			tags = new EDataTypeUniqueEList<String>(String.class, this, TaskPackage.TASK__TAGS);
+		}
+		return tags;
 	}
 
 	/**
@@ -1450,6 +1485,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__CATEGORY:
 				if (resolve) return getCategory();
 				return basicGetCategory();
+			case TaskPackage.TASK__TAGS:
+				return getTags();
 			case TaskPackage.TASK__SUMMARY:
 				return getSummary();
 			case TaskPackage.TASK__DESCRIPTION:
@@ -1525,6 +1562,10 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return;
 			case TaskPackage.TASK__CATEGORY:
 				setCategory((Category)newValue);
+				return;
+			case TaskPackage.TASK__TAGS:
+				getTags().clear();
+				getTags().addAll((Collection<? extends String>)newValue);
 				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary((String)newValue);
@@ -1615,6 +1656,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 			case TaskPackage.TASK__CATEGORY:
 				setCategory((Category)null);
 				return;
+			case TaskPackage.TASK__TAGS:
+				getTags().clear();
+				return;
 			case TaskPackage.TASK__SUMMARY:
 				setSummary(SUMMARY_EDEFAULT);
 				return;
@@ -1697,6 +1741,8 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				return history != null && !history.isEmpty();
 			case TaskPackage.TASK__CATEGORY:
 				return category != null;
+			case TaskPackage.TASK__TAGS:
+				return tags != null && !tags.isEmpty();
 			case TaskPackage.TASK__SUMMARY:
 				return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
 			case TaskPackage.TASK__DESCRIPTION:
@@ -1773,6 +1819,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				default: return -1;
 			}
 		}
+		if (baseClass == TaggableItem.class)
+		{
+			switch (derivedFeatureID)
+			{
+				case TaskPackage.TASK__TAGS: return DataPackage.TAGGABLE_ITEM__TAGS;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -1808,6 +1862,14 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 				default: return -1;
 			}
 		}
+		if (baseClass == TaggableItem.class)
+		{
+			switch (baseFeatureID)
+			{
+				case DataPackage.TAGGABLE_ITEM__TAGS: return TaskPackage.TASK__TAGS;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -1822,7 +1884,9 @@ public class Task extends EObjectImpl implements Linkable, AssignableItem, Audit
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (summary: ");
+		result.append(" (tags: ");
+		result.append(tags);
+		result.append(", summary: ");
 		result.append(summary);
 		result.append(", description: ");
 		result.append(description);

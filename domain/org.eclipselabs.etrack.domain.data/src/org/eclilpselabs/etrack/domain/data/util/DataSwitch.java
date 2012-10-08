@@ -118,6 +118,13 @@ public class DataSwitch<T> extends Switch<T>
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DataPackage.TAGGABLE_ITEM:
+			{
+				TaggableItem taggableItem = (TaggableItem)theEObject;
+				T result = caseTaggableItem(taggableItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DataPackage.ARTIFACT:
 			{
 				Artifact artifact = (Artifact)theEObject;
@@ -221,6 +228,22 @@ public class DataSwitch<T> extends Switch<T>
 	 * @generated
 	 */
 	public T caseCategorizedItem(CategorizedItem object)
+	{
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Taggable Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Taggable Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaggableItem(TaggableItem object)
 	{
 		return null;
 	}

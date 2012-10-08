@@ -362,13 +362,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK__CATEGORY = DataPackage.LINKABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK__TAGS = DataPackage.LINKABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Summary</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__SUMMARY = DataPackage.LINKABLE_FEATURE_COUNT + 3;
+	public static final int TASK__SUMMARY = DataPackage.LINKABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -377,7 +386,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__DESCRIPTION = DataPackage.LINKABLE_FEATURE_COUNT + 4;
+	public static final int TASK__DESCRIPTION = DataPackage.LINKABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Created On</b></em>' attribute.
@@ -386,7 +395,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__CREATED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 5;
+	public static final int TASK__CREATED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Created By</b></em>' reference.
@@ -395,7 +404,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__CREATED_BY = DataPackage.LINKABLE_FEATURE_COUNT + 6;
+	public static final int TASK__CREATED_BY = DataPackage.LINKABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
@@ -404,7 +413,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__ATTACHMENTS = DataPackage.LINKABLE_FEATURE_COUNT + 7;
+	public static final int TASK__ATTACHMENTS = DataPackage.LINKABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Comments</b></em>' containment reference list.
@@ -413,7 +422,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__COMMENTS = DataPackage.LINKABLE_FEATURE_COUNT + 8;
+	public static final int TASK__COMMENTS = DataPackage.LINKABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Current State</b></em>' reference.
@@ -422,7 +431,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__CURRENT_STATE = DataPackage.LINKABLE_FEATURE_COUNT + 9;
+	public static final int TASK__CURRENT_STATE = DataPackage.LINKABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Subscribers</b></em>' reference list.
@@ -431,7 +440,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__SUBSCRIBERS = DataPackage.LINKABLE_FEATURE_COUNT + 10;
+	public static final int TASK__SUBSCRIBERS = DataPackage.LINKABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -440,7 +449,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__TYPE = DataPackage.LINKABLE_FEATURE_COUNT + 11;
+	public static final int TASK__TYPE = DataPackage.LINKABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Project</b></em>' reference.
@@ -449,7 +458,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__PROJECT = DataPackage.LINKABLE_FEATURE_COUNT + 12;
+	public static final int TASK__PROJECT = DataPackage.LINKABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Related Tasks</b></em>' map.
@@ -458,7 +467,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__RELATED_TASKS = DataPackage.LINKABLE_FEATURE_COUNT + 13;
+	public static final int TASK__RELATED_TASKS = DataPackage.LINKABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Resolution</b></em>' reference.
@@ -467,7 +476,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__RESOLUTION = DataPackage.LINKABLE_FEATURE_COUNT + 14;
+	public static final int TASK__RESOLUTION = DataPackage.LINKABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Resolved On</b></em>' attribute.
@@ -476,7 +485,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__RESOLVED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 15;
+	public static final int TASK__RESOLVED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Resolved By</b></em>' reference.
@@ -485,7 +494,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__RESOLVED_BY = DataPackage.LINKABLE_FEATURE_COUNT + 16;
+	public static final int TASK__RESOLVED_BY = DataPackage.LINKABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Due On</b></em>' attribute.
@@ -494,7 +503,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__DUE_ON = DataPackage.LINKABLE_FEATURE_COUNT + 17;
+	public static final int TASK__DUE_ON = DataPackage.LINKABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Started On</b></em>' attribute.
@@ -503,7 +512,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__STARTED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 18;
+	public static final int TASK__STARTED_ON = DataPackage.LINKABLE_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Estimate</b></em>' containment reference.
@@ -512,7 +521,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__ESTIMATE = DataPackage.LINKABLE_FEATURE_COUNT + 19;
+	public static final int TASK__ESTIMATE = DataPackage.LINKABLE_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Corrected Estimate</b></em>' containment reference.
@@ -521,7 +530,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__CORRECTED_ESTIMATE = DataPackage.LINKABLE_FEATURE_COUNT + 20;
+	public static final int TASK__CORRECTED_ESTIMATE = DataPackage.LINKABLE_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -530,7 +539,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__PRIORITY = DataPackage.LINKABLE_FEATURE_COUNT + 21;
+	public static final int TASK__PRIORITY = DataPackage.LINKABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Planned For</b></em>' reference.
@@ -539,7 +548,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK__PLANNED_FOR = DataPackage.LINKABLE_FEATURE_COUNT + 22;
+	public static final int TASK__PLANNED_FOR = DataPackage.LINKABLE_FEATURE_COUNT + 23;
 
 	/**
 	 * The number of structural features of the '<em>Task</em>' class.
@@ -548,7 +557,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 23;
+	public static final int TASK_FEATURE_COUNT = DataPackage.LINKABLE_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2528,6 +2537,7 @@ public class TaskPackage extends EPackageImpl
 		taskEClass.getESuperTypes().add(theEntityPackage.getAssignableItem());
 		taskEClass.getESuperTypes().add(theAuditPackage.getAuditableItem());
 		taskEClass.getESuperTypes().add(theDataPackage.getCategorizedItem());
+		taskEClass.getESuperTypes().add(theDataPackage.getTaggableItem());
 		taskAttributeChangeEClass.getESuperTypes().add(theAuditPackage.getAction());
 		taskDomainLinkEClass.getESuperTypes().add(theDataPackage.getLinkedContent());
 		taskQueryEClass.getESuperTypes().add(theEntityPackage.getAssignableItem());

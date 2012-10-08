@@ -229,6 +229,34 @@ public class DataPackage extends EPackageImpl
 	public static final int CATEGORIZED_ITEM_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link org.eclilpselabs.etrack.domain.data.TaggableItem <em>Taggable Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclilpselabs.etrack.domain.data.TaggableItem
+	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getTaggableItem()
+	 * @generated
+	 */
+	public static final int TAGGABLE_ITEM = 5;
+
+	/**
+	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TAGGABLE_ITEM__TAGS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Taggable Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TAGGABLE_ITEM_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.eclilpselabs.etrack.domain.data.Artifact <em>Artifact</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,7 +264,7 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getArtifact()
 	 * @generated
 	 */
-	public static final int ARTIFACT = 5;
+	public static final int ARTIFACT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -273,7 +301,7 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getResource()
 	 * @generated
 	 */
-	public static final int RESOURCE = 6;
+	public static final int RESOURCE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -319,7 +347,7 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getLinkedCategories()
 	 * @generated
 	 */
-	public static final int LINKED_CATEGORIES = 7;
+	public static final int LINKED_CATEGORIES = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -365,7 +393,7 @@ public class DataPackage extends EPackageImpl
 	 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getURI()
 	 * @generated
 	 */
-	public static final int URI = 8;
+	public static final int URI = 9;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -401,6 +429,13 @@ public class DataPackage extends EPackageImpl
 	 * @generated
 	 */
 	private EClass categorizedItemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taggableItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -662,6 +697,35 @@ public class DataPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.domain.data.TaggableItem <em>Taggable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Taggable Item</em>'.
+	 * @see org.eclilpselabs.etrack.domain.data.TaggableItem
+	 * @generated
+	 */
+	public EClass getTaggableItem()
+	{
+		return taggableItemEClass;
+	}
+
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.eclilpselabs.etrack.domain.data.TaggableItem#getTags <em>Tags</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Tags</em>'.
+	 * @see org.eclilpselabs.etrack.domain.data.TaggableItem#getTags()
+	 * @see #getTaggableItem()
+	 * @generated
+	 */
+	public EAttribute getTaggableItem_Tags()
+	{
+		return (EAttribute)taggableItemEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for class '{@link org.eclilpselabs.etrack.domain.data.Artifact <em>Artifact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -821,6 +885,9 @@ public class DataPackage extends EPackageImpl
 		categorizedItemEClass = createEClass(CATEGORIZED_ITEM);
 		createEReference(categorizedItemEClass, CATEGORIZED_ITEM__CATEGORY);
 
+		taggableItemEClass = createEClass(TAGGABLE_ITEM);
+		createEAttribute(taggableItemEClass, TAGGABLE_ITEM__TAGS);
+
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__NAME);
 		createEAttribute(artifactEClass, ARTIFACT__CREATED_ON);
@@ -884,6 +951,9 @@ public class DataPackage extends EPackageImpl
 
 		initEClass(categorizedItemEClass, CategorizedItem.class, "CategorizedItem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCategorizedItem_Category(), this.getCategory(), null, "category", null, 0, 1, CategorizedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taggableItemEClass, TaggableItem.class, "TaggableItem", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaggableItem_Tags(), ecorePackage.getEString(), "tags", null, 0, -1, TaggableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1021,6 +1091,24 @@ public class DataPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EReference CATEGORIZED_ITEM__CATEGORY = eINSTANCE.getCategorizedItem_Category();
+
+		/**
+		 * The meta object literal for the '{@link org.eclilpselabs.etrack.domain.data.TaggableItem <em>Taggable Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclilpselabs.etrack.domain.data.TaggableItem
+		 * @see org.eclilpselabs.etrack.domain.data.DataPackage#getTaggableItem()
+		 * @generated
+		 */
+		public static final EClass TAGGABLE_ITEM = eINSTANCE.getTaggableItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Tags</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TAGGABLE_ITEM__TAGS = eINSTANCE.getTaggableItem_Tags();
 
 		/**
 		 * The meta object literal for the '{@link org.eclilpselabs.etrack.domain.data.Artifact <em>Artifact</em>}' class.

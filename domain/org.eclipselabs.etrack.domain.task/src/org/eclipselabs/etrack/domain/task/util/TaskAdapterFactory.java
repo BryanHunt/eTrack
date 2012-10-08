@@ -16,6 +16,7 @@ import java.util.Map;
 import org.eclilpselabs.etrack.domain.data.CategorizedItem;
 import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclilpselabs.etrack.domain.data.LinkedContent;
+import org.eclilpselabs.etrack.domain.data.TaggableItem;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -203,6 +204,11 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 			public Adapter caseCategorizedItem(CategorizedItem object)
 			{
 				return createCategorizedItemAdapter();
+			}
+			@Override
+			public Adapter caseTaggableItem(TaggableItem object)
+			{
+				return createTaggableItemAdapter();
 			}
 			@Override
 			public Adapter caseAction(Action object)
@@ -502,6 +508,21 @@ public class TaskAdapterFactory extends AdapterFactoryImpl
 	 * @generated
 	 */
 	public Adapter createCategorizedItemAdapter()
+	{
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclilpselabs.etrack.domain.data.TaggableItem <em>Taggable Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclilpselabs.etrack.domain.data.TaggableItem
+	 * @generated
+	 */
+	public Adapter createTaggableItemAdapter()
 	{
 		return null;
 	}

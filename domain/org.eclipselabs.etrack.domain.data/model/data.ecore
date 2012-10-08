@@ -21,6 +21,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="CategorizedItem" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="category" eType="#//Category"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaggableItem" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tags" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdOn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
