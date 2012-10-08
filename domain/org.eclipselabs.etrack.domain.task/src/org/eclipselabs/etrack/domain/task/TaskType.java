@@ -13,13 +13,13 @@
 package org.eclipselabs.etrack.domain.task;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -42,7 +42,7 @@ import org.eclipselabs.etrack.domain.state.StateTransitionMapping;
  * <ul>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStates <em>States</em>}</li>
- *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getExtension <em>Extension</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getClassType <em>Class Type</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getStartingState <em>Starting State</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getRelationships <em>Relationships</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskType#getResolvedStates <em>Resolved States</em>}</li>
@@ -88,14 +88,14 @@ public class TaskType extends EObjectImpl implements EObject
 	protected EMap<State, EList<StateTransition>> states;
 
 	/**
-	 * The cached value of the '{@link #getExtension() <em>Extension</em>}' containment reference.
+	 * The cached value of the '{@link #getClassType() <em>Class Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExtension()
+	 * @see #getClassType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EPackage extension;
+	protected EClass classType;
 
 	/**
 	 * The cached value of the '{@link #getStartingState() <em>Starting State</em>}' reference.
@@ -228,39 +228,32 @@ public class TaskType extends EObjectImpl implements EObject
 	}
 
 	/**
-	 * Returns the value of the '<em><b>Extension</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Class Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Extension</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Class Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extension</em>' containment reference.
-	 * @see #setExtension(EPackage)
-	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_Extension()
-	 * @model containment="true" resolveProxies="true"
+	 * @return the value of the '<em>Class Type</em>' reference.
+	 * @see #setClassType(EClass)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskType_ClassType()
+	 * @model
 	 * @generated
 	 */
-	public EPackage getExtension()
+	public EClass getClassType()
 	{
-		if (extension != null && extension.eIsProxy())
+		if (classType != null && classType.eIsProxy())
 		{
-			InternalEObject oldExtension = (InternalEObject)extension;
-			extension = (EPackage)eResolveProxy(oldExtension);
-			if (extension != oldExtension)
+			InternalEObject oldClassType = (InternalEObject)classType;
+			classType = (EClass)eResolveProxy(oldClassType);
+			if (classType != oldClassType)
 			{
-				InternalEObject newExtension = (InternalEObject)extension;
-				NotificationChain msgs = oldExtension.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_TYPE__EXTENSION, null, null);
-				if (newExtension.eInternalContainer() == null)
-				{
-					msgs = newExtension.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_TYPE__EXTENSION, null, msgs);
-				}
-				if (msgs != null) msgs.dispatch();
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_TYPE__EXTENSION, oldExtension, extension));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TaskPackage.TASK_TYPE__CLASS_TYPE, oldClassType, classType));
 			}
 		}
-		return extension;
+		return classType;
 	}
 
 	/**
@@ -268,50 +261,25 @@ public class TaskType extends EObjectImpl implements EObject
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EPackage basicGetExtension()
+	public EClass basicGetClassType()
 	{
-		return extension;
+		return classType;
 	}
 
 	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.TaskType#getClassType <em>Class Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class Type</em>' reference.
+	 * @see #getClassType()
 	 * @generated
 	 */
-	public NotificationChain basicSetExtension(EPackage newExtension, NotificationChain msgs)
+	public void setClassType(EClass newClassType)
 	{
-		EPackage oldExtension = extension;
-		extension = newExtension;
+		EClass oldClassType = classType;
+		classType = newClassType;
 		if (eNotificationRequired())
-		{
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_TYPE__EXTENSION, oldExtension, newExtension);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.TaskType#getExtension <em>Extension</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Extension</em>' containment reference.
-	 * @see #getExtension()
-	 * @generated
-	 */
-	public void setExtension(EPackage newExtension)
-	{
-		if (newExtension != extension)
-		{
-			NotificationChain msgs = null;
-			if (extension != null)
-				msgs = ((InternalEObject)extension).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_TYPE__EXTENSION, null, msgs);
-			if (newExtension != null)
-				msgs = ((InternalEObject)newExtension).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskPackage.TASK_TYPE__EXTENSION, null, msgs);
-			msgs = basicSetExtension(newExtension, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_TYPE__EXTENSION, newExtension, newExtension));
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_TYPE__CLASS_TYPE, oldClassType, classType));
 	}
 
 	/**
@@ -505,8 +473,6 @@ public class TaskType extends EObjectImpl implements EObject
 		{
 			case TaskPackage.TASK_TYPE__STATES:
 				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
-			case TaskPackage.TASK_TYPE__EXTENSION:
-				return basicSetExtension(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -526,9 +492,9 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__STATES:
 				if (coreType) return getStates();
 				else return getStates().map();
-			case TaskPackage.TASK_TYPE__EXTENSION:
-				if (resolve) return getExtension();
-				return basicGetExtension();
+			case TaskPackage.TASK_TYPE__CLASS_TYPE:
+				if (resolve) return getClassType();
+				return basicGetClassType();
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				if (resolve) return getStartingState();
 				return basicGetStartingState();
@@ -562,8 +528,8 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__STATES:
 				((EStructuralFeature.Setting)getStates()).set(newValue);
 				return;
-			case TaskPackage.TASK_TYPE__EXTENSION:
-				setExtension((EPackage)newValue);
+			case TaskPackage.TASK_TYPE__CLASS_TYPE:
+				setClassType((EClass)newValue);
 				return;
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				setStartingState((State)newValue);
@@ -603,8 +569,8 @@ public class TaskType extends EObjectImpl implements EObject
 			case TaskPackage.TASK_TYPE__STATES:
 				getStates().clear();
 				return;
-			case TaskPackage.TASK_TYPE__EXTENSION:
-				setExtension((EPackage)null);
+			case TaskPackage.TASK_TYPE__CLASS_TYPE:
+				setClassType((EClass)null);
 				return;
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				setStartingState((State)null);
@@ -639,8 +605,8 @@ public class TaskType extends EObjectImpl implements EObject
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TaskPackage.TASK_TYPE__STATES:
 				return states != null && !states.isEmpty();
-			case TaskPackage.TASK_TYPE__EXTENSION:
-				return extension != null;
+			case TaskPackage.TASK_TYPE__CLASS_TYPE:
+				return classType != null;
 			case TaskPackage.TASK_TYPE__STARTING_STATE:
 				return startingState != null;
 			case TaskPackage.TASK_TYPE__RELATIONSHIPS:

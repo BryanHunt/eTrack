@@ -12,6 +12,7 @@
 package org.eclipselabs.etrack.domain.task;
 
 import java.util.Map;
+
 import org.eclilpselabs.etrack.domain.data.DataPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -613,13 +614,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_DOMAIN__TASK_TYPES = 6;
 
 	/**
+	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_DOMAIN__EXTENSIONS = 7;
+
+	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_DOMAIN_FEATURE_COUNT = 7;
+	public static final int TASK_DOMAIN_FEATURE_COUNT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -640,13 +650,13 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_TYPE__STATES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Extension</b></em>' containment reference.
+	 * The feature id for the '<em><b>Class Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_TYPE__EXTENSION = 2;
+	public static final int TASK_TYPE__CLASS_TYPE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -1600,6 +1610,21 @@ public class TaskPackage extends EPackageImpl
 	}
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getExtensions <em>Extensions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Extensions</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskDomain#getExtensions()
+	 * @see #getTaskDomain()
+	 * @generated
+	 */
+	public EReference getTaskDomain_Extensions()
+	{
+		return (EReference)taskDomainEClass.getEStructuralFeatures().get(7);
+	}
+
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.eclipselabs.etrack.domain.task.TaskDomain#getStateGroups <em>State Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1832,15 +1857,15 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.eclipselabs.etrack.domain.task.TaskType#getExtension <em>Extension</em>}'.
+	 * Returns the meta object for the reference '{@link org.eclipselabs.etrack.domain.task.TaskType#getClassType <em>Class Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Extension</em>'.
-	 * @see org.eclipselabs.etrack.domain.task.TaskType#getExtension()
+	 * @return the meta object for the reference '<em>Class Type</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskType#getClassType()
 	 * @see #getTaskType()
 	 * @generated
 	 */
-	public EReference getTaskType_Extension()
+	public EReference getTaskType_ClassType()
 	{
 		return (EReference)taskTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -2414,11 +2439,12 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskDomainEClass, TASK_DOMAIN__RELATIONSHIPS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__RESOLUTIONS);
 		createEReference(taskDomainEClass, TASK_DOMAIN__TASK_TYPES);
+		createEReference(taskDomainEClass, TASK_DOMAIN__EXTENSIONS);
 
 		taskTypeEClass = createEClass(TASK_TYPE);
 		createEAttribute(taskTypeEClass, TASK_TYPE__NAME);
 		createEReference(taskTypeEClass, TASK_TYPE__STATES);
-		createEReference(taskTypeEClass, TASK_TYPE__EXTENSION);
+		createEReference(taskTypeEClass, TASK_TYPE__CLASS_TYPE);
 		createEReference(taskTypeEClass, TASK_TYPE__STARTING_STATE);
 		createEReference(taskTypeEClass, TASK_TYPE__RELATIONSHIPS);
 		createEReference(taskTypeEClass, TASK_TYPE__RESOLVED_STATES);
@@ -2557,11 +2583,12 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskDomain_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_Resolutions(), this.getTaskResolution(), null, "resolutions", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskDomain_TaskTypes(), this.getTaskType(), null, "taskTypes", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskDomain_Extensions(), ecorePackage.getEPackage(), null, "extensions", null, 0, -1, TaskDomain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskTypeEClass, TaskType.class, "TaskType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTaskType_Name(), ecorePackage.getEString(), "name", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_States(), theStatePackage.getStateTransitionMapping(), null, "states", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskType_Extension(), ecorePackage.getEPackage(), null, "extension", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskType_ClassType(), ecorePackage.getEClass(), null, "classType", null, 0, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_StartingState(), theStatePackage.getState(), null, "startingState", null, 1, 1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_Relationships(), this.getTaskRelationship(), null, "relationships", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskType_ResolvedStates(), theStatePackage.getState(), null, "resolvedStates", null, 0, -1, TaskType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2836,6 +2863,14 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK_DOMAIN__TASK_TYPES = eINSTANCE.getTaskDomain_TaskTypes();
 
 		/**
+		 * The meta object literal for the '<em><b>Extensions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EReference TASK_DOMAIN__EXTENSIONS = eINSTANCE.getTaskDomain_Extensions();
+
+		/**
 		 * The meta object literal for the '<em><b>State Groups</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2972,12 +3007,12 @@ public class TaskPackage extends EPackageImpl
 		public static final EReference TASK_TYPE__STATES = eINSTANCE.getTaskType_States();
 
 		/**
-		 * The meta object literal for the '<em><b>Extension</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Class Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public static final EReference TASK_TYPE__EXTENSION = eINSTANCE.getTaskType_Extension();
+		public static final EReference TASK_TYPE__CLASS_TYPE = eINSTANCE.getTaskType_ClassType();
 
 		/**
 		 * The meta object literal for the '<em><b>Starting State</b></em>' reference feature.

@@ -12,6 +12,7 @@
 package org.eclipselabs.etrack.domain.task.util;
 
 import java.util.Map;
+
 import org.eclilpselabs.etrack.domain.data.CategorizedItem;
 import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclilpselabs.etrack.domain.data.LinkedContent;
@@ -23,17 +24,21 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipselabs.etrack.domain.audit.Action;
 import org.eclipselabs.etrack.domain.audit.AuditableItem;
 import org.eclipselabs.etrack.domain.entity.AssignableItem;
-import org.eclipselabs.etrack.domain.task.*;
 import org.eclipselabs.etrack.domain.task.Artifact;
 import org.eclipselabs.etrack.domain.task.Attachment;
 import org.eclipselabs.etrack.domain.task.AttachmentData;
 import org.eclipselabs.etrack.domain.task.Comment;
+import org.eclipselabs.etrack.domain.task.Duration;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskAttributeChange;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 import org.eclipselabs.etrack.domain.task.TaskDomainLink;
+import org.eclipselabs.etrack.domain.task.TaskGroup;
 import org.eclipselabs.etrack.domain.task.TaskModelVersion;
 import org.eclipselabs.etrack.domain.task.TaskPackage;
+import org.eclipselabs.etrack.domain.task.TaskQuery;
+import org.eclipselabs.etrack.domain.task.TaskRelationship;
+import org.eclipselabs.etrack.domain.task.TaskResolution;
 import org.eclipselabs.etrack.domain.task.TaskType;
 
 /**

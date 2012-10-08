@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -42,6 +43,7 @@ import org.eclipselabs.etrack.domain.state.StateTransition;
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getRelationships <em>Relationships</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getResolutions <em>Resolutions</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getTaskTypes <em>Task Types</em>}</li>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskDomain#getExtensions <em>Extensions</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +132,16 @@ public class TaskDomain extends EObjectImpl implements EObject
 	 * @ordered
 	 */
 	protected EList<TaskType> taskTypes;
+
+	/**
+	 * The cached value of the '{@link #getExtensions() <em>Extensions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExtensions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EPackage> extensions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -257,6 +269,29 @@ public class TaskDomain extends EObjectImpl implements EObject
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Extensions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EPackage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Extensions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Extensions</em>' containment reference list.
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskDomain_Extensions()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	public EList<EPackage> getExtensions()
+	{
+		if (extensions == null)
+		{
+			extensions = new EObjectContainmentEList.Resolving<EPackage>(EPackage.class, this, TaskPackage.TASK_DOMAIN__EXTENSIONS);
+		}
+		return extensions;
+	}
+
+	/**
 	 * Returns the value of the '<em><b>State Groups</b></em>' containment reference list.
 	 * The list contents are of type {@link org.eclipselabs.etrack.domain.state.StateGroup}.
 	 * <!-- begin-user-doc -->
@@ -347,6 +382,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return ((InternalEList<?>)getResolutions()).basicRemove(otherEnd, msgs);
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				return ((InternalEList<?>)getTaskTypes()).basicRemove(otherEnd, msgs);
+			case TaskPackage.TASK_DOMAIN__EXTENSIONS:
+				return ((InternalEList<?>)getExtensions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -375,6 +412,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return getResolutions();
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				return getTaskTypes();
+			case TaskPackage.TASK_DOMAIN__EXTENSIONS:
+				return getExtensions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -417,6 +456,10 @@ public class TaskDomain extends EObjectImpl implements EObject
 				getTaskTypes().clear();
 				getTaskTypes().addAll((Collection<? extends TaskType>)newValue);
 				return;
+			case TaskPackage.TASK_DOMAIN__EXTENSIONS:
+				getExtensions().clear();
+				getExtensions().addAll((Collection<? extends EPackage>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -452,6 +495,9 @@ public class TaskDomain extends EObjectImpl implements EObject
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				getTaskTypes().clear();
 				return;
+			case TaskPackage.TASK_DOMAIN__EXTENSIONS:
+				getExtensions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -480,6 +526,8 @@ public class TaskDomain extends EObjectImpl implements EObject
 				return resolutions != null && !resolutions.isEmpty();
 			case TaskPackage.TASK_DOMAIN__TASK_TYPES:
 				return taskTypes != null && !taskTypes.isEmpty();
+			case TaskPackage.TASK_DOMAIN__EXTENSIONS:
+				return extensions != null && !extensions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
