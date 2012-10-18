@@ -4,10 +4,17 @@ Bundle-Name: eTrack Task Web Services
 Bundle-SymbolicName: org.eclipselabs.etrack.server.web.task
 Bundle-Version: 0.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.emf.common.util,
+Import-Package: javax.mail;version="1.4.1",
+ javax.mail.internet;version="1.4.1",
+ org.eclilpselabs.etrack.domain.data,
+ org.eclilpselabs.etrack.util.mail,
+ org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.impl,
  org.eclipse.emf.ecore.resource,
  org.eclipse.emf.ecore.resource.impl,
+ org.eclipselabs.etrack.domain.audit,
+ org.eclipselabs.etrack.domain.entity,
  org.eclipselabs.etrack.domain.task,
  org.eclipselabs.etrack.server.web.storage,
  org.eclipselabs.etrack.util.web.emf,
@@ -17,7 +24,8 @@ Import-Package: org.eclipse.emf.common.util,
  org.restlet.ext.osgi,
  org.restlet.ext.wadl,
  org.restlet.representation,
- org.restlet.resource
+ org.restlet.resource,
+ org.restlet.security
 Bundle-ActivationPolicy: lazy
 Service-Component:  OSGI-INF/resources/related_tasks_mapping.xml,
  OSGI-INF/resources/task_domain.xml,

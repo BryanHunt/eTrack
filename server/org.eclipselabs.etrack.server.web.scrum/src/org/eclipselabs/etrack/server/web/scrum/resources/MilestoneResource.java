@@ -58,16 +58,16 @@ public class MilestoneResource extends AbstractStorageResource
 
 	@Put("xmi+xml")
 	@Override
-	public void updateXmiObject(Representation representation) throws IOException
+	public EObject updateXmiObject(Representation representation) throws IOException
 	{
-		super.updateXmiObject(representation);
+		return super.updateXmiObject(representation);
 	}
 
 	@Put("json")
 	@Override
-	public void updateJsonObject(Representation representation) throws IOException
+	public EObject updateJsonObject(Representation representation) throws IOException
 	{
-		super.updateJsonObject(representation);
+		return super.updateJsonObject(representation);
 	}
 
 	@Delete

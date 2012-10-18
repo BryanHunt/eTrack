@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="configure" configuration-policy="require" immediate="true" name="org.eclilpselabs.etrack.util.mail">
+   <implementation class="org.eclilpselabs.etrack.util.mail.services.MailService"/>
+   <service>
+      <provide interface="org.eclilpselabs.etrack.util.mail.IMailService"/>
+   </service>
+</scr:component>

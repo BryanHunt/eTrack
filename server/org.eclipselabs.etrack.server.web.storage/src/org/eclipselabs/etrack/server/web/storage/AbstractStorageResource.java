@@ -83,24 +83,24 @@ public class AbstractStorageResource extends WadlServerResource
 		return representation;
 	}
 
-	public void updateXmiObject(Representation representation) throws IOException
+	public EObject updateXmiObject(Representation representation) throws IOException
 	{
-		// TODO check the etag?
-
-		getModel();
+		EObject model = getModel();
 
 		EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation);
 		saveObject(emfRepresentation.getObject());
+
+		return model;
 	}
 
-	public void updateJsonObject(Representation representation) throws IOException
+	public EObject updateJsonObject(Representation representation) throws IOException
 	{
-		// TODO check the etag?
-
-		getModel();
+		EObject model = getModel();
 
 		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), new ResourceSetImpl());
 		saveObject(emfRepresentation.getObject());
+
+		return model;
 	}
 
 	public void deleteObject() throws IOException

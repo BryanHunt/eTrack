@@ -11,6 +11,7 @@
 
 package org.eclipselabs.etrack.server.web.task.providers;
 
+import org.eclilpselabs.etrack.util.mail.IMailService;
 import org.eclipselabs.etrack.server.web.storage.AbstractStorageResourceProvider;
 import org.eclipselabs.etrack.server.web.task.resources.TaskResource;
 import org.restlet.Context;
@@ -26,5 +27,10 @@ public class TaskResourceProvider extends AbstractStorageResourceProvider
 	protected Finder createFinder(Context context)
 	{
 		return new Finder(context, TaskResource.class);
+	}
+
+	public void bindMailService(IMailService mailService)
+	{
+		TaskResource.setMailService(mailService);
 	}
 }

@@ -10,4 +10,5 @@
       <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
    </service>
    <reference bind="bindResourceSetFactory" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceSetFactory" name="IResourceSetFactory" policy="static"/>
+   <reference bind="bindMailService" cardinality="0..1" interface="org.eclilpselabs.etrack.util.mail.IMailService" name="IMailService" policy="dynamic"/>
 </scr:component>

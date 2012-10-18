@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.1.0">
+	<OCD name="Mail" id="org.eclipselabs.etrack.util.mail" description="Mail Configuration">
+		<AD name="SMTP Host" id="mail.smtp.host" type="String"   description="The host name of the SMTP server."/>
+		<AD name="From"      id="mail.from"      type="String"   description="The email address of the sender"/>
+	</OCD>
+	<Designate factoryPid="org.eclipselabs.etrack.util.mail">
+		<Object ocdref="org.eclipselabs.etrack.util.mail"/>
+	</Designate>
+</MetaData>
