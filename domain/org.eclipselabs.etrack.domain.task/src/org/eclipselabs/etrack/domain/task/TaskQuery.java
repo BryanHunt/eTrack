@@ -18,6 +18,7 @@ import org.eclipselabs.etrack.domain.entity.Person;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.eclipselabs.etrack.domain.task.TaskQuery#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.etrack.domain.task.TaskQuery#getQuery <em>Query</em>}</li>
  * </ul>
  * </p>
@@ -37,6 +38,26 @@ public class TaskQuery extends EObjectImpl implements AssignableItem
 	 * @ordered
 	 */
 	protected Person owner;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getQuery() <em>Query</em>}' attribute.
@@ -135,6 +156,41 @@ public class TaskQuery extends EObjectImpl implements AssignableItem
 	}
 
 	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.eclipselabs.etrack.domain.task.TaskPackage#getTaskQuery_Name()
+	 * @model
+	 * @generated
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.etrack.domain.task.TaskQuery#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	public void setName(String newName)
+	{
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TaskPackage.TASK_QUERY__NAME, oldName, name));
+	}
+
+	/**
 	 * Returns the value of the '<em><b>Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -182,6 +238,8 @@ public class TaskQuery extends EObjectImpl implements AssignableItem
 			case TaskPackage.TASK_QUERY__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
+			case TaskPackage.TASK_QUERY__NAME:
+				return getName();
 			case TaskPackage.TASK_QUERY__QUERY:
 				return getQuery();
 		}
@@ -200,6 +258,9 @@ public class TaskQuery extends EObjectImpl implements AssignableItem
 		{
 			case TaskPackage.TASK_QUERY__OWNER:
 				setOwner((Person)newValue);
+				return;
+			case TaskPackage.TASK_QUERY__NAME:
+				setName((String)newValue);
 				return;
 			case TaskPackage.TASK_QUERY__QUERY:
 				setQuery((String)newValue);
@@ -221,6 +282,9 @@ public class TaskQuery extends EObjectImpl implements AssignableItem
 			case TaskPackage.TASK_QUERY__OWNER:
 				setOwner((Person)null);
 				return;
+			case TaskPackage.TASK_QUERY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case TaskPackage.TASK_QUERY__QUERY:
 				setQuery(QUERY_EDEFAULT);
 				return;
@@ -240,6 +304,8 @@ public class TaskQuery extends EObjectImpl implements AssignableItem
 		{
 			case TaskPackage.TASK_QUERY__OWNER:
 				return owner != null;
+			case TaskPackage.TASK_QUERY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TaskPackage.TASK_QUERY__QUERY:
 				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
 		}
@@ -257,7 +323,9 @@ public class TaskQuery extends EObjectImpl implements AssignableItem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (query: ");
+		result.append(" (name: ");
+		result.append(name);
+		result.append(", query: ");
 		result.append(query);
 		result.append(')');
 		return result.toString();

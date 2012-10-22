@@ -1027,13 +1027,22 @@ public class TaskPackage extends EPackageImpl
 	public static final int TASK_QUERY__OWNER = EntityPackage.ASSIGNABLE_ITEM__OWNER;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TASK_QUERY__NAME = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_QUERY__QUERY = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 0;
+	public static final int TASK_QUERY__QUERY = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Query</em>' class.
@@ -1042,7 +1051,7 @@ public class TaskPackage extends EPackageImpl
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TASK_QUERY_FEATURE_COUNT = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 1;
+	public static final int TASK_QUERY_FEATURE_COUNT = EntityPackage.ASSIGNABLE_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.etrack.domain.task.DurationUnit <em>Duration Unit</em>}' enum.
@@ -2265,6 +2274,21 @@ public class TaskPackage extends EPackageImpl
 
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskQuery#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.eclipselabs.etrack.domain.task.TaskQuery#getName()
+	 * @see #getTaskQuery()
+	 * @generated
+	 */
+	public EAttribute getTaskQuery_Name()
+	{
+		return (EAttribute)taskQueryEClass.getEStructuralFeatures().get(0);
+	}
+
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.eclipselabs.etrack.domain.task.TaskQuery#getQuery <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2275,7 +2299,7 @@ public class TaskPackage extends EPackageImpl
 	 */
 	public EAttribute getTaskQuery_Query()
 	{
-		return (EAttribute)taskQueryEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)taskQueryEClass.getEStructuralFeatures().get(1);
 	}
 
 
@@ -2488,6 +2512,7 @@ public class TaskPackage extends EPackageImpl
 		createEReference(taskGroupEClass, TASK_GROUP__TASKS);
 
 		taskQueryEClass = createEClass(TASK_QUERY);
+		createEAttribute(taskQueryEClass, TASK_QUERY__NAME);
 		createEAttribute(taskQueryEClass, TASK_QUERY__QUERY);
 
 		// Create enums
@@ -2633,6 +2658,7 @@ public class TaskPackage extends EPackageImpl
 		initEReference(getTaskGroup_Tasks(), this.getTask(), null, "tasks", null, 0, -1, TaskGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskQueryEClass, TaskQuery.class, "TaskQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskQuery_Name(), ecorePackage.getEString(), "name", null, 0, 1, TaskQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskQuery_Query(), ecorePackage.getEString(), "query", null, 0, 1, TaskQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
@@ -3247,6 +3273,14 @@ public class TaskPackage extends EPackageImpl
 		 * @generated
 		 */
 		public static final EClass TASK_QUERY = eINSTANCE.getTaskQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public static final EAttribute TASK_QUERY__NAME = eINSTANCE.getTaskQuery_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
