@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-package org.eclilpselabs.etrack.util.mail;
+package org.eclipselabs.etrack.util.mail;
 
 /**
  * @author bhunt

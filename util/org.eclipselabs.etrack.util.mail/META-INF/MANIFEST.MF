@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: eTrack Mail Utilities
-Bundle-SymbolicName: org.eclilpselabs.etrack.util.mail
+Bundle-SymbolicName: org.eclipselabs.etrack.util.mail
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: javax.mail;version="1.4.1",
  javax.mail.internet;version="1.4.1"
-Export-Package: org.eclilpselabs.etrack.util.mail
+Export-Package: org.eclipselabs.etrack.util.mail
 Service-Component: OSGI-INF/services/mail.xml
 Bundle-ActivationPolicy: lazy

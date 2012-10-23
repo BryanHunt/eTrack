@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-package org.eclilpselabs.etrack.util.mail.services;
+package org.eclipselabs.etrack.util.mail.services;
 
 import java.util.Collection;
 import java.util.Map;
@@ -15,8 +15,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import org.eclilpselabs.etrack.util.mail.IMailService;
-import org.eclilpselabs.etrack.util.mail.MailException;
+import org.eclipselabs.etrack.util.mail.IMailService;
+import org.eclipselabs.etrack.util.mail.MailException;
 
 /**
  * @author bhunt

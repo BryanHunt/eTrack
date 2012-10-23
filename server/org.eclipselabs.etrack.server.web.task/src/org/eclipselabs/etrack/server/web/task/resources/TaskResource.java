@@ -18,12 +18,12 @@ import java.util.List;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-import org.eclilpselabs.etrack.util.mail.IMailService;
-import org.eclilpselabs.etrack.util.mail.MailException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.server.web.storage.AbstractStorageResource;
+import org.eclipselabs.etrack.util.mail.IMailService;
+import org.eclipselabs.etrack.util.mail.MailException;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.resource.Delete;

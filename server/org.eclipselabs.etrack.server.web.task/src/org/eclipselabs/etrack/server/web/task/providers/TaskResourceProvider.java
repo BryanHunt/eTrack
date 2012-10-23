@@ -11,9 +11,9 @@
 
 package org.eclipselabs.etrack.server.web.task.providers;
 
-import org.eclilpselabs.etrack.util.mail.IMailService;
 import org.eclipselabs.etrack.server.web.storage.AbstractStorageResourceProvider;
 import org.eclipselabs.etrack.server.web.task.resources.TaskResource;
+import org.eclipselabs.etrack.util.mail.IMailService;
 import org.restlet.Context;
 import org.restlet.resource.Finder;
 
