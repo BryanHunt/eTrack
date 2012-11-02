@@ -11,4 +11,5 @@
    </service>
    <reference bind="bindResourceSetFactory" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceSetFactory" name="IResourceSetFactory" policy="static"/>
    <reference bind="bindMailService" cardinality="0..1" interface="org.eclilpselabs.etrack.util.mail.IMailService" name="IMailService" policy="dynamic"/>
+   <reference bind="bindLogService" cardinality="0..1" interface="org.osgi.service.log.LogService" name="LogService" policy="dynamic"/>
 </scr:component>

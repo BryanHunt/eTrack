@@ -27,6 +27,7 @@ import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
 import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
 import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
+import org.osgi.service.log.LogService;
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.data.Status;
@@ -44,6 +45,7 @@ import org.restlet.resource.ResourceException;
 public class AbstractStorageResource extends WadlServerResource
 {
 	private static IResourceSetFactory resourceSetFactory;
+	private static LogService logService;
 	private static Map<String, ReentrantLock> locks = new HashMap<String, ReentrantLock>();
 
 	public static void setResourceSetFactory(IResourceSetFactory factory)
@@ -51,6 +53,11 @@ public class AbstractStorageResource extends WadlServerResource
 		// TODO this factory should ultimately be replaced by a cache and probably moved to the
 		// specialization classes
 		resourceSetFactory = factory;
+	}
+
+	public static void setLogService(LogService service)
+	{
+		logService = service;
 	}
 
 	public Representation createXmiObject(Representation representation) throws IOException
@@ -107,6 +114,24 @@ public class AbstractStorageResource extends WadlServerResource
 	{
 		EObject object = getModel();
 		object.eResource().delete(null);
+	}
+
+	@Override
+	public Representation handle()
+	{
+		try
+		{
+			return super.handle();
+		}
+		catch (ResourceException e)
+		{
+			LogService log = logService;
+
+			if (log != null)
+				log.log(LogService.LOG_ERROR, "Resource exception", e);
+
+			throw e;
+		}
 	}
 
 	@Override
