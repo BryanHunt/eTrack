@@ -12,6 +12,7 @@
 package org.eclipselabs.etrack.server.web.entity.ldap.resources;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -19,6 +20,7 @@ import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
 import org.eclipselabs.mongo.emf.ext.ECollection;
 import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
+import org.osgi.service.log.LogService;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
@@ -31,12 +33,18 @@ import org.restlet.resource.Get;
 public class CurrentUserResource extends WadlServerResource
 {
 	private static IResourceSetFactory resourceSetFactory;
+	private static LogService logService;
 
 	public static void setResourceSetFactory(IResourceSetFactory factory)
 	{
 		// TODO this factory should ultimately be replaced by a cache and probably moved to the
 		// specialization classes
 		resourceSetFactory = factory;
+	}
+
+	public static void bindLogService(LogService service)
+	{
+		logService = service;
 	}
 
 	@Get("xmi+xml")
@@ -61,16 +69,29 @@ public class CurrentUserResource extends WadlServerResource
 		String id = getClientInfo().getUser().getIdentifier();
 
 		id = id.substring(0, id.indexOf('@'));
-		Resource resource = resourceSet.getResource(uri.trimSegments(1).appendSegments(new String[] { "entities", "" }).appendQuery(id), true);
 
-		if (resource.getContents().isEmpty())
-			return null;
+		try
+		{
+			Resource resource = resourceSet.getResource(uri.trimSegments(1).appendSegments(new String[] { "entities", "" }).appendQuery(id), true);
 
-		ECollection eCollection = (ECollection) resource.getContents().get(0);
+			if (resource.getContents().isEmpty())
+				return null;
 
-		if (eCollection.getValues().isEmpty())
-			return null;
+			ECollection eCollection = (ECollection) resource.getContents().get(0);
 
-		return eCollection.getValues().get(0);
+			if (eCollection.getValues().isEmpty())
+				return null;
+
+			return eCollection.getValues().get(0);
+		}
+		catch (WrappedException e)
+		{
+			LogService log = logService;
+
+			if (log != null)
+				log.log(LogService.LOG_ERROR, "Resource exception", e);
+
+			throw e;
+		}
 	}
 }

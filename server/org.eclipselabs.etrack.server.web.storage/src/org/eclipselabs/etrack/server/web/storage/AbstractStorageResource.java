@@ -36,6 +36,7 @@ import org.restlet.ext.emf.EmfRepresentation;
 import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.representation.Representation;
 import org.restlet.representation.StringRepresentation;
+import org.restlet.representation.Variant;
 import org.restlet.resource.ResourceException;
 
 /**
@@ -117,11 +118,11 @@ public class AbstractStorageResource extends WadlServerResource
 	}
 
 	@Override
-	public Representation handle()
+	protected Representation doHandle(Variant variant) throws ResourceException
 	{
 		try
 		{
-			return super.handle();
+			return super.doHandle(variant);
 		}
 		catch (ResourceException e)
 		{
