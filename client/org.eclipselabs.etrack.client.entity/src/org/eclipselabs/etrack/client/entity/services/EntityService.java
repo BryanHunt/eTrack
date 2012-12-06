@@ -16,12 +16,12 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipselabs.emf.ext.ECollection;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.entity.IEntityService;
 import org.eclipselabs.etrack.domain.entity.Entity;
 import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
-import org.eclipselabs.mongo.emf.ext.ECollection;
 
 /**
  * @author bhunt

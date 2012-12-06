@@ -19,6 +19,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emf.ext.ExtPackage;
 import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.emf.query.util.ExpressionBuilder;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
@@ -26,8 +28,6 @@ import org.eclipselabs.etrack.client.task.ITaskService;
 import org.eclipselabs.etrack.domain.task.RelatedTasksMapping;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
-import org.eclipselabs.mongo.emf.ext.ECollection;
-import org.eclipselabs.mongo.emf.ext.ExtPackage;
 
 /**
  * @author bhunt

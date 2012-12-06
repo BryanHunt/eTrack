@@ -25,6 +25,11 @@ class Category
 	String name
 }
 
+class LinkedCategories extends LinkedContent
+{
+	contains Category[] categories
+}
+
 interface CategorizedItem
 {
 	refers Category category

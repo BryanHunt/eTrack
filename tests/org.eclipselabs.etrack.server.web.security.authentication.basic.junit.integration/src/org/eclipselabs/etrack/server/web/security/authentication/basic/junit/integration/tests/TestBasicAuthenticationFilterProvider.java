@@ -17,7 +17,7 @@ import static org.junit.Assert.fail;
 
 import java.io.IOException;
 
-import org.eclipselabs.mongo.emf.developer.junit.ServiceTestHarness;
+import org.eclipselabs.eunit.junit.utils.ServiceTestHarness;
 import org.junit.Test;
 import org.restlet.data.ChallengeResponse;
 import org.restlet.data.ChallengeScheme;

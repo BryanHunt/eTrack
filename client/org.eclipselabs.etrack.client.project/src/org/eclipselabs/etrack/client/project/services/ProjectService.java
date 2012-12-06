@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emf.ext.ExtPackage;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.project.IProjectService;
 import org.eclipselabs.etrack.domain.project.Project;
-import org.eclipselabs.mongo.emf.ext.ECollection;
-import org.eclipselabs.mongo.emf.ext.ExtPackage;
 
 /**
  * @author bhunt

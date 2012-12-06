@@ -17,7 +17,7 @@ class StateTransition
 class StateTransitionMapping wraps java.util.Map$Entry
 {
 	refers State key
-	refers StateTransition value
+	refers StateTransition[] value
 }
 
 class StateChange extends Action

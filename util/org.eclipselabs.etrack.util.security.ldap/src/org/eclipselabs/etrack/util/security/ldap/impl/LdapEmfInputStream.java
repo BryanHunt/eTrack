@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emf.ext.ExtFactory;
 import org.eclipselabs.etrack.util.security.ldap.IEObjectBuilder;
 import org.eclipselabs.etrack.util.security.ldap.ILdapService;
-import org.eclipselabs.mongo.emf.ext.ECollection;
-import org.eclipselabs.mongo.emf.ext.ExtFactory;
 
 /**
  * @author bhunt

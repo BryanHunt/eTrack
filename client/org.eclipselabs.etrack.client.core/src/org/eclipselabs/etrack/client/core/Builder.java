@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipselabs.etrack.domain.data.Linkable;
 
 /**
  * @author bhunt

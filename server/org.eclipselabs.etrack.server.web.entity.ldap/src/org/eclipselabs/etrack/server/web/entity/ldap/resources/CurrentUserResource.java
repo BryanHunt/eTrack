@@ -16,10 +16,10 @@ import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
 import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
-import org.eclipselabs.mongo.emf.ext.ECollection;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
 import org.osgi.service.log.LogService;
 import org.restlet.data.MediaType;
 import org.restlet.ext.emf.EmfRepresentation;
@@ -32,10 +32,10 @@ import org.restlet.resource.Get;
  */
 public class CurrentUserResource extends WadlServerResource
 {
-	private static IResourceSetFactory resourceSetFactory;
+	private static ResourceSetFactory resourceSetFactory;
 	private static LogService logService;
 
-	public static void setResourceSetFactory(IResourceSetFactory factory)
+	public static void setResourceSetFactory(ResourceSetFactory factory)
 	{
 		// TODO this factory should ultimately be replaced by a cache and probably moved to the
 		// specialization classes

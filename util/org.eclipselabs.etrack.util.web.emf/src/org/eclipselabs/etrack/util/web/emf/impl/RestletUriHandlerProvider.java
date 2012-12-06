@@ -12,14 +12,14 @@
 package org.eclipselabs.etrack.util.web.emf.impl;
 
 import org.eclipse.emf.ecore.resource.URIHandler;
+import org.eclipselabs.emf.ext.UriHandlerProvider;
 import org.eclipselabs.etrack.client.web.IClientResourceFactory;
-import org.eclipselabs.mongo.emf.ext.IUriHandlerProvider;
 
 /**
  * @author bhunt
  * 
  */
-public class RestletUriHandlerProvider implements IUriHandlerProvider
+public class RestletUriHandlerProvider implements UriHandlerProvider
 {
 	@Override
 	public URIHandler getURIHandler()

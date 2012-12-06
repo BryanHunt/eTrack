@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emf.mongodb.Options;
 import org.eclipselabs.etrack.domain.entity.Person;
-import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
-import org.eclipselabs.mongo.emf.ext.ECollection;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
 import org.restlet.data.MediaType;
 import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.representation.AppendableRepresentation;
@@ -35,7 +35,7 @@ import org.restlet.resource.ResourceException;
  */
 public class PersonDirectoryResource extends WadlServerResource
 {
-	public static void setResourceSetFactory(IResourceSetFactory factory)
+	public static void setResourceSetFactory(ResourceSetFactory factory)
 	{
 		resourceSetFactory = factory;
 	}
@@ -57,7 +57,7 @@ public class PersonDirectoryResource extends WadlServerResource
 			html.append("</tr>");
 
 			ResourceSet resourceSet = createResourceSet();
-			resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.TRUE);
+			resourceSet.getLoadOptions().put(Options.OPTION_PROXY_ATTRIBUTES, Boolean.TRUE);
 			Resource resource = resourceSet.getResource(
 					URI.createURI("mongodb://localhost/etrack/entity/").appendQuery(URI.encodeQuery("_eClass=='http://www.eclipselabs.org/etrack/domain/entity#//Person'", false)), true);
 			ECollection eCollection = (ECollection) resource.getContents().get(0);
@@ -99,5 +99,5 @@ public class PersonDirectoryResource extends WadlServerResource
 		return resourceSet;
 	}
 
-	private static IResourceSetFactory resourceSetFactory;
+	private static ResourceSetFactory resourceSetFactory;
 }

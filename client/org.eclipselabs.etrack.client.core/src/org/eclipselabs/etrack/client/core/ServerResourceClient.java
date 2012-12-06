@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipselabs.mongo.emf.ext.IResourceCache;
+import org.eclipselabs.emf.ext.ResourceCache;
 
 /**
  * This class adds the ability to get a centralized EMF ResourceSet. This
@@ -27,9 +27,9 @@ import org.eclipselabs.mongo.emf.ext.IResourceCache;
  */
 public class ServerResourceClient extends ServerClient
 {
-	private IResourceCache resourceCache;
+	private ResourceCache resourceCache;
 
-	public void bindResourceCache(IResourceCache resourceCache)
+	public void bindResourceCache(ResourceCache resourceCache)
 	{
 		this.resourceCache = resourceCache;
 	}

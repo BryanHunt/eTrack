@@ -31,8 +31,8 @@ import org.eclipse.mylyn.tasks.core.data.TaskData;
 import org.eclipse.mylyn.tasks.core.data.TaskDataCollector;
 import org.eclipse.mylyn.tasks.core.data.TaskMapper;
 import org.eclipse.mylyn.tasks.core.sync.ISynchronizationSession;
+import org.eclipselabs.emf.ext.ECollection;
 import org.eclipselabs.etrack.domain.task.Task;
-import org.eclipselabs.mongo.emf.ext.ECollection;
 
 /**
  * @author bhunt

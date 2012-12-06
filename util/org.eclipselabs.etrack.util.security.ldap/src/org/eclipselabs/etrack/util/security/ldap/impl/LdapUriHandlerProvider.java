@@ -12,15 +12,15 @@
 package org.eclipselabs.etrack.util.security.ldap.impl;
 
 import org.eclipse.emf.ecore.resource.URIHandler;
+import org.eclipselabs.emf.ext.UriHandlerProvider;
 import org.eclipselabs.etrack.util.security.ldap.IEObjectBuilder;
 import org.eclipselabs.etrack.util.security.ldap.ILdapService;
-import org.eclipselabs.mongo.emf.ext.IUriHandlerProvider;
 
 /**
  * @author bhunt
  * 
  */
-public class LdapUriHandlerProvider implements IUriHandlerProvider
+public class LdapUriHandlerProvider implements UriHandlerProvider
 {
 
 	@Override

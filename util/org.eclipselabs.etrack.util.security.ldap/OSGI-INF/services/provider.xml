@@ -2,7 +2,7 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.eclipselabs.etrack.util.security.ldap.uriHandlerProvider">
    <implementation class="org.eclipselabs.etrack.util.security.ldap.impl.LdapUriHandlerProvider"/>
    <service>
-      <provide interface="org.eclipselabs.mongo.emf.ext.IUriHandlerProvider"/>
+      <provide interface="org.eclipselabs.emf.ext.UriHandlerProvider"/>
    </service>
    <reference bind="bindEObjectBuilder" cardinality="1..1" interface="org.eclipselabs.etrack.util.security.ldap.IEObjectBuilder" name="IEObjectBuilder" policy="static"/>
    <reference bind="bindLdapService" cardinality="1..1" interface="org.eclipselabs.etrack.util.security.ldap.ILdapService" name="ILdapService" policy="static"/>

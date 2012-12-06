@@ -15,12 +15,12 @@ import java.io.IOException;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipselabs.emf.ext.ECollection;
 import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.etrack.client.core.IServerClient;
 import org.eclipselabs.etrack.domain.task.RelatedTasksMapping;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
-import org.eclipselabs.mongo.emf.ext.ECollection;
 
 /**
  * This service manages tasks for a given server. This service uses

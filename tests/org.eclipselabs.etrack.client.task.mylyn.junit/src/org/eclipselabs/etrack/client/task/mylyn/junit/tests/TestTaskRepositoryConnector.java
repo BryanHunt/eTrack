@@ -47,6 +47,8 @@ import org.eclipse.mylyn.tasks.core.data.TaskData;
 import org.eclipse.mylyn.tasks.core.data.TaskDataCollector;
 import org.eclipse.mylyn.tasks.core.data.TaskMapper;
 import org.eclipse.mylyn.tasks.core.sync.ISynchronizationSession;
+import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emf.ext.ExtFactory;
 import org.eclipselabs.emf.query.Expression;
 import org.eclipselabs.emf.query.QueryFactory;
 import org.eclipselabs.etrack.client.task.mylyn.MylynTaskClient;
@@ -56,8 +58,6 @@ import org.eclipselabs.etrack.client.task.mylyn.junit.support.TaskRepositoryConn
 import org.eclipselabs.etrack.client.task.mylyn.junit.support.UnitTestHarness;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
-import org.eclipselabs.mongo.emf.ext.ECollection;
-import org.eclipselabs.mongo.emf.ext.ExtFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

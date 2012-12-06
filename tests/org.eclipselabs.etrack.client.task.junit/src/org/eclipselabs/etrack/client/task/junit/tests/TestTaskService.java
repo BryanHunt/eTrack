@@ -32,6 +32,10 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emf.ext.ExtFactory;
+import org.eclipselabs.emf.ext.ResourceCacheImpl;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
 import org.eclipselabs.emf.query.BinaryOperation;
 import org.eclipselabs.emf.query.Literal;
 import org.eclipselabs.emf.query.QueryFactory;
@@ -44,10 +48,6 @@ import org.eclipselabs.etrack.client.task.services.TaskService;
 import org.eclipselabs.etrack.domain.task.Task;
 import org.eclipselabs.etrack.domain.task.TaskDomain;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
-import org.eclipselabs.mongo.emf.ext.ECollection;
-import org.eclipselabs.mongo.emf.ext.ExtFactory;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
-import org.eclipselabs.mongo.emf.ext.ResourceCache;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -69,7 +69,7 @@ public class TestTaskService
 	private String[] taskDomainPath;
 
 	@Mock
-	private IResourceSetFactory resourceSetFactory;
+	private ResourceSetFactory resourceSetFactory;
 	@Spy
 	private ResourceSetImpl resourceSet;
 
@@ -102,7 +102,7 @@ public class TestTaskService
 		projectsResource.getContents().add(ExtFactory.eINSTANCE.createECollection());
 		doReturn(projectsResource).when(resourceSet).getResource(taskDomainsURI, true);
 
-		ResourceCache resourceCache = new ResourceCache();
+		ResourceCacheImpl resourceCache = new ResourceCacheImpl();
 		resourceCache.bindResourceSetFactory(resourceSetFactory);
 		taskService.bindResourceCache(resourceCache);
 

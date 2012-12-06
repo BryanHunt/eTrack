@@ -12,7 +12,7 @@
 package org.ecliplselabs.etrack.server.web.forms.entity.providers;
 
 import org.ecliplselabs.etrack.server.web.forms.entity.resources.PersonDirectoryResource;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
 import org.restlet.Context;
 import org.restlet.ext.osgi.ResourceProvider;
 import org.restlet.resource.Finder;
@@ -29,7 +29,7 @@ public class PersonDirectoryResourceProvider extends ResourceProvider
 		return new Finder(context, PersonDirectoryResource.class);
 	}
 
-	void bindResourceSetFactory(IResourceSetFactory resourceSetFactory)
+	void bindResourceSetFactory(ResourceSetFactory resourceSetFactory)
 	{
 		PersonDirectoryResource.setResourceSetFactory(resourceSetFactory);
 	}

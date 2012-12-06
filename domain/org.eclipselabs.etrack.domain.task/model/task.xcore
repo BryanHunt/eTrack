@@ -13,6 +13,9 @@ import org.eclipselabs.etrack.domain.state.StateTransition
 import org.eclipselabs.etrack.domain.state.StateGroup
 import org.eclipse.emf.ecore.EPackage
 import org.eclipselabs.etrack.domain.audit.AuditableItem
+import org.eclipselabs.etrack.domain.data.Linkable
+import org.eclipselabs.etrack.domain.data.CategorizedItem
+import org.eclipselabs.etrack.domain.data.TaggableItem
 
 type Date wraps java.util.Date
 
@@ -54,16 +57,17 @@ class Duration
 	DurationUnit units
 }
 
-class Task extends AssignableItem, AuditableItem
+class Task extends AssignableItem, AuditableItem, Linkable, CategorizedItem, TaggableItem
 {
 	String summary
 	String description
 	Date createdOn
 	refers Person createdBy
 	contains Attachment[] attachments
+	contains Comment[] comments
 	refers State currentState
 	refers Person[] subscribers
-	refers TaskType taskType
+	refers TaskType ^type
 	refers Project project
 	contains RelatedTasksMapping[] relatedTasks
 	refers TaskResolution resolution

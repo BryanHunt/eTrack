@@ -12,7 +12,7 @@ class Backlog extends TaskGroup
 class Milestone extends TaskTimeBox
 {}
 
-class Release
+class Release extends TaskTimeBox
 {
 	contains Milestone[] milestones
 }

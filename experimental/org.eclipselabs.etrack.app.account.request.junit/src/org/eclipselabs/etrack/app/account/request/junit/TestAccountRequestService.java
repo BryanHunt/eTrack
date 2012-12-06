@@ -13,7 +13,7 @@ package org.eclipselabs.etrack.app.account.request.junit;
 
 import static org.junit.Assert.fail;
 
-import org.eclipselabs.mongo.emf.developer.junit.MongoDatabase;
+import org.eclipselabs.emongo.junit.util.MongoDatabase;
 import org.junit.Rule;
 import org.junit.Test;
 

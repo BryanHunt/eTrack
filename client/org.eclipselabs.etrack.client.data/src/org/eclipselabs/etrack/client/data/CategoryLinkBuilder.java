@@ -11,13 +11,13 @@
 
 package org.eclipselabs.etrack.client.data;
 
-import org.eclilpselabs.etrack.domain.data.DataFactory;
-import org.eclilpselabs.etrack.domain.data.DataPackage;
-import org.eclilpselabs.etrack.domain.data.Linkable;
-import org.eclilpselabs.etrack.domain.data.LinkedCategories;
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipselabs.etrack.client.core.ILinkBuilder;
+import org.eclipselabs.etrack.domain.data.DataFactory;
+import org.eclipselabs.etrack.domain.data.DataPackage;
+import org.eclipselabs.etrack.domain.data.Linkable;
+import org.eclipselabs.etrack.domain.data.LinkedCategories;
 
 /**
  * @author bhunt

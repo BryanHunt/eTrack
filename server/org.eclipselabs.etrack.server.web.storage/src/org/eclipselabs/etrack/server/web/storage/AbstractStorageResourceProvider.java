@@ -11,7 +11,7 @@
 
 package org.eclipselabs.etrack.server.web.storage;
 
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
 import org.osgi.service.log.LogService;
 import org.restlet.ext.osgi.ResourceProvider;
 
@@ -21,7 +21,7 @@ import org.restlet.ext.osgi.ResourceProvider;
  */
 public abstract class AbstractStorageResourceProvider extends ResourceProvider
 {
-	public void bindResourceSetFactory(IResourceSetFactory resourceSetFactory)
+	public void bindResourceSetFactory(ResourceSetFactory resourceSetFactory)
 	{
 		AbstractStorageResource.setResourceSetFactory(resourceSetFactory);
 	}

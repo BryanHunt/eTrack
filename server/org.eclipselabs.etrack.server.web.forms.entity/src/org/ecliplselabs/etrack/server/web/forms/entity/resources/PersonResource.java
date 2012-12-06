@@ -18,12 +18,12 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
 import org.eclipselabs.etrack.domain.entity.Address;
 import org.eclipselabs.etrack.domain.entity.Email;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
 import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.etrack.domain.entity.Phone;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
 import org.restlet.data.Form;
 import org.restlet.ext.wadl.WadlServerResource;
 import org.restlet.representation.InputRepresentation;
@@ -39,7 +39,7 @@ import org.restlet.resource.ResourceException;
  */
 public class PersonResource extends WadlServerResource
 {
-	public static void setResourceSetFactory(IResourceSetFactory factory)
+	public static void setResourceSetFactory(ResourceSetFactory factory)
 	{
 		resourceSetFactory = factory;
 	}
@@ -107,5 +107,5 @@ public class PersonResource extends WadlServerResource
 		return resourceSet;
 	}
 
-	private static IResourceSetFactory resourceSetFactory;
+	private static ResourceSetFactory resourceSetFactory;
 }

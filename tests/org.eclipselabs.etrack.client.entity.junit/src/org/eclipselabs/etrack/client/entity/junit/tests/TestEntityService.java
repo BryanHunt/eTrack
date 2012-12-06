@@ -26,6 +26,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipselabs.emf.ext.ResourceCacheImpl;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.entity.services.EntityService;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
@@ -34,8 +36,6 @@ import org.eclipselabs.etrack.domain.entity.Person;
 import org.eclipselabs.etrack.domain.security.PasswordCredential;
 import org.eclipselabs.etrack.domain.security.SecurityFactory;
 import org.eclipselabs.etrack.util.security.IPasswordCredentialProvider;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
-import org.eclipselabs.mongo.emf.ext.ResourceCache;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -57,7 +57,7 @@ public class TestEntityService
 	@Mock
 	private IPasswordCredentialProvider passwordCredentialProvider;
 	@Mock
-	private IResourceSetFactory resourceSetFactory;
+	private ResourceSetFactory resourceSetFactory;
 	@Spy
 	private ResourceSetImpl resourceSet;
 
@@ -70,7 +70,7 @@ public class TestEntityService
 
 		when(resourceSetFactory.createResourceSet()).thenReturn(resourceSet);
 
-		ResourceCache resourceCache = new ResourceCache();
+		ResourceCacheImpl resourceCache = new ResourceCacheImpl();
 		resourceCache.bindResourceSetFactory(resourceSetFactory);
 		entityService.bindResourceCache(resourceCache);
 

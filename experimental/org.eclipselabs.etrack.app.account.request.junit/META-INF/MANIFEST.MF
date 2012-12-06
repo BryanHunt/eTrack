@@ -4,7 +4,7 @@ Bundle-Name: Account Request Busibess Logic JUnit Tests
 Bundle-SymbolicName: org.eclipselabs.etrack.app.account.request.junit
 Bundle-Version: 0.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipselabs.etrack.domain.account,
- org.eclipselabs.mongo.emf.developer.junit,
+Import-Package: org.eclipselabs.emongo.junit.util,
+ org.eclipselabs.etrack.domain.account,
  org.hamcrest;version="1.3.0",
  org.junit;version="4.9.0"

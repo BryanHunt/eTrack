@@ -11,10 +11,10 @@
 
 package org.eclipselabs.etrack.client.task;
 
-import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipselabs.etrack.client.core.ILinkBuilder;
+import org.eclipselabs.etrack.domain.data.Linkable;
 import org.eclipselabs.etrack.domain.task.TaskDomainLink;
 import org.eclipselabs.etrack.domain.task.TaskFactory;
 import org.eclipselabs.etrack.domain.task.TaskPackage;

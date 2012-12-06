@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emf.mongodb.Options;
 import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.eclipselabs.etrack.util.web.emf.EmfXmlRepresentation;
-import org.eclipselabs.mongo.emf.MongoURIHandlerImpl;
-import org.eclipselabs.mongo.emf.ext.IResourceSetFactory;
 import org.osgi.service.log.LogService;
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
@@ -45,11 +45,11 @@ import org.restlet.resource.ResourceException;
  */
 public class AbstractStorageResource extends WadlServerResource
 {
-	private static IResourceSetFactory resourceSetFactory;
+	private static ResourceSetFactory resourceSetFactory;
 	private static LogService logService;
 	private static Map<String, ReentrantLock> locks = new HashMap<String, ReentrantLock>();
 
-	public static void setResourceSetFactory(IResourceSetFactory factory)
+	public static void setResourceSetFactory(ResourceSetFactory factory)
 	{
 		// TODO this factory should ultimately be replaced by a cache and probably moved to the
 		// specialization classes
@@ -172,7 +172,7 @@ public class AbstractStorageResource extends WadlServerResource
 		Form headers = (Form) getRequestAttributes().get("");
 
 		if (headers != null)
-			resourceSet.getLoadOptions().put(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES, Boolean.valueOf(headers.getFirstValue(MongoURIHandlerImpl.OPTION_PROXY_ATTRIBUTES)));
+			resourceSet.getLoadOptions().put(Options.OPTION_PROXY_ATTRIBUTES, Boolean.valueOf(headers.getFirstValue(Options.OPTION_PROXY_ATTRIBUTES)));
 
 		URI uri = URI.createURI(getReference().toString());
 

@@ -14,13 +14,13 @@ package org.eclipselabs.etrack.server.web.storage.mapping;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
-import org.eclipselabs.mongo.emf.ext.IResourceSetConfigurator;
+import org.eclipselabs.emf.ext.ResourceSetConfigurator;
 
 /**
  * @author bhunt
  * 
  */
-public class StorageUriMapper implements IResourceSetConfigurator
+public class StorageUriMapper implements ResourceSetConfigurator
 {
 
 	@Override

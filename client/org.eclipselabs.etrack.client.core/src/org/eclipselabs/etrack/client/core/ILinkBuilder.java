@@ -11,8 +11,8 @@
 
 package org.eclipselabs.etrack.client.core;
 
-import org.eclilpselabs.etrack.domain.data.Linkable;
 import org.eclipse.core.databinding.observable.IObservable;
+import org.eclipselabs.etrack.domain.data.Linkable;
 
 /**
  * This interface is used when building objects that can have linked content.
