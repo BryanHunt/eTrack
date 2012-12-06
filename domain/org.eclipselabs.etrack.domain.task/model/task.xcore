@@ -1,0 +1,149 @@
+@GenModel(suppressInterfaces="true", containmentProxies="true")
+package org.eclipselabs.etrack.domain.task
+
+import org.eclipselabs.etrack.domain.entity.AssignableItem
+import org.eclipselabs.etrack.domain.entity.Person
+import org.eclipselabs.etrack.domain.state.State
+import org.eclipselabs.etrack.domain.project.Project
+import org.eclipselabs.etrack.domain.state.StateTransitionMapping
+import org.eclipse.emf.ecore.EClass
+import org.eclipselabs.etrack.domain.audit.Action
+import org.eclipselabs.etrack.domain.data.LinkedContent
+import org.eclipselabs.etrack.domain.state.StateTransition
+import org.eclipselabs.etrack.domain.state.StateGroup
+import org.eclipse.emf.ecore.EPackage
+import org.eclipselabs.etrack.domain.audit.AuditableItem
+
+type Date wraps java.util.Date
+
+class Attachment extends Artifact, AssignableItem
+{
+	String description
+	long sizeInBytes
+	contains AttachmentData dataContainer
+}
+
+class AttachmentData
+{
+	byte[] data
+}
+
+class Artifact
+{
+	String name
+	Date createdOn
+}
+
+class Comment extends AssignableItem
+{
+	String text
+	Date createdOn
+}
+
+enum DurationUnit
+{
+	Minutes = 0
+	Hours = 1
+	Days = 2
+	Weeks = 3
+}
+
+class Duration
+{
+	int value
+	DurationUnit units
+}
+
+class Task extends AssignableItem, AuditableItem
+{
+	String summary
+	String description
+	Date createdOn
+	refers Person createdBy
+	contains Attachment[] attachments
+	refers State currentState
+	refers Person[] subscribers
+	refers TaskType taskType
+	refers Project project
+	contains RelatedTasksMapping[] relatedTasks
+	refers TaskResolution resolution
+	Date resolvedOn
+	refers Person resolvedBy
+	Date dueOn
+	Date startedOn
+	contains Duration estimate
+	contains Duration correctedEstimate
+	int priority
+	refers TaskGroup plannedfor
+}
+
+class TaskGroup
+{
+	String name
+	refers Project project
+	refers Task[] tasks
+}
+
+class TaskType
+{
+	String name
+	contains StateTransitionMapping[] states
+	refers EClass classType
+	refers State startingState
+	refers TaskRelationship[] relationships
+	refers State[] resolvedStates
+	refers TaskResolution[] resolutions
+	refers TaskResolution startingResolution
+}
+
+class TaskRelationship
+{
+	String name
+	refers TaskRelationship ^opposite
+}
+
+class RelatedTasksMapping wraps java.util.Map$Entry
+{
+	refers TaskRelationship key
+	refers Task value
+}
+
+class TaskResolution
+{
+	String name
+	String description
+}
+
+class TaskAttributeChange extends Action
+{
+	String oldValue
+	String attributeName
+}
+
+class TaskDomainLink extends LinkedContent
+{
+	refers TaskDomain taskDomain
+}
+
+class TaskModelVersion
+{
+	int version
+}
+
+class TaskQuery extends AssignableItem
+{
+	String name
+	String query
+}
+
+class TaskDomain
+{
+	String name
+	contains State[] states
+	contains StateTransition[] transitions
+	contains StateGroup[] stateGroups
+	contains TaskRelationship[] relationships
+	contains TaskResolution[] resolutions
+	contains TaskType[] taskTypes
+	contains EPackage[] extensions
+}

@@ -1,0 +1,42 @@
+@GenModel(suppressInterfaces="true", containmentProxies="true")
+package org.eclipselabs.etrack.domain.data
+
+type Date wraps java.util.Date
+
+class LinkedContent
+{
+	String name
+	String description
+}
+
+class LinkMapping wraps java.util.Map$Entry
+{
+	String key
+	contains LinkedContent value
+}
+
+interface Linkable
+{
+	contains LinkMapping[] linksByName
+}
+
+class Category
+{
+	String name
+}
+
+interface CategorizedItem
+{
+	refers Category category
+}
+
+interface TaggableItem
+{
+	String[] tags
+}
+
+class Artifact
+{
+	String name
+	Date createdOn
+}

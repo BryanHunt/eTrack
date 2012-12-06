@@ -1,0 +1,34 @@
+@GenModel(suppressInterfaces="true", containmentProxies="true")
+package org.eclipselabs.etrack.domain.scrum
+
+import org.eclipselabs.etrack.domain.task.TaskGroup
+import org.eclipselabs.etrack.domain.data.LinkedContent
+
+type Date wraps java.util.Date
+
+class Backlog extends TaskGroup
+{}
+
+class Milestone extends TaskTimeBox
+{}
+
+class Release
+{
+	contains Milestone[] milestones
+}
+
+class TaskTimeBox extends TaskGroup
+{
+	Date beginsOn
+	Date endsOn	
+}
+
+class BacklogLlink extends LinkedContent
+{
+	contains Backlog backlog
+}
+
+class ReleaseLink extends LinkedContent
+{
+	contains Release[] releases
+}

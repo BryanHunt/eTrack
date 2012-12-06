@@ -1,0 +1,62 @@
+@GenModel(suppressInterfaces="true", containmentProxies="true")
+package org.eclipselabs.etrack.domain.entity
+
+import org.eclipselabs.etrack.domain.data.CategorizedItem
+import org.eclipselabs.etrack.domain.data.Linkable
+
+class Address extends CategorizedItem
+{
+	String street
+	String additional
+	String city
+	String state
+	int zip
+	String country
+}
+
+class Email extends CategorizedItem
+{
+	String address
+}
+
+class Entity extends Identity, Linkable
+{
+	contains Email[] emails
+	contains Phone[] phoneNumbers
+	contains Address[] addresses
+}
+
+interface Group
+{
+	String name
+	refers Identity[] members
+}
+
+class Person extends Entity
+{
+	String firstName
+	String lastName
+	
+	op String getDisplayName()
+	{
+		return firstName + " " + lastName
+	}
+}
+
+class Phone extends CategorizedItem
+{
+	String number
+}
+
+class Organization extends Entity, Group
+{}
+
+interface Identity
+{
+	op String getDisplayName()
+}
+
+interface AssignableItem
+{
+	refers Person owner
+}

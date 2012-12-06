@@ -1,0 +1,41 @@
+@GenModel(suppressInterfaces="true", containmentProxies="true")
+package org.eclipselabs.etrack.domain.state
+
+import org.eclipselabs.etrack.domain.audit.Action
+
+class State
+{
+	String name
+}
+
+class StateTransition
+{
+	String name
+	refers State targetState
+}
+
+class StateTransitionMapping wraps java.util.Map$Entry
+{
+	refers State key
+	refers StateTransition value
+}
+
+class StateChange extends Action
+{
+	refers StateTransition transition
+}
+
+class StateGroup
+{
+	String name
+	refers State[] states
+}
+
+class StateMachine
+{
+	contains State[] states
+	contains StateTransition[] transitions
+	contains StateTransitionMapping[] transitionsByState
+	contains StateGroup[] stateGroups
+	refers State startingState
+}

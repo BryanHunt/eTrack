@@ -1,0 +1,16 @@
+@GenModel(suppressInterfaces="true", containmentProxies="true")
+package org.eclipselabs.etrack.domain.security
+
+import org.eclipselabs.etrack.domain.entity.Group
+import org.eclipselabs.etrack.domain.entity.Identity
+
+class PermissionGroup extends Group
+{
+	refers Identity[] admins
+}
+
+class PasswordCredential
+{
+	String ^id
+	String password
+}
