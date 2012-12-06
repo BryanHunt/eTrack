@@ -32,14 +32,16 @@
       <import plugin="org.eclipse.mylyn.tasks.core"/>
       <import plugin="org.eclipse.mylyn.tasks.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipselabs.etrack.util.web.client"/>
       <import plugin="org.eclipselabs.etrack.domain.security"/>
       <import plugin="org.eclipselabs.etrack.util.security"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.restlet"/>
       <import plugin="org.eclipselabs.etrack.domain.data"/>
-      <import plugin="org.eclipse.emf.common"/>
-      <import plugin="org.eclipselabs.mongo.emf.ext"/>
       <import plugin="org.eclipse.core.databinding.observable"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipselabs.emf.ext.core"/>
+      <import plugin="org.eclipse.osgi.services"/>
       <import plugin="org.eclipse.core.databinding.property"/>
       <import plugin="org.eclipse.emf.databinding"/>
       <import plugin="org.eclipselabs.etrack.domain.project"/>
@@ -48,7 +50,7 @@
       <import plugin="org.eclipselabs.etrack.domain.entity"/>
       <import plugin="org.eclipselabs.etrack.domain.state"/>
       <import plugin="org.eclipselabs.etrack.domain.task"/>
-      <import plugin="org.eclipselabs.etrack.util.web.client"/>
+      <import plugin="org.eclipselabs.etrack.domain.scrum"/>
    </requires>
 
    <plugin

@@ -29,16 +29,19 @@
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipselabs.emf.query.simple"/>
-      <import plugin="org.eclipselabs.etrack.domain.entity"/>
-      <import plugin="org.eclipselabs.mongo.emf"/>
-      <import plugin="org.eclipselabs.mongo.emf.ext"/>
+      <import plugin="org.eclipselabs.emf.mongodb.core"/>
+      <import plugin="org.eclipselabs.emf.ext.core"/>
       <import plugin="org.restlet"/>
       <import plugin="org.restlet.ext.osgi"/>
       <import plugin="org.restlet.ext.wadl"/>
       <import plugin="org.eclipselabs.etrack.util.security"/>
+      <import plugin="org.apache.commons.codec"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipselabs.etrack.util.web.emf"/>
+      <import plugin="org.eclipse.osgi"/>
       <import plugin="org.restlet.ext.emf"/>
-      <import plugin="org.eclipselabs.etrack.domain.task"/>
+      <import plugin="javax.mail.glassfish"/>
+      <import plugin="org.eclipselabs.etrack.util.mail"/>
    </requires>
 
    <plugin

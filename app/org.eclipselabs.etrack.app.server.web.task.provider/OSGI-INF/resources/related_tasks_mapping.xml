@@ -9,6 +9,6 @@
    <service>
       <provide interface="org.restlet.ext.osgi.IResourceProvider"/>
    </service>
-   <reference bind="bindResourceSetFactory" cardinality="1..1" interface="org.eclipselabs.mongo.emf.ext.IResourceSetFactory" name="IResourceSetFactory" policy="static"/>
+   <reference bind="bindResourceSetFactory" cardinality="1..1" interface="org.eclipselabs.emf.ext.ResourceSetFactory" name="ResourceSetFactory" policy="static"/>
    <reference bind="bindLogService" cardinality="0..1" interface="org.osgi.service.log.LogService" name="LogService" policy="dynamic"/>
 </scr:component>
