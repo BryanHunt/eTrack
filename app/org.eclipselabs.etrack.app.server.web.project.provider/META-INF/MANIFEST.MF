@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Project Web Resource Provider
 Bundle-SymbolicName: org.eclipselabs.etrack.app.server.web.project.provider
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: EclipseLabs
 Fragment-Host: org.eclipselabs.etrack.server.web.project;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
