@@ -42,6 +42,10 @@
       <import plugin="org.restlet.ext.emf"/>
       <import plugin="javax.mail.glassfish"/>
       <import plugin="org.eclipselabs.etrack.util.mail"/>
+      <import plugin="org.eclipselabs.etrack.domain.entity"/>
+      <import plugin="org.eclipselabs.etrack.domain.data"/>
+      <import plugin="org.eclipselabs.etrack.domain.audit"/>
+      <import plugin="org.eclipselabs.etrack.domain.task"/>
    </requires>
 
    <plugin

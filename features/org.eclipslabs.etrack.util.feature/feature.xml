@@ -28,10 +28,9 @@
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipselabs.etrack.domain.entity"/>
-      <import plugin="org.eclipselabs.emfjson"/>
-      <import plugin="org.restlet"/>
-      <import plugin="org.restlet.ext.emf"/>
       <import plugin="org.eclipselabs.emf.ext.core"/>
+      <import plugin="org.eclipselabs.emfjson"/>
+      <import plugin="org.restlet.ext.emf"/>
       <import plugin="javax.mail.glassfish"/>
    </requires>
 
