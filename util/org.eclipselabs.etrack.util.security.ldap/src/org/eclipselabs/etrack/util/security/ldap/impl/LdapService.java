@@ -40,6 +40,9 @@ public class LdapService implements ILdapService, ISecurityService
 		if (id == null || id.isEmpty())
 			return false;
 
+		if (idSuffix != null)
+			id = id + idSuffix;
+
 		String cachedPassword = credentialCache.get(id);
 		String encodedPassword = null;
 
@@ -78,6 +81,7 @@ public class LdapService implements ILdapService, ISecurityService
 
 	void activate(Map<?, ?> configuration) throws NamingException
 	{
+		this.idSuffix = (String) configuration.get(CONFIG_ID_SUFFIX);
 		this.url = (String) configuration.get(CONFIG_URL);
 		this.baseDN = (String) configuration.get(CONFIG_BASE_DN);
 		this.userSearchBase = (String) configuration.get(CONFIG_USER_SEARCH_BASE);
@@ -135,6 +139,7 @@ public class LdapService implements ILdapService, ISecurityService
 	}
 
 	private Map<String, String> credentialCache = new HashMap<String, String>();
+	private String idSuffix;
 	private String url;
 	private String baseDN;
 	private String userSearchBase;

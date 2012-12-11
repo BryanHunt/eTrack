@@ -7,6 +7,7 @@
 		<AD name="User Filter"      id="userFilter"      type="String"   description="The attribute to filter users by id.  Example: sAMAccountName"/>
 		<AD name="Manager DN"       id="managerDN"       type="String"   description="The DN of the manager account used for searches.  Example: cn=manager,ou=Users,ou=Accounts,dc=example,dc=com"/>
 		<AD name="Manager Password" id="managerPassword" type="Password" description="The manager account password."/>
+		<AD name="ID Suffix"        id="idSuffix"        type="String"   description="Optional suffix to be appended to the user id when authenticating.  Example: @domain.com"/>		
 	</OCD>
 	<Designate factoryPid="org.eclipselabs.etrack.util.security.ldap">
 		<Object ocdref="org.eclipselabs.etrack.util.security.ldap"/>

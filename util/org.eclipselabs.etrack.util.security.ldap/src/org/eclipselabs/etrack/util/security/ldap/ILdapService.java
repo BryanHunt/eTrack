@@ -28,6 +28,7 @@ public interface ILdapService
 	String CONFIG_USER_SEARCH_BASE = "userSearchBase";
 	String CONFIG_BASE_DN = "baseDN";
 	String CONFIG_URL = "url";
+	String CONFIG_ID_SUFFIX = "idSuffix";
 
 	NamingEnumeration<SearchResult> find(int scope, String path, String filter) throws NamingException;
 
