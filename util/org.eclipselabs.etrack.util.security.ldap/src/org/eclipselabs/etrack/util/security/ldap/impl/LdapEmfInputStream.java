@@ -67,7 +67,7 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 				if (uri.lastSegment() == null)
 					results = ldapService.findUser(URI.decode(uri.query()));
 				else
-					ldapService.find(SearchControls.SUBTREE_SCOPE, URI.decode(uri.lastSegment()), URI.decode(uri.query()));
+					results = ldapService.find(SearchControls.SUBTREE_SCOPE, URI.decode(uri.lastSegment()), URI.decode(uri.query()));
 
 				ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
 				contents.add(eCollection);
