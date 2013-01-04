@@ -9,7 +9,7 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.server.web.storage.resources;
+package org.eclipselabs.etrack.server.web.storage.basic.resources;
 
 import java.io.IOException;
 

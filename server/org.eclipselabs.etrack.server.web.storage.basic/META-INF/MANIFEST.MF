@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Basic Web Storage
+Bundle-SymbolicName: org.eclipselabs.etrack.server.web.storage.basic
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: EclipseLabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.emf.ecore,
+ org.eclipselabs.etrack.server.web.storage,
+ org.restlet,
+ org.restlet.ext.emf,
+ org.restlet.ext.osgi,
+ org.restlet.ext.wadl,
+ org.restlet.representation,
+ org.restlet.resource
+Service-Component: OSGI-INF/resources/storage.xml

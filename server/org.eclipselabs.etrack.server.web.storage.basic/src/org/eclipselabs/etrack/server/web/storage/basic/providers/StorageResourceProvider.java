@@ -9,10 +9,10 @@
  *    Bryan Hunt - initial API and implementation
  *******************************************************************************/
 
-package org.eclipselabs.etrack.server.web.storage.providers;
+package org.eclipselabs.etrack.server.web.storage.basic.providers;
 
 import org.eclipselabs.etrack.server.web.storage.AbstractStorageResourceProvider;
-import org.eclipselabs.etrack.server.web.storage.resources.StorageResource;
+import org.eclipselabs.etrack.server.web.storage.basic.resources.StorageResource;
 import org.restlet.Context;
 import org.restlet.resource.Finder;
 
