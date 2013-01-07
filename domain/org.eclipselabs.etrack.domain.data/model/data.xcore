@@ -1,4 +1,4 @@
-@GenModel(suppressInterfaces="true", containmentProxies="true")
+@GenModel(suppressInterfaces="true", containmentProxies="true", updateClasspath="false")
 package org.eclipselabs.etrack.domain.data
 
 type Date wraps java.util.Date
