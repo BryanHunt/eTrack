@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: No Security
+Bundle-SymbolicName: org.eclipselabs.etrack.util.security.none
+Bundle-Version: 0.2.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipselabs.etrack.util.security
+Service-Component: OSGI-INF/security.xml

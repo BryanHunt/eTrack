@@ -32,6 +32,7 @@
       <import plugin="org.eclipselabs.emfjson"/>
       <import plugin="org.restlet.ext.emf"/>
       <import plugin="javax.mail.glassfish"/>
+      <import plugin="org.eclipselabs.etrack.util.security.none"/>
    </requires>
 
    <plugin
