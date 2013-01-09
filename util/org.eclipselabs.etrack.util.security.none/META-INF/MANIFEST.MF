@@ -6,3 +6,4 @@ Bundle-Version: 0.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipselabs.etrack.util.security
 Service-Component: OSGI-INF/security.xml
+Bundle-ActivationPolicy: lazy
