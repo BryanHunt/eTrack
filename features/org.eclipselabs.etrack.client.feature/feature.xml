@@ -36,7 +36,6 @@
       <import plugin="org.eclipselabs.etrack.domain.security"/>
       <import plugin="org.eclipselabs.etrack.util.security"/>
       <import plugin="org.eclipse.osgi"/>
-      <import plugin="org.restlet"/>
       <import plugin="org.eclipselabs.etrack.domain.data"/>
       <import plugin="org.eclipse.core.databinding.observable"/>
       <import plugin="org.eclipse.emf.common"/>

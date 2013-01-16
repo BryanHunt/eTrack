@@ -21,6 +21,7 @@
       <import plugin="org.eclipselabs.etrack.client.project" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipselabs.etrack.client.entity" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipselabs.etrack.client.task" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.etrack.client.scrum" version="0.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

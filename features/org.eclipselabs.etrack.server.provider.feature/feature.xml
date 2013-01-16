@@ -21,7 +21,8 @@
       <import plugin="org.eclipselabs.etrack.server.web.entity.ldap" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipselabs.etrack.server.web.project" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipselabs.etrack.server.web.task" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipselabs.etrack.server.web.storage" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.etrack.server.web.storage.basic" version="0.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipselabs.etrack.server.web.scrum" version="0.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
