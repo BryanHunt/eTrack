@@ -199,12 +199,23 @@ public class AbstractStorageResource extends WadlServerResource
 
 	protected URI saveObject(EObject object) throws IOException
 	{
-		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
-
-		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
+		Resource resource = createResource();
 		resource.getContents().add(object);
 		resource.save(null);
 		return resource.getURI();
+	}
+
+	protected Resource createResource()
+	{
+		return createResource(URI.createURI(getReference().toString()));
+	}
+
+	protected Resource createResource(URI uri)
+	{
+		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
+
+		Resource resource = resourceSet.createResource(uri);
+		return resource;
 	}
 
 	private Tag computeTag(EObject object)
