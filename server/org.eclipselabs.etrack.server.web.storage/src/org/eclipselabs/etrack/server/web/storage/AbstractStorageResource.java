@@ -63,15 +63,13 @@ public class AbstractStorageResource extends WadlServerResource
 
 	public Representation createXmiObject(Representation representation) throws IOException
 	{
-		EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation);
-		URI uri = saveObject(emfRepresentation.getObject());
+		URI uri = saveObject(convertXmiToEObject(representation));
 		return new StringRepresentation(uri.toString());
 	}
 
 	public Representation createJsonObject(Representation representation) throws IOException
 	{
-		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), new ResourceSetImpl());
-		URI uri = saveObject(emfRepresentation.getObject());
+		URI uri = saveObject(convertJsonToEObject(representation));
 		return new StringRepresentation(uri.toString());
 	}
 
@@ -187,6 +185,28 @@ public class AbstractStorageResource extends WadlServerResource
 		return resource.getContents().get(0);
 	}
 
+	protected EObject convertJsonToEObject(Representation representation) throws IOException
+	{
+		EmfJsonRepresentation<EObject> emfRepresentation = new EmfJsonRepresentation<EObject>(representation, URI.createURI(getReference().toString()), new ResourceSetImpl());
+		return emfRepresentation.getObject();
+	}
+
+	protected EObject convertXmiToEObject(Representation representation) throws IOException
+	{
+		EmfXmlRepresentation<EObject> emfRepresentation = new EmfXmlRepresentation<EObject>(representation);
+		return emfRepresentation.getObject();
+	}
+
+	protected URI saveObject(EObject object) throws IOException
+	{
+		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
+
+		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
+		resource.getContents().add(object);
+		resource.save(null);
+		return resource.getURI();
+	}
+
 	private Tag computeTag(EObject object)
 	{
 		ByteArrayOutputStream data = new ByteArrayOutputStream();
@@ -200,15 +220,5 @@ public class AbstractStorageResource extends WadlServerResource
 		{
 			return null;
 		}
-	}
-
-	private URI saveObject(EObject object) throws IOException
-	{
-		ResourceSet resourceSet = resourceSetFactory.createResourceSet();
-
-		Resource resource = resourceSet.createResource(URI.createURI(getReference().toString()));
-		resource.getContents().add(object);
-		resource.save(null);
-		return resource.getURI();
 	}
 }
