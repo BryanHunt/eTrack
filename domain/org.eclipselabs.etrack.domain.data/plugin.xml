@@ -7,8 +7,9 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated data -->
       <package
-            uri="org.eclipselabs.etrack.domain.data"
+            uri="http://www.eclipselabs.org/etrack/domain/data"
             class="org.eclipselabs.etrack.domain.data.DataPackage"
             genModel="model/data.xcore"/>
    </extension>

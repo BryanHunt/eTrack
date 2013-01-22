@@ -7,8 +7,9 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated scrum -->
       <package
-            uri="org.eclipselabs.etrack.domain.scrum"
+            uri="http://www.eclipselabs.org/etrack/domain/scrum"
             class="org.eclipselabs.etrack.domain.scrum.ScrumPackage"
             genModel="model/scrum.xcore"/>
    </extension>

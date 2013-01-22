@@ -7,8 +7,9 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated audit -->
       <package
-            uri="org.eclipselabs.etrack.domain.audit"
+            uri="http://www.eclipselabs.org/etrack/domain/audit"
             class="org.eclipselabs.etrack.domain.audit.AuditPackage"
             genModel="model/audit.xcore"/>
    </extension>

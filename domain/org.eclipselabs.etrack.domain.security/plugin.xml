@@ -7,8 +7,9 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated security -->
       <package
-            uri="org.eclipselabs.etrack.domain.security"
+            uri="http://www.eclipselabs.org/etrack/domain/security"
             class="org.eclipselabs.etrack.domain.security.SecurityPackage"
             genModel="model/security.xcore"/>
    </extension>

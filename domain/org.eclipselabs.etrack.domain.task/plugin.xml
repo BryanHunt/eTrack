@@ -7,8 +7,9 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated task -->
       <package
-            uri="org.eclipselabs.etrack.domain.task"
+            uri="http://www.eclipselabs.org/etrack/domain/task"
             class="org.eclipselabs.etrack.domain.task.TaskPackage"
             genModel="model/task.xcore"/>
    </extension>

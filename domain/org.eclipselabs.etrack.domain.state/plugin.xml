@@ -7,8 +7,9 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated state -->
       <package
-            uri="org.eclipselabs.etrack.domain.state"
+            uri="http://www.eclipselabs.org/etrack/domain/state"
             class="org.eclipselabs.etrack.domain.state.StatePackage"
             genModel="model/state.xcore"/>
    </extension>

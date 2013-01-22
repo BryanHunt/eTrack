@@ -1,3 +1,4 @@
+@Ecore(nsURI="http://www.eclipselabs.org/etrack/domain/project")
 @GenModel(suppressInterfaces="true", containmentProxies="true", updateClasspath="false")
 package org.eclipselabs.etrack.domain.project
 
