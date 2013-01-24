@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipselabs.emf.ext.ECollection;
 import org.eclipselabs.emf.ext.ResourceCache;
 
 /**
@@ -41,6 +42,16 @@ public class ServerResourceClient extends ServerClient
 		resource.getContents().add(eObject);
 		resource.save(null);
 		return resource.getURI();
+	}
+
+	protected ECollection addCollection(ECollection eCollection, String[] path) throws IOException
+	{
+		URI uri = getBaseURI().appendSegments(path);
+		Resource resource = getResourceSet().createResource(uri);
+		resource.getContents().add(eCollection);
+		resource.save(null);
+
+		return (ECollection) resource.getContents().get(0);
 	}
 
 	protected ResourceSet getResourceSet()
