@@ -13,9 +13,6 @@ package org.eclipselabs.etrack.client.web.services;
 
 import org.eclipselabs.etrack.client.web.IChallengeResponseFactory;
 import org.eclipselabs.etrack.client.web.IClientResourceFactory;
-import org.restlet.Client;
-import org.restlet.Context;
-import org.restlet.data.Protocol;
 import org.restlet.resource.ClientResource;
 
 /**
@@ -39,12 +36,7 @@ public class ClientResourceFactory implements IClientResourceFactory
 	@Override
 	public ClientResource createClientResource(String baseURI, String path)
 	{
-		Context context = new Context();
-		context.getParameters().add("socketTimeout", "600000");
-
 		ClientResource client = new ClientResource(baseURI + path);
-		client.setNext(new Client(context, Protocol.HTTP));
-
 		IChallengeResponseFactory factory = challengeResponseFactory;
 
 		if (factory != null)
