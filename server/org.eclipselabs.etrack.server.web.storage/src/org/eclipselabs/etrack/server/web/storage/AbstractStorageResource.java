@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipselabs.emf.ext.ECollection;
 import org.eclipselabs.emf.ext.ResourceSetFactory;
 import org.eclipselabs.emf.mongodb.Options;
 import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
@@ -71,6 +72,12 @@ public class AbstractStorageResource extends WadlServerResource
 	{
 		URI uri = saveObject(convertJsonToEObject(representation));
 		return new StringRepresentation(uri.toString());
+	}
+
+	public Representation createJsonCollection(Representation representation) throws IOException
+	{
+		EmfJsonRepresentation<EObject> results = new EmfJsonRepresentation<EObject>(MediaType.APPLICATION_JSON, saveCollection((ECollection) convertJsonToEObject(representation)));
+		return results;
 	}
 
 	public EmfRepresentation<EObject> retrieveXMI()
@@ -203,6 +210,14 @@ public class AbstractStorageResource extends WadlServerResource
 		resource.getContents().add(object);
 		resource.save(null);
 		return resource.getURI();
+	}
+
+	protected ECollection saveCollection(ECollection collection) throws IOException
+	{
+		Resource resource = createResource();
+		resource.getContents().add(collection);
+		resource.save(null);
+		return (ECollection) resource.getContents().get(0);
 	}
 
 	protected Resource createResource()
