@@ -4,8 +4,10 @@ Bundle-Name: eTrack Web Client
 Bundle-SymbolicName: org.eclipselabs.etrack.util.web.client
 Bundle-Version: 0.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.restlet.data,
- org.restlet.resource
+Import-Package: org.restlet,
+ org.restlet.data,
+ org.restlet.resource,
+ org.restlet.util
 Export-Package: org.eclipselabs.etrack.client.web
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/factory.xml
