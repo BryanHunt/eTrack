@@ -88,7 +88,7 @@ public class TestProjectService
 
 		URI projectsURI = baseURI.appendSegments(projectPath).appendSegment("").appendQuery("*");
 		ResourceImpl projectsResource = new ResourceImpl(projectsURI);
-		projectsResource.getContents().add(ExtFactory.eINSTANCE.createECollection());
+		projectsResource.getContents().add(ExtFactory.eINSTANCE.createEReferenceCollection());
 		doReturn(projectsResource).when(resourceSet).getResource(projectsURI, true);
 
 		ResourceCacheImpl resourceCache = new ResourceCacheImpl();

@@ -90,7 +90,7 @@ public class TestServerResourceClient
 		doNothing().when(resource).save(anyMap());
 		doReturn(resource).when(resourceSet).createResource(targetURI);
 
-		EObject eObject = ExtFactory.eINSTANCE.createECollection();
+		EObject eObject = ExtFactory.eINSTANCE.createEReferenceCollection();
 
 		// --- Test
 

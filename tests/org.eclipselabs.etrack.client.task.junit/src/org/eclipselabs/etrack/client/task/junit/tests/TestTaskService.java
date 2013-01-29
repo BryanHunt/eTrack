@@ -99,7 +99,7 @@ public class TestTaskService
 
 		URI taskDomainsURI = baseURI.appendSegments(taskDomainPath).appendSegment("").appendQuery("*");
 		ResourceImpl projectsResource = new ResourceImpl(taskDomainsURI);
-		projectsResource.getContents().add(ExtFactory.eINSTANCE.createECollection());
+		projectsResource.getContents().add(ExtFactory.eINSTANCE.createEReferenceCollection());
 		doReturn(projectsResource).when(resourceSet).getResource(taskDomainsURI, true);
 
 		ResourceCacheImpl resourceCache = new ResourceCacheImpl();
@@ -247,7 +247,7 @@ public class TestTaskService
 		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.appendQuery(URI.encodeQuery("*", false));
 
-		ECollection tasks = ExtFactory.eINSTANCE.createECollection();
+		ECollection tasks = ExtFactory.eINSTANCE.createEReferenceCollection();
 
 		Resource resource = spy(new ResourceImpl(taskURI));
 		resource.getContents().add(tasks);
@@ -279,7 +279,7 @@ public class TestTaskService
 		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.appendQuery(URI.encodeQuery(ExpressionBuilder.toString(query), false));
 
-		ECollection tasks = ExtFactory.eINSTANCE.createECollection();
+		ECollection tasks = ExtFactory.eINSTANCE.createEReferenceCollection();
 
 		Resource resource = spy(new ResourceImpl(taskURI));
 		resource.getContents().add(tasks);
@@ -303,7 +303,7 @@ public class TestTaskService
 		URI queryURI = taskDomainCollectionURI.appendQuery("*");
 
 		Resource queryResource = new ResourceImpl(queryURI);
-		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
+		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
 		queryResource.getContents().add(eCollection);
 
 		Resource domainResource = new ResourceImpl(taskDomainURI);
@@ -330,7 +330,7 @@ public class TestTaskService
 		URI queryURI = taskDomainCollectionURI.appendQuery("*");
 
 		Resource queryResource = new ResourceImpl(queryURI);
-		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
+		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
 		queryResource.getContents().add(eCollection);
 
 		Resource domainResource = new ResourceImpl(taskDomainURI);

@@ -315,7 +315,7 @@ public class TestTaskRepositoryConnector extends UnitTestHarness
 		TaskDataCollector collector = mock(TaskDataCollector.class);
 		ISynchronizationSession session = mock(ISynchronizationSession.class);
 
-		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
+		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
 		when(queryFactory.createExpression(any(MylynTaskClient.class), eq(query))).thenReturn(expression);
@@ -345,7 +345,7 @@ public class TestTaskRepositoryConnector extends UnitTestHarness
 		TaskDataCollector collector = mock(TaskDataCollector.class);
 		ISynchronizationSession session = mock(ISynchronizationSession.class);
 
-		ECollection eCollection = ExtFactory.eINSTANCE.createECollection();
+		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
 		when(queryFactory.createExpression(any(MylynTaskClient.class), eq(query))).thenReturn(expression);

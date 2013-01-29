@@ -125,7 +125,7 @@ public class TaskService extends ServerResourceClient implements ITaskService
 		if (taskDomains == null)
 			refresh();
 
-		return EMFProperties.list(ExtPackage.Literals.ECOLLECTION__VALUES).observe(taskDomains);
+		return EMFProperties.list(ExtPackage.Literals.EREFERENCE_COLLECTION__VALUES).observe(taskDomains);
 	}
 
 	public void refresh()

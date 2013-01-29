@@ -27,20 +27,20 @@
 <repository location="http://bryanhunt.github.com/3rd-party-libs/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipselabs.emf.mongodb.converter.feature.feature.group" version="0.8.0.201301241706"/>
-<unit id="org.eclipselabs.emf.mongodb.core.feature.feature.group" version="0.8.0.201301241706"/>
-<unit id="org.eclipselabs.emf.mongodb.builders.feature.feature.group" version="0.8.0.201301241706"/>
-<unit id="org.eclipselabs.emf.mongodb.streams.feature.feature.group" version="0.8.0.201301241706"/>
-<unit id="org.eclipselabs.emf.mongodb.log.feature.feature.group" version="0.8.0.201301241706"/>
-<unit id="org.eclipselabs.emf.mongodb.query.simple.feature.feature.group" version="0.8.0.201301241706"/>
-<unit id="org.eclipselabs.emf.mongodb.runtime.feature.feature.group" version="0.8.0.201301241706"/>
-<unit id="org.eclipselabs.emf.mongodb.handlers.feature.feature.group" version="0.8.0.201301241706"/>
+<unit id="org.eclipselabs.emf.mongodb.converter.feature.feature.group" version="0.8.0.201301290841"/>
+<unit id="org.eclipselabs.emf.mongodb.core.feature.feature.group" version="0.8.0.201301290841"/>
+<unit id="org.eclipselabs.emf.mongodb.builders.feature.feature.group" version="0.8.0.201301290841"/>
+<unit id="org.eclipselabs.emf.mongodb.streams.feature.feature.group" version="0.8.0.201301290841"/>
+<unit id="org.eclipselabs.emf.mongodb.log.feature.feature.group" version="0.8.0.201301290841"/>
+<unit id="org.eclipselabs.emf.mongodb.query.simple.feature.feature.group" version="0.8.0.201301290841"/>
+<unit id="org.eclipselabs.emf.mongodb.runtime.feature.feature.group" version="0.8.0.201301290841"/>
+<unit id="org.eclipselabs.emf.mongodb.handlers.feature.feature.group" version="0.8.0.201301290841"/>
 <repository location="http://bryanhunt.github.com/mongo-emf/releases/0.8.0/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipselabs.emf.ext.runtime.feature.feature.group" version="1.0.0.201301141735"/>
-<unit id="org.eclipselabs.emf.ext.junit.feature.feature.group" version="1.0.0.201301141735"/>
-<unit id="org.eclipselabs.emf.ext.sdk.feature.feature.group" version="1.0.0.201301141735"/>
+<unit id="org.eclipselabs.emf.ext.runtime.feature.feature.group" version="1.0.0.201301281620"/>
+<unit id="org.eclipselabs.emf.ext.junit.feature.feature.group" version="1.0.0.201301281620"/>
+<unit id="org.eclipselabs.emf.ext.sdk.feature.feature.group" version="1.0.0.201301281620"/>
 <repository location="http://bryanhunt.github.com/emf-ext/releases/1.0.0"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
