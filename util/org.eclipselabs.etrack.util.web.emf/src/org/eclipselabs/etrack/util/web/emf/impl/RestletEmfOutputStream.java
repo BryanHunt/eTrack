@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
+import org.eclipselabs.emf.ext.ECollection;
 import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.restlet.data.MediaType;
 import org.restlet.data.Status;
@@ -60,7 +61,15 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 			result = client.put(representation);
 
 		if (client.getStatus().equals(Status.SUCCESS_OK))
-			resource.setURI(URI.createURI(result.getText()));
+		{
+			if (resource.getContents().get(0) instanceof ECollection)
+			{
+				EmfRepresentation<ECollection> response = new EmfJsonRepresentation<ECollection>(result, resource.getURI(), resource.getResourceSet());
+				resource.getContents().add(0, response.getObject());
+			}
+			else
+				resource.setURI(URI.createURI(result.getText()));
+		}
 	}
 
 	@Override
