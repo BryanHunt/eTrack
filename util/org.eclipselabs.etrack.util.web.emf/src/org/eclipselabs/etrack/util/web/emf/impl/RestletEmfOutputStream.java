@@ -64,7 +64,7 @@ public class RestletEmfOutputStream extends ByteArrayOutputStream implements URI
 		{
 			if (resource.getContents().get(0) instanceof ECollection)
 			{
-				EmfRepresentation<ECollection> response = new EmfJsonRepresentation<ECollection>(result, resource.getURI(), resource.getResourceSet());
+				EmfRepresentation<ECollection> response = new EmfJsonRepresentation<ECollection>(result, resource.getURI().appendSegment("uris"), resource.getResourceSet());
 				resource.getContents().add(0, response.getObject());
 			}
 			else
