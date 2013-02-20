@@ -64,14 +64,20 @@ public class AbstractStorageResource extends WadlServerResource
 
 	public Representation createXmiObject(Representation representation) throws IOException
 	{
-		URI uri = saveObject(convertXmiToEObject(representation));
-		return new StringRepresentation(uri.toString());
+		EObject object = convertXmiToEObject(representation);
+		URI uri = saveObject(object);
+		StringRepresentation responseRepresentation = new StringRepresentation(uri.toString());
+		responseRepresentation.setTag(computeTag(object));
+		return responseRepresentation;
 	}
 
 	public Representation createJsonObject(Representation representation) throws IOException
 	{
-		URI uri = saveObject(convertJsonToEObject(representation));
-		return new StringRepresentation(uri.toString());
+		EObject object = convertJsonToEObject(representation);
+		URI uri = saveObject(object);
+		StringRepresentation responseRepresentation = new StringRepresentation(uri.toString());
+		responseRepresentation.setTag(computeTag(object));
+		return responseRepresentation;
 	}
 
 	public Representation createJsonCollection(Representation representation) throws IOException
