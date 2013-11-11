@@ -14,7 +14,7 @@ package org.eclipselabs.etrack.server.web.storage.mapping;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
-import org.eclipselabs.emf.ext.ResourceSetConfigurator;
+import org.eclipselabs.emodeling.ResourceSetConfigurator;
 
 /**
  * @author bhunt

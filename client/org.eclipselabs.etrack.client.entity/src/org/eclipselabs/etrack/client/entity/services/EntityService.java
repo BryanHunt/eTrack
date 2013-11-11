@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emodeling.ECollection;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.entity.IEntityService;
 import org.eclipselabs.etrack.domain.entity.Entity;

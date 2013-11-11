@@ -20,3 +20,4 @@ Import-Package: org.eclipse.emf.common,
  org.eclipse.emf.ecore.util,
  org.eclipse.xtext.xbase.lib,
  org.eclipselabs.etrack.domain.data
+Require-Bundle: org.eclipse.emf.ecore.xcore.lib;bundle-version="1.0.0"

@@ -47,10 +47,10 @@ import org.eclipse.mylyn.tasks.core.data.TaskData;
 import org.eclipse.mylyn.tasks.core.data.TaskDataCollector;
 import org.eclipse.mylyn.tasks.core.data.TaskMapper;
 import org.eclipse.mylyn.tasks.core.sync.ISynchronizationSession;
-import org.eclipselabs.emf.ext.ECollection;
-import org.eclipselabs.emf.ext.ExtFactory;
-import org.eclipselabs.emf.query.Expression;
-import org.eclipselabs.emf.query.QueryFactory;
+import org.eclipselabs.emodeling.ECollection;
+import org.eclipselabs.emodeling.EmodelingFactory;
+import org.eclipselabs.emodeling.query.Expression;
+import org.eclipselabs.emodeling.query.QueryFactory;
 import org.eclipselabs.etrack.client.task.mylyn.MylynTaskClient;
 import org.eclipselabs.etrack.client.task.mylyn.TaskDataHandler;
 import org.eclipselabs.etrack.client.task.mylyn.TaskRepositoryConnector;
@@ -315,7 +315,7 @@ public class TestTaskRepositoryConnector extends UnitTestHarness
 		TaskDataCollector collector = mock(TaskDataCollector.class);
 		ISynchronizationSession session = mock(ISynchronizationSession.class);
 
-		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
+		ECollection eCollection = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
 		when(queryFactory.createExpression(any(MylynTaskClient.class), eq(query))).thenReturn(expression);
@@ -345,7 +345,7 @@ public class TestTaskRepositoryConnector extends UnitTestHarness
 		TaskDataCollector collector = mock(TaskDataCollector.class);
 		ISynchronizationSession session = mock(ISynchronizationSession.class);
 
-		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
+		ECollection eCollection = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
 		when(queryFactory.createExpression(any(MylynTaskClient.class), eq(query))).thenReturn(expression);

@@ -5,8 +5,7 @@ Bundle-SymbolicName: org.eclipselabs.etrack.client.project
 Bundle-Version: 0.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: EclipseLabs
-Import-Package: org.eclipselabs.etrack.domain.data,
- org.eclipse.core.databinding.observable,
+Import-Package: org.eclipse.core.databinding.observable,
  org.eclipse.core.databinding.observable.list,
  org.eclipse.core.databinding.observable.value,
  org.eclipse.core.databinding.property.list,
@@ -16,10 +15,11 @@ Import-Package: org.eclipselabs.etrack.domain.data,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.impl,
  org.eclipse.emf.ecore.resource,
+ org.eclipselabs.emodeling,
  org.eclipselabs.etrack.client.core,
+ org.eclipselabs.etrack.domain.data,
  org.eclipselabs.etrack.domain.project,
  org.eclipselabs.etrack.util.security,
- org.eclipselabs.emf.ext,
  org.osgi.service.cm;version="1.4.0"
 Export-Package: org.eclipselabs.etrack.client.project
 Service-Component: OSGI-INF/project.xml, OSGI-INF/factory.xml

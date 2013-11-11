@@ -32,14 +32,14 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipselabs.emf.ext.ECollection;
-import org.eclipselabs.emf.ext.ExtFactory;
-import org.eclipselabs.emf.ext.ResourceCacheImpl;
-import org.eclipselabs.emf.ext.ResourceSetFactory;
-import org.eclipselabs.emf.query.BinaryOperation;
-import org.eclipselabs.emf.query.Literal;
-import org.eclipselabs.emf.query.QueryFactory;
-import org.eclipselabs.emf.query.util.ExpressionBuilder;
+import org.eclipselabs.emodeling.ECollection;
+import org.eclipselabs.emodeling.EmodelingFactory;
+import org.eclipselabs.emodeling.ResourceCache;
+import org.eclipselabs.emodeling.ResourceSetFactory;
+import org.eclipselabs.emodeling.query.BinaryOperation;
+import org.eclipselabs.emodeling.query.Literal;
+import org.eclipselabs.emodeling.query.QueryFactory;
+import org.eclipselabs.emodeling.query.util.ExpressionBuilder;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.task.StateProperties;
 import org.eclipselabs.etrack.client.task.TaskProperties;
@@ -72,6 +72,8 @@ public class TestTaskService
 	private ResourceSetFactory resourceSetFactory;
 	@Spy
 	private ResourceSetImpl resourceSet;
+	@Mock
+	private ResourceCache resourceCache;
 
 	@BeforeClass
 	public static void globalSetup()
@@ -99,11 +101,9 @@ public class TestTaskService
 
 		URI taskDomainsURI = baseURI.appendSegments(taskDomainPath).appendSegment("").appendQuery("*");
 		ResourceImpl projectsResource = new ResourceImpl(taskDomainsURI);
-		projectsResource.getContents().add(ExtFactory.eINSTANCE.createEReferenceCollection());
+		projectsResource.getContents().add(EmodelingFactory.eINSTANCE.createEReferenceCollection());
 		doReturn(projectsResource).when(resourceSet).getResource(taskDomainsURI, true);
-
-		ResourceCacheImpl resourceCache = new ResourceCacheImpl();
-		resourceCache.bindResourceSetFactory(resourceSetFactory);
+		when(resourceCache.getResourceSet()).thenReturn(resourceSet);
 		taskService.bindResourceCache(resourceCache);
 
 		HashMap<String, Object> properties = new HashMap<String, Object>();
@@ -247,7 +247,7 @@ public class TestTaskService
 		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.appendQuery(URI.encodeQuery("*", false));
 
-		ECollection tasks = ExtFactory.eINSTANCE.createEReferenceCollection();
+		ECollection tasks = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 
 		Resource resource = spy(new ResourceImpl(taskURI));
 		resource.getContents().add(tasks);
@@ -279,7 +279,7 @@ public class TestTaskService
 		URI taskCollectionURI = baseURI.appendSegments(taskPath).appendSegment("");
 		URI taskURI = taskCollectionURI.appendQuery(URI.encodeQuery(ExpressionBuilder.toString(query), false));
 
-		ECollection tasks = ExtFactory.eINSTANCE.createEReferenceCollection();
+		ECollection tasks = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 
 		Resource resource = spy(new ResourceImpl(taskURI));
 		resource.getContents().add(tasks);
@@ -303,7 +303,7 @@ public class TestTaskService
 		URI queryURI = taskDomainCollectionURI.appendQuery("*");
 
 		Resource queryResource = new ResourceImpl(queryURI);
-		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
+		ECollection eCollection = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 		queryResource.getContents().add(eCollection);
 
 		Resource domainResource = new ResourceImpl(taskDomainURI);
@@ -330,7 +330,7 @@ public class TestTaskService
 		URI queryURI = taskDomainCollectionURI.appendQuery("*");
 
 		Resource queryResource = new ResourceImpl(queryURI);
-		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
+		ECollection eCollection = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 		queryResource.getContents().add(eCollection);
 
 		Resource domainResource = new ResourceImpl(taskDomainURI);

@@ -12,7 +12,7 @@
 package org.ecliplselabs.etrack.server.web.forms.entity.providers;
 
 import org.ecliplselabs.etrack.server.web.forms.entity.resources.PersonDirectoryResource;
-import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emodeling.ResourceSetFactory;
 import org.restlet.Context;
 import org.restlet.ext.osgi.ResourceProvider;
 import org.restlet.resource.Finder;

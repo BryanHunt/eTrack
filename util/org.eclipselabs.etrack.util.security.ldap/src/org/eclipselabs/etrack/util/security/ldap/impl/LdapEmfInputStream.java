@@ -27,8 +27,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipselabs.emf.ext.EReferenceCollection;
-import org.eclipselabs.emf.ext.ExtFactory;
+import org.eclipselabs.emodeling.EReferenceCollection;
+import org.eclipselabs.emodeling.EmodelingFactory;
 import org.eclipselabs.etrack.util.security.ldap.IEObjectBuilder;
 import org.eclipselabs.etrack.util.security.ldap.ILdapService;
 
@@ -69,7 +69,7 @@ public class LdapEmfInputStream extends InputStream implements URIConverter.Load
 				else
 					results = ldapService.find(SearchControls.SUBTREE_SCOPE, URI.decode(uri.lastSegment()), URI.decode(uri.query()));
 
-				EReferenceCollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
+				EReferenceCollection eCollection = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 				contents.add(eCollection);
 				InternalEList<EObject> values = (InternalEList<EObject>) eCollection.getValues();
 

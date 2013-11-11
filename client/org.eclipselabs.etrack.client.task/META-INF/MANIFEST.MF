@@ -5,8 +5,7 @@ Bundle-SymbolicName: org.eclipselabs.etrack.client.task
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipselabs.etrack.domain.data,
- org.eclipse.core.databinding.observable,
+Import-Package: org.eclipse.core.databinding.observable,
  org.eclipse.core.databinding.observable.list,
  org.eclipse.core.databinding.observable.value,
  org.eclipse.core.databinding.property.list,
@@ -16,15 +15,16 @@ Import-Package: org.eclipselabs.etrack.domain.data,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.impl,
  org.eclipse.emf.ecore.resource,
- org.eclipselabs.emf.query,
- org.eclipselabs.emf.query.util,
+ org.eclipselabs.emodeling,
+ org.eclipselabs.emodeling.query,
+ org.eclipselabs.emodeling.query.util,
  org.eclipselabs.etrack.client.core,
  org.eclipselabs.etrack.domain.audit,
+ org.eclipselabs.etrack.domain.data,
  org.eclipselabs.etrack.domain.entity,
  org.eclipselabs.etrack.domain.state,
  org.eclipselabs.etrack.domain.task,
  org.eclipselabs.etrack.util.security,
- org.eclipselabs.emf.ext,
  org.osgi.service.cm;version="1.4.0"
 Export-Package: org.eclipselabs.etrack.client.task
 Service-Component: OSGI-INF/task.xml, OSGI-INF/factory.xml,

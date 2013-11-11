@@ -21,3 +21,4 @@ Import-Package: org.eclipse.emf.common,
  org.eclipselabs.etrack.domain.audit,
  org.eclipselabs.etrack.domain.data,
  org.eclipselabs.etrack.domain.entity
+Require-Bundle: org.eclipse.emf.ecore.xcore.lib;bundle-version="1.0.0"

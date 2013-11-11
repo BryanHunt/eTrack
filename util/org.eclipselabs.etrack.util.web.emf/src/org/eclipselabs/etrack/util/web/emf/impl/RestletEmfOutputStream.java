@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.URIConverter;
-import org.eclipselabs.emf.ext.ECollection;
+import org.eclipselabs.emodeling.ECollection;
 import org.eclipselabs.etrack.util.web.emf.EmfJsonRepresentation;
 import org.restlet.data.MediaType;
 import org.restlet.data.Status;

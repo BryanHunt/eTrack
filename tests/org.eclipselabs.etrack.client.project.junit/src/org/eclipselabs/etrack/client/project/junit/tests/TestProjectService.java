@@ -30,9 +30,9 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipselabs.emf.ext.ExtFactory;
-import org.eclipselabs.emf.ext.ResourceCacheImpl;
-import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emodeling.EmodelingFactory;
+import org.eclipselabs.emodeling.ResourceCache;
+import org.eclipselabs.emodeling.ResourceSetFactory;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.project.ProjectProperties;
 import org.eclipselabs.etrack.client.project.junit.support.TestRealm;
@@ -63,6 +63,8 @@ public class TestProjectService
 	private ResourceSetImpl resourceSet;
 	@Spy
 	private ResourceImpl projectResource;
+	@Mock
+	private ResourceCache resourceCache;
 
 	@BeforeClass
 	public static void globalSetup()
@@ -88,11 +90,10 @@ public class TestProjectService
 
 		URI projectsURI = baseURI.appendSegments(projectPath).appendSegment("").appendQuery("*");
 		ResourceImpl projectsResource = new ResourceImpl(projectsURI);
-		projectsResource.getContents().add(ExtFactory.eINSTANCE.createEReferenceCollection());
+		projectsResource.getContents().add(EmodelingFactory.eINSTANCE.createEReferenceCollection());
 		doReturn(projectsResource).when(resourceSet).getResource(projectsURI, true);
 
-		ResourceCacheImpl resourceCache = new ResourceCacheImpl();
-		resourceCache.bindResourceSetFactory(resourceSetFactory);
+		when(resourceCache.getResourceSet()).thenReturn(resourceSet);
 		projectService.bindResourceCache(resourceCache);
 
 		HashMap<String, Object> properties = new HashMap<String, Object>();

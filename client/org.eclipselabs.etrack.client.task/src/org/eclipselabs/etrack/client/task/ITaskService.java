@@ -15,8 +15,8 @@ import java.io.IOException;
 
 import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipselabs.emf.ext.ECollection;
-import org.eclipselabs.emf.query.Expression;
+import org.eclipselabs.emodeling.ECollection;
+import org.eclipselabs.emodeling.query.Expression;
 import org.eclipselabs.etrack.client.core.IServerClient;
 import org.eclipselabs.etrack.domain.task.RelatedTasksMapping;
 import org.eclipselabs.etrack.domain.task.Task;

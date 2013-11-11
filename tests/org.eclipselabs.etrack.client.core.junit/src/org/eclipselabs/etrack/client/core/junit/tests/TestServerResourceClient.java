@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipselabs.emf.ext.ExtFactory;
-import org.eclipselabs.emf.ext.ResourceCache;
+import org.eclipselabs.emodeling.EmodelingFactory;
+import org.eclipselabs.emodeling.ResourceCache;
 import org.eclipselabs.etrack.client.core.ServerClient;
 import org.eclipselabs.etrack.client.core.junit.support.ServerResourceClientTestHarness;
 import org.junit.Before;
@@ -90,7 +90,7 @@ public class TestServerResourceClient
 		doNothing().when(resource).save(anyMap());
 		doReturn(resource).when(resourceSet).createResource(targetURI);
 
-		EObject eObject = ExtFactory.eINSTANCE.createEReferenceCollection();
+		EObject eObject = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 
 		// --- Test
 

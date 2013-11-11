@@ -11,7 +11,7 @@
 
 package org.eclipselabs.etrack.server.web.storage;
 
-import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emodeling.ResourceSetFactory;
 import org.osgi.service.log.LogService;
 import org.restlet.ext.osgi.ResourceProvider;
 

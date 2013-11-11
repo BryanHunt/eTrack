@@ -25,10 +25,10 @@ import java.io.IOException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.mylyn.tasks.core.IRepositoryQuery;
-import org.eclipselabs.emf.ext.ECollection;
-import org.eclipselabs.emf.ext.ExtFactory;
-import org.eclipselabs.emf.query.Expression;
-import org.eclipselabs.emf.query.QueryFactory;
+import org.eclipselabs.emodeling.ECollection;
+import org.eclipselabs.emodeling.EmodelingFactory;
+import org.eclipselabs.emodeling.query.Expression;
+import org.eclipselabs.emodeling.query.QueryFactory;
 import org.eclipselabs.etrack.client.task.mylyn.junit.support.MylynTaskClientTestHarness;
 import org.eclipselabs.etrack.client.task.mylyn.junit.support.UnitTestHarness;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
@@ -136,7 +136,7 @@ public class TestMylynTaskClient extends UnitTestHarness
 	{
 		// --- Setup
 
-		ECollection eCollection = ExtFactory.eINSTANCE.createEReferenceCollection();
+		ECollection eCollection = EmodelingFactory.eINSTANCE.createEReferenceCollection();
 		IRepositoryQuery query = mock(IRepositoryQuery.class);
 		Expression expression = QueryFactory.eINSTANCE.createBinaryOperation();
 		when(queryFactory.createExpression(mylynTaskClient, query)).thenReturn(expression);

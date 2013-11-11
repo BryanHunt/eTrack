@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.URIConverter;
-import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emodeling.ResourceSetFactory;
 import org.eclipselabs.etrack.domain.entity.Address;
 import org.eclipselabs.etrack.domain.entity.Email;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;

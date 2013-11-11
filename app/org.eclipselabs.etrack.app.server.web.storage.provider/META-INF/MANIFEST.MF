@@ -4,8 +4,9 @@ Bundle-Name: Storage Provider
 Bundle-SymbolicName: org.eclipselabs.etrack.app.server.web.storage.provider
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: EclipseLabs
-Fragment-Host: org.eclipselabs.etrack.server.web.storage.basic;bundle-version="0.2.0"
+Fragment-Host: org.eclipselabs.etrack.server.web.storage;bundle-version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Service-Component: OSGI-INF/resources/storage.xml
-Import-Package: org.eclipselabs.emf.ext,
+Import-Package: org.eclipselabs.emodeling,
+ org.eclipselabs.etrack.server.web.storage,
  org.osgi.service.log;version="1.3.0"

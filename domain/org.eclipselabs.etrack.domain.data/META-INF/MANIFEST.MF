@@ -18,3 +18,4 @@ Import-Package: org.eclipse.emf.common,
  org.eclipse.emf.ecore.impl,
  org.eclipse.emf.ecore.plugin,
  org.eclipse.emf.ecore.util
+Require-Bundle: org.eclipse.emf.ecore.xcore.lib;bundle-version="1.0.0"

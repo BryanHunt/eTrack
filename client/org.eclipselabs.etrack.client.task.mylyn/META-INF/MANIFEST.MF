@@ -5,8 +5,7 @@ Bundle-SymbolicName: org.eclipselabs.etrack.client.task.mylyn
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipselabs.etrack.domain.data,
- org.eclipse.core.databinding.observable.list,
+Import-Package: org.eclipse.core.databinding.observable.list,
  org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
@@ -16,17 +15,18 @@ Import-Package: org.eclipselabs.etrack.domain.data,
  org.eclipse.mylyn.tasks.core,
  org.eclipse.mylyn.tasks.core.data,
  org.eclipse.mylyn.tasks.core.sync,
- org.eclipselabs.emf.query,
+ org.eclipselabs.emodeling,
+ org.eclipselabs.emodeling.query,
  org.eclipselabs.etrack.client.core,
  org.eclipselabs.etrack.client.entity,
  org.eclipselabs.etrack.client.project,
  org.eclipselabs.etrack.client.task,
  org.eclipselabs.etrack.domain.audit,
+ org.eclipselabs.etrack.domain.data,
  org.eclipselabs.etrack.domain.entity,
  org.eclipselabs.etrack.domain.project,
  org.eclipselabs.etrack.domain.state,
  org.eclipselabs.etrack.domain.task,
- org.eclipselabs.emf.ext,
  org.osgi.framework;version="1.7.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipselabs.etrack.client.task.mylyn.bundle.Activator

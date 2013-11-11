@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipselabs.emf.ext.ECollection;
-import org.eclipselabs.emf.ext.ExtPackage;
+import org.eclipselabs.emodeling.ECollection;
+import org.eclipselabs.emodeling.EmodelingPackage;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.project.IProjectService;
 import org.eclipselabs.etrack.domain.project.Project;
@@ -62,7 +62,7 @@ public class ProjectService extends ServerResourceClient implements IProjectServ
 		if (projects == null)
 			refresh();
 
-		return EMFProperties.list(ExtPackage.Literals.EREFERENCE_COLLECTION__VALUES).observe(projects);
+		return EMFProperties.list(EmodelingPackage.Literals.EREFERENCE_COLLECTION__VALUES).observe(projects);
 	}
 
 	@Override

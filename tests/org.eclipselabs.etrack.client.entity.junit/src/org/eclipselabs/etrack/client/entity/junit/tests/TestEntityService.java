@@ -26,8 +26,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipselabs.emf.ext.ResourceCacheImpl;
-import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emodeling.ResourceCache;
+import org.eclipselabs.emodeling.ResourceSetFactory;
 import org.eclipselabs.etrack.client.core.ServerResourceClient;
 import org.eclipselabs.etrack.client.entity.services.EntityService;
 import org.eclipselabs.etrack.domain.entity.EntityFactory;
@@ -60,6 +60,8 @@ public class TestEntityService
 	private ResourceSetFactory resourceSetFactory;
 	@Spy
 	private ResourceSetImpl resourceSet;
+	@Mock
+	private ResourceCache resourceCache;
 
 	@Before
 	public void setUp()
@@ -69,9 +71,7 @@ public class TestEntityService
 		entityService = new EntityService();
 
 		when(resourceSetFactory.createResourceSet()).thenReturn(resourceSet);
-
-		ResourceCacheImpl resourceCache = new ResourceCacheImpl();
-		resourceCache.bindResourceSetFactory(resourceSetFactory);
+		when(resourceCache.getResourceSet()).thenReturn(resourceSet);
 		entityService.bindResourceCache(resourceCache);
 
 		HashMap<String, Object> properties = new HashMap<String, Object>();

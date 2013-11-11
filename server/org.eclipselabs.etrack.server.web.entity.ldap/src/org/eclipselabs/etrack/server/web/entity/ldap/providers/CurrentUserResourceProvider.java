@@ -11,7 +11,7 @@
 
 package org.eclipselabs.etrack.server.web.entity.ldap.providers;
 
-import org.eclipselabs.emf.ext.ResourceSetFactory;
+import org.eclipselabs.emodeling.ResourceSetFactory;
 import org.eclipselabs.etrack.server.web.entity.ldap.resources.CurrentUserResource;
 import org.restlet.Context;
 import org.restlet.ext.osgi.ResourceProvider;

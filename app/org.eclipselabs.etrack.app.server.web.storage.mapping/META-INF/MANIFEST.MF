@@ -7,6 +7,6 @@ Bundle-Vendor: EclipseLabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.emf.common.util,
  org.eclipse.emf.ecore.resource,
- org.eclipselabs.emf.ext
+ org.eclipselabs.emodeling
 Service-Component: OSGI-INF/mapper.xml
 Bundle-ActivationPolicy: lazy

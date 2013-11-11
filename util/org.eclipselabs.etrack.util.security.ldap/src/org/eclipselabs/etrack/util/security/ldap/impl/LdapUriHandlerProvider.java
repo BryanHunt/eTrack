@@ -12,7 +12,7 @@
 package org.eclipselabs.etrack.util.security.ldap.impl;
 
 import org.eclipse.emf.ecore.resource.URIHandler;
-import org.eclipselabs.emf.ext.UriHandlerProvider;
+import org.eclipselabs.emodeling.UriHandlerProvider;
 import org.eclipselabs.etrack.util.security.ldap.IEObjectBuilder;
 import org.eclipselabs.etrack.util.security.ldap.ILdapService;
 

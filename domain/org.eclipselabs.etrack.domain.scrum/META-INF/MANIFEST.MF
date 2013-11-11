@@ -25,3 +25,4 @@ Import-Package: org.eclipse.emf.common,
  org.eclipselabs.etrack.domain.security,
  org.eclipselabs.etrack.domain.state,
  org.eclipselabs.etrack.domain.task
+Require-Bundle: org.eclipse.emf.ecore.xcore.lib;bundle-version="1.0.0"

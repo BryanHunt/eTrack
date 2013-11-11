@@ -12,7 +12,7 @@
 package org.eclipselabs.etrack.util.web.emf.impl;
 
 import org.eclipse.emf.ecore.resource.URIHandler;
-import org.eclipselabs.emf.ext.UriHandlerProvider;
+import org.eclipselabs.emodeling.UriHandlerProvider;
 import org.eclipselabs.etrack.client.web.IClientResourceFactory;
 
 /**

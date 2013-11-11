@@ -12,7 +12,7 @@
 package org.eclipselabs.etrack.client.task.mylyn;
 
 import org.eclipse.mylyn.tasks.core.IRepositoryQuery;
-import org.eclipselabs.emf.query.Expression;
+import org.eclipselabs.emodeling.query.Expression;
 
 /**
  * @author bhunt
